@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="25b8abf1-2a31-47aa-9d9f-46c656cad2f3">
+    <jcr:content
+        dam:proxyUrl="/_renditions_/a0d/a0d5dc65-131a-4b20-b1ca-30b22201464a/"
+        dam:relativePath="we-retail/videos/snowboard.m4v"
+        dam:s7damType="VideoAVS"
+        jcr:lastModified="{Date}2016-03-15T17:28:20.899+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:mixinTypes="[]"
+        jcr:primaryType="dam:AssetContent"
+        newRendition="{Boolean}true"
+        status="Finished">
+        <metadata
+            dc:extent="{Long}22060"
+            dc:format="video/x-m4v"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}720"
+            tiff:ImageWidth="{Long}1280"
+            bitrate="9104"
+            duration="22.6"
+            frameRate="25"
+            size="1280x720"
+            videoBitrate="9102"
+            videoCodec="h264 (High)"
+            videoDuration="22.6"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

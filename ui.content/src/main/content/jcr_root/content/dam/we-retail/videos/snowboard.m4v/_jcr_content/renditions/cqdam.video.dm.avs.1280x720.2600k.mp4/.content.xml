@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        dam:proxyUrl="/_renditions_/a0d/a0d5dc65-131a-4b20-b1ca-30b22201464a/avs/snowboard-0x720-2600k.mp4"
+        dam:size="{Long}5663325"
+        jcr:lastModified="{Date}2016-03-15T17:28:19.184+01:00"
+        jcr:lastModifiedBy="workflow-process-service"
+        jcr:mimeType="video/mp4"
+        jcr:mixinTypes="[dam:Metadata]"
+        jcr:primaryType="nt:unstructured"
+        rendition.handler.id="video.dm.proxy"
+        video.dm.deliveryMode="progressiveDownload">
+        <metadata
+            jcr:primaryType="nt:unstructured"
+            audioBitrate="{Long}128"
+            audioBitrateCustom="false"
+            audioCodec="dolby_heaac"
+            audioSamplingRate="44100"
+            constantBitrate="true"
+            extension="mp4"
+            height="{Long}720"
+            keepAspectRatio="true"
+            mimeType="video/mp4"
+            twoPass="false"
+            videoBitrate="{Long}2600"
+            videoCodec="libx264"
+            videoDuration="22.6"
+            videoEncodingPresetPath="/etc/dam/video/dynamicmedia/Adaptive Video Encoding/MP4 - autox720 px, 2600 kbps"
+            videoFrameRate="30"
+            width="{Long}1280"/>
+    </jcr:content>
+</jcr:root>
