@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2016-03-14T21:39:45.265+01:00"
+        cq:lastModified="{Date}2016-03-15T17:53:42.908+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/hero-page"
         jcr:primaryType="cq:PageContent"
@@ -27,6 +27,23 @@
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
+                <interactivemedia
+                    jcr:created="{Date}2016-03-15T17:53:34.880+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-03-15T17:53:42.905+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="dam/components/scene7/interactivemedia"
+                    assetType="VideoAVS"
+                    fileReference="/content/dam/we-retail/videos/snowboard.m4v"
+                    height=""
+                    imageserverurl="/is/image/"
+                    showProductAsset="true"
+                    showProductForm="true"
+                    showProductPrice="true"
+                    videoserverurl="https://gateway-eu.assetsadobe.com/DMGateway/public/demoCo"
+                    viewerPreset=""
+                    width=""/>
                 <title
                     jcr:created="{Date}2016-03-13T22:23:47.781+01:00"
                     jcr:createdBy="admin"
