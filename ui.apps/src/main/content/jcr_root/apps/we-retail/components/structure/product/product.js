@@ -21,11 +21,35 @@ use(["commerce_init.js"], function (commerceInit) {
     var resolver = resource.getResourceResolver();
     var commerceService = resource.adaptTo(com.adobe.cq.commerce.api.CommerceService);
     var commerceSession = commerceService.login(request, response);
-    var productPath = currentPage.getProperties().get("cq:productMaster", java.lang.String);
-    var baseProduct = commerceService.getProduct(productPath);
-    var redirect, errorRedirect, addToCartUrl;
+    var baseProduct;
+    var redirect = "",
+        errorRedirect, addToCartUrl;
     var variants = [];
     var baseProductImagePath;
+
+    if (request && request.getAttribute) {
+        addToCartUrl = request.getAttribute("cq.commerce.addToCartUrl");
+        redirect = request.getAttribute("cq.commerce.redirect") || "";
+        errorRedirect = request.getAttribute("cq.commerce.errorRedirect");
+        baseProduct = request.getAttribute("cq.commerce.product");
+        smartListRedirect = request.getAttribute("cq.commerce.smartListRedirect");
+        baseProduct = request.getAttribute("cq.commerce.product");
+
+        if (baseProduct
+                && baseProduct.getImage()) {
+            baseProductImagePath = baseProduct.getImage().getPath();
+        }
+    }
+
+    if (resource && resource.getResourceResolver) {
+        var resolver = resource.getResourceResolver();
+        redirect = resolver.map(request, redirect);
+        errorRedirect = resolver.map(request, redirect);
+
+        if (baseProductImagePath) {
+            baseProductImagePath = resolver.map(baseProductImagePath);
+        }
+    }
 
     if (baseProduct) {
         var baseProductProperties = getProductProperties(baseProduct);
@@ -39,27 +63,7 @@ use(["commerce_init.js"], function (commerceInit) {
             sizes: []
         };
 
-        if (request && request.getAttribute) {
-            addToCartUrl = request.getAttribute("cq.commerce.addToCartUrl");
-            redirect = request.getAttribute("cq.commerce.redirect");
-            errorRedirect = request.getAttribute("cq.commerce.errorRedirect");
-            baseProduct = request.getAttribute("cq.commerce.product");
 
-            if (baseProduct
-                    && baseProduct.getImage()) {
-                baseProductImagePath = baseProduct.getImage().getPath();
-            }
-        }
-
-        if (resource && resource.getResourceResolver) {
-            var resolver = resource.getResourceResolver();
-            redirect = resolver.map(request, redirect);
-            errorRedirect = resolver.map(request, redirect);
-
-            if (baseProductImagePath) {
-                baseProductImagePath = resolver.map(baseProductImagePath);
-            }
-        }
 
         if (variationAxis) {
             var unorderedVariations = baseProduct.getVariants();
