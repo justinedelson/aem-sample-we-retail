@@ -19,9 +19,8 @@
  */
 "use strict";
 var global = this;
-(function(){
-
-    if (currentPage && global.Packages) {
+(function() {
+    if (typeof currentPage !== "undefined" && global.Packages) {
         var addToCartUrl = currentPage.path + ".commerce.addcartentry.html";
         var addToSmartListUrl = currentPage.path + ".commerce.smartlist.management.html";
         var redirect = global.Packages.com.adobe.cq.commerce.common.CommerceHelper.mapPathToCurrentLanguage(global.currentPage, currentStyle.get("addToCartRedirect", ""));
@@ -73,9 +72,6 @@ var global = this;
             request.setAttribute("cq.commerce.productPagePath", baseProduct.getPagePath());
             request.setAttribute("cq.commerce.productTrackingPath", productTrackingPath);
         }
-
-
-
     }
 
     return {
