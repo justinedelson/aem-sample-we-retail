@@ -45,10 +45,10 @@
                     displayAs="products"
                     feedEnabled="{Boolean}true"
                     limit="6"
-                    listFrom="static"
+                    path="/content/we-retail/language-masters/en/products/men"
+                    listFrom="descendants"
                     orderBy="jcr:title"
                     pageMax="0"
-                    pages="[/content/we-retail/language-masters/en/products/men/shirts/ashanti-nomad,/content/we-retail/language-masters/en/products/men/pants/fulani-nomad,/content/we-retail/language-masters/en/products/men/shorts/jola-summer,/content/we-retail/language-masters/en/products/men/shirts/bambara-cargo,/content/we-retail/language-masters/en/products/men/shorts/marka-sport,/content/we-retail/language-masters/en/products/men/coats/edmonton-winter]"
                     tagsMatch="any"/>
                 <button
                     jcr:created="{Date}2016-03-14T21:41:39.706+01:00"

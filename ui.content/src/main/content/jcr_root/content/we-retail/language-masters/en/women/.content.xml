@@ -45,10 +45,10 @@
                     displayAs="products"
                     feedEnabled="{Boolean}true"
                     limit="6"
-                    listFrom="static"
+                    path="/content/we-retail/language-masters/en/products/women"
+                    listFrom="descendants"
                     orderBy="jcr:title"
                     pageMax="0"
-                    pages="[/content/we-retail/language-masters/en/products/women/shorts/fiji-sport,/content/we-retail/language-masters/en/products/women/shirts/palau-summer,/content/we-retail/language-masters/en/products/women/shirts/bora-bora,/content/we-retail/language-masters/en/products/women/shorts/tahiti-summer,/content/we-retail/language-masters/en/products/women/shirts/tupai-summer,/content/we-retail/language-masters/en/products/women/shirts/maui-marine]"
                     tagsMatch="any"/>
                 <button
                     jcr:created="{Date}2016-03-14T21:42:23.084+01:00"
