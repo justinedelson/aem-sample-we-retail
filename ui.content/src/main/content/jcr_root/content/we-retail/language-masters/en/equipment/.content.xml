@@ -46,9 +46,8 @@
                     fileReference="/content/dam/we-retail/videos/snowboard.m4v"
                     height=""
                     imageserverurl="/is/image/"
-                    showProductAsset="true"
-                    showProductForm="true"
-                    showProductPrice="true"
+                    showProductAsset="{Boolean}true"
+                    showProductPrice="{Boolean}true"
                     videoserverurl="https://gateway-eu.assetsadobe.com/DMGateway/public/demoCo"
                     viewerPreset=""
                     width=""/>
