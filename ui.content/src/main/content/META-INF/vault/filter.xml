@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
     <filter root="/conf/we-retail"/>
-	<filter root="/etc/commerce/products/we-retail"/>
+	<filter root="/etc/commerce/products/we-retail" mode="merge"/>
 	<filter root="/etc/community/we-retail"/>
     <filter root="/etc/tags/we-retail"/>
 	<filter root="/content/campaigns/we-retail"/>
-	<filter root="/content/catalogs/we-retail"/>
-	<filter root="/content/dam/we-retail" mode="merge"/>
+	<filter root="/content/catalogs/we-retail" mode="merge"/>
+	<filter root="/content/dam/we-retail">
+		<include pattern="/content/dam/we-retail/activities" />
+		<include pattern="/content/dam/we-retail/articles" />
+		<include pattern="/content/dam/we-retail/experiences" />
+	</filter>
 	<filter root="/content/dam/collections/w/we-retail"/>
 	<filter root="/content/we-retail/community" mode="merge"/>
 	<filter root="/content/we-retail">
