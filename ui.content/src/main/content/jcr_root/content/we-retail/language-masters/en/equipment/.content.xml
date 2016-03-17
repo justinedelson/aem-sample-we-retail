@@ -27,6 +27,14 @@
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
+                <title
+                    jcr:created="{Date}2016-03-13T22:23:47.781+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-03-13T22:24:20.515+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Welcome our finest equipment"
+                    sling:resourceType="we-retail/components/content/title"/>
                 <interactivemedia
                     jcr:created="{Date}2016-03-15T17:53:34.880+01:00"
                     jcr:createdBy="admin"
@@ -44,14 +52,6 @@
                     videoserverurl="https://gateway-eu.assetsadobe.com/DMGateway/public/demoCo"
                     viewerPreset=""
                     width=""/>
-                <title
-                    jcr:created="{Date}2016-03-13T22:23:47.781+01:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2016-03-13T22:24:20.515+01:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Welcome our finest equipment"
-                    sling:resourceType="we-retail/components/content/title"/>
                 <category_teaser
                     jcr:created="{Date}2016-03-13T22:24:38.037+01:00"
                     jcr:createdBy="admin"
