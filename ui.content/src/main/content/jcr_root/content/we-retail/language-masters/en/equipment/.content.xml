@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2016-03-18T16:41:36.633+01:00"
+        cq:lastModified="{Date}2016-03-18T16:43:27.494+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/hero-page"
         jcr:primaryType="cq:PageContent"
@@ -51,6 +51,14 @@
                     videoserverurl="https://gateway-eu.assetsadobe.com/DMGateway/public/demoCo"
                     viewerPreset=""
                     width=""/>
+                <title_217250935
+                    jcr:created="{Date}2016-03-18T16:43:03.220+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-03-18T16:43:14.654+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Featured categories"
+                    sling:resourceType="we-retail/components/content/title"/>
                 <category_teaser
                     jcr:created="{Date}2016-03-13T22:24:38.037+01:00"
                     jcr:createdBy="admin"
@@ -126,6 +134,14 @@
                             width="4"/>
                     </cq:responsive>
                 </category_teaser_1398042708>
+                <title_2112313717
+                    jcr:created="{Date}2016-03-13T22:38:53.025+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-03-13T22:39:24.153+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Featured products"
+                    sling:resourceType="we-retail/components/content/title"/>
                 <interactivemedia_2133542860
                     jcr:created="{Date}2016-03-18T16:41:05.638+01:00"
                     jcr:createdBy="admin"
@@ -143,14 +159,6 @@
                     videoserverurl="https://gateway-eu.assetsadobe.com/DMGateway/public/demoCo"
                     viewerPreset=""
                     width=""/>
-                <title_2112313717
-                    jcr:created="{Date}2016-03-13T22:38:53.025+01:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2016-03-13T22:39:24.153+01:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Featured products"
-                    sling:resourceType="we-retail/components/content/title"/>
                 <product_grid
                     jcr:created="{Date}2016-03-13T22:39:31.722+01:00"
                     jcr:createdBy="admin"
