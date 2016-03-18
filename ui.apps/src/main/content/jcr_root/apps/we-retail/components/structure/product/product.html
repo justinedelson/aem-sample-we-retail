@@ -48,8 +48,8 @@
         */-->
         
         <div class="col-md-5 col-md-offset-1">
-            <div class="we-Product-visual"> <!-- TODO: add zoom and slider -->
-                <img src="${product.base.image}" v-bind:src="product.image"/>
+            <div class="we-Product-visual">
+                <sly data-sly-resource="${ 'image' @ resourceType='we-retail/components/content/dynamicmedia' }"></sly>
                 
                 <!--/*
                 <a href="#" class="we-Product-visual-zoom"><i class="we-Icon we-Icon--zoom-plus"></i> View larger</a>
