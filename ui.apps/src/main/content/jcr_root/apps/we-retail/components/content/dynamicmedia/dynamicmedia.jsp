@@ -62,6 +62,7 @@
     String title = properties.get("./jcr:title", String.class);
     String altText = properties.get("./alt", String.class);
     String viewerPreset = properties.get("s7ViewerPreset", currentStyle.get("s7ViewerPreset", String.class));
+    String fallbackViewerPreset = properties.get("s7ViewerPresetFallback", currentStyle.get("s7ViewerPresetFallback", String.class));
 	String imagePreset = properties.get("s7ImagePreset", String.class);
     String breakpoints = properties.get("breakpoints","");
 	String linkUrl = properties.get("./linkUrl","");
@@ -143,7 +144,7 @@
             props.put("assetType", assetType);
             if (!isViewerPresetMatchedType(viewerPreset, assetType)) {
                 // props.put("s7ViewerPreset", "");
-                viewerPreset = "";
+                viewerPreset = fallbackViewerPreset;
             }
             if (!assetType.equalsIgnoreCase("image")) {
                 props.put("s7ImagePreset", "");

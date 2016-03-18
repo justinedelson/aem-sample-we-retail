@@ -172,8 +172,8 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Product Image"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        s7ViewerPreset="InlineMixedMedia_dark|MIXED_MEDIA|/etc/dam/presets/viewer/InlineMixedMedia_dark|false"
-                        assetType="Image"/>
+                        s7ViewerPresetFallback="Zoom_dark|ZOOM|/etc/dam/presets/viewer/Zoom_dark|false"
+                        s7ViewerPreset="InlineMixedMedia_dark|MIXED_MEDIA|/etc/dam/presets/viewer/InlineMixedMedia_dark|false"/>
                 </product>
             </structure>
             <content
