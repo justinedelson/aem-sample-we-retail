@@ -162,6 +162,19 @@
                             absParent="5"
                             relParent="1"/>
                 </breadcrumb>
+                <product
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="nt:unstructured">
+                    <image
+                        jcr:description="Policy for product image"
+                        jcr:lastModified="{Date}2016-03-03T18:52:44.719+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="We.Retail Product Image"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        s7ViewerPreset="InlineZoom|FLYOUT_ZOOM|/etc/dam/presets/viewer/InlineZoom|false"
+                        assetType="Image"/>
+                </product>
             </structure>
             <content
                 jcr:primaryType="nt:unstructured"
