@@ -102,6 +102,14 @@
         stageSize = height + "," + width;
 	}
 
+    if (assetType.equalsIgnoreCase("image")) {
+        viewerPreset = "Zoom_dark|ZOOM|/etc/dam/presets/viewer/Zoom_dark|false";
+    } else if (assetType.equalsIgnoreCase("imageset")) {
+        viewerPreset = "ImageSet_dark|IMAGE_SET|/etc/dam/presets/viewer/ImageSet_dark|false";
+    } else if (assetType.equalsIgnoreCase("mixedmediaset")) {
+        viewerPreset = "InlineMixedMedia_dark|MIXED_MEDIA|/etc/dam/presets/viewer/InlineMixedMedia_dark|false";
+    }
+
 
     // According to the documentation, on the publish instance the normal WCM capabilities are disabled.
     // We only want to use the published content when running on the publish node(s), otherwise we will
