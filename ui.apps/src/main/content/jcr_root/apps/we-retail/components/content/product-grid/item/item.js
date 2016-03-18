@@ -85,7 +85,7 @@ use(function () {
     return product;
 
     function getProductProperties(product) {
-        var productImage = resolver.getResource(product.getImage().getPath());
+        var productImage = resolver.getResource(product.getPath() + "/image");
 
         return {
             path: product.getPath(),
@@ -101,6 +101,7 @@ use(function () {
             features: product.getProperty("features", java.lang.String),
             image: productImage != null ?
                 productImage.adaptTo(org.apache.sling.api.resource.ValueMap).get("fileReference", java.lang.String) : ""
+
         };
     }
 });
