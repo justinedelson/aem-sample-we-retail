@@ -30,8 +30,6 @@
             	com.day.cq.dam.commons.util.DynamicMediaHelper"
 %><%@include file="/libs/foundation/global.jsp"%>
 <%
-    log.error("VIEW !!!!!!!!!!!!!!!! " + properties.get("s7ViewerPreset", currentStyle.get("s7ViewerPreset", String.class)) + ", " + currentStyle.get("s7ViewerPreset", String.class));
-
     Locale pageLocale = currentPage.getLanguage(true);
     ResourceBundle resourceBundle = slingRequest.getResourceBundle(pageLocale);
     I18n i18n = new I18n(resourceBundle);
@@ -139,13 +137,12 @@
 
         // Save the production image delivery and video proxy to be used in publish instance
         try {
-            log.error("UPDATE PROPS!!!!");
             PersistableValueMap props = resource.adaptTo(PersistableValueMap.class);
             props.put("imageserverurl", productionImageServerUrl);
             props.put("videoserverurl", productionVideoProxyUrl);
             props.put("assetType", assetType);
             if (!isViewerPresetMatchedType(viewerPreset, assetType)) {
-                props.put("s7ViewerPreset", "");
+                // props.put("s7ViewerPreset", "");
                 viewerPreset = "";
             }
             if (!assetType.equalsIgnoreCase("image")) {
