@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2016-03-15T17:53:42.908+01:00"
+        cq:lastModified="{Date}2016-03-18T16:41:36.633+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/hero-page"
         jcr:primaryType="cq:PageContent"
@@ -126,6 +126,23 @@
                             width="4"/>
                     </cq:responsive>
                 </category_teaser_1398042708>
+                <interactivemedia_2133542860
+                    jcr:created="{Date}2016-03-18T16:41:05.638+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-03-18T16:41:36.630+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="dam/components/scene7/interactivemedia"
+                    assetType="Image"
+                    fileReference="/content/dam/we-retail/products/activities/equipment_1.png"
+                    height=""
+                    imageMap="\[poly(903,962,913,962,913,952,903,952,903,962)&quot;quickview:sku=eqswsumak&amp;reservedVal_productPath=/etc/commerce/products/we-retail/eq/water-sports/eqswsumak&amp;reservedVal_productThumbnail=http://localhost:4502/etc/commerce/products/we-retail/eq/water-sports/eqswsumak/image.thumbnail.319.png/1458226609360.png&quot;|&quot;&quot;|&quot;Hotspot 1&quot;][poly(1256,952,1266,952,1266,942,1256,942,1256,952)&quot;quickview:sku=eqswsupus&amp;reservedVal_productPath=/etc/commerce/products/we-retail/eq/water-sports/eqswsupus&amp;reservedVal_productThumbnail=http://localhost:4502/etc/commerce/products/we-retail/eq/water-sports/eqswsupus/image.thumbnail.319.png/1458226684640.png&quot;|&quot;&quot;|&quot;Hotspot 2&quot;][poly(1568,965,1578,965,1578,955,1568,955,1568,965)&quot;quickview:sku=eqrusufle&amp;reservedVal_productPath=/etc/commerce/products/we-retail/eq/running/eqrusufle&amp;reservedVal_productThumbnail=http://localhost:4502/content/dam/we-retail/products/apparel/footwear/source/Fleet%20Shoe%20Bottom.jpg&quot;|&quot;&quot;|&quot;Hotspot 3&quot;]"
+                    imageserverurl="/is/image/"
+                    showProductAsset="true"
+                    showProductPrice="true"
+                    videoserverurl="https://gateway-eu.assetsadobe.com/DMGateway/public/demoCo"
+                    viewerPreset=""
+                    width=""/>
                 <title_2112313717
                     jcr:created="{Date}2016-03-13T22:38:53.025+01:00"
                     jcr:createdBy="admin"
@@ -144,10 +161,10 @@
                     displayAs="products"
                     feedEnabled="{Boolean}true"
                     limit="6"
-                    path="/content/we-retail/language-masters/en/products/equipment"
                     listFrom="descendants"
                     orderBy="jcr:title"
                     pageMax="0"
+                    path="/content/we-retail/language-masters/en/products/equipment"
                     tagsMatch="any"/>
                 <button
                     jcr:created="{Date}2016-03-14T21:39:23.560+01:00"
