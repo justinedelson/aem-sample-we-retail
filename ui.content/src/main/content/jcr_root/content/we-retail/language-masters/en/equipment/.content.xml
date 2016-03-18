@@ -58,7 +58,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="we-retail/components/content/category-teaser"
-                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/hiking"
+                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/snow-sports"
                     fileReference="/content/dam/we-retail/activities/hiking-camping/hiker-anapurna.jpg">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
@@ -73,7 +73,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="we-retail/components/content/category-teaser"
-                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/running"
+                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/snow-sports"
                     fileReference="/content/dam/we-retail/activities/running/running-trail-man.jpg">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
@@ -88,7 +88,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="we-retail/components/content/category-teaser"
-                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/biking"
+                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/snow-sports"
                     fileReference="/content/dam/we-retail/activities/biking/enduro-trail-jump.jpg">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
@@ -103,7 +103,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="we-retail/components/content/category-teaser"
-                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/surfing"
+                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/snow-sports"
                     fileReference="/content/dam/we-retail/activities/surfing/wave-nicaragua.jpg">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
@@ -118,7 +118,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="we-retail/components/content/category-teaser"
-                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/skiing"
+                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/snow-sports"
                     fileReference="/content/dam/we-retail/activities/skiing/freeride-steep.jpg">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
@@ -173,7 +173,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="we-retail/components/content/category-teaser"
-                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/skiing"
+                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/snow-sports"
                     fileReference="/content/dam/we-retail/activities/skiing/freeride-extreme.jpg">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
@@ -188,8 +188,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="we-retail/components/content/category-teaser"
-                    buttonLabel="Snowboarding"
-                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/skiing"
+                    buttonLinkTo="/content/we-retail/language-masters/en/products/equipment/snow-sports"
                     fileReference="/content/dam/we-retail/activities/skiing/freeride-siberia.jpg">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
