@@ -172,7 +172,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Product Image"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        s7ViewerPreset="InlineZoom|FLYOUT_ZOOM|/etc/dam/presets/viewer/InlineZoom|false"
+                        s7ViewerPreset="InlineMixedMedia_dark|MIXED_MEDIA|/etc/dam/presets/viewer/InlineMixedMedia_dark|false"
                         assetType="Image"/>
                 </product>
             </structure>
