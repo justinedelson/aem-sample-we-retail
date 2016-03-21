@@ -72,6 +72,9 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="6"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                     </cq:responsive>
                 </category_teaser>
                 <category_teaser_2082536754
@@ -87,6 +90,9 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="6"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                     </cq:responsive>
                 </category_teaser_2082536754>
                 <category_teaser_647414391
@@ -102,6 +108,9 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="4"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                     </cq:responsive>
                 </category_teaser_647414391>
                 <category_teaser_1341949589
@@ -117,6 +126,9 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="4"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                     </cq:responsive>
                 </category_teaser_1341949589>
                 <category_teaser_1398042708
@@ -132,6 +144,9 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="4"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                     </cq:responsive>
                 </category_teaser_1398042708>
                 <title_2112313717
@@ -204,6 +219,9 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="6"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                     </cq:responsive>
                 </category_teaser_643606949>
                 <category_teaser_883210151
@@ -219,6 +237,9 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="6"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                     </cq:responsive>
                 </category_teaser_883210151>
             </responsivegrid>
