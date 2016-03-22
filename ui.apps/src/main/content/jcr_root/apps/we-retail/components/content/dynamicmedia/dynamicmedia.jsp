@@ -103,11 +103,11 @@
 	}
 
     if (assetType.equalsIgnoreCase("image")) {
-        viewerPreset = "Zoom_dark|ZOOM|/etc/dam/presets/viewer/Zoom_dark|false";
+        viewerPreset = "Zoom_light|ZOOM|/etc/dam/presets/viewer/Zoom_light|false";
     } else if (assetType.equalsIgnoreCase("imageset")) {
-        viewerPreset = "ImageSet_dark|IMAGE_SET|/etc/dam/presets/viewer/ImageSet_dark|false";
+        viewerPreset = "ImageSet_light|IMAGE_SET|/etc/dam/presets/viewer/ImageSet_light|false";
     } else if (assetType.equalsIgnoreCase("mixedmediaset")) {
-        viewerPreset = "InlineMixedMedia_dark|MIXED_MEDIA|/etc/dam/presets/viewer/InlineMixedMedia_dark|false";
+        viewerPreset = "InlineMixedMedia_light|MIXED_MEDIA|/etc/dam/presets/viewer/InlineMixedMedia_light";
     }
 
 
