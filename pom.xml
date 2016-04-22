@@ -510,10 +510,11 @@
             </dependency>
 
             <dependency>
-                <groupId>com.adobe.cq.dam</groupId>
-                <artifactId>cq-dam-cfm-api</artifactId>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>uber-jar</artifactId>
+                <version>6.2.0</version>
+                <classifier>obfuscated-apis</classifier>
                 <scope>provided</scope>
-                <version>1.0.2</version>
             </dependency>
 
             <dependency>

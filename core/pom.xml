@@ -96,8 +96,9 @@
 			<artifactId>cq-commerce-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.adobe.cq.dam</groupId>
-			<artifactId>cq-dam-cfm-api</artifactId>
+			<groupId>com.adobe.aem</groupId>
+			<artifactId>uber-jar</artifactId>
+			<classifier>obfuscated-apis</classifier>
 		</dependency>
 
 		<!-- Other Dependencies -->
