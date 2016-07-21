@@ -248,5 +248,9 @@
             <artifactId>core</artifactId>
             <version>0.1.15</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
     </dependencies>
 </project>
