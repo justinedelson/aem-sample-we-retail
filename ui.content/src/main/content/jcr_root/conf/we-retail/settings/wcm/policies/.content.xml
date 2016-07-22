@@ -153,15 +153,17 @@
                         jcr:title="We.Retail Experience Page Breadcrumb"
                         sling:resourceType="wcm/core/components/policy/policy"
                         absParent="3"
+                        delim="/"
                         relParent="1"/>
                     <we-retail-product-page
                         jcr:description="Policy for breadcrumb on product pages"
-                        jcr:lastModified="{Date}2016-03-03T18:52:44.719+01:00"
+                        jcr:lastModified="{Date}2016-07-22T09:57:27.114+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Product Page Breadcrumb"
                         sling:resourceType="wcm/core/components/policy/policy"
                         absParent="5"
+                        delim="/"
                         relParent="1"/>
                 </breadcrumb>
             </structure>
