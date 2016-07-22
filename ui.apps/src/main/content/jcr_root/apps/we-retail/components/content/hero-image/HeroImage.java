@@ -24,7 +24,7 @@ import com.adobe.cq.sightly.WCMUsePojo;
 
 public class HeroImage extends WCMUsePojo {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(HeroImage.class);
+    public static final Logger log = LoggerFactory.getLogger(HeroImage.class);
 
     public static final String PROP_FULL_WIDTH = "useFullWidth";
     public static final String PROP_KEEP_RATIO = "keepRatio";
@@ -38,6 +38,9 @@ public class HeroImage extends WCMUsePojo {
         resource = getResource();
         classList = getClassList();
         image = getImage();
+        log.debug("resource: {}", resource.getPath());
+        log.debug("classList: {}", classList);
+        log.debug("image.src: {}", image.getSrc());
     }
 
     public String getClassList() {
