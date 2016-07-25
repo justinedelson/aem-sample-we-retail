@@ -6,13 +6,13 @@
         jcr:language="en"
         jcr:primaryType="cq:PageContent"
         jcr:title="Catalog Page Template"
-        sling:resourceType="we-retail/components/structure/page">
+        sling:resourceType="weretail/components/structure/page">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <product-grid
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="we-retail/components/content/product-grid"
+                sling:resourceType="weretail/components/content/product-grid"
                 displayAs="products"
                 listFrom="descendants"
                 orderBy="jcr:title"

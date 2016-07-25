@@ -13,7 +13,7 @@
         jcr:mixinTypes="[cq:LiveRelationship]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Zurich Wool Scarf"
-        sling:resourceType="we-retail/components/structure/page">
+        sling:resourceType="weretail/components/structure/page">
         <root
             cq:lastRolledout="{Date}2016-06-29T14:20:53.813+02:00"
             cq:lastRolledoutBy="admin"
@@ -25,7 +25,7 @@
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="we-retail/components/structure/breadcrumb"/>
+                sling:resourceType="weretail/components/structure/breadcrumb"/>
             <product
                 cq:commerceType="product"
                 cq:lastRolledout="{Date}2016-06-29T14:20:53.848+02:00"
@@ -33,7 +33,7 @@
                 jcr:lastModified="{Date}2016-04-12T01:19:38.537+02:00"
                 jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="we-retail/components/structure/product"
+                sling:resourceType="weretail/components/structure/product"
                 productData="/etc/commerce/products/we-retail/me/scarfs/meotwizuf">
                 <meotwizuf-one-size
                     cq:commerceType="variant"
@@ -41,7 +41,7 @@
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="we-retail/components/structure/product"
+                    sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/me/scarfs/meotwizuf/size-one-size">
                     <image
                         cq:lastRolledout="{Date}2016-06-29T14:20:53.872+02:00"
@@ -63,7 +63,7 @@
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="we-retail/components/structure/product/assets"/>
+                        sling:resourceType="weretail/components/structure/product/assets"/>
                 </meotwizuf-one-size>
                 <image
                     cq:lastRolledout="{Date}2016-06-29T14:20:53.876+02:00"
@@ -85,7 +85,7 @@
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="we-retail/components/structure/product/assets"/>
+                    sling:resourceType="weretail/components/structure/product/assets"/>
             </product>
             <responsivegrid
                 cq:lastRolledout="{Date}2016-06-29T14:20:53.880+02:00"
@@ -99,26 +99,26 @@
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Reviews"
-                sling:resourceType="we-retail/components/content/title"/>
+                sling:resourceType="weretail/components/content/title"/>
             <reviews
                 cq:lastRolledout="{Date}2016-06-29T14:20:53.886+02:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="we-retail/components/structure/product-reviews"/>
+                sling:resourceType="weretail/components/structure/product-reviews"/>
             <similar_section_title
                 cq:lastRolledout="{Date}2016-06-29T14:20:53.889+02:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="You may also like"
-                sling:resourceType="we-retail/components/content/title"/>
+                sling:resourceType="weretail/components/content/title"/>
             <similar_products
                 cq:lastRolledout="{Date}2016-06-29T14:20:53.892+02:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="we-retail/components/structure/product-recommendation"/>
+                sling:resourceType="weretail/components/structure/product-recommendation"/>
         </root>
         <image
             cq:lastRolledout="{Date}2016-06-29T14:20:53.894+02:00"

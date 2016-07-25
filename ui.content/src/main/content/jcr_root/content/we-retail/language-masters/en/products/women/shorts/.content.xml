@@ -13,7 +13,7 @@
         jcr:mixinTypes="[cq:LiveSync]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Shorts"
-        sling:resourceType="we-retail/components/structure/page"
+        sling:resourceType="weretail/components/structure/page"
         coverImage="/content/dam/we-retail/en/products/apparel/shorts/Shorts_women.jpg">
         <root
             cq:lastRolledout="{Date}2016-07-04T11:34:50.483+02:00"
@@ -26,7 +26,7 @@
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="we-retail/components/content/product-grid"
+                sling:resourceType="weretail/components/content/product-grid"
                 displayAs="products"
                 listFrom="descendants"
                 orderBy="jcr:title"

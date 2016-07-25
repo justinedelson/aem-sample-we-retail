@@ -23,7 +23,7 @@
                                     assetGroup="media"
                                     assetMimetype="image/*"
                                     droptarget="image"
-                                    resourceType="we-retail/components/content/image"
+                                    resourceType="weretail/components/content/image"
                                     type="Images"/>
                                 <product
                                     jcr:primaryType="nt:unstructured"
@@ -57,7 +57,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="we-retail/components/content/content-fragment"
+                                    resourceType="weretail/components/content/content-fragment"
                                     type="Content Fragment"/>
                             </assetToComponentMapping>
                         </cq:authoring>
@@ -78,7 +78,7 @@
                                     assetGroup="media"
                                     assetMimetype="image/*"
                                     droptarget="image"
-                                    resourceType="we-retail/components/content/image"
+                                    resourceType="weretail/components/content/image"
                                     type="Images"/>
                                 <product
                                     jcr:primaryType="nt:unstructured"
@@ -112,7 +112,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="we-retail/components/content/content-fragment"
+                                    resourceType="weretail/components/content/content-fragment"
                                     type="Content Fragment"/>
                             </assetToComponentMapping>
                         </cq:authoring>
