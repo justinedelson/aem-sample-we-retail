@@ -13,16 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-new hobs.TestSuite("We.Retail Tests", {path:"/apps/we-retaill/tests/SampleTests.js", register: true})
-
-    .addTestCase(new hobs.TestCase("Hello World component on english page")
-        .navigateTo("/content/we-retail/en.html")
-        .asserts.location("/content/we-retail/en.html", true)
-        .asserts.visible(".helloworld", true)
-    )
-
-    .addTestCase(new hobs.TestCase("Hello World component on french page")
-        .navigateTo("/content/we-retail/fr.html")
-        .asserts.location("/content/we-retail/fr.html", true)
-        .asserts.visible(".helloworld", true)
-    );
+;(function(h) {
+    window.CQ.WeRetailIT.MainPageNavbarTest = function (h, $) {
+        return new h.TestCase("Navbar on main English page")
+            .navigateTo("/content/we-retail/us/en.html")
+            .asserts.location("/content/we-retail/us/en.html", true)
+            .asserts.visible(".navbar", true);
+    }
+})(hobs);

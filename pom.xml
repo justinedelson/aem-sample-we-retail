@@ -26,7 +26,8 @@
         <module>core</module>
         <module>ui.apps</module>
         <module>ui.content</module>
-        <module>it.tests</module>
+        <module>it.tests.http</module>
+        <module>it.tests.ui-js</module>
         <module>it.launcher</module>
         <module>all</module>
     </modules>

@@ -30,7 +30,7 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>we.retail.it.tests</artifactId>
+    <artifactId>we.retail.it.tests.http</artifactId>
     <packaging>bundle</packaging>
     <name>We.Retail - Integration Tests Bundles</name>
     <description>Bundles for Integration Tests for We.Retail</description>
@@ -105,7 +105,7 @@
             <type>bundle</type>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
