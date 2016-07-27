@@ -121,7 +121,7 @@
             </components>
         </foundation>
     </wcm>
-    <we-retail
+    <weretail
         jcr:primaryType="nt:unstructured"
         sling:resourceType="nt:unstructured">
         <components
@@ -171,5 +171,5 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="nt:unstructured"/>
         </components>
-    </we-retail>
+    </weretail>
 </jcr:root>
