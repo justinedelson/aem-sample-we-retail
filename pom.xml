@@ -437,14 +437,6 @@
                 <scope>provided</scope>
             </dependency>
 
-            <!-- Temporary workaround for commerce API change in 6.3 -->
-            <dependency>
-                <groupId>com.adobe.cq.commerce</groupId>
-                <artifactId>cq-commerce-core</artifactId>
-                <version>5.15.8</version>
-                <scope>provided</scope>
-            </dependency>
-
             <!-- Apache Sling Dependencies -->
             <dependency>
                 <groupId>com.adobe.aem</groupId>
