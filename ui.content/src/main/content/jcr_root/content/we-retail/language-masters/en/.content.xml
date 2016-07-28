@@ -169,7 +169,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Free delivery"
-                    sling:resourceType="weretail/components/content/site-feature"
+                    sling:resourceType="weretail/components/content/sitefeature"
                     icon="shoping-cart-alt">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
@@ -188,7 +188,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Order tracking"
-                    sling:resourceType="weretail/components/content/site-feature"
+                    sling:resourceType="weretail/components/content/sitefeature"
                     icon="compass">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
@@ -207,7 +207,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Online support"
-                    sling:resourceType="weretail/components/content/site-feature"
+                    sling:resourceType="weretail/components/content/sitefeature"
                     icon="headphones">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default

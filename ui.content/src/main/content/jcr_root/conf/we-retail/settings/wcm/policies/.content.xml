@@ -57,7 +57,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="weretail/components/content/content-fragment"
+                                    resourceType="weretail/components/content/contentfragment"
                                     type="Content Fragment"/>
                             </assetToComponentMapping>
                         </cq:authoring>
@@ -112,7 +112,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="weretail/components/content/content-fragment"
+                                    resourceType="weretail/components/content/contentfragment"
                                     type="Content Fragment"/>
                             </assetToComponentMapping>
                         </cq:authoring>
