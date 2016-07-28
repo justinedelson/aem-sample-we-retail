@@ -2,6 +2,7 @@
 <workspaceFilter version="1.0">
     <filter root="/apps/weretail">
         <exclude pattern="/apps/weretail/install"/>
+        <exclude pattern="/apps/weretail/tests"/>
     </filter>
     <filter root="/etc/clientlibs/we-retail"/>
     <filter root="/etc/designs/we-retail"/>
