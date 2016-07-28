@@ -13,12 +13,15 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<script>window.CQ = window.CQ || {}</script>
-    <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
-         data-sly-call="${clientlib.css @ categories='we-retail.base'}"/>
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='we-retail.base'}"/>
+
 <!--/* Initialize TypeKit Fonts */-->
 <script src="https://use.typekit.net/dje4ayd.js"></script>
-<script>try{Typekit.load({async:true});}catch(e){}</script>
+<script>try {
+    Typekit.load({async: true});
+} catch (e) {
+}</script>
 
 <!--/* Include Context Hub */-->
-<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}" />
+<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
