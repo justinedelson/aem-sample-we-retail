@@ -75,16 +75,6 @@ public class Item extends WCMUsePojo {
         price = commerceSession.getProductPrice(baseProduct);
         path = productPage.getPath();
         filters = getProductFilters(baseProduct, commerceSession);
-
-        LOGGER.error("image: {}", image);
-        LOGGER.error("name: {}", name);
-        LOGGER.error("description: {}", description);
-        LOGGER.error("price: {}", price);
-        LOGGER.error("path: {}", path);
-        LOGGER.error("image: {}", image);
-        LOGGER.error("filters-colors: {}", filters.colors);
-        LOGGER.error("filters-sizes: {}", filters.sizes);
-        LOGGER.error("filters-prices: {}", filters.prices);
     }
 
     public String getImage() {
