@@ -400,7 +400,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="weretail/components/content/articles-list"
+                    sling:resourceType="weretail/components/content/articleslist"
                     displayAs="default"
                     feedEnabled="true"
                     limit="6"
