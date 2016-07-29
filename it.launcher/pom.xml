@@ -324,7 +324,7 @@
         </dependency>
         <dependency>
             <groupId>we</groupId>
-            <artifactId>we.retail.it.tests</artifactId>
+            <artifactId>we.retail.it.tests.http</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
