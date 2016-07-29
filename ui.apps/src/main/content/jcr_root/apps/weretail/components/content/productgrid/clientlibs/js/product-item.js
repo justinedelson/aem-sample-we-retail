@@ -113,10 +113,10 @@
         }
     });
 
-    _.each(document.querySelectorAll('.product-grid'), function (el, index) {
+    _.each(document.querySelectorAll('.productgrid'), function (el, index) {
         new Vue({
             parent: we.app,
-            name: 'product-grid',
+            name: 'productgrid',
             el: el,
             data: {
                 filters: we.filterStore.data
