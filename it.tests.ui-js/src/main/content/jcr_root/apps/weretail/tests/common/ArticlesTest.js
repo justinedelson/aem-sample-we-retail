@@ -14,13 +14,15 @@
  *  limitations under the License.
  */
 ;(function(h) {
+    var ARTICLES_LIST_CLASS = ".articleslist";
+
     window.CQ.WeRetailIT.ArticlesTest = function (h, $) {
         return new h.TestCase("Check articles")
             // Check articles list is visible
-            .asserts.visible(".articles-list", true)
+            .asserts.visible(ARTICLES_LIST_CLASS, true)
             // Check articles are visible
-            .asserts.visible(".articles-list .we-ArticleTeaser")
+            .asserts.visible(ARTICLES_LIST_CLASS + " .we-ArticleTeaser")
             // Check articles count
-            .asserts.isTrue(function() {return h.find(".articles-list .we-ArticleTeaser").length == 6;});
+            .asserts.isTrue(function() {return h.find(ARTICLES_LIST_CLASS + " .we-ArticleTeaser").length == 6;});
     }
 })(hobs);

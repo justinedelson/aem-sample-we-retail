@@ -14,7 +14,10 @@
  *  limitations under the License.
  */
 ;(function(h,$){
+    var PRODUCT_GRID_CLASS = ".productgrid";
+
     window.CQ.WeRetailIT.HomepageLoadTest = function (h, $) {
+
         return new h.TestCase("Load homepage")
             .navigateTo("/content/we-retail/us/en.html")
             .asserts.location("/content/we-retail/us/en.html", true);
@@ -27,11 +30,11 @@
         .addTestCase(window.CQ.WeRetailIT.TeasersTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.SiteFeaturesTest(h, $))
         // Test featured products
-        .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, ".product-grid:first", 6))
-        .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, ".product-grid:first .we-ProductsGrid-item:first"))
+        .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":first", 6))
+        .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":first .we-ProductsGrid-item:first"))
         .addTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $))
         // Test new arrivals products
-        .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, ".product-grid:eq(1)", 6))
-        .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, ".product-grid:eq(1) .we-ProductsGrid-item:first"))
+        .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":eq(1)", 6))
+        .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":eq(1) .we-ProductsGrid-item:first"))
         .addTestCase(window.CQ.WeRetailIT.FooterTest(h, $));
 })(hobs, jQuery);
