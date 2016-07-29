@@ -14,18 +14,19 @@
  *  limitations under the License.
  */
 ;(function(h) {
+    var SITE_FEATURE_CLASS = ".we-SiteFeature";
     window.CQ.WeRetailIT.SiteFeaturesTest = function (h, $) {
         return new h.TestCase("Check site features")
             // Check features are visible
-            .asserts.visible(".site-feature", true)
+            .asserts.visible(SITE_FEATURE_CLASS, true)
             // Check features title/text is visible
-            .asserts.visible(".site-feature h3", true)
+            .asserts.visible(SITE_FEATURE_CLASS + " h3", true)
             // Check there are three features blocks
-            .asserts.isTrue(function() {return h.find(".site-feature").length == 3;})
+            .asserts.isTrue(function() {return h.find(SITE_FEATURE_CLASS).length == 3;})
             // Check titles and subtitles not empty
             .asserts.isTrue(function() {
                 var res = true;
-                h.find(".site-feature h3").each(function(ix, val){
+                h.find(SITE_FEATURE_CLASS + " h3").each(function(ix, val){
                     res = res && $(val).text().trim().length > 0;
                 });
                 return res;
