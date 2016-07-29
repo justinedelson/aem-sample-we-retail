@@ -13,7 +13,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-;(function(h,$){
-    new h.TestSuite("We.Retail Tests - Main Page", {path:"/apps/weretail/tests/mainpage/Suite.js", register: true})
-        .addTestCase(window.CQ.WeRetailIT.MainPageNavbarTest(h,$));
-})(hobs, jQuery);
+;(function(h) {
+    window.CQ.WeRetailIT.TeasersTest = function (h, $) {
+        return new h.TestCase("Check category teasers")
+            // Check category teasers are visible
+            .asserts.visible(".default.categoryteaser", true)
+            // Check category teasers buttons are visible
+            .asserts.visible(".default.categoryteaser .btn", true)
+            // Check category teasers number
+            .asserts.isTrue(function() {return h.find(".default.categoryteaser").length == 3;});
+    }
+})(hobs);

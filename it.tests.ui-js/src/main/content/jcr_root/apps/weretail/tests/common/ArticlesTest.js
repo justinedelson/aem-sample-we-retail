@@ -14,10 +14,13 @@
  *  limitations under the License.
  */
 ;(function(h) {
-    window.CQ.WeRetailIT.MainPageNavbarTest = function (h, $) {
-        return new h.TestCase("Navbar on main English page")
-            .navigateTo("/content/we-retail/us/en.html")
-            .asserts.location("/content/we-retail/us/en.html", true)
-            .asserts.visible(".navbar", true);
+    window.CQ.WeRetailIT.ArticlesTest = function (h, $) {
+        return new h.TestCase("Check articles")
+            // Check articles list is visible
+            .asserts.visible(".articles-list", true)
+            // Check articles are visible
+            .asserts.visible(".articles-list .we-ArticleTeaser")
+            // Check articles count
+            .asserts.isTrue(function() {return h.find(".articles-list .we-ArticleTeaser").length == 6;});
     }
 })(hobs);
