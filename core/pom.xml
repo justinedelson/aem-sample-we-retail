@@ -120,8 +120,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>uber-jar</artifactId>
+            <groupId>com.day.cq</groupId>
+            <artifactId>cq-quickstart</artifactId>
             <classifier>apis</classifier>
         </dependency>
         <dependency>

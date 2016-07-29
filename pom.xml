@@ -439,8 +439,8 @@
 
             <!-- Apache Sling Dependencies -->
             <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>uber-jar</artifactId>
+                <groupId>com.day.cq</groupId>
+                <artifactId>cq-quickstart</artifactId>
                 <version>6.2.0</version>
                 <classifier>apis</classifier>
                 <scope>provided</scope>
