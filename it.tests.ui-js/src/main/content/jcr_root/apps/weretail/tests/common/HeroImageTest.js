@@ -14,14 +14,14 @@
  *  limitations under the License.
  */
 ;(function(h) {
-    window.CQ.WeRetailIT.HeroImageTest = function (h, $) {
+    window.CQ.WeRetailIT.HeroImageTest = function (h, $, buttonVisible = true) {
         return new h.TestCase("Check hero image")
             // Check hero image is visible
             .asserts.visible(".heroimage .jumbotron", true)
             // Check hero title is visible
             .asserts.visible(".heroimage .h1", true)
             // Check hero image button link is visible
-            .asserts.visible(".heroimage a.btn", true)
+            .asserts.visible(".heroimage a.btn", buttonVisible)
             ;
     }
 })(hobs);

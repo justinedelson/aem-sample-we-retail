@@ -1,6 +1,7 @@
 ns.js
 common/NavbarTest.js
 common/HeroImageTest.js
+common/BreadcrumbTest.js
 common/TeasersTest.js
 common/SiteFeaturesTest.js
 common/ProductsGridTest.js
@@ -8,3 +9,4 @@ common/ProductTest.js
 common/ArticlesTest.js
 common/FooterTest.js
 homepage/Suite.js
+experience/Suite.js
