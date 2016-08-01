@@ -107,7 +107,6 @@
                     <verbose>true</verbose>
                     <failOnError>true</failOnError>
                     <group>adobe/aem6/sample</group>
-
                     <dependencies>
                         <dependency>
                             <group>day/cq60/product</group>
