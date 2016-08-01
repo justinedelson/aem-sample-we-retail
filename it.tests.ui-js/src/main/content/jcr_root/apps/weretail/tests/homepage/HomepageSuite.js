@@ -23,7 +23,7 @@
             .asserts.location("/content/we-retail/us/en.html", true);
     }
 
-    new h.TestSuite("We.Retail Tests - Homepage", {path:"/apps/weretail/tests/homepage/Suite.js", register: true})
+    new h.TestSuite("We.Retail Tests - Homepage", {path:"/apps/weretail/tests/homepage/HomepageSuite.js", register: true})
         .addTestCase(window.CQ.WeRetailIT.HomepageLoadTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $))

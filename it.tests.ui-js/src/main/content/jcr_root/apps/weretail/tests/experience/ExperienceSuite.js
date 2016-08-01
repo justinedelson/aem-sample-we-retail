@@ -33,7 +33,7 @@
             ;
     }
 
-    new h.TestSuite("We.Retail Tests - Experience", {path:"/apps/weretail/tests/experience/Suite.js", register: true})
+    new h.TestSuite("We.Retail Tests - Experience", {path:"/apps/weretail/tests/experience/ExperienceSuite.js", register: true})
          // Load all experiences page
         .addTestCase(window.CQ.WeRetailIT.ExperiencesPageLoadTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
