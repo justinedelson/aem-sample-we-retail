@@ -66,7 +66,7 @@
                     listFrom="static"
                     orderBy="jcr:title"
                     pageMax="0"
-                    pages="[/content/we-retail/us/en/products/men/shirts/ashanti-nomad,/content/we-retail/us/en/products/men/pants/fulani-nomad,/content/we-retail/us/en/products/men/shorts/jola-summer,/content/we-retail/us/en/products/men/shirts/bambara-cargo,/content/we-retail/us/en/products/men/shorts/marka-sport,/content/we-retail/us/en/products/men/coats/edmonton-winter]"
+                    pages="[/content/we-retail/us/en/products/men/shirts/eton-short-sleeve-shirt,/content/we-retail/us/en/products/men/pants/trail-model-pants,/content/we-retail/us/en/products/men/shorts/pipeline-board-shorts,/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt,/content/we-retail/us/en/products/men/shorts/buffalo-plaid-shorts,/content/we-retail/us/en/products/men/coats/portland-hooded-jacket]"
                     tagsMatch="any"/>
                 <button
                     cq:lastRolledout="{Date}2016-03-14T22:18:58.002+01:00"

@@ -66,7 +66,7 @@
                     listFrom="static"
                     orderBy="jcr:title"
                     pageMax="0"
-                    pages="[/content/we-retail/us/en/products/women/shorts/fiji-sport,/content/we-retail/us/en/products/women/shirts/palau-summer,/content/we-retail/us/en/products/women/shirts/bora-bora,/content/we-retail/us/en/products/women/shorts/tahiti-summer,/content/we-retail/us/en/products/women/shirts/tupai-summer,/content/we-retail/us/en/products/women/shirts/maui-marine]"
+                    pages="[/content/we-retail/us/en/products/women/shorts/bahamas-shorts,/content/we-retail/us/en/products/women/pants/hiking-pants,/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt,/content/we-retail/us/en/products/women/shorts/candide-trail-short,/content/we-retail/us/en/products/women/shorts/fleet-fox-running-shorts,/content/we-retail/us/en/products/women/shirts/soleil-tunic]"
                     tagsMatch="any"/>
                 <button
                     cq:lastRolledout="{Date}2016-03-14T22:18:58.084+01:00"

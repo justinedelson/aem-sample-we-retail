@@ -202,7 +202,7 @@
                     listFrom="static"
                     orderBy="jcr:title"
                     pageMax="0"
-                    pages="[/content/we-retail/us/en/products/equipment/biking/sparrow,/content/we-retail/us/en/products/equipment/running/mombassa-runners,/content/we-retail/us/en/products/equipment/biking/tacna,/content/we-retail/us/en/products/equipment/sunglasses/timor,/content/we-retail/us/en/products/equipment/surfing/lagos-mini-longboard,/content/we-retail/us/en/products/equipment/running/marka-sport]"
+                    pages="[/content/we-retail/us/en/products/equipment/biking/marin-mountain-bike-shoes,/content/we-retail/us/en/products/equipment/running/fleet-cross-training-shoe,/content/we-retail/us/en/products/equipment/biking/sequoia-bike-helmet,/content/we-retail/us/en/products/equipment/hiking/rios-t-shirt,/content/we-retail/us/en/products/equipment/surfing/the-stretch-longboard,/content/we-retail/us/en/products/equipment/running/faba-running-pants]"
                     tagsMatch="any"/>
                 <button
                     cq:lastRolledout="{Date}2016-03-14T22:18:58.236+01:00"
