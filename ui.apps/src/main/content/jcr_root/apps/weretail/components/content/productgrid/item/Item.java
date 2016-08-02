@@ -43,6 +43,7 @@ public class Item extends WCMUsePojo {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(Item.class);
 
+    private boolean exists;
     private String image;
     private String name;
     private String description;
@@ -65,8 +66,10 @@ public class Item extends WCMUsePojo {
 
         Resource productResource = resolver.getResource(productPath);
         if (productResource == null) {
+            exists = false;
             return;
         }
+        exists = true;
         Product baseProduct = commerceService.getProduct(productPath);
         ImageResource imageResource = baseProduct.getImage();
         image = imageResource.adaptTo(ValueMap.class).get("fileReference", String.class);
@@ -75,6 +78,10 @@ public class Item extends WCMUsePojo {
         price = commerceSession.getProductPrice(baseProduct);
         path = productPage.getPath();
         filters = getProductFilters(baseProduct, commerceSession);
+    }
+
+    public boolean exists() {
+        return exists;
     }
 
     public String getImage() {
