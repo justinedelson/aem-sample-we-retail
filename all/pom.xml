@@ -90,6 +90,13 @@
                                     <filter>true</filter>
                                 </subPackage>
                             </subPackages>
+                            <dependencies>
+                                <dependency>
+                                    <group>day/cq60/product</group>
+                                    <name>cq-content</name>
+                                    <version>[6.1.76,)</version>
+                                </dependency>
+                            </dependencies>
                         </configuration>
                     </plugin>
                 </plugins>
