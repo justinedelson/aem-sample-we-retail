@@ -518,7 +518,6 @@
                 <scope>provided</scope>
                 <version>1.0.2</version>
             </dependency>
-
             <dependency>
                 <groupId>com.day.cq</groupId>
                 <artifactId>cq-commons</artifactId>
@@ -532,7 +531,7 @@
                 <scope>provided</scope>
             </dependency>
         </dependencies>
-        
+
     </dependencyManagement>
 
 </project>
