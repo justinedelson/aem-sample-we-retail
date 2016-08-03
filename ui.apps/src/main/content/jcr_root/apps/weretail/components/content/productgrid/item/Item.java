@@ -125,9 +125,9 @@ public class Item extends WCMUsePojo {
                 productFilters.setPrice(variation.getPrice());
             }
         } else {
-            String color = product.getProperty("color", String.class).toLowerCase();
+            String color = product.getProperty("color", String.class);
             if (StringUtils.isNotEmpty(color)) {
-                productFilters.setColor(color);
+                productFilters.setColor(color.toLowerCase());
             }
             productFilters.setSize(product.getProperty("size", String.class));
             productFilters.setPrice(commerceSession.getProductPrice(product));
