@@ -96,6 +96,11 @@
                                     <name>cq-content</name>
                                     <version>[6.1.76,)</version>
                                 </dependency>
+                                <dependency>
+                                    <group>day/cq60/product</group>
+                                    <name>cq-commerce-content</name>
+                                    <version>[1.2.222,)</version>
+                                </dependency>
                             </dependencies>
                         </configuration>
                     </plugin>
