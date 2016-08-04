@@ -8,5 +8,7 @@ common/ProductsGridTest.js
 common/ProductTest.js
 common/ArticlesTest.js
 common/FooterTest.js
+common/ButtonTest.js
 homepage/HomepageSuite.js
+product-category/ProductCategorySuite.js
 experience/ExperienceSuite.js

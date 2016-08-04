@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 ;(function(h) {
-    window.CQ.WeRetailIT.HeroImageTest = function (h, $, buttonVisible = true) {
+    window.CQ.WeRetailIT.HeroImageTest = function (h, $, buttonVisible) {
         return new h.TestCase("Check hero image")
             // Check hero image is visible
             .asserts.visible(".heroimage .jumbotron", true)

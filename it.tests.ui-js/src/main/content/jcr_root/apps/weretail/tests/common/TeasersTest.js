@@ -14,13 +14,13 @@
  *  limitations under the License.
  */
 ;(function(h) {
-    window.CQ.WeRetailIT.TeasersTest = function (h, $) {
+    window.CQ.WeRetailIT.TeasersTest = function (h, $, count) {
         return new h.TestCase("Check category teasers")
             // Check category teasers are visible
-            .asserts.visible(".default.categoryteaser", true)
+            .asserts.visible(".categoryteaser", true)
             // Check category teasers buttons are visible
-            .asserts.visible(".default.categoryteaser .btn", true)
+            .asserts.visible(".categoryteaser .btn", true)
             // Check category teasers number
-            .asserts.isTrue(function() {return h.find(".default.categoryteaser").length == 3;});
+            .asserts.isTrue(function() {return h.find(".categoryteaser").length == count;});
     }
 })(hobs);
