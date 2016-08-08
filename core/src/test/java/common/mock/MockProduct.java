@@ -3,14 +3,11 @@ package common.mock;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.function.Consumer;
-
 import javax.annotation.Nonnull;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceWrapper;
-import org.apache.sling.api.resource.ValueMap;
 
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.Product;
@@ -123,14 +120,11 @@ public class MockProduct extends ResourceWrapper implements Product {
     @Override
     public Iterator<Product> getVariants() throws CommerceException {
         final List<Product> variants = new ArrayList<Product>();
-        resource.getChildren().forEach(new Consumer<Resource>() {
-            @Override
-            public void accept(Resource resource) {
-                if(StringUtils.equals(resource.getValueMap().get("cq:commerceType", String.class), "variant")) {
-                    variants.add(new MockProduct(resource));
-                }
+        for (Resource child : resource.getChildren()) {
+            if (StringUtils.equals(child.getValueMap().get("cq:commerceType", String.class), "variant")) {
+                variants.add(new MockProduct(child));
             }
-        });
+        }
         return variants.iterator();
     }
 
