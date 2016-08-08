@@ -11,4 +11,5 @@ common/FooterTest.js
 common/ButtonTest.js
 homepage/HomepageSuite.js
 product-category/ProductCategorySuite.js
+product/ProductSuite.js
 experience/ExperienceSuite.js
