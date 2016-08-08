@@ -14,11 +14,12 @@
     limitations under the License.
 */-->
 <div class="we-Product cq-dd-product-data-reference"
-     data-sly-use.product="product.js"
+     data-sly-use.product="we.retail.core.model.Product"
      sku="${ product.baseProduct.SKU }"
      page-path="${ product.baseProduct.pagePath }">
 
-    <div data-sly-test="${ wcmmode.edit && !product.variants && !product.base }" class="cq-placeholder" data-emptytext="Product Component"></div>
+    <div data-sly-test="${ wcmmode.edit && !product.variants && !product.exists }" class="cq-placeholder"
+         data-emptytext="Product Component"></div>
 
     <we-product-variant
         data-sly-repeat.item="${product.variants}"
@@ -37,7 +38,7 @@
         features="${item.features}"
         image="${item.image}"></we-product-variant>
     
-    <div class="row" data-sly-test="${ product.variants && product.base }">
+    <div class="row" data-sly-test="${ product.exists }">
 
         <!--/*
         <div class="col-md-1">
@@ -49,7 +50,7 @@
         
         <div class="col-md-5 col-md-offset-1">
             <div class="we-Product-visual"> <!-- TODO: add zoom and slider -->
-                <img src="${product.base.image}" class="img-responsive" v-bind:src="product.image"/>
+                <img src="${product.properties.image}" class="img-responsive" v-bind:src="product.image"/>
                 
                 <!--/*
                 <a href="#" class="we-Product-visual-zoom"><i class="we-Icon we-Icon--zoom-plus"></i> View larger</a>
@@ -60,20 +61,20 @@
         <div class="col-md-5 col-md-offset-1">
             <div class="row">
                 <div class="col-xs-6">
-                    <strong class="we-Product-brand h4" v-html="product.description">${product.base.description @context='html'}</strong>
+                    <strong class="we-Product-brand h4" v-html="product.description">${product.properties.description @context='html'}</strong>
                 </div>
                 <div class="col-xs-6 text-right">
-                    <span class="we-Product-code">SKU: <span v-text="product.sku">${product.base.sku}</span></span>
+                    <span class="we-Product-code">SKU: <span v-text="product.sku">${product.properties.sku}</span></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="we-Product-name" v-html="product.title">${product.base.title @context='html'}</h1>
+                    <h1 class="we-Product-name" v-html="product.title">${product.properties.title @context='html'}</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <strong class="we-Product-price h2" v-html="product.price">${product.base.price}</strong>
+                    <strong class="we-Product-price h2" v-html="product.price">${product.properties.price}</strong>
                 </div>
             </div>
             <div class="row">
@@ -85,7 +86,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="we-Product-description separator" v-html="product.summary">${product.base.summary @context='html'}</div>
+                    <div class="we-Product-description separator" v-html="product.summary">${product.properties.summary @context='html'}</div>
                 </div>
             </div>
 
@@ -95,20 +96,20 @@
                 <input type="hidden" name="redirect" value="${product.redirect}.html">
                 <input type="hidden" name="redirect-product-not-found" value="${product.errorRedirect}.html"/>
                 <input type="hidden" name="product-quantity" value="1">
-                <input type="hidden" name="product-path" value="${product.path}">
+                <input type="hidden" name="product-path" value="${product.baseProduct.path}">
 
                 <div class="form-group" data-sly-test="${product.variations.type == 'color'}">
                     <label>Colors</label>
                 </div>
                 <div class="form-group"
-                     data-sly-test="${product.variations.type == 'color'}">
+                     data-sly-test="${product.variations.type == 'COLOR'}">
                     <div class="we-Product-radio marker radio-inline"
                          data-sly-repeat.color="${product.variations.colors}">
                         <label>
                             <input type="radio" name="product.color"
                                    value="${color}" title="${color}"
                                    style="background-color:${color @context='styleString'};"
-                                   checked="${product.base.colorClass == color}"
+                                   checked="${product.properties.colorClass == color}"
                                    data-sku="${product.variations.colors[color][0].sku}"
                                    v-on:click="setProduct"/>
                         </label>
@@ -118,7 +119,7 @@
                      v-show="showSizes()" v-cloak>
                     <label>Sizes</label>
                 </div>
-                <sly data-sly-test="${product.variations.type == 'color'}"
+                <sly data-sly-test="${product.variations.type.name == 'COLOR'}"
                      data-sly-list.color="${product.variations.colors}">
                     <div class="form-group separator" v-if="product && product.colorClass == '${color}'"
                          v-show="showSizes()" v-cloak>
@@ -135,7 +136,7 @@
                         </sly>
                     </div>
                 </sly>
-                <sly data-sly-test="${product.variations.type == 'size'}">
+                <sly data-sly-test="${product.variations.type.name == 'SIZE'}">
                     <div class="form-group separator" v-cloak>
                         <sly data-sly-list.item="${product.variations.sizes}">
                             <div class="we-Product-radio radio-inline">

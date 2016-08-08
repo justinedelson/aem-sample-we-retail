@@ -1,4 +1,4 @@
-package we.retail.core;
+package we.retail.core.model;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package we.retail.core;
+package we.retail.core.model;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -44,7 +44,7 @@ import com.day.cq.tagging.TagManager;
 @Model(adaptables = {Resource.class})
 public class Article {
     
-    static Logger LOGGER = LoggerFactory.getLogger(Article.class); 
+    static Logger LOGGER = LoggerFactory.getLogger(Article.class);
 
     private static final String CONTENT_FRAGMENT_REF_PATH = "root/responsivegrid/content_fragment/fileReference";
 
