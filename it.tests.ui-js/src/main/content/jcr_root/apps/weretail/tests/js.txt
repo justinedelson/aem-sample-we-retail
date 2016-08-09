@@ -10,6 +10,7 @@ common/ArticlesTest.js
 common/FooterTest.js
 common/ButtonTest.js
 homepage/HomepageSuite.js
+navigation/NavigationSuite.js
 product-category/ProductCategorySuite.js
 product/ProductSuite.js
 experience/ExperienceSuite.js
