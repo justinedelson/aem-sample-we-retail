@@ -15,20 +15,20 @@
 */-->
 <div class="we-Carousel carousel slide cq-dd-image"
      data-ride="carousel"
-     data-sly-use.listComponent="carousel.js"
+     data-sly-use.listComponent="List"
      data-sly-use.itemTemplate="listitem.html"
      id="${listComponent.listId}">
 
     <div data-sly-test="${wcmmode.edit && listComponent.isEmpty && listComponent.isTouch}" class="cq-placeholder" data-emptytext="Carousel"></div>
 
     <!--/* List Indicators */-->
-    <ol data-sly-list="${listComponent.list}" class="we-Carousel-indicators carousel-indicators">
+    <ol data-sly-list="${listComponent.items}" class="we-Carousel-indicators carousel-indicators">
         <li data-target="#${listComponent.listId}" data-slide-to="${itemList.index}" class="${itemList.first && 'active'}"></li>
     </ol>
 
     <!--/* List Slides */-->
-    <div class="carousel-inner we-Carousel-inner" role="listbox" data-sly-list="${listComponent.list}">
-        <sly data-sly-call="${itemTemplate[listComponent.type] @ renderItem=itemList, item=item}"></sly>
+    <div class="carousel-inner we-Carousel-inner" role="listbox" data-sly-list="${listComponent.items}">
+        <sly data-sly-call="${itemTemplate[listComponent.type] @ renderItem=item, list=itemList }"></sly>
     </div>
 
     <!--/* Controls */-->

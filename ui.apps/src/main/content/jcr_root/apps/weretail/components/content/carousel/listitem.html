@@ -13,15 +13,16 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<template data-sly-template.default="${@ renderItem, item}">
-    <a href="${item.item.path}.html" class="we-Carousel-item item ${renderItem.first && 'active'}" style="background-image: url('${item.item.path @ context='attribute'}.image.940.340.high.jpg')">
+<template data-sly-template.default="${@ renderItem, list}">
+    <a href="${renderItem.path}.html" class="we-Carousel-item item ${list.first && 'active'}" style="background-image:
+    url('${renderItem.path @ context='attribute'}.image.940.340.high.jpg')">
         <div class="carousel-caption">
-            <h3>${item.item.title}</h3>
-            <p>${item.item.description}</p>
+            <h3>${renderItem.name}</h3>
+            <p>${renderItem.description}</p>
         </div>
     </a>
 </template>
 
-<template data-sly-template.images="${@ renderItem, item}">
-    <div class="we-Carousel-item item ${renderItem.first && 'active'}" style="background-image: url('${item.item.path @ context='attribute'}')"></div>
+<template data-sly-template.images="${@ renderItem, list}">
+    <div class="we-Carousel-item item ${list.first && 'active'}" style="background-image: url('${renderItem.path @ context='attribute'}')"></div>
 </template>
