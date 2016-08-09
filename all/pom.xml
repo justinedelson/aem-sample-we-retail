@@ -89,6 +89,11 @@
                                     <artifactId>we.retail.commons.content</artifactId>
                                     <filter>true</filter>
                                 </subPackage>
+                                <subPackage>
+                                    <groupId>com.adobe.cq</groupId>
+                                    <artifactId>com.adobe.cq.wcm.core.components.all</artifactId>
+                                    <filter>true</filter>
+                                </subPackage>
                             </subPackages>
                             <dependencies>
                                 <dependency>
@@ -111,6 +116,13 @@
                     <groupId>com.adobe.aem.sample</groupId>
                     <artifactId>we.retail.commons.content</artifactId>
                     <version>1.0.1-SNAPSHOT</version>
+                    <type>content-package</type>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.adobe.cq</groupId>
+                    <artifactId>com.adobe.cq.wcm.core.components.all</artifactId>
+                    <version>1.0.0-SNAPSHOT</version>
                     <type>content-package</type>
                     <scope>provided</scope>
                 </dependency>
@@ -158,6 +170,11 @@
                                     <artifactId>we.retail.commons.content</artifactId>
                                     <filter>true</filter>
                                 </subPackage>
+                                <subPackage>
+                                    <groupId>com.adobe.cq</groupId>
+                                    <artifactId>com.adobe.cq.wcm.core.components.all</artifactId>
+                                    <filter>true</filter>
+                                </subPackage>
                             </subPackages>
                         </configuration>
                     </plugin>
@@ -168,6 +185,13 @@
                     <groupId>com.adobe.aem.sample</groupId>
                     <artifactId>we.retail.commons.content</artifactId>
                     <version>1.0.1-SNAPSHOT</version>
+                    <type>content-package</type>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.adobe.cq</groupId>
+                    <artifactId>com.adobe.cq.wcm.core.components.all</artifactId>
+                    <version>1.0.0-SNAPSHOT</version>
                     <type>content-package</type>
                     <scope>provided</scope>
                 </dependency>
