@@ -58,8 +58,22 @@
         ;
     }
 
+    window.CQ.WeRetailIT.AboutUsNavigationTest = function (h, $) {
+        return new h.TestCase("Navigation to experiences")
+
+        // Navigate to About Us section and back using top logo
+
+            .click(".navbar a:contains(About Us)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/about-us.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+        ;
+    }
+
     new h.TestSuite("We.Retail Tests - Navigation", {path:"/apps/weretail/tests/navigation/NavigationSuite.js", register: true})
         .addTestCase(window.CQ.WeRetailIT.HomepageLoadTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.ExperienceNavigationTest(h, $))
+        .addTestCase(window.CQ.WeRetailIT.AboutUsNavigationTest(h, $))
     ;
 })(hobs, jQuery);
