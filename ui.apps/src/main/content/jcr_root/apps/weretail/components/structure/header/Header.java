@@ -32,6 +32,7 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
 import com.adobe.cq.sightly.WCMUsePojo;
+import we.retail.core.util.WeRetailHelper;
 
 public class Header extends WCMUsePojo {
 
@@ -42,7 +43,7 @@ public class Header extends WCMUsePojo {
     public static final String PROP_REDIRECT_TARGET = "redirectTarget";
     public static final String PROP_HIDE_IN_NAV = "hideInNav";
     public static final String PROP_HIDE_SUB_IN_NAV = "hideSubItemsInNav";
-    public static final String PROP_NAV_ROOT = "navRoot";
+
 
     public static final String SIGN_IN_PATH = "/content/we-retail/community/en/signin/j_security_check";
     public static final String SIGN_UP_PATH = "/content/we-retail/community/en/signup";
@@ -83,7 +84,7 @@ public class Header extends WCMUsePojo {
             resourcePage = currentPage;
         }
 
-        Page root = findRoot(resourcePage);
+        Page root = WeRetailHelper.findRoot(resourcePage);
         languageRoot = "#";
         if (root != null) {
             items = getPages(root, 2, currentPage);
@@ -159,29 +160,6 @@ public class Header extends WCMUsePojo {
 
     public Language getCurrentLanguage() {
         return currentLanguage;
-    }
-
-    // --------------------------------------- private stuff  --------------------------------------- //
-
-    /**
-     * Checks if a page is the root page of the site
-     */
-    private boolean isRoot(Page page) {
-        Resource res = page.getContentResource();
-        ValueMap vm = res.adaptTo(ValueMap.class);
-        return vm.get(PROP_NAV_ROOT, false);
-    }
-
-    /**
-     * Returns the root page of the site
-     * E.g.: /content/we-retail/us/en
-     */
-    private Page findRoot(Page resourcePage) {
-        Page tmpPage = resourcePage;
-        while(tmpPage != null && !isRoot(tmpPage)) {
-            tmpPage = tmpPage.getParent();
-        }
-        return tmpPage;
     }
 
     /**
