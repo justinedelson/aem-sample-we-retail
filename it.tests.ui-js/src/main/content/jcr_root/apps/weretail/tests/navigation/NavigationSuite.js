@@ -61,10 +61,41 @@
     window.CQ.WeRetailIT.MenNavigationTest = function(h, $){
         return new h.TestCase("Navigation to men")
 
-            // Navigate to Men section and back using top logo
+            //Navigate to Men section and back using top logo
 
             .click(".navbar a:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
+            //Navigate to one Men product page and back using Men breadcrumb and top logo
+
+            .click(".navbar a:contains(Men)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/men.html", true)
+
+            .click('a[href="/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html"]', {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html", true)
+
+            .click(".breadcrumb a:contains(Men)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/men.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
+            //Navigate to one Men product page and back using Shirts breadcrumb, Men breadcrumb and top logo
+
+            .click(".navbar a:contains(Men)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/men.html", true)
+
+            .click('a[href="/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html"]', {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html", true)
+
+            .click(".breadcrumb a:contains(Shirts)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/men/shirts.html", true)
+
+            .click(".breadcrumb a:contains(Men)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/men.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
             .asserts.location("/content/we-retail/us/en.html", true)
@@ -143,6 +174,37 @@
             .click("a.navbar-brand", {expectNav: true})
             .asserts.location("/content/we-retail/us/en.html", true)
 
+            //Navigate to one Women product page and back using Women breadcrumb and top logo
+
+            .click(".navbar a:contains(Women)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/women.html", true)
+
+            .click('a[href="/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html"]', {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html", true)
+
+            .click(".breadcrumb a:contains(Women)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/women.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
+            //Navigate to one Women product page and back using Shirts breadcrumb, Women breadcrumb and top logo
+
+            .click(".navbar a:contains(Women)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/women.html", true)
+
+            .click('a[href="/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html"]', {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html", true)
+
+            .click(".breadcrumb a:contains(Shirts)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/women/shirts.html", true)
+
+            .click(".breadcrumb a:contains(Women)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/women.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
             //Navigate to All women's products and back using top logo
 
             .click(".navbar a:contains(Women)", {expectNav: true})
@@ -213,6 +275,37 @@
 
             .click(".navbar a:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
+            //Navigate to one Equipment product page and back using Equipment breadcrumb and top logo
+
+            .click(".navbar a:contains(Equipment)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/equipment.html", true)
+
+            .click('a[href="/content/we-retail/us/en/products/equipment/running/faba-running-pants.html"]', {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/equipment/running/faba-running-pants.html", true)
+
+            .click(".breadcrumb a:contains(Equipment)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/equipment.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
+            //Navigate to one Equipment product page and back using Running breadcrumb, Equipment breadcrumb and top logo
+
+            .click(".navbar a:contains(Equipment)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/equipment.html", true)
+
+            .click('a[href="/content/we-retail/us/en/products/equipment/running/faba-running-pants.html"]', {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/equipment/running/faba-running-pants.html", true)
+
+            .click(".breadcrumb a:contains(Running)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/equipment/running.html", true)
+
+            .click(".breadcrumb a:contains(Equipment)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/products/equipment.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
             .asserts.location("/content/we-retail/us/en.html", true)
