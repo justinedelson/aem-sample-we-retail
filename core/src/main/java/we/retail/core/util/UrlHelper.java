@@ -49,13 +49,13 @@ public class UrlHelper {
     /**
      * Resolve the page to the redirect page
      * @param page to resolve
+     * @param pageManager
      * @return the redirect target or the given page
      */
-    public static Page resolveRedirectPage(Page page) {
+    public static Page resolveRedirectPage(Page page, PageManager pageManager) {
         Page redirectTarget = page;
         if (isRedirectPage(page)) {
             Resource contentResource = page.getContentResource();
-            PageManager pageManager = contentResource.adaptTo(PageManager.class);
             ValueMap valueMap = contentResource.adaptTo(ValueMap.class);
             String redirectPagePath = valueMap.get(PN_REDIRECT_TARGET, StringUtils.EMPTY);
             Page resolvedPage = pageManager.getPage(redirectPagePath);
