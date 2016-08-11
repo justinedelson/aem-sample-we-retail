@@ -39,9 +39,11 @@ public class Footer extends WCMUsePojo {
 
     private void populateItems() {
         Page rootPage = WeRetailHelper.findRoot(getCurrentPage());
-        Iterator<Page> pageIterator = rootPage.listChildren(new PageFilter());
-        while (pageIterator.hasNext()) {
-            items.add(UrlHelper.resolveRedirectPage(pageIterator.next()));
+        if (rootPage != null) {
+            Iterator<Page> pageIterator = rootPage.listChildren(new PageFilter());
+            while (pageIterator.hasNext()) {
+                items.add(UrlHelper.resolveRedirectPage(pageIterator.next()));
+            }
         }
     }
 
