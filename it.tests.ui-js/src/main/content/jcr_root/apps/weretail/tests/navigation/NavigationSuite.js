@@ -420,6 +420,52 @@
         ;
     }
 
+    window.CQ.WeRetailIT.FooterButtonsNavigationTest = function (h, $) {
+        return new h.TestCase("Navigation using footer buttons")
+
+            // Navigate to Experience section using the Experience button from footer and back using top logo
+
+            .click(".we-Footer-nav a:contains(Experience)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/experience.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
+            // Navigate to Men section using the Men button from footer and back using top logo
+
+            .click(".we-Footer-nav a:contains(Men)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/men.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
+            // Navigate to Women section using the Women button from footer and back using top logo
+
+            .click(".we-Footer-nav a:contains(Women)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/women.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
+            // Navigate to Equipment section using the Equipment button from footer and back using top logo
+
+            .click(".we-Footer-nav a:contains(Equipment)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/equipment.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
+            // Navigate to About Us section using the About Us button from footer and back using top logo
+
+            .click(".we-Footer-nav a:contains(About Us)", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en/about-us.html", true)
+
+            .click("a.navbar-brand", {expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
+        ;
+    }
+
     new h.TestSuite("We.Retail Tests - Navigation", {path:"/apps/weretail/tests/navigation/NavigationSuite.js", register: true})
         .addTestCase(window.CQ.WeRetailIT.HomepageLoadTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.ExperienceNavigationTest(h, $))
@@ -427,5 +473,6 @@
         .addTestCase(window.CQ.WeRetailIT.WomenNavigationTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.EquipmentNavigationTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.AboutUsNavigationTest(h, $))
+        .addTestCase(window.CQ.WeRetailIT.FooterButtonsNavigationTest(h, $))
     ;
 })(hobs, jQuery);
