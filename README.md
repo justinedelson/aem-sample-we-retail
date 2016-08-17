@@ -33,15 +33,9 @@ Or to deploy only the bundle to the author, run
 
 To build a single package
 
-> Pre-requisite: install Core WCM Components and the corresponding version of the We.Retail Commons project into your local Maven Repository.
-> For more details head over to https://git.corp.adobe.com/CQ/aem-core-wcm-components and https://github.com/Adobe-Marketing-Cloud/aem-sample-we-retail-commons.
-
     mvn clean install -PbuildSinglePackage
 
 To install single package on an AEM instance
-
-> Pre-requisite: install Core WCM Components and the corresponding version of the We.Retail Commons project into your local Maven Repository.
-> For more details head over to https://git.corp.adobe.com/CQ/aem-core-wcm-components and https://github.com/Adobe-Marketing-Cloud/aem-sample-we-retail-commons.
 
     mvn clean install -PbuildSinglePackage -PautoInstallSinglePackage
     
