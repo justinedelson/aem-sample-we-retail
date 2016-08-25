@@ -23,7 +23,7 @@
     };
 
     window.CQ.WeRetailIT.WomenPageLoadTest = function (h, $) {
-        return new h.TestCase("Load Men category page")
+        return new h.TestCase("Load Women category page")
             .navigateTo("/content/we-retail/us/en/women.html")
             .asserts.location("/content/we-retail/us/en/women.html", true);
     };
@@ -35,56 +35,65 @@
     };
 
     new h.TestSuite("We.Retail Tests - Product Category", {path:"/apps/weretail/tests/product-category/ProductCategorySuite.js", register: true})
-        // Load men page
-        .addTestCase(window.CQ.WeRetailIT.MenPageLoadTest(h, $))
-        // Test navbar
-        .addTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
-        // Test hero image
-        .addTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
-        // Test featured products
-        .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":first", 6))
-        .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":first .we-ProductsGrid-item:first"))
-        // Test "All products" button
-        .addTestCase(window.CQ.WeRetailIT.ButtonTest(h, $, "div.button a.btn", "All men", "content/we-retail/us/en/products/men.html"))
-        // Test featured categories
-        .addTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 2))
-        // Test "Top stories"
-        .addTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 3))
-        // Test footer
-        .addTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        //Test Men Page
+        .addTestCase(new hobs.TestCase('Test Product Category on Men')
+            // Load men page
+            .execTestCase(window.CQ.WeRetailIT.MenPageLoadTest(h, $))
+            // Test navbar
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
+            // Test hero image
+            .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
+            // Test featured products
+            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":first", 6))
+            .execTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":first .we-ProductsGrid-item:first"))
+            // Test "All products" button
+            .execTestCase(window.CQ.WeRetailIT.ButtonTest(h, $, "div.button a.btn", "All men", "content/we-retail/us/en/products/men.html"))
+            // Test featured categories
+            .execTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 2))
+            // Test "Top stories"
+            .execTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 3))
+            // Test footer
+            .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        )
 
-        // Load women page
-        .addTestCase(window.CQ.WeRetailIT.WomenPageLoadTest(h, $))
-        // Test navbar
-        .addTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
-        // Test hero image
-        .addTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
-        // Test featured products
-        .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":first", 6))
-        .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":first .we-ProductsGrid-item:first"))
-        // Test "All products" button
-        .addTestCase(window.CQ.WeRetailIT.ButtonTest(h, $, "div.button a.btn", "All women", "content/we-retail/us/en/products/women.html"))
-        // Test featured categories
-        .addTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 2))
-        // Test "Top stories"
-        .addTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 3))
-        // Test footer
-        .addTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        //Test Women Page
+        .addTestCase(new hobs.TestCase('Test Product Category on Women')
+            // Load women page
+            .execTestCase(window.CQ.WeRetailIT.WomenPageLoadTest(h, $))
+            // Test navbar
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
+            // Test hero image
+            .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
+            // Test featured products
+            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":first", 6))
+            .execTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":first .we-ProductsGrid-item:first"))
+            // Test "All products" button
+            .execTestCase(window.CQ.WeRetailIT.ButtonTest(h, $, "div.button a.btn", "All women", "content/we-retail/us/en/products/women.html"))
+            // Test featured categories
+            .execTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 2))
+            // Test "Top stories"
+            .execTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 3))
+            // Test footer
+            .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        )
 
-        // Load equipment page
-        .addTestCase(window.CQ.WeRetailIT.EquipmentPageLoadTest(h, $))
-        // Test navbar
-        .addTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
-        // Test hero image
-        .addTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
-        // Test featured categories
-        .addTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 7))
-        // Test featured products
-        .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":first", 6))
-        .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":first .we-ProductsGrid-item:first"))
-        // Test "All products" button
-        .addTestCase(window.CQ.WeRetailIT.ButtonTest(h, $, "div.button a.btn", "All equipment", "content/we-retail/us/en/products/equipment.html"))
-        // Test footer
-        .addTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        //Test Equipment Page
+        .addTestCase(new hobs.TestCase('Test Product Category on Equipment')
+            // Load equipment page
+            .execTestCase(window.CQ.WeRetailIT.EquipmentPageLoadTest(h, $))
+            // Test navbar
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
+            // Test hero image
+            .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
+            // Test featured categories
+            .execTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 7))
+            // Test featured products
+            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":first", 6))
+            .execTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":first .we-ProductsGrid-item:first"))
+            // Test "All products" button
+            .execTestCase(window.CQ.WeRetailIT.ButtonTest(h, $, "div.button a.btn", "All equipment", "content/we-retail/us/en/products/equipment.html"))
+            // Test footer
+            .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        )
     ;
 })(hobs, jQuery);
