@@ -88,54 +88,63 @@
     };
 
     new h.TestSuite("We.Retail Tests - Products", {path:"/apps/weretail/tests/product/ProductSuite.js", register: true})
-        // Load men products page
-        .addTestCase(window.CQ.WeRetailIT.MenProductsPageLoadTest(h, $))
-        // Test navbar
-        .addTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
-        // Test products
-        .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 21))
-        // Test first product
-        .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + " .we-ProductsGrid-item:first"))
-        // Test footer
-        .addTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
-
-        // Load women products page
-        .addTestCase(window.CQ.WeRetailIT.WomenProductsPageLoadTest(h, $))
-        // Test navbar
-        .addTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
-        // Test products
-        .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 12))
-        // Test first product
-        .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + " .we-ProductsGrid-item:first"))
-        // Test footer
-        .addTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
-
-        // Load equipment products page
-        .addTestCase(window.CQ.WeRetailIT.EquipmentProductsPageLoadTest(h, $))
-        // Test navbar
-        .addTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
-        // Test products
-        .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 46))
-        // Test first product
-        .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + " .we-ProductsGrid-item:first"))
-        // Test footer
-        .addTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
-
-        // Load product page
-        .addTestCase(window.CQ.WeRetailIT.ProductPageLoadTest(h, $))
-        // Test navbar
-        .addTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
-        // Test breadcrumb
-        .addTestCase(window.CQ.WeRetailIT.BreadcrumbTest(h, $, ["Men", "Coats"]))
-        // Test product details
-        .addTestCase(window.CQ.WeRetailIT.ProductDetailsTest(h, $))
-        // Test product variations
-        .addTestCase(window.CQ.WeRetailIT.ProductVariationsTest(h, $))
-        //TODO: Test cart & favorites
-        //TODO: Test reviews section
-        //// Test recommended products
-        .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, ".productrecommendation " + PRODUCT_GRID_CLASS, 6))
-        // Test footer
-        .addTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        //Test men products page
+        .addTestCase(new hobs.TestCase('Test men products page')
+            // Load men products page
+            .execTestCase(window.CQ.WeRetailIT.MenProductsPageLoadTest(h, $))
+            // Test navbar
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
+            // Test products
+            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 21))
+            // Test first product
+            .execTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + " .we-ProductsGrid-item:first"))
+            // Test footer
+            .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        )
+        //Test women products page
+        .addTestCase(new hobs.TestCase('Test women products page')
+            // Load women products page
+            .execTestCase(window.CQ.WeRetailIT.WomenProductsPageLoadTest(h, $))
+            // Test navbar
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
+            // Test products
+            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 12))
+            // Test first product
+            .execTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + " .we-ProductsGrid-item:first"))
+            // Test footer
+            .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        )
+        //Test equipment products page
+        .addTestCase(new hobs.TestCase('Test equipment products page')
+            // Load equipment products page
+            .execTestCase(window.CQ.WeRetailIT.EquipmentProductsPageLoadTest(h, $))
+            // Test navbar
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
+            // Test products
+            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 46))
+            // Test first product
+            .execTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + " .we-ProductsGrid-item:first"))
+            // Test footer
+            .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        )
+        //Test product page
+        .addTestCase(new hobs.TestCase('Test product page')
+            // Load product page
+            .execTestCase(window.CQ.WeRetailIT.ProductPageLoadTest(h, $))
+            // Test navbar
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
+            // Test breadcrumb
+            .execTestCase(window.CQ.WeRetailIT.BreadcrumbTest(h, $, ["Men", "Coats"]))
+            // Test product details
+            .execTestCase(window.CQ.WeRetailIT.ProductDetailsTest(h, $))
+            // Test product variations
+            .execTestCase(window.CQ.WeRetailIT.ProductVariationsTest(h, $))
+            //TODO: Test cart & favorites
+            //TODO: Test reviews section
+            //// Test recommended products
+            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, ".productrecommendation " + PRODUCT_GRID_CLASS, 6))
+            // Test footer
+            .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        )
     ;
 })(hobs, jQuery);
