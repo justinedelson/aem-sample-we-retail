@@ -35,17 +35,22 @@
 
     new h.TestSuite("We.Retail Tests - Experience", {path:"/apps/weretail/tests/experience/ExperienceSuite.js", register: true})
          // Load all experiences page
-        .addTestCase(window.CQ.WeRetailIT.ExperiencesPageLoadTest(h, $))
-        .addTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
-        .addTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
-        .addTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 6))
-        .addTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        .addTestCase(new hobs.TestCase('Load all experiences page')
+            .execTestCase(window.CQ.WeRetailIT.ExperiencesPageLoadTest(h, $))
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
+            .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
+            .execTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 6))
+            .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        )
+
         // Load specific experience page
-        .addTestCase(window.CQ.WeRetailIT.ExperiencePageLoadTest(h, $))
-        .addTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
-        .addTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
-        .addTestCase(window.CQ.WeRetailIT.BreadcrumbTest(h, $, ["English", "Experience"]))
-        .addTestCase(window.CQ.WeRetailIT.ArticleContentTest(h, $))
-        .addTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        .addTestCase(new hobs.TestCase('Load specific experience page')
+            .execTestCase(window.CQ.WeRetailIT.ExperiencePageLoadTest(h, $))
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $))
+            .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
+            .execTestCase(window.CQ.WeRetailIT.BreadcrumbTest(h, $, ["English", "Experience"]))
+            .execTestCase(window.CQ.WeRetailIT.ArticleContentTest(h, $))
+            .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
+        )
     ;
 })(hobs, jQuery);
