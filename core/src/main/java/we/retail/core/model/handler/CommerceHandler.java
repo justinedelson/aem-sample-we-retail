@@ -13,6 +13,7 @@ import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
 import com.adobe.cq.commerce.api.CommerceConstants;
+import com.adobe.cq.commerce.api.Product;
 import com.adobe.cq.commerce.common.CommerceHelper;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -21,10 +22,12 @@ import com.day.cq.wcm.api.designer.Style;
 @Model(adaptables = SlingHttpServletRequest.class)
 public class CommerceHandler {
 
-    public static final String ADD_CART_ENTRY_SELECTOR = ".commerce.addcartentry.html";
-    public static final String ADD_SELECTOR = ".add.html";
-    public static final String PN_ADD_TO_CART_REDIRECT = "addToCartRedirect";
-    public static final String PN_CART_ERROR_REDIRECT = "cartErrorRedirect";
+    private static final String ADD_CART_ENTRY_SELECTOR = ".commerce.addcartentry.html";
+    private static final String ADD_SELECTOR = ".add.html";
+    private static final String PN_ADD_TO_CART_REDIRECT = "addToCartRedirect";
+    private static final String PN_CART_ERROR_REDIRECT = "cartErrorRedirect";
+    private static final String REQ_ATTR_CQ_COMMERCE_PRODUCT = "cq.commerce.product";
+
     @SlingObject
     private Resource resource;
 
@@ -43,10 +46,14 @@ public class CommerceHandler {
     @RequestAttribute(name = CommerceConstants.REQ_ATTR_PRODNOTFOUNDPAGE, optional = true)
     private String productNotFound;
 
+    @RequestAttribute(name = REQ_ATTR_CQ_COMMERCE_PRODUCT, optional = true)
+    private Product product;
+
     private String addToCardUrl;
     private Page currentPage;
     private String redirect;
     private String errorRedirect;
+    private boolean productPageProxy = false;
 
     @PostConstruct
     private void initHandler() {
@@ -67,6 +74,11 @@ public class CommerceHandler {
         if(StringUtils.isEmpty(errorRedirect)) {
             errorRedirect = currentPage.getPath();
         }
+        if(product == null) {
+            product = resource.adaptTo(Product.class);
+        } else {
+            productPageProxy = true;
+        }
     }
 
     public String getAddToCardUrl() {
@@ -79,5 +91,13 @@ public class CommerceHandler {
 
     public String getErrorRedirect() {
         return errorRedirect;
+    }
+
+    public boolean isProductPageProxy() {
+        return productPageProxy;
+    }
+
+    public Product getProduct() {
+        return product;
     }
 }

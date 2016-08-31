@@ -29,7 +29,6 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
@@ -70,6 +69,7 @@ public class Product {
     private List<ProductProperties> variants;
     private CommerceService commerceService;
     private ProductProperties properties;
+    private String path;
     private ProductVariations variations;
     private String variationTitle;
 
@@ -158,6 +158,10 @@ public class Product {
         return variants;
     }
 
+    public String getPath() {
+        return commerceHandler.getProduct().getPath();
+    }
+
     public class ProductVariations {
         private Type type;
         private List<ProductProperties> sizes;
@@ -213,7 +217,7 @@ public class Product {
         private static final String PN_FEATURES = "features";
         private static final String PN_SUMMARY = "summary";
         private static final String PN_COLOR = "color";
-        public static final String PN_FILE_REFERENCE = "fileReference";
+        private static final String PN_FILE_REFERENCE = "fileReference";
 
         private String path;
         private String pagePath;

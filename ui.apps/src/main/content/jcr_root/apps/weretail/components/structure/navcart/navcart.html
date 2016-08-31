@@ -14,11 +14,13 @@
     limitations under the License.
 */-->
 <div class="we-Cart"
-     data-sly-use.cart="cart.js">
+     data-sly-use.cart="apps.weretail.components.structure.navcart.Cart">
 
     <a class="we-Cart-button"
        href="#"
-       v-on:click="toggle"><i class="fa fa-shopping-cart"></i> My cart <span class="badge active" data-sly-test="${ cart.entries.length > 0 }">${ cart.entries.length }</span>
+       v-on:click="toggle"><i class="fa fa-shopping-cart"></i> My cart <span class="badge active"
+                                                                             data-sly-test="${ cart.entries.size > 0 }">${
+        cart.entries.size }</span>
     </a>
 
     <cart-content inline-template>
@@ -30,7 +32,7 @@
                     </a>
                 </div>
                 <div class="we-Cart-headerRight">
-                    ${'{0} items in cart' @ i18n, format=[cart.entries.length]}
+                    ${'{0} items in cart' @ i18n, format=[cart.entries.size]}
                 </div>
             </div>
 
