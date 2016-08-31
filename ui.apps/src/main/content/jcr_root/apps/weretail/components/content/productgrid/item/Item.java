@@ -72,7 +72,7 @@ public class Item extends WCMUsePojo {
         exists = true;
         Product baseProduct = commerceService.getProduct(productPath);
         ImageResource imageResource = baseProduct.getImage();
-        image = imageResource.adaptTo(ValueMap.class).get("fileReference", String.class);
+        image = imageResource.getPath();
         name = baseProduct.getTitle();
         description = baseProduct.getDescription();
         price = commerceSession.getProductPrice(baseProduct);
