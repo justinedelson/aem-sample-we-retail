@@ -24,7 +24,7 @@
             // Check logo on navbar is visible
             .asserts.visible(".navbar.navbar-absolute-top a.navbar-brand", true)
             // Check links on navbar are visible
-            .asserts.visible(".navbar.navbar-absolute-top .navbar-center li:not(.visible-xs) a", true)
+            .asserts.visible(".navbar.navbar-absolute-top .navbar-center > li:not(.visible-xs) > a", true)
             // Check search button on navbar is visible
             .asserts.visible(".navbar.navbar-absolute-top .navbar-right-outside a .we-Icon--search", true);
     }
