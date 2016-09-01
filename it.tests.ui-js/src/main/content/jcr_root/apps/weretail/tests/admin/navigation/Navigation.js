@@ -1,6 +1,3 @@
-/**
- * Created by adracea on 31/08/16.
- */
 /*
  *  Copyright 2016 Adobe Systems Incorporated
  *
