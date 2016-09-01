@@ -39,7 +39,7 @@ public class Cart extends WCMUsePojo {
     }
 
     private void createCommerceSession() {
-        CommerceService commerceService = getResource().adaptTo(CommerceService.class);
+        CommerceService commerceService = getCurrentPage().getContentResource().adaptTo(CommerceService.class);
         try {
             commerceSession = commerceService.login(getRequest(), getResponse());
         } catch (CommerceException e) {
@@ -61,9 +61,11 @@ public class Cart extends WCMUsePojo {
         }
         for (CommerceSession.CartEntry cartEntry : cartEntries) {
             String image = StringUtils.EMPTY;
-            Resource imageResource = getResourceResolver().getResource(cartEntry.getProduct().getImage().getPath());
-            if (imageResource != null) {
-                image = imageResource.adaptTo(ValueMap.class).get(PN_FILE_REFERENCE, StringUtils.EMPTY);
+            if(cartEntry.getProduct().getImage() != null) {
+                Resource imageResource = getResourceResolver().getResource(cartEntry.getProduct().getImage().getPath());
+                if (imageResource != null) {
+                    image = imageResource.adaptTo(ValueMap.class).get(PN_FILE_REFERENCE, StringUtils.EMPTY);
+                }
             }
             CartEntry entry =
                     new CartEntry(cartEntry, commerceSession.getProductPrice(cartEntry.getProduct()), cartEntry.getProduct(), image);
