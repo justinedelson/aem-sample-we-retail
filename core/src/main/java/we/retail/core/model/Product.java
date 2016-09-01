@@ -47,8 +47,9 @@ public class Product {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Product.class);
     private static final String PN_PRODUCT_MASTER = "cq:productMaster";
-    public static final String PN_CQ_PRODUCT_VARIANT_AXES = "cq:productVariantAxes";
-    public static final String PN_VARIATION_TITLE = "variationTitle";
+    private static final String PN_CQ_PRODUCT_VARIANT_AXES = "cq:productVariantAxes";
+    private static final String PN_VARIATION_TITLE = "variationTitle";
+    private static final String PN_VARIATION_LEAD = "variationLead";
 
     @SlingObject
     private Resource resource;
@@ -69,20 +70,22 @@ public class Product {
     private List<ProductProperties> variants;
     private CommerceService commerceService;
     private ProductProperties properties;
-    private String path;
     private ProductVariations variations;
     private String variationTitle;
+    private String variationAxis;
+    private String variationLead;
 
 
     @PostConstruct
     private void populateProduct() {
         try {
+            commerceService = resource.adaptTo(CommerceService.class);
             baseProduct = getProduct();
             if (baseProduct != null) {
+                setVariationProperties();
                 CommerceSession commerceSession = commerceService.login(request, response);
-                variationTitle = baseProduct.getProperty(PN_VARIATION_TITLE, String.class);
                 properties = new ProductProperties(baseProduct, commerceSession);
-                populateVariations();
+                baseProduct = commerceHandler.getProduct();
                 populateVariants(commerceSession);
             }
         } catch (CommerceException e) {
@@ -91,31 +94,44 @@ public class Product {
 
     }
 
-    private void populateVariations() {
-        String variantAxes = baseProduct.getProperty(PN_CQ_PRODUCT_VARIANT_AXES, String.class);
-        variations = new ProductVariations(variantAxes);
+    private void setVariationProperties() {
+        variationAxis = baseProduct.getProperty(PN_CQ_PRODUCT_VARIANT_AXES, String.class);
+        variations = new ProductVariations(variationAxis);
+        variationTitle = baseProduct.getProperty(PN_VARIATION_TITLE, String.class);
+        variationLead = baseProduct.getProperty(PN_VARIATION_LEAD, String.class);
     }
 
     private void populateVariants(CommerceSession commerceSession) throws CommerceException {
         variants = new ArrayList<ProductProperties>();
-        Iterator<com.adobe.cq.commerce.api.Product> productIterator = baseProduct.getVariants();
-        while (productIterator.hasNext()) {
-            com.adobe.cq.commerce.api.Product product = productIterator.next();
-            if (StringUtils.isNotEmpty(product.getSKU())) {
-                ProductProperties productProperties = new ProductProperties(product, commerceSession);
-                variants.add(productProperties);
-                if (variations.getType() == Type.COLOR) {
-                    variations.addColorVariation(productProperties);
-                } else if (variations.getType() == Type.SIZE) {
-                    variations.addSizeVariation(productProperties);
+        if(StringUtils.isNotEmpty(variationAxis)) {
+            Iterator<com.adobe.cq.commerce.api.Product> productIterator = baseProduct.getVariants();
+            while (productIterator.hasNext()) {
+                com.adobe.cq.commerce.api.Product product = productIterator.next();
+                if (StringUtils.isNotEmpty(product.getSKU())) {
+                    ProductProperties productProperties = new ProductProperties(product, commerceSession);
+                    if(StringUtils.isNotEmpty(variationLead) && StringUtils.equals(variationLead, product.getProperty(variationAxis, String
+                            .class))) {
+                        variants.add(0, productProperties);
+                    } else {
+                        variants.add(productProperties);
+                    }
+                    if (variations.getType() == Type.COLOR) {
+                        variations.addColorVariation(productProperties);
+                    } else if (variations.getType() == Type.SIZE) {
+                        variations.addSizeVariation(productProperties);
+                    }
                 }
             }
+        }
+        if(variants.size() == 0) {
+            variants.add(properties);
+        } else {
+            properties = variants.get(0);
         }
     }
 
 
     private com.adobe.cq.commerce.api.Product getProduct() throws CommerceException {
-        commerceService = resource.adaptTo(CommerceService.class);
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
         Page currentPage = pageManager.getContainingPage(resource);
         String productPath = currentPage.getProperties().get(PN_PRODUCT_MASTER, String.class);
@@ -156,10 +172,6 @@ public class Product {
 
     public List<ProductProperties> getVariants() {
         return variants;
-    }
-
-    public String getPath() {
-        return commerceHandler.getProduct().getPath();
     }
 
     public class ProductVariations {

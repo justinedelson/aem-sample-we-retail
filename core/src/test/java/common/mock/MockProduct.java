@@ -8,6 +8,7 @@ import javax.annotation.Nonnull;
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceWrapper;
+import org.apache.sling.api.resource.ValueMap;
 
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.Product;
@@ -18,6 +19,7 @@ import com.day.cq.wcm.api.PageManager;
 
 public class MockProduct extends ResourceWrapper implements Product {
 
+    public static final String PRODUCT_DATA = "productData";
     private final Resource resource;
 
     public MockProduct(@Nonnull Resource resource) {
@@ -104,7 +106,15 @@ public class MockProduct extends ResourceWrapper implements Product {
 
     @Override
     public <T> T getProperty(String name, Class<T> type) {
-        return getValueMap().get(name, type);
+        if(getValueMap().containsKey(name)) {
+            return getValueMap().get(name, type);
+        } else if(getValueMap().containsKey(PRODUCT_DATA)){
+            Resource productResource = this.resource.getResourceResolver().getResource(getValueMap().get(PRODUCT_DATA, String.class));
+            if(productResource != null && productResource.getValueMap().containsKey(name)) {
+                return productResource.getValueMap().get(name, type);
+            }
+        }
+        return null;
     }
 
     @Override

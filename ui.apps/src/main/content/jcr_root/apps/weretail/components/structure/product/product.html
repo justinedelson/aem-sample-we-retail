@@ -96,9 +96,9 @@
                 <input type="hidden" name="redirect" value="${product.redirect}.html">
                 <input type="hidden" name="redirect-product-not-found" value="${product.errorRedirect}.html"/>
                 <input type="hidden" name="product-quantity" value="1">
-                <input type="hidden" name="product-path" value="${product.path}">
+                <input type="hidden" name="product-path" v-model="product.path">
 
-                <div class="form-group" data-sly-test="${product.variations.type == 'color'}">
+                <div class="form-group" data-sly-test="${product.variations.type == 'COLOR'}">
                     <label>Colors</label>
                 </div>
                 <div class="form-group"

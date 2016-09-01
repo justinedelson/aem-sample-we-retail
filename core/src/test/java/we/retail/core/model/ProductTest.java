@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class ProductTest {
 
-    private static final String CURRENT_PAGE = "/content/we-retail/us/en/products/equipment/running/fleet-cross-training-shoe";
+    private static final String CURRENT_RESOURCE = "/content/we-retail/us/en/products/equipment/running/fleet-cross-training-shoe/jcr:content/root/product";
 
     @Rule
     public final AemContext context = AppAemContext.newAemContext();
@@ -29,7 +29,7 @@ public class ProductTest {
 
     @Before
     public void setUp() throws Exception {
-        context.currentPage(CURRENT_PAGE);
+        context.currentResource(CURRENT_RESOURCE);
         SlingBindings attribute = (SlingBindings) context.request().getAttribute(SlingBindings.class.getName());
         attribute.put("currentStyle", style);
         underTest = context.request().adaptTo(Product.class);
@@ -40,21 +40,18 @@ public class ProductTest {
         assertTrue("Page should contain product path", underTest.exists());
         com.adobe.cq.commerce.api.Product baseProduct = underTest.getBaseProduct();
         assertNotNull(baseProduct);
-        assertNotNull(baseProduct.getSKU());
-        assertNull(baseProduct.getPagePath());
         Product.ProductProperties productProperties = underTest.getProperties();
         assertNotNull(productProperties);
-        assertEquals("65", productProperties.getPrice());
-        assertEquals("Fleet Cross-Training Shoe", productProperties.getTitle());
-        assertNotNull(productProperties.getSummary());
+        assertEquals("9", productProperties.getSize());
+        assertNotNull(productProperties.getSku());
     }
 
     @Test
     public void testVariants() throws Exception {
         assertEquals(3, underTest.getVariants().size());
         Product.ProductProperties properties = underTest.getVariants().get(0);
-        assertEquals("/etc/commerce/products/we-retail/eq/running/eqrusufle/size-9", properties.getPath());
-        assertNull(properties.getPagePath());
+        assertEquals("/content/we-retail/us/en/products/equipment/running/fleet-cross-training-shoe/jcr:content/root/product/eqrusufle-9", properties.getPath());
+        assertNotNull(properties.getPagePath());
         assertEquals("eqrusufle-9", properties.getSku());
         assertNull(properties.getTitle());
         assertNull(properties.getDescription());

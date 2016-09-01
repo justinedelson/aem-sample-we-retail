@@ -13,6 +13,7 @@ import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
 import com.adobe.cq.commerce.api.CommerceConstants;
+import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.Product;
 import com.adobe.cq.commerce.common.CommerceHelper;
 import com.day.cq.wcm.api.Page;
@@ -56,7 +57,7 @@ public class CommerceHandler {
     private boolean productPageProxy = false;
 
     @PostConstruct
-    private void initHandler() {
+    private void initHandler() throws CommerceException {
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
         currentPage = pageManager.getContainingPage(resource);
         addToCardUrl = currentPage.getPath() + ADD_CART_ENTRY_SELECTOR;

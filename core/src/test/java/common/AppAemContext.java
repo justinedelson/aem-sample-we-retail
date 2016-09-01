@@ -8,8 +8,10 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.testing.mock.sling.ResourceResolverType;
 
 import com.adobe.cq.commerce.api.CommerceService;
+import com.adobe.cq.commerce.api.Product;
 import com.google.common.base.Function;
 import common.mock.MockCommerceService;
+import common.mock.MockProduct;
 import io.wcm.testing.mock.aem.junit.AemContext;
 import io.wcm.testing.mock.aem.junit.AemContextCallback;
 
@@ -39,6 +41,13 @@ public class AppAemContext {
                             return new MockCommerceService(resource);
                         }
                     });
+            context.registerAdapter(Resource.class, Product.class, new Function<Resource, Product>() {
+                @Nullable
+                @Override
+                public Product apply(@Nullable Resource resource) {
+                    return new MockProduct(resource);
+                }
+            });
             context.addModelsForPackage("we.retail.core.model");
             context.load().json("/sample-content.json", CONTENT_ROOT);
             context.load().json("/sample-product.json", PRODUCT_ROOT);

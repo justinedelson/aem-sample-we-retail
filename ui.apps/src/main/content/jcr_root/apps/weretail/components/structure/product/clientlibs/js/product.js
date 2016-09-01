@@ -19,7 +19,6 @@
     Vue.component('we-product-variant', {
         props: [
             'isBase',
-
             'path',
             'pagePath',
             'variants',
