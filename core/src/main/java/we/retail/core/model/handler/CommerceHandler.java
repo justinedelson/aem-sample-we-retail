@@ -25,6 +25,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
 import com.adobe.cq.commerce.api.CommerceConstants;
@@ -43,9 +44,13 @@ public class CommerceHandler {
     private static final String PN_ADD_TO_CART_REDIRECT = "addToCartRedirect";
     private static final String PN_CART_ERROR_REDIRECT = "cartErrorRedirect";
     private static final String REQ_ATTR_CQ_COMMERCE_PRODUCT = "cq.commerce.product";
+    private static final String PN_PRODUCT_DATA = "productData";
 
     @SlingObject
     private Resource resource;
+
+    @Self
+    private SlingHttpServletRequest request;
 
     @SlingObject
     private ResourceResolver resourceResolver;
@@ -70,6 +75,7 @@ public class CommerceHandler {
     private String redirect;
     private String errorRedirect;
     private boolean productPageProxy = false;
+    private String productTrackingPath;
 
     @PostConstruct
     private void initHandler() throws CommerceException {
@@ -95,6 +101,18 @@ public class CommerceHandler {
         } else {
             productPageProxy = true;
         }
+        if(product != null) {
+            productTrackingPath = product.getProperty(PN_PRODUCT_DATA, String.class);
+            if(StringUtils.isEmpty(productTrackingPath)) {
+                productTrackingPath = product.getPagePath();
+            }
+            setRequestAttributes();
+        }
+    }
+
+    private void setRequestAttributes() {
+        request.setAttribute(REQ_ATTR_CQ_COMMERCE_PRODUCT, product);
+
     }
 
     public String getAddToCardUrl() {
@@ -115,5 +133,9 @@ public class CommerceHandler {
 
     public Product getProduct() {
         return product;
+    }
+
+    public String getProductTrackingPath() {
+        return productTrackingPath;
     }
 }

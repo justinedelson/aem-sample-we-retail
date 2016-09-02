@@ -29,6 +29,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
@@ -37,9 +38,9 @@ import org.slf4j.LoggerFactory;
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.CommerceSession;
+import com.adobe.cq.sightly.WCMBindings;
 import com.day.cq.commons.ImageResource;
 import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.PageManager;
 import we.retail.core.model.handler.CommerceHandler;
 
 @Model(adaptables = SlingHttpServletRequest.class)
@@ -66,6 +67,9 @@ public class Product {
     @Self
     private CommerceHandler commerceHandler;
 
+    @ScriptVariable(name = WCMBindings.CURRENT_PAGE)
+    private Page currentPage;
+
     private com.adobe.cq.commerce.api.Product baseProduct;
     private List<ProductProperties> variants;
     private CommerceService commerceService;
@@ -74,6 +78,7 @@ public class Product {
     private String variationTitle;
     private String variationAxis;
     private String variationLead;
+    private String productTrackingPath;
 
 
     @PostConstruct
@@ -87,6 +92,7 @@ public class Product {
                 properties = new ProductProperties(baseProduct, commerceSession);
                 baseProduct = commerceHandler.getProduct();
                 populateVariants(commerceSession);
+                productTrackingPath = commerceHandler.getProductTrackingPath();
             }
         } catch (CommerceException e) {
             LOGGER.error("Can't extract product from page", e);
@@ -103,13 +109,13 @@ public class Product {
 
     private void populateVariants(CommerceSession commerceSession) throws CommerceException {
         variants = new ArrayList<ProductProperties>();
-        if(StringUtils.isNotEmpty(variationAxis)) {
+        if (StringUtils.isNotEmpty(variationAxis)) {
             Iterator<com.adobe.cq.commerce.api.Product> productIterator = baseProduct.getVariants();
             while (productIterator.hasNext()) {
                 com.adobe.cq.commerce.api.Product product = productIterator.next();
                 if (StringUtils.isNotEmpty(product.getSKU())) {
                     ProductProperties productProperties = new ProductProperties(product, commerceSession);
-                    if(StringUtils.isNotEmpty(variationLead) && StringUtils.equals(variationLead, product.getProperty(variationAxis, String
+                    if (StringUtils.isNotEmpty(variationLead) && StringUtils.equals(variationLead, product.getProperty(variationAxis, String
                             .class))) {
                         variants.add(0, productProperties);
                     } else {
@@ -123,7 +129,7 @@ public class Product {
                 }
             }
         }
-        if(variants.size() == 0) {
+        if (variants.size() == 0) {
             variants.add(properties);
         } else {
             properties = variants.get(0);
@@ -132,8 +138,6 @@ public class Product {
 
 
     private com.adobe.cq.commerce.api.Product getProduct() throws CommerceException {
-        PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-        Page currentPage = pageManager.getContainingPage(resource);
         String productPath = currentPage.getProperties().get(PN_PRODUCT_MASTER, String.class);
         return commerceService.getProduct(productPath);
     }
@@ -172,6 +176,10 @@ public class Product {
 
     public List<ProductProperties> getVariants() {
         return variants;
+    }
+
+    public String getProductTrackingPath() {
+        return productTrackingPath;
     }
 
     public class ProductVariations {

@@ -24,6 +24,7 @@ import org.apache.sling.testing.mock.sling.ResourceResolverType;
 
 import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.Product;
+import com.adobe.cq.sightly.WCMBindings;
 import com.google.common.base.Function;
 import common.mock.MockCommerceService;
 import common.mock.MockProduct;

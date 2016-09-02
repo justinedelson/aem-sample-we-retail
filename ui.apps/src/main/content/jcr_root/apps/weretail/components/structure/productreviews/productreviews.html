@@ -14,5 +14,6 @@
     limitations under the License.
 */-->
 <div data-sly-use.product="we.retail.core.model.Product">
-    <sly data-sly-resource="${ '{0}/jcr:content/reviews' @ format=[product.base.productTrackingPath], resourceType='weretail/components/hbs/reviews', wcmmode='disabled'}"></sly>
+    <sly
+            data-sly-resource="${ '{0}/jcr:content/reviews' @ format=[product.productTrackingPath], resourceType='weretail/components/hbs/reviews', wcmmode='disabled'}"></sly>
 </div>

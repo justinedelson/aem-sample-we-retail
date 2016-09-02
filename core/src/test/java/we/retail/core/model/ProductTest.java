@@ -23,6 +23,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import com.adobe.cq.sightly.WCMBindings;
 import com.day.cq.wcm.api.designer.Style;
 import common.AppAemContext;
 import io.wcm.testing.mock.aem.junit.AemContext;
@@ -33,6 +34,7 @@ import static org.junit.Assert.*;
 public class ProductTest {
 
     private static final String CURRENT_RESOURCE = "/content/we-retail/us/en/products/equipment/running/fleet-cross-training-shoe/jcr:content/root/product";
+    private static final String CURRENT_PAGE = "/content/we-retail/us/en/products/equipment/running/fleet-cross-training-shoe";
 
     @Rule
     public final AemContext context = AppAemContext.newAemContext();
@@ -44,9 +46,11 @@ public class ProductTest {
 
     @Before
     public void setUp() throws Exception {
-        context.currentResource(CURRENT_RESOURCE);
+        context.currentPage(CURRENT_PAGE);
         SlingBindings attribute = (SlingBindings) context.request().getAttribute(SlingBindings.class.getName());
         attribute.put("currentStyle", style);
+        attribute.put(WCMBindings.CURRENT_PAGE, context.currentPage());
+        context.currentResource(CURRENT_RESOURCE);
         underTest = context.request().adaptTo(Product.class);
     }
 
