@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 ;(function(h) {
-    window.CQ.WeRetailIT.NavbarTest = function (h, $) {
+    window.CQ.WeRetailIT.NavbarTest = function (h, $, numberOfItems) {
         return new h.TestCase("Check navbar")
             // Check navbars are visible
             .asserts.visible(".navbar.navbar-fixed-top", true)
@@ -24,7 +24,8 @@
             // Check logo on navbar is visible
             .asserts.visible(".navbar.navbar-absolute-top a.navbar-brand", true)
             // Check links on navbar are visible
-            .asserts.visible(".navbar.navbar-absolute-top .navbar-center > li:not(.visible-xs) > a", true)
+            // .asserts.visible(".navbar.navbar-absolute-top ul.navbar-nav li:not(.visible-xs) a", true)
+            .asserts.isTrue(function() { return h.find(".navbar.navbar-absolute-top .navbar-center > li:not(.visible-xs) > a").length == numberOfItems})
             // Check search button on navbar is visible
             .asserts.visible(".navbar.navbar-absolute-top .navbar-right-outside a .we-Icon--search", true);
     }
