@@ -15,12 +15,13 @@
  */
 
 window.CQ.WeRetailIT.checkImage = function (hobs, selector, src) {
-    var img = hobs.find(selector);
-    if (img) {
-        return img.attr("src") == src;
-    } else {
-        return false;
-    }
+    //var img = hobs.find(selector);
+    //if (img) {
+    //    return img.attr("src") == src;
+    //} else {
+    //    return false;
+    //}
+    return hobs.find("img[src='"+src+"'")
 };
 
 window.CQ.WeRetailIT.checkSKU = function (hobs, selector, SKU) {
