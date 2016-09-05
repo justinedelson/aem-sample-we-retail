@@ -17,19 +17,6 @@
     var BREADCRUMB_CLASS = ".breadcrumb";
     var BREADCRUMB_ITEMS = "li a";
 
-    checkItems = function(h, selector, items) {
-        var foundItems = h.find(selector);
-        if (foundItems.length != items.length) {
-            return false;
-        }
-        foundItems.each(function(ix, val) {
-           if (items[ix] != $(val).text().trim()) {
-               return false;
-           }
-        });
-        return true;
-    };
-
     window.CQ.WeRetailIT.BreadcrumbTest = function (h, $, items) {
         return new h.TestCase("Check breadcrumb")
             // Check breadcrump is visible
@@ -37,6 +24,6 @@
             // Check breadcrumb items are visible
             .asserts.visible(BREADCRUMB_CLASS + " " + BREADCRUMB_ITEMS)
             // Check breadcrumb items
-            .asserts.isTrue(function() {return checkItems(h, BREADCRUMB_CLASS + " " + BREADCRUMB_ITEMS, items);});
+            .asserts.isTrue(function() {return window.CQ.WeRetailIT.checkItems(h, BREADCRUMB_CLASS + " " + BREADCRUMB_ITEMS, items);});
     }
 })(hobs);

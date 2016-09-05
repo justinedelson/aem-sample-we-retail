@@ -19,6 +19,6 @@
             // Check featured product grid is visible
             .asserts.visible(selector, true)
             // Check number of products
-            .asserts.isTrue(function() {return h.find(selector + " .we-ProductsGrid-item").length == numberOfItems});
+            .asserts.isTrue(function() {return window.CQ.WeRetailIT.checkNumberOfItems(h, selector + " .we-ProductsGrid-item", numberOfItems)});
     }
 })(hobs);

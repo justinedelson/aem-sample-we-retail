@@ -21,6 +21,6 @@
             // Check category teasers buttons are visible
             .asserts.visible(".categoryteaser .btn", true)
             // Check category teasers number
-            .asserts.isTrue(function() {return h.find(".categoryteaser").length == count;});
+            .asserts.isTrue(function() {return window.CQ.WeRetailIT.checkNumberOfItems(h, ".categoryteaser", count);});
     }
 })(hobs);

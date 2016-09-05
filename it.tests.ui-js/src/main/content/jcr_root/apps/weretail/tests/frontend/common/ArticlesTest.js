@@ -23,6 +23,6 @@
             // Check articles are visible
             .asserts.visible(ARTICLES_LIST_CLASS + " .we-ArticleTeaser")
             // Check articles count
-            .asserts.isTrue(function() {return h.find(ARTICLES_LIST_CLASS + " .we-ArticleTeaser").length == count;});
+            .asserts.isTrue( function() { return window.CQ.WeRetailIT.checkNumberOfItems(h, ARTICLES_LIST_CLASS + " .we-ArticleTeaser", count) });
     }
 })(hobs);

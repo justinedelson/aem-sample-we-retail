@@ -24,8 +24,7 @@
             // Check logo on navbar is visible
             .asserts.visible(".navbar.navbar-absolute-top a.navbar-brand", true)
             // Check links on navbar are visible
-            // .asserts.visible(".navbar.navbar-absolute-top ul.navbar-nav li:not(.visible-xs) a", true)
-            .asserts.isTrue(function() { return h.find(".navbar.navbar-absolute-top .navbar-center > li:not(.visible-xs) > a").length == numberOfItems})
+            .asserts.isTrue(function() { return window.CQ.WeRetailIT.checkNumberOfItems(h, ".navbar.navbar-absolute-top .navbar-center > li:not(.visible-xs) > a", numberOfItems)})
             // Check search button on navbar is visible
             .asserts.visible(".navbar.navbar-absolute-top .navbar-right-outside a .we-Icon--search", true);
     }
