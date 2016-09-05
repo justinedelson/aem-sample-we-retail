@@ -15,7 +15,12 @@
  */
 
 window.CQ.WeRetailIT.checkImage = function (hobs, selector, src) {
-    return hobs.find(selector).attr("src") == src;
+    var img = hobs.find(selector);
+    if (img) {
+        return img.attr("src") == src;
+    } else {
+        return false;
+    }
 };
 
 window.CQ.WeRetailIT.checkSKU = function (hobs, selector, SKU) {
