@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2016-03-14T22:18:58.255+01:00"
+        cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2016-06-29T14:20:45.102+02:00"
+        cq:lastRolledoutBy="admin"
+        cq:template="/conf/we-retail/settings/wcm/templates/hero-page"
+        jcr:mixinTypes="[cq:LiveRelationship]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Forgot Password"
+        sling:resourceType="weretail/components/structure/page">
+        <root
+            cq:lastRolledout="{Date}2016-03-14T22:18:58.133+01:00"
+            cq:lastRolledoutBy="admin"
+            jcr:mixinTypes="[cq:LiveRelationship]"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <responsivegrid
+                cq:lastRolledout="{Date}2016-03-14T22:18:58.143+01:00"
+                cq:lastRolledoutBy="admin"
+                jcr:created="{Date}2016-01-13T15:58:09.854+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2016-03-14T22:18:58.140+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <text_0
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/text"
+                    text="&lt;p>If you have forgotten your password please submit your e-mail address below.&lt;br>You will then receive an e-mail to confirm this operation.&lt;/p>"
+                    textIsRich="true"/>
+                <start
+                    jcr:lastModified="{Date}2015-11-19T18:57:57.399+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/form/start"
+                    actionType="foundation/components/account/actions/passwordresetrequest"
+                    confirmationPage="/content/we-retail/community/en/forgotpassword/changepassword"
+                    formid="pwr"
+                    thankYouPage="/content/we-retail/community/en/forgotpassword/thank_you.html"/>
+                <text
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="E Mail"
+                    sling:resourceSuperType="foundation/components/form/defaults/field"
+                    sling:resourceType="foundation/components/form/text"
+                    name="rep:userId"/>
+                <form_end_1236967016359
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/form/end"
+                    name=":ignore"
+                    submit="true"/>
+            </responsivegrid>
+        </root>
+    </jcr:content>
+    <changepassword/>
+    <thank_you/>
+</jcr:root>
