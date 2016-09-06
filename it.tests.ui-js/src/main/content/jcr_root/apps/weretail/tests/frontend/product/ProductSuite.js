@@ -48,7 +48,7 @@
             // Test product details
             .asserts.visible(".we-Product .we-Product-brand", true)
             .asserts.visible(".we-Product .we-Product-code", true)
-            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "MESKWIELT.1-XS");})
+            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "meskwielt.1-XS");})
             .asserts.visible(".we-Product .we-Product-name", true)
             .asserts.visible(".we-Product .we-Product-price", true)
             .asserts.visible(".we-Product .we-Rating", true)
@@ -61,20 +61,20 @@
             // Test color variations
             .click(".we-Product-radio [name='product.color'][value='red']", {expectNav: false})
             .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkImage(h, ".we-Product .we-Product-visual img", "/content/dam/we-retail/en/products/apparel/coats/El Gordo Red.jpg");})
-            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "MESKWIELT.3-XS");})
+            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "meskwielt.3-XS");})
             .click(".we-Product-radio [name='product.color'][value='purple']", {expectNav: false})
             .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkImage(h, ".we-Product .we-Product-visual img", "/content/dam/we-retail/en/products/apparel/coats/El Gordo Purple.jpg");})
-            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "MESKWIELT.2-XS");})
+            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "meskwielt.2-XS");})
             // Test size variations
             .asserts.isTrue(function () {return h.find(".we-Product .we-Product-price").text() == '$119.00';})
             .click(".we-Product-radio [name='product.sku'][value*='-S']")
-            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "MESKWIELT.2-S");})
+            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "meskwielt.2-S");})
             .click(".we-Product-radio [name='product.sku'][value*='-M']")
-            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "MESKWIELT.2-M");})
+            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "meskwielt.2-M");})
             .click(".we-Product-radio [name='product.sku'][value*='-L']")
-            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "MESKWIELT.2-L");})
+            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "meskwielt.2-L");})
             .click(".we-Product-radio [name='product.sku'][value*='-XL']")
-            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "MESKWIELT.2-XL");})
+            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkSKU(h, ".we-Product .we-Product-code span", "meskwielt.2-XL");})
             .asserts.isTrue(function () {return h.find(".we-Product .we-Product-price").text() == '$130.00';})
         ;
     };
