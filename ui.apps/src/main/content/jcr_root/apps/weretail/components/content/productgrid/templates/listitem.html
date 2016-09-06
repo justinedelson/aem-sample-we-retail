@@ -13,40 +13,8 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
-<template data-sly-template.default="${@ renderItem}">
-    <p>
-        <a href="${renderItem.path}.html"
-           onclick="CQ_Analytics.record({event: 'listItemClicked', values: { listItemPath: '${renderItem.path @ context='scriptString'}'
-           }, collect:  false, options: { obj: this }, componentPath: '${resource.resourceType @ context='scriptString'}'})">${renderItem.name}</a>
-    </p>
-</template>
-<template data-sly-template.news="${@ renderItem}">
-    <p>
-        <a href="${renderItem.path}.html"
-           onclick="CQ_Analytics.record({event: 'listNewsItemClicked', values: { listItemPath: '${renderItem.path @ context='scriptString'}' }, collect:  false, options: { obj: this }, componentPath: '${resource.resourceType @ context='scriptString'}'})">
-            <span data-sly-test="${renderItem.modifiedDate}" class="news-date">${renderItem.modifiedDate}:&nbsp;</span>
-            <span class="news-title">${renderItem.name}</span></a>
-        <sly data-sly-test="${renderItem.description}">
-            <br/>
-            <span class="news-description">${renderItem.description}</span>
-        </sly>
-    </p>
-</template>
-<template data-sly-template.teaser="${@ renderItem}">
-    <p>
-        <a href="${renderItem.path}.html"
-           onclick="CQ_Analytics.record({event: 'listTeaserItemClicked', values: { listItemPath: '${renderItem.path @ context='scriptString'}' }, collect:  false, options: { obj: this }, componentPath: '${resource.resourceType @ context='scriptString'}'})">
-            <img data-sly-test="${renderItem.hasImage}" class="teaser" src="${renderItem.path}/jcr:content.thumbnail.48.48.jpg" alt=""/>
-            <span class="teaser-title">${renderItem.name}</span>
-        </a>
-        <sly data-sly-test="${renderItem.description}">
-            <br/>
-            <span class="teaser-description">${renderItem.description}</span>
-        </sly>
-    </p>
-</template>
-<template data-sly-template.customItemType="${@ renderItem, resourceType}">
-    <sly data-sly-resource="${renderItem.path @ resourceType = resourceType}"></sly>
+<template data-sly-template.defualt="${@ renderItem}">
+    <sly data-sly-resource="${ '{0}/jcr:content' @ format=[renderItem.path], resourceType='weretail/components/content/productgrid/item' }"></sly>
 </template>
 <template data-sly-template.products="${@ renderItem}">
     <sly data-sly-resource="${ '{0}/jcr:content' @ format=[renderItem.path], resourceType='weretail/components/content/productgrid/item' }"></sly>
