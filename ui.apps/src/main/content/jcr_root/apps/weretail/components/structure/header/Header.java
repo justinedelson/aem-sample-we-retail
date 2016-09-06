@@ -47,6 +47,7 @@ public class Header extends WCMUsePojo {
 
     public static final String SIGN_IN_PATH = "/content/we-retail/community/en/signin/j_security_check";
     public static final String SIGN_UP_PATH = "/content/we-retail/community/en/signup";
+    public static final String FORGOT_PWD_PATH = "/content/we-retail/community/en/forgotpassword";
     public static final String NOTIFICATION_PATH = "/content/we-retail/community/en/notifications";
     public static final String MESSAGING_PATH = "/content/we-retail/community/en/messaging";
     public static final String PROFILE_PATH = "/content/we-retail/community/en/profile";
@@ -62,6 +63,7 @@ public class Header extends WCMUsePojo {
     private String currentPath;
     private String signInPath;
     private String signUpPath;
+    private String forgotPwdPath;
     private String messagingPath;
     private String notificationPath;
     private String profilePath;
@@ -102,6 +104,7 @@ public class Header extends WCMUsePojo {
         currentPath = currentPage.getPath();
         signInPath = SIGN_IN_PATH;
         signUpPath = SIGN_UP_PATH;
+        forgotPwdPath = FORGOT_PWD_PATH;
         messagingPath = MESSAGING_PATH;
         notificationPath = NOTIFICATION_PATH;
         profilePath = PROFILE_PATH;
@@ -128,6 +131,10 @@ public class Header extends WCMUsePojo {
 
     public String getSignUpPath() {
         return signUpPath;
+    }
+
+    public String getForgotPwdPath() {
+        return forgotPwdPath;
     }
 
     public String getMessagingPath() {
@@ -243,19 +250,26 @@ public class Header extends WCMUsePojo {
         LOGGER.debug("currentPath: {}", currentPath);
         LOGGER.debug("signInPath: {}", signInPath);
         LOGGER.debug("signUpPath: {}", signUpPath);
+        LOGGER.debug("forgotPwdPath: {}", forgotPwdPath);
         LOGGER.debug("messagingPath: {}", messagingPath);
         LOGGER.debug("notificationPath: {}", notificationPath);
         LOGGER.debug("profilePath: {}", profilePath);
         LOGGER.debug("theme: {}", theme);
         LOGGER.debug("languageRoot: {}", languageRoot);
-        LOGGER.debug("currentLanguage: {}", currentLanguage.getName());
-
-        for (PagePojo item: items) {
-            LOGGER.debug("page-path: {}", item.getPage().getPath());
+        if (currentLanguage != null) {
+            LOGGER.debug("currentLanguage: {}", currentLanguage.getName());
         }
 
-        for (Country country: countries) {
-            LOGGER.debug("country-code: {}", country.getCountrycode());
+        if (items != null && !items.isEmpty()) {
+            for (PagePojo item: items) {
+                LOGGER.debug("page-path: {}", item.getPage().getPath());
+            }
+        }
+
+        if (countries != null && !countries.isEmpty()) {
+            for (Country country: countries) {
+                LOGGER.debug("country-code: {}", country.getCountrycode());
+            }
         }
     }
 
