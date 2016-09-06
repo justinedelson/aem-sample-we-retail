@@ -21,12 +21,12 @@ window.CQ.WeRetailIT.checkImage = function (hobs, selector, src) {
     //} else {
     //    return false;
     //}
-    return hobs.find("img[src='"+src+"'").length != 0
+    return hobs.find("img[src='"+src+"'")
 };
 
 window.CQ.WeRetailIT.checkSKU = function (hobs, selector, SKU) {
     //return hobs.find(selector).text().toUpperCase() == SKU;
-    return hobs.find(selector + ":contains(" + SKU + ")").length != 0
+    return hobs.find(selector + ":contains(" + SKU + ")")
 };
 
 window.CQ.WeRetailIT.checkItems = function(hobs, selector, items) {
