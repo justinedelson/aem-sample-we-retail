@@ -13,10 +13,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-(function () {
+(function ($) {
     'use strict';
 
     window.we = window.we || {};
+
+    var isEdit = window.top.Granite &&
+        window.top.Granite.author &&
+        window.top.Granite.author.layerManager &&
+        window.top.Granite.author.layerManager.getCurrentLayer() === "Edit";
 
     var parentEl;
     // Vue.config.debug = true
@@ -113,7 +118,7 @@
         }
     });
 
-    _.each(document.querySelectorAll('.productgrid'), function (el, index) {
+    $('.productgrid-container').each(function (index, el) {
         new Vue({
             parent: we.app,
             name: 'productgrid',
@@ -175,4 +180,4 @@
         return sizes;
     }
 
-}).call(this);
+})(jQuery);

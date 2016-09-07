@@ -1,5 +1,5 @@
 <!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~ Copyright 2015 Adobe Systems Incorporated
+  ~ Copyright 2016 Adobe Systems Incorporated
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -13,11 +13,10 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
-<template data-sly-template.default="${@ renderItem}">
-    <sly data-sly-resource="${ '{0}/jcr:content' @ format=[renderItem.path], resourceType='weretail/components/content/productgrid/item' }"></sly>
+<template data-sly-template.container="${@ list}">
+    <div class="productgrid-container">
+        <ul data-sly-list.listItem="${list.items}" class="foundation-ordered-list-container ${list.style}">
+            <sly data-sly-resource="${ '{0}/jcr:content' @ format=[listItem.path], resourceType='weretail/components/content/productgrid/item' }"></sly>
+        </ul>
+    </div>
 </template>
-<template data-sly-template.products="${@ renderItem}">
-    <sly data-sly-resource="${ '{0}/jcr:content' @ format=[renderItem.path], resourceType='weretail/components/content/productgrid/item' }"></sly>
-</template>
-
-

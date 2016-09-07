@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-(function () {
+(function ($) {
     'use strict';
     function isElementInViewport () {
         var el = this,
@@ -54,8 +54,8 @@
     });
 
     // attach component to all occurances of .products-grid element
-    $('.productgrid').each(function() {
+    $('.productgrid-container').each(function() {
         new component().$mount(this);
     });
 
-}).call(this);
+})(jQuery);

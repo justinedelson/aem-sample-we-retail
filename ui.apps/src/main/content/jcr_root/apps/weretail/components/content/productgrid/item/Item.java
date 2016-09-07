@@ -43,6 +43,7 @@ public class Item extends WCMUsePojo {
 
     private boolean exists;
     private String image;
+    private boolean hasImage;
     private String name;
     private String description;
     private String price;
@@ -104,6 +105,10 @@ public class Item extends WCMUsePojo {
 
     public ProductFilters getFilters() {
         return filters;
+    }
+
+    public boolean isHasImage() {
+        return StringUtils.isNotEmpty(image);
     }
 
     private ProductFilters getProductFilters(Product product, CommerceSession commerceSession) throws Exception{
