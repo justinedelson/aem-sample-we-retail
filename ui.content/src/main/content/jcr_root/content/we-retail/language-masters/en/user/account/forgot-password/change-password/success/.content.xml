@@ -10,7 +10,7 @@
         jcr:lastModified="{Date}2016-09-08T15:22:11.728+02:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="cq:PageContent"
-        jcr:title="My Account"
+        jcr:title="My Profile"
         sling:resourceType="weretail/components/structure/page"
         hideInNav="true">
         <root
@@ -25,10 +25,4 @@
                 sling:resourceType="wcm/foundation/components/responsivegrid"/>
         </root>
     </jcr:content>
-    <profile/>
-    <sign-up/>
-    <forgot-password/>
-    <open-orders/>
-    <order-history/>
-    <addressbook/>
 </jcr:root>

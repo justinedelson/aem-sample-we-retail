@@ -25,4 +25,6 @@
                 sling:resourceType="wcm/foundation/components/responsivegrid"/>
         </root>
     </jcr:content>
+    <change-password/>
+    <thank-you/>
 </jcr:root>
