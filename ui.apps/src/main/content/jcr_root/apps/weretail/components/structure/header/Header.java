@@ -45,12 +45,12 @@ public class Header extends WCMUsePojo {
     public static final String PROP_HIDE_SUB_IN_NAV = "hideSubItemsInNav";
 
 
-    public static final String SIGN_IN_PATH = "/content/we-retail/community/en/signin/j_security_check";
-    public static final String SIGN_UP_PATH = "/content/we-retail/community/en/signup";
-    public static final String FORGOT_PWD_PATH = "/content/we-retail/community/en/forgotpassword";
-    public static final String NOTIFICATION_PATH = "/content/we-retail/community/en/notifications";
-    public static final String MESSAGING_PATH = "/content/we-retail/community/en/messaging";
-    public static final String PROFILE_PATH = "/content/we-retail/community/en/profile";
+    public static final String SIGN_IN_PATH = "/content/we-retail/us/en/user/account/sign-in/j_security_check";
+    public static final String SIGN_UP_PATH = "/content/we-retail/us/en/user/account/sign-up";
+    public static final String FORGOT_PWD_PATH = "/content/we-retail/us/en/user/account/forgot-password";
+    public static final String NOTIFICATION_PATH = "/content/we-retail/us/en/user/notifications";
+    public static final String MESSAGING_PATH = "/content/we-retail/us/en/user/mailbox";
+    public static final String PROFILE_PATH = "/content/we-retail/us/en/user/account/profile";
 
     private ResourceResolver resolver;
     private Resource resource;

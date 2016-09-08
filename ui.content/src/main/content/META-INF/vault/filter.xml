@@ -20,8 +20,5 @@
     <filter root="/content/catalogs/we-retail/en/website-catalog"/>
     <filter root="/content/catalogs/we-retail/en/website-template-pages"/>
     <filter root="/content/dam/collections/w/we-retail" mode="merge"/>
-    <filter root="/content/we-retail/community" mode="merge"/>
-    <filter root="/content/we-retail">
-        <exclude pattern="/content/we-retail/community(/.*)"/>
-    </filter>
+    <filter root="/content/we-retail"/>
 </workspaceFilter>

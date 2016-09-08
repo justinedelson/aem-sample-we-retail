@@ -23,9 +23,9 @@
                 <li data-sly-test="${!header.isAnonymous}"><a href="${header.profilePath}.html">Profile</a></li>
                 <li><a href="#"><i class="fa fa-heart-o"></i> Wishlist <span class="badge">0</span></a></li>
                 <li data-sly-test="${!header.isAnonymous}"><a href="${header.messagingPath}.html"><i class="fa fa-envelope-o"></i> Messages <span class="badge">0</span></a></li>
-                <li data-sly-test="${!header.isAnonymous}"><a href="${header.notificationPath}.html"><i class="fa fa-flag-o"></i> Notifications <span class="badge" id="scf-js-notificationsUnreadCount" data-siteurl="/content/we-retail/community/en">0</span></a></li>
+                <li data-sly-test="${!header.isAnonymous}"><a href="${header.notificationPath}.html"><i class="fa fa-flag-o"></i> Notifications <span class="badge" id="scf-js-notificationsUnreadCount" data-siteurl="/content/we-retail/us/en">0</span></a></li>
                 <li data-sly-resource="${@ resourceType='weretail/components/structure/navcart'}"></li>
-                <li data-sly-test="${header.isModerator}"><a href="/content/sites/communities/en/moderation.html">Moderation</a></li>
+                <li data-sly-test="${header.isModerator}"><a href="/content/we-retail/us/en/user/moderation.html">Moderation</a></li>
                 <li data-sly-test="${header.isAnonymous}"><a href="#" data-toggle="modal" data-target=".we-SignInModal">Login</a></li>
                 <li data-sly-test="${!header.isAnonymous}"><a href="/system/sling/logout.html?resource=${header.currentPath}.html">Log out</a></li>
             </ul>
@@ -100,13 +100,13 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-							<form data-paths="[/content/usergenerated/asi/mongo/content/we-retail/community/en]"
+							<form data-paths="[/content/usergenerated/asi/mongo/content/we-retail/us/en/user]"
                                   class="scf-js-searchform navbar-form navbar-left" role="search">
 							    <div class="form-group">
 							        <input type="search" name="input_value" placeholder="Start typing..." class="scf-js-search-value we-SearchModal-input">
 							        <input style="display:none" type="checkbox" class="scf-js-search-jcrtitle" value="jcr:title" checked>
 								    <input style="display:none" type="checkbox" class="scf-js-search-jcrdescription" value="jcr:description" checked>
-							        <input type="hidden" name="resultPage" class="scf-js-seach-resultPage" value="/content/we-retail/community/en/search"></input>
+							        <input type="hidden" name="resultPage" class="scf-js-seach-resultPage" value="/content/we-retail/us/en/user/search"/>
 							    </div>
 							</form>
                         </div>
