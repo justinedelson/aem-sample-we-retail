@@ -10,7 +10,7 @@
         jcr:lastModified="{Date}2016-09-08T15:22:11.728+02:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="cq:PageContent"
-        jcr:title="My Profile"
+        jcr:title="Change Password"
         sling:resourceType="weretail/components/structure/page"
         hideInNav="true">
         <root
@@ -22,7 +22,32 @@
                 jcr:lastModified="2016-01-13T15:58:50.877+01:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <start
+                    jcr:created="{Date}2010-09-14T12:10:57.279+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2010-09-14T12:25:19.382+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/form/start"
+                    actionType="foundation/components/account/actions/setpwd"
+                    formid="setpw"
+                    pwdChangedPage="/content/we-retail/language-masters/en/user/account/forgot-password/change-password/success"/>
+                <passwordreset
+                    jcr:created="{Date}2010-09-14T14:41:23.483+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2010-09-14T14:41:23.483+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/account/passwordreset"/>
+                <form_end_1284459057441
+                    jcr:lastModified="{Date}2010-09-14T12:40:19.713+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/form/end"
+                    name=":ignore"
+                    submit="true"/>
+            </responsivegrid>
         </root>
     </jcr:content>
     <success/>
