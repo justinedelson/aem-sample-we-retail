@@ -69,6 +69,10 @@ public class Item extends WCMUsePojo {
             return;
         }
         Product currentProduct = CommerceHelper.findCurrentProduct(productPage);
+        if(currentProduct == null) {
+            exists = false;
+            return;
+        }
         ImageResource imageResource = currentProduct.getImage();
         if (imageResource == null) {
             exists = false;
