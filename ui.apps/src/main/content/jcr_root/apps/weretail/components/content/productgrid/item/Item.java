@@ -28,6 +28,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
+import com.adobe.cq.commerce.common.CommerceHelper;
 import com.day.cq.commons.ImageResource;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -43,7 +44,6 @@ public class Item extends WCMUsePojo {
 
     private boolean exists;
     private String image;
-    private boolean hasImage;
     private String name;
     private String description;
     private String price;
@@ -68,10 +68,15 @@ public class Item extends WCMUsePojo {
             exists = false;
             return;
         }
+        Product currentProduct = CommerceHelper.findCurrentProduct(productPage);
+        ImageResource imageResource = currentProduct.getImage();
+        if (imageResource == null) {
+            exists = false;
+            return;
+        }
         exists = true;
         Product baseProduct = commerceService.getProduct(productPath);
-        ImageResource imageResource = baseProduct.getImage();
-        image = imageResource.getPath();
+        this.image = imageResource.getPath();
         name = baseProduct.getTitle();
         description = baseProduct.getDescription();
         price = commerceSession.getProductPrice(baseProduct);
@@ -105,10 +110,6 @@ public class Item extends WCMUsePojo {
 
     public ProductFilters getFilters() {
         return filters;
-    }
-
-    public boolean isHasImage() {
-        return StringUtils.isNotEmpty(image);
     }
 
     private ProductFilters getProductFilters(Product product, CommerceSession commerceSession) throws Exception{
