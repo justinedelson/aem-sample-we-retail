@@ -37,7 +37,7 @@
 
     <scm>
         <connection>scm:git:https://git.corp.adobe.com/CQ/aem-sample-we-retail.git</connection>
-        <developerConnection>scm:git:git@github.com:Adobe-Marketing-Cloud/aem-sample-we-retail.git</developerConnection>
+        <developerConnection>scm:git:git@git.corp.adobe.com:CQ/aem-sample-we-retail.git</developerConnection>
         <url>https://git.corp.adobe.com/CQ/aem-sample-we-retail/tree/master/it.tests</url>
       <tag>HEAD</tag>
   </scm>
