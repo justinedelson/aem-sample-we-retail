@@ -20,7 +20,7 @@
     <parent>
         <groupId>we</groupId>
         <artifactId>we.retail</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.9.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -33,9 +33,9 @@
     <description>Integration Tests Launcher for We.Retail</description>
 
     <scm>
-        <connection>scm:git:https://github.com/Adobe-Marketing-Cloud/aem-sample-we-retail.git</connection>
+        <connection>scm:git:https://git.corp.adobe.com/CQ/aem-sample-we-retail.git</connection>
         <developerConnection>scm:git:git@github.com:Adobe-Marketing-Cloud/aem-sample-we-retail.git</developerConnection>
-        <url>https://github.com/Adobe-Marketing-Cloud/aem-sample-we-retail/tree/master/it.launcher</url>
+        <url>https://git.corp.adobe.com/CQ/aem-sample-we-retail/tree/master/it.launcher</url>
       <tag>HEAD</tag>
   </scm>
 
@@ -325,12 +325,12 @@
         <dependency>
             <groupId>we</groupId>
             <artifactId>we.retail.it.tests.http</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.9.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>we</groupId>
             <artifactId>we.retail.core</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.9.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
