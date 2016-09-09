@@ -88,7 +88,7 @@
             // Test featured categories
             .execTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 7))
             // Test featured products
-            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":first", 6))
+            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":first", 3))
             .execTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":first .we-ProductsGrid-item:first"))
             // Test "All products" button
             .execTestCase(window.CQ.WeRetailIT.ButtonTest(h, $, "div.button a.btn", "All equipment", "content/we-retail/us/en/products/equipment.html"))
