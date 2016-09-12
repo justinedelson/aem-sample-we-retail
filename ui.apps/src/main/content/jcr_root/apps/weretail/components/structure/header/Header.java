@@ -48,7 +48,8 @@ public class Header extends WCMUsePojo {
     public static final String SIGN_IN_PATH = "/content/we-retail/us/en/user/account/sign-in/j_security_check";
     public static final String SIGN_UP_PATH = "/content/we-retail/us/en/user/account/sign-up";
     public static final String FORGOT_PWD_PATH = "/content/we-retail/us/en/user/account/forgot-password";
-    public static final String NOTIFICATION_PATH = "/content/we-retail/us/en/user/notifications";
+    public static final String NOTIFICATION_PATH = "/content/we-retail/us/en";
+    public static final String MODERATION_PATH = "/content/we-retail/us/en";
     public static final String MESSAGING_PATH = "/content/we-retail/us/en/user/mailbox";
     public static final String PROFILE_PATH = "/content/we-retail/us/en/user/account/profile";
 
@@ -66,6 +67,7 @@ public class Header extends WCMUsePojo {
     private String forgotPwdPath;
     private String messagingPath;
     private String notificationPath;
+    private String moderationPath;
     private String profilePath;
     private List<PagePojo> items;
     private String theme;
@@ -107,6 +109,7 @@ public class Header extends WCMUsePojo {
         forgotPwdPath = FORGOT_PWD_PATH;
         messagingPath = MESSAGING_PATH;
         notificationPath = NOTIFICATION_PATH;
+        moderationPath = MODERATION_PATH;
         profilePath = PROFILE_PATH;
         theme = properties.get("theme", "default");
 
@@ -143,6 +146,10 @@ public class Header extends WCMUsePojo {
 
     public String getNotificationPath() {
         return notificationPath;
+    }
+
+    public String getModerationPath() {
+        return moderationPath;
     }
 
     public String getProfilePath() {
