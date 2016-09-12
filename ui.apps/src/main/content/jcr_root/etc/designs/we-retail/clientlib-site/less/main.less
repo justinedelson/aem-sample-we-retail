@@ -79,8 +79,11 @@ body {
 @import "@{sitePath}/less/components/image";
 
 // Sign Up form
+// Forgot Password form
 
-#we-retail-signup {
+#we-retail-signup, #we-retail-signup-thank-you,
+#we-retail-forgot-password,
+#we-retail-change-password, #we-retail-change-password-thank-you {
     margin: auto;
     width: 50%;
     border: 0;
@@ -104,7 +107,7 @@ body {
         }
     }
 
-    input[type="button"] {
+    input[type="button"], input[type="submit"] {
         color: #ffffff;
         background-color: #000000;
         font-weight: 700;
@@ -112,4 +115,12 @@ body {
         border-color: transparent;
         text-transform: uppercase;
     }
+}
+
+// Sign-up: request confirmation
+.account-confirmation {
+    margin: auto;
+    width: 50%;
+    border: 0;
+    border-top: 1px solid #eeeeee;
 }
