@@ -78,3 +78,38 @@ body {
 
 @import "@{sitePath}/less/components/image";
 
+// Sign Up form
+
+#we-retail-signup {
+    margin: auto;
+    width: 50%;
+    border: 0;
+    border-top: 1px solid #eeeeee;
+
+    .form_row, .form_button_submit {
+        margin-top: 10px;
+    }
+
+    .form_leftcollabel {
+        color: #000000;
+    }
+
+    .textinput, .form_field_text{
+        background: inherit;
+        border: 2px solid rgba(0, 0, 0, 0.05);
+        width: 100%;
+        &:focus {
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            outline: 0;
+        }
+    }
+
+    input[type="button"] {
+        color: #ffffff;
+        background-color: #000000;
+        font-weight: 700;
+        width: 100%;
+        border-color: transparent;
+        text-transform: uppercase;
+    }
+}
