@@ -57,7 +57,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="E-Mail"
+                    jcr:title="Email"
                     sling:resourceType="foundation/components/account/accountname"
                     name="rep:userId"/>
                 <firstname
