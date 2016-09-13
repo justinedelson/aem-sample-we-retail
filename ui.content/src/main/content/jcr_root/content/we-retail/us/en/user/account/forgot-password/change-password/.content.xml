@@ -55,8 +55,7 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="New Password"
-                    sling:resourceType="foundation/components/account/passwordreset"
-                    name="we-retail-change-password"/>
+                    sling:resourceType="foundation/components/account/passwordreset"/>
                 <submit
                     cq:lastRolledout="{Date}2016-09-12T17:47:20.389+02:00"
                     cq:lastRolledoutBy="admin"

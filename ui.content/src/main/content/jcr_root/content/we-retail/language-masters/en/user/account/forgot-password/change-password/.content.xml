@@ -40,8 +40,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="New Password"
-                    sling:resourceType="foundation/components/account/passwordreset"
-                    name="we-retail-change-password"/>
+                    sling:resourceType="foundation/components/account/passwordreset"/>
                 <submit
                     jcr:lastModified="{Date}2010-09-14T12:40:19.713+02:00"
                     jcr:lastModifiedBy="admin"
