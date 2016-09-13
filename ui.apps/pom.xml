@@ -31,7 +31,7 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <artifactId>we.retail.ui.apps</artifactId>
-  <version>1.9.1-SNAPSHOT</version>
+  <version>1.9.3-SNAPSHOT</version>
     <packaging>content-package</packaging>
     <name>We.Retail - UI apps</name>
     <description>UI apps package for We.Retail</description>
@@ -124,11 +124,6 @@
                         <embedded>
                             <groupId>we</groupId>
                             <artifactId>we.retail.core</artifactId>
-                            <target>/apps/weretail/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adobe.aem.demomachine</groupId>
-                            <artifactId>core</artifactId>
                             <target>/apps/weretail/install</target>
                         </embedded>
                         <embedded>
@@ -243,11 +238,6 @@
             <groupId>commons-cli</groupId>
             <artifactId>commons-cli</artifactId>
             <version>1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem.demomachine</groupId>
-            <artifactId>core</artifactId>
-            <version>0.1.15</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

@@ -25,7 +25,7 @@
                 <li data-sly-test="${!header.isAnonymous}"><a href="${header.messagingPath}.html"><i class="fa fa-envelope-o"></i> Messages <span class="badge">0</span></a></li>
                 <li data-sly-test="${!header.isAnonymous}"><a href="${header.notificationPath}.html"><i class="fa fa-flag-o"></i> Notifications <span class="badge" id="scf-js-notificationsUnreadCount" data-siteurl="/content/we-retail/us/en">0</span></a></li>
                 <li data-sly-resource="${@ resourceType='weretail/components/structure/navcart'}"></li>
-                <li data-sly-test="${header.isModerator}"><a href="/content/we-retail/us/en/user/moderation.html">Moderation</a></li>
+                <li data-sly-test="${header.isModerator}"><a href="${header.moderationPath}.html">Moderation</a></li>
                 <li data-sly-test="${header.isAnonymous}"><a href="#" data-toggle="modal" data-target=".we-SignInModal">Login</a></li>
                 <li data-sly-test="${!header.isAnonymous}"><a href="/system/sling/logout.html?resource=${header.currentPath}.html">Log out</a></li>
             </ul>

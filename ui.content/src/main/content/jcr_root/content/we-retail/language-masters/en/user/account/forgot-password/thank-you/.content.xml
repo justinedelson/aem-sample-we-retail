@@ -28,7 +28,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="foundation/components/text"
-                    text="&lt;p>We received your request to reset your password.&lt;/p>&#xa;&lt;p>You will soon receive an e-mail containing instructions on how to confirm your password reset.&lt;/p>&#xa;"
+                    text="&lt;p id='we-retail-change-password-thank-you'>We received your request to reset your password. You will soon receive an e-mail containing instructions on how to confirm your password reset.&lt;/p>"
                     textIsRich="true"/>
             </responsivegrid>
         </root>

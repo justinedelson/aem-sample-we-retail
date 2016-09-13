@@ -4,9 +4,9 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2016-09-08T18:09:26.423+02:00"
+        cq:lastModified="{Date}2016-09-12T20:48:31.467+02:00"
         cq:lastModifiedBy="admin"
-        cq:lastRolledout="{Date}2016-09-08T18:09:26.425+02:00"
+        cq:lastRolledout="{Date}2016-09-12T20:48:50.188+02:00"
         cq:lastRolledoutBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/section-page"
         jcr:lastModified="{Date}2016-09-08T15:22:11.728+02:00"
@@ -17,30 +17,30 @@
         sling:resourceType="weretail/components/structure/page"
         hideInNav="true">
         <root
-            cq:lastRolledout="{Date}2016-09-08T18:09:26.416+02:00"
+            cq:lastRolledout="{Date}2016-09-12T20:48:31.461+02:00"
             cq:lastRolledoutBy="admin"
             jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <responsivegrid
-                cq:lastRolledout="{Date}2016-09-08T18:09:26.419+02:00"
+                cq:lastRolledout="{Date}2016-09-12T20:48:31.465+02:00"
                 cq:lastRolledoutBy="admin"
                 jcr:created="{Date}2016-01-13T15:58:09.854+01:00"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2016-09-08T18:09:26.417+02:00"
+                jcr:lastModified="{Date}2016-09-12T20:48:31.463+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
                 <text
-                    cq:lastRolledout="{Date}2016-09-08T18:09:26.425+02:00"
+                    cq:lastRolledout="{Date}2016-09-12T20:48:31.469+02:00"
                     cq:lastRolledoutBy="admin"
-                    jcr:lastModified="{Date}2016-09-08T18:09:26.423+02:00"
+                    jcr:lastModified="{Date}2016-09-12T20:48:31.466+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="foundation/components/text"
-                    text="&lt;p>We received your request to create an account with We.Retail.&lt;/p>&#xa;&lt;p>You will soon receive an e-mail containing instructions on how to confirm your account creation.&lt;/p>&#xa;"
+                    text="&lt;p id='we-retail-signup-thank-you'>We received your request to create an account with We.Retail. You will soon receive an e-mail containing instructions on how to confirm your account creation.&lt;/p>"
                     textIsRich="true"/>
             </responsivegrid>
         </root>

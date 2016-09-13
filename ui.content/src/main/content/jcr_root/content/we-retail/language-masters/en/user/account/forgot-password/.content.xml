@@ -23,11 +23,6 @@
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
-                <text_0
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="foundation/components/text"
-                    text="&lt;p>If you have forgotten your password please submit your e-mail address below.&lt;br>You will then receive an e-mail to confirm this operation.&lt;/p>"
-                    textIsRich="true"/>
                 <start
                     jcr:lastModified="{Date}2015-11-19T18:57:57.399+01:00"
                     jcr:lastModifiedBy="admin"
@@ -35,15 +30,20 @@
                     sling:resourceType="foundation/components/form/start"
                     actionType="foundation/components/account/actions/passwordresetrequest"
                     confirmationPage="/content/we-retail/language-masters/en/user/account/forgot-password/change-password"
-                    formid="pwr"
+                    formid="we-retail-forgot-password"
                     thankYouPage="/content/we-retail/language-masters/en/user/account/forgot-password/thank-you.html"/>
-                <text
+                <message
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="E Mail"
+                    sling:resourceType="foundation/components/text"
+                    text="&lt;p>If you have forgotten your password please submit your email address below. You will then receive an e-mail to confirm this operation.&lt;/p>"
+                    textIsRich="true"/>
+                <email
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Email"
                     sling:resourceSuperType="foundation/components/form/defaults/field"
                     sling:resourceType="foundation/components/form/text"
                     name="rep:userId"/>
-                <form_end_1236967016359
+                <submit
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="foundation/components/form/end"
                     name=":ignore"

@@ -32,7 +32,7 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <artifactId>we.retail.all</artifactId>
-  <version>1.9.3-SNAPSHOT</version>
+  <version>1.9.7-SNAPSHOT</version>
     <packaging>content-package</packaging>
     <name>We.Retail - All</name>
     <description>Combined package for We.Retail</description>
@@ -185,7 +185,7 @@
         <dependency>
             <groupId>we</groupId>
             <artifactId>we.retail.ui.apps</artifactId>
-            <version>1.9.0</version>
+            <version>1.9.2</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
