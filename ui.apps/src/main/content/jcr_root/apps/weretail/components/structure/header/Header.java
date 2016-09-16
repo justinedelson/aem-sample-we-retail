@@ -74,6 +74,7 @@ public class Header extends WCMUsePojo {
     private String languageRoot;
     private List<Country> countries;
     private Language currentLanguage;
+    private String userPath;
 
     @Override
     public void activate() throws Exception {
@@ -112,8 +113,13 @@ public class Header extends WCMUsePojo {
         moderationPath = MODERATION_PATH;
         profilePath = PROFILE_PATH;
         theme = properties.get("theme", "default");
+        userPath = resolver.adaptTo(UserManager.class).getAuthorizable(resolver.getUserID()).getPath();
 
         printDebug();
+    }
+
+    public String getUserPath() {
+        return userPath;
     }
 
     public boolean isModerator() {
@@ -252,6 +258,7 @@ public class Header extends WCMUsePojo {
 
     private void printDebug() {
         LOGGER.debug("======================================");
+        LOGGER.debug("userPath: {}", userPath);
         LOGGER.debug("isModerator: {}", isModerator);
         LOGGER.debug("isAnonymous: {}", isAnonymous);
         LOGGER.debug("currentPath: {}", currentPath);

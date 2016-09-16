@@ -173,4 +173,14 @@
             </div>
         </div>
     </div><!-- /.we-LanguageModal -->
+
+    <!-- On publish: load the request user into ContextHub -->
+    <script data-sly-test="${wcmmode.disabled}" type="text/javascript">
+
+        $CQ(document).ready(function () {
+            ContextHub.getStore('profile').loadProfile('${header.userPath @ context="uri"}');
+        });
+
+    </script>
+
 </sly>
