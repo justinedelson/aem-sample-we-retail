@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
+    <user/>
     <jcr:content
+        cq:commerceProvider="we-retail"
         cq:lastModified="{Date}2016-06-29T14:20:45.038+02:00"
         cq:lastModifiedBy="admin"
         cq:lastRolledout="{Date}2016-06-29T14:20:45.039+02:00"
@@ -10,7 +12,6 @@
         jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSync]"
         jcr:primaryType="cq:PageContent"
         jcr:title="English"
-        cq:commerceProvider="we-retail"
         sling:resourceType="weretail/components/structure/page"
         navRoot="{Boolean}true">
         <root
@@ -556,7 +557,6 @@
     <men/>
     <women/>
     <equipment/>
-    <communities/>
     <about-us/>
     <products/>
 </jcr:root>

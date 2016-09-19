@@ -6,7 +6,7 @@
     <content
         jcr:primaryType="nt:unstructured"
         margin="{Boolean}false"
-        sling:resourceType="granite/ui/components/coral/foundation/layouts/fixedcolumns">
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
         <items jcr:primaryType="nt:unstructured">
             <column
                 jcr:primaryType="nt:unstructured"
@@ -18,14 +18,6 @@
                         fieldLabel="Type"
                         name="./type">
                         <items jcr:primaryType="nt:unstructured">
-                            <toggle
-                                jcr:primaryType="nt:unstructured"
-                                text="toggle"
-                                value="toggle"/>
-                            <sort
-                                jcr:primaryType="nt:unstructured"
-                                text="sort"
-                                value="sort"/>
                             <color
                                 jcr:primaryType="nt:unstructured"
                                 text="color"

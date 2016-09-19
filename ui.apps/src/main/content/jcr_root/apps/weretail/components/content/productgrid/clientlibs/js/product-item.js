@@ -18,11 +18,6 @@
 
     window.we = window.we || {};
 
-    var isEdit = window.top.Granite &&
-        window.top.Granite.author &&
-        window.top.Granite.author.layerManager &&
-        window.top.Granite.author.layerManager.getCurrentLayer() === "Edit";
-
     var parentEl;
     // Vue.config.debug = true
 
@@ -118,7 +113,7 @@
         }
     });
 
-    $('.productgrid-container').each(function (index, el) {
+    $('.we-product-grid-container').each(function (index, el) {
         new Vue({
             parent: we.app,
             name: 'productgrid',
@@ -130,6 +125,9 @@
                 if (this.filters.price) {
                     this.filters.price = getPriceList(this.filters.price);
                 }
+                if(this.filters.size) {
+                    this.filters.size = sortSizes(this.filters.size);
+                }
 
                 parentEl = this.$el.querySelector('.foundation-ordered-list-container');
             }
@@ -137,9 +135,9 @@
     });
 
     function getPriceList(prices) {
-        var list = []
-            , maxPrice
-            , step = 50;
+        var list = [],
+            maxPrice,
+            step = 50;
 
         maxPrice = Math.max.apply(null, prices);
 
@@ -151,7 +149,7 @@
         }
 
         prices.forEach(function (price) {
-            var pos = Math.round(price / step, 10);
+            var pos = Math.floor(price / step);
             if (list[pos]) {
                 list[pos].list.push(price);
             }
@@ -168,16 +166,31 @@
     }
 
     function sortSizes(sizes) {
-        var temp1 = ['XS', 'S', 'M', 'L', 'XL', '2XL', 'XXL', '3XL', 'XXXL']
-            , temp2 = ['cm', 'in'];
+        var dualSizesRef = ['XS', 'S', 'M', 'L', 'XL', '2XL', 'XXL', '3XL', 'XXXL', 'XXK'],
+            dualSizes = [],
+            numbers = [],
+            others = [];
 
-        sizes.sort(function (a, b) {
-            //if ()
-
-            return 0;
+        _.each(sizes, function(item) {
+           if(!isNaN(item)) {
+               numbers.push(item)
+           } else if(_.contains(dualSizesRef, item)) {
+               dualSizes.push(item);
+           }
+           else {
+               others.push(item);
+           }
         });
 
-        return sizes;
+        dualSizes.sort(function(a, b) {
+            return dualSizesRef.indexOf(a) - dualSizesRef.indexOf(b);
+        });
+
+        numbers.sort(function(a, b) {
+            return parseInt(a) - parseInt(b);
+        });
+
+        return _.union(others, dualSizes, numbers);
     }
 
 })(jQuery);

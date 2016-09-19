@@ -13,32 +13,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<template data-sly-template.toggle="${@ item}">
-    <div class="we-ProductFilter we-ProductFilter--status" v-on:click="toggle">
-        Filtering: <span class="we-ProductFilter-status">on</span>
-    </div>
-    <!-- /.we-ProductFilter--status -->
-</template>
-
-<template data-sly-template.sort="${@ item}">
-    <div class="we-ProductFilter we-ProductFilter--sort">
-        Sort by:
-
-        <div class="dropdown">
-        <span id="we-ProductFilter--sort-1" data-toggle="dropdown" aria-haspopup="true">
-            Relevancy
-            <span class="caret"></span>
-        </span>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="we-ProductFilter--sort-1">
-                <li><a href="#">Alphabetically</a></li>
-                <li><a href="#">Newest</a></li>
-                <li><a href="#">Relevancy</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- /.we-we-ProductFilter--sort -->
-</template>
-
 <template data-sly-template.color="${@ item}">
     <we-product-filter type="color">
         <div class="we-ProductFilter we-ProductFilter-collapsible">

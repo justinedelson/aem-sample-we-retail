@@ -9,7 +9,7 @@
                 <responsivegrid jcr:primaryType="nt:unstructured">
                     <we-retail-default
                         jcr:description="Policy for editable layout containers"
-                        jcr:lastModified="{Date}2016-02-16T21:39:02.041+01:00"
+                        jcr:lastModified="{Date}2016-09-16T07:50:27.551+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Default"
@@ -61,10 +61,13 @@
                                     type="Content Fragment"/>
                             </assetToComponentMapping>
                         </cq:authoring>
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
                     </we-retail-default>
                     <we-retail-structure
                         jcr:description="Policy for templates to allow structure components"
-                        jcr:lastModified="{Date}2016-02-16T21:38:49.301+01:00"
+                        jcr:lastModified="{Date}2016-09-16T07:50:39.617+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Structure"
@@ -116,7 +119,22 @@
                                     type="Content Fragment"/>
                             </assetToComponentMapping>
                         </cq:authoring>
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
                     </we-retail-structure>
+                    <we-retail-product-filter
+                        jcr:description="Policy for Search Components"
+                        jcr:lastModified="{Date}2016-09-16T17:02:53.845+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="We.Retail Product Filter"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="/apps/weretail/components/structure/productfilter">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </we-retail-product-filter>
                 </responsivegrid>
             </components>
         </foundation>
@@ -157,14 +175,18 @@
                         relParent="1"/>
                     <we-retail-product-page
                         jcr:description="Policy for breadcrumb on product pages"
-                        jcr:lastModified="{Date}2016-07-22T09:57:27.114+02:00"
+                        jcr:lastModified="{Date}2016-09-16T15:03:54.572+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Product Page Breadcrumb"
                         sling:resourceType="wcm/core/components/policy/policy"
                         absParent="5"
                         delim="/"
-                        relParent="1"/>
+                        relParent="1">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </we-retail-product-page>
                 </breadcrumb>
             </structure>
             <content

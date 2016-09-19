@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-(function () {
+(function ($) {
     'use strict';
 
     window.we = window.we || {};
@@ -35,7 +35,7 @@
 
     // Vue.config.debug = true;
 
-    _.each(document.querySelectorAll('.product-filter'), function (el, index) {
+    $(".we-product-filter").each(function (index, el) {
         new Vue({
             parent: we.app,
             name: 'product-filter',
@@ -81,4 +81,4 @@
         });
     });
 
-}).call(this);
+})(jQuery);

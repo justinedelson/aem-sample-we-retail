@@ -14,7 +14,7 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <template data-sly-template.container="${@ list}">
-    <div class="productgrid-container">
+    <div class="we-product-grid-container">
         <ul data-sly-list.listItem="${list.items}" class="foundation-ordered-list-container ${list.style}">
             <sly data-sly-resource="${ '{0}/jcr:content' @ format=[listItem.path], resourceType='weretail/components/content/productgrid/item' }"></sly>
         </ul>

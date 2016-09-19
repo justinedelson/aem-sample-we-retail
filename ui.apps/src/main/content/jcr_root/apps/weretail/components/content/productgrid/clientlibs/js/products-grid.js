@@ -54,7 +54,7 @@
     });
 
     // attach component to all occurances of .products-grid element
-    $('.productgrid-container').each(function() {
+    $('.we-product-grid-container').each(function() {
         new component().$mount(this);
     });
 

@@ -24,37 +24,52 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/structure/breadcrumb"
                 editable="{Boolean}false"/>
-            <filters_grid
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid"
-                editable="{Boolean}true"/>
             <section_title
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/content/title"
-                editable="{Boolean}false">
-                <cq:responsive jcr:primaryType="nt:unstructured">
-                    <default
-                        jcr:primaryType="nt:unstructured"
-                        width="12"/>
-                    <phone
-                        jcr:primaryType="nt:unstructured"
-                        width="12"/>
-                </cq:responsive>
-            </section_title>
-            <product-grid
+                editable="{Boolean}false"/>
+            <product-grid-container
+                jcr:created="{Date}2016-09-16T07:53:31.722+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2016-09-16T07:53:31.722+02:00"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="weretail/components/content/productgrid"
-                displayAs="products"
-                editable="{Boolean}true"
-                listFrom="children"
-                orderBy="jcr:title"
-                pageMax="0">
+                sling:resourceType="wcm/foundation/components/responsivegrid"
+                editable="{Boolean}true">
                 <cq:responsive jcr:primaryType="nt:unstructured">
                     <default
                         jcr:primaryType="nt:unstructured"
-                        width="10"/>
+                        width="12"/>
                 </cq:responsive>
-            </product-grid>
+                <product-filter
+                    jcr:created="{Date}2016-09-16T14:08:52.101+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-09-16T14:08:52.101+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/foundation/components/responsivegrid"
+                    editable="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            width="2"/>
+                    </cq:responsive>
+                </product-filter>
+                <product-grid
+                    jcr:created="{Date}2016-09-16T07:53:52.219+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-09-16T07:53:52.219+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="weretail/components/content/productgrid"
+                    editable="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            width="10"/>
+                    </cq:responsive>
+                </product-grid>
+            </product-grid-container>
             <responsivegrid
                 jcr:created="{Date}2016-01-13T15:58:09.854+01:00"
                 jcr:createdBy="admin"
