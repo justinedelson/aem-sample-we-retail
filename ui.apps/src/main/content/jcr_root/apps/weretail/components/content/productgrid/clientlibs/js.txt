@@ -16,4 +16,3 @@
 
 #base=js
 product-item.js
-products-grid.js
