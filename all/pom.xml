@@ -171,14 +171,14 @@
         <dependency>
             <groupId>com.adobe.aem.sample</groupId>
             <artifactId>we.retail.commons.content</artifactId>
-            <version>1.9.2</version>
+            <version>1.9.4</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>com.adobe.cq.wcm.core.components.all</artifactId>
-            <version>0.9.8</version>
+            <version>0.9.10</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
