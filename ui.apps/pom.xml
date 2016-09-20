@@ -137,6 +137,13 @@
                             <target>/apps/weretail/install</target>
                         </embedded>
                     </embeddeds>
+                    <dependencies>
+                        <dependency>
+                            <group>day/cq60/product</group>
+                            <name>cq-foundation-content</name>
+                            <version>[1.3.0,)</version>
+                        </dependency>
+                    </dependencies>
                 </configuration>
             </plugin>
         </plugins>
