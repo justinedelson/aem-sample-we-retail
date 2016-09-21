@@ -178,21 +178,21 @@
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>com.adobe.cq.wcm.core.components.all</artifactId>
-            <version>0.9.10</version>
+            <version>0.9.14</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>we</groupId>
             <artifactId>we.retail.ui.apps</artifactId>
-            <version>1.9.4</version>
+            <version>1.9.6</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>we</groupId>
             <artifactId>we.retail.ui.content</artifactId>
-            <version>1.9.0</version>
+            <version>1.9.2</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
