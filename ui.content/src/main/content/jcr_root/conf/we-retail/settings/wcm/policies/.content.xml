@@ -14,7 +14,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Default"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:We.Retail,/libs/wcm/foundation/components/responsivegrid]"
+                        components="[group:We.Retail,/libs/wcm/foundation/components/responsivegrid,/apps/core/wcm/components/sharing]"
                         policyResourceType="wcm/foundation/components/responsivegrid">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
