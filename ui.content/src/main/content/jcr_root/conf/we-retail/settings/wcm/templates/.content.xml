@@ -4,6 +4,7 @@
     jcr:primaryType="cq:Page">
     <rep:policy/>
     <hero-page/>
+    <content-page/>
     <experience-page/>
     <section-page/>
     <product-page/>

@@ -135,6 +135,18 @@
                             jcr:primaryType="nt:unstructured"
                             mergeList="{Boolean}true"/>
                     </we-retail-product-filter>
+                    <we-retail-content
+                        jcr:description=""
+                        jcr:lastModified="{Date}2016-09-20T23:11:29.221+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="We.Retail Content"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[group:Form,/apps/weretail/components/content/text,/apps/weretail/components/content/title,/apps/weretail/components/structure/breadcrumb]">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </we-retail-content>
                 </responsivegrid>
             </components>
         </foundation>
