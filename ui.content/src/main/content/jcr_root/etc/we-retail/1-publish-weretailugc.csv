@@ -1,0 +1,19 @@
+# Title: Install User Generated Content,,,,,,,,,,,,,,,,
+"# Description: This option first creates comments, reviews and ratings on product/article pages for the main we.Retail site",,,,,,,,,,,,,,,,
+# Making room for the future Community Site on publish,,,,,,,,,,,,,,,,
+SlingDelete,/content/we-retail/community,,,,,,,,,,,,,,,
+# Creating privileged member group for We.Retail,,,,,,,,,,,,,,,,
+SlingPost,/libs/granite/security/post/authorizables.html,authorizableId,weretail-privileged-members,./profile/givenName,WeRetail Privileged Members,aboutMe,Privileged Members for WeRetail Communities Site,createGroup,1,,,,,,,
+GroupMembers,weretail-privileged-members,addMembers,emily.andrews@mailinator.com,,,,,,,,,,,,,
+# The following lines are updating user profiles,,,,,,,,,,,,,,,,
+Users,andrew.schaeffer@trashymail.com,Profile,aboutMe,I'm a Web Content Manager,language,en,city,San Francisco,region,CA,streetAddress,11 Pacific Highway,url,http://www.geometrixx.com,occupation,Manager
+Users,rebekah.larsen@trashymail.com,Profile,aboutMe,I'm a Community Administrator,language,en,city,San Jose,region,CA,streetAddress,11 Pacific Highway,url,http://www.geometrixx.com,occupation,Director
+Users,weston.mccall@dodgit.com,Profile,aboutMe,I'm a Community Member ,language,en,city,San Francisco,region,CA,streetAddress,11 Pacific Highway,url,http://www.geometrixx.com,occupation,Manager
+Users,aaron.mcdonald@mailinator.com,Profile,aboutMe,I'm a Community Manager,language,en,city,San Jose,region,CA,streetAddress,11 Pacific Highway,url,http://www.geometrixx.com,occupation,Director
+Users,emily.andrews@mailinator.com,Profile,aboutMe,I'm a Community Privileged Member,language,en,city,San Francisco,region,CA,streetAddress,11 Pacific Highway,url,http://www.geometrixx.com,occupation,Employee
+Users,felicia.carter@trashymail.com,Profile,aboutMe,I'm a Community Member,language,fr,city,Toronto,region,ON,streetAddress,11 Pacific Highway,url,http://www.geometrixx.com,occupation,Employee
+# Blackcomb Gloves Women,,,,,,,,,,,,,,,,
+Reviews,/etc/commerce/products/we-retail/me/coats/meskwielt/jcr:content/reviews.social.json,,,,,,,,,,,,,,,
+aaron.mcdonald@mailinator.com,0,This is a great coat,Overall;4;,/content/we-retail/language-masters/en/products/equipment/skiing/blackcomb-snow/jcr:content/root/responsivegrid/reviews,we-retail/components/hbs/reviews,,,,,,,,,,,
+jason.werner@dodgit.com,0,"I agree, super product",Overall;3;,/content/we-retail/language-masters/en/products/equipment/skiing/blackcomb-snow/jcr:content/root/responsivegrid/reviews,we-retail/components/hbs/reviews,,,,,,,,,,,
+weston.mccall@dodgit.com,0,"Super product, +1!",Overall;3;,/content/we-retail/language-masters/en/products/equipment/skiing/blackcomb-snow/jcr:content/root/responsivegrid/reviews,we-retail/components/hbs/reviews,,,,,,,,,,,
