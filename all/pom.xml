@@ -58,11 +58,7 @@
         <profile>
             <id>buildSinglePackage</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
-                <property>
-                    <name>arguments</name>
-                    <value>-Prelease</value>
-                </property>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <maven.test.skip>true</maven.test.skip>
