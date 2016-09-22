@@ -75,7 +75,7 @@
                     <scmCommentPrefix>@releng [maven-scm] :</scmCommentPrefix>
                     <preparationGoals>clean install</preparationGoals>
                     <goals>deploy</goals>
-                    <releaseProfiles>release</releaseProfiles>
+                    <releaseProfiles>release,buildSinglePackage</releaseProfiles>
                     <projectVersionPolicyId>OddEvenVersionPolicy</projectVersionPolicyId>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
