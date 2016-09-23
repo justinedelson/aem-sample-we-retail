@@ -21,5 +21,7 @@
     <filter root="/content/catalogs/we-retail/en/website-template-pages"/>
     <filter root="/content/dam/collections/w/we-retail" mode="merge"/>
     <filter root="/content/we-retail"/>
-    <filter root="/content/start"/>
+    <filter root="/content" mode="update">
+        <exclude pattern="/content/(.*)?" />
+    </filter>
 </workspaceFilter>

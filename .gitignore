@@ -47,7 +47,6 @@ ui.apps/src/main/content/jcr_root/etc/cloudservices/audiencemanager/.content.xml
 ui.apps/src/main/content/jcr_root/etc/cloudservices/dynamictagmanagement/.content.xml
 
 ui.content/src/main/content/jcr_root/.content.xml
-ui.content/src/main/content/jcr_root/content/.content.xml
 ui.content/src/main/content/jcr_root/content/dam/.content.xml
 ui.content/src/main/content/jcr_root/content/forms/.content.xml
 ui.content/src/main/content/jcr_root/content/forms/af/.content.xml
