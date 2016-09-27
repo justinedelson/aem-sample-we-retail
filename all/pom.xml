@@ -91,7 +91,7 @@
                                 </subPackage>
                                 <subPackage>
                                     <groupId>com.adobe.cq</groupId>
-                                    <artifactId>com.adobe.cq.wcm.core.components.all</artifactId>
+                                    <artifactId>com.adobe.cq.wcm.core.components.content</artifactId>
                                     <filter>true</filter>
                                 </subPackage>
                             </subPackages>
@@ -156,7 +156,7 @@
                                 </subPackage>
                                 <subPackage>
                                     <groupId>com.adobe.cq</groupId>
-                                    <artifactId>com.adobe.cq.wcm.core.components.all</artifactId>
+                                    <artifactId>com.adobe.cq.wcm.core.components.content</artifactId>
                                     <filter>true</filter>
                                 </subPackage>
                             </subPackages>
@@ -177,8 +177,8 @@
         </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>
-            <artifactId>com.adobe.cq.wcm.core.components.all</artifactId>
-            <version>0.9.18</version>
+            <artifactId>com.adobe.cq.wcm.core.components.content</artifactId>
+            <version>0.9.2</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
