@@ -11,7 +11,7 @@
                                 <items jcr:primaryType="nt:unstructured">
                                     <displayAs
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/foundation/form/select"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                         fieldLabel="Display as"
                                         name="./displayAs">
                                         <items
