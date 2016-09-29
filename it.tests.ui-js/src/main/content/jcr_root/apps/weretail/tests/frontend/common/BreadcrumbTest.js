@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 ;(function(h) {
-    var BREADCRUMB_CLASS = ".breadcrumb";
+    var BREADCRUMB_CLASS = ".core-breadcrumb";
     var BREADCRUMB_ITEMS = "li a";
 
     window.CQ.WeRetailIT.BreadcrumbTest = function (h, $, items) {
