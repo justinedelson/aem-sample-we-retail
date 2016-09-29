@@ -17,7 +17,7 @@
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
-                <cq:responsive jcr:primaryType="nt:unstructured"/>
+                <cq:responsive/>
                 <breadcrumb
                     jcr:created="{Date}2016-09-20T23:26:30.627+02:00"
                     jcr:createdBy="admin"
@@ -26,14 +26,10 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/breadcrumb"
                     absParent="5"
-                    relParent="1"/>
-                <title
-                    jcr:created="{Date}2016-09-20T23:26:52.259+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2016-09-20T23:26:52.259+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="weretail/components/content/title"/>
+                    hideCurrent="true"
+                    relParent="1"
+                    startLevel="5"/>
+                <title/>
             </responsivegrid>
         </root>
     </jcr:content>

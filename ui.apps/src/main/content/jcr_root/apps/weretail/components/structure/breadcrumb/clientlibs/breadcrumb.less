@@ -16,22 +16,36 @@
 
 @import (reference) "/etc/designs/we-retail/common/variables.less";
 
-.breadcrumb {
+.core-breadcrumb {
     text-align: center;
     min-height: 20px;
     margin-bottom: 0;
+    padding: 8px 15px;
+}
 
-    li {
+.core-breadcrumb-item {
+    float: none;
+    display: inline-block;
+    & > a {
+        font-weight: 600;
+        color: @breadcrumb-color;
+    }
+
+    & + &::before {
+        padding: 0 10px;
+        color: @breadcrumb-delim-color;
+    }
+
+    &--active {
+        float: none;
+        display: inline-block;
+
         & > a {
-            font-weight: 600;
-            color: @breadcrumb-color;
-        }
-
-        &.active > a {
             color: @breadcrumb-active-color;
         }
 
-        &.breadcrumb-delim {
+        .core-breadcrumb-item + &::before {
+            padding: 0 10px;
             color: @breadcrumb-delim-color;
         }
     }
