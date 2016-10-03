@@ -20,7 +20,7 @@
         <groupId>we</groupId>
         <artifactId>we.retail</artifactId>
         <version>1.9.0</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>we.retail.core</artifactId>
