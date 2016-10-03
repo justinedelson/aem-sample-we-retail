@@ -19,7 +19,7 @@
     <groupId>we</groupId>
     <artifactId>we.retail</artifactId>
     <packaging>pom</packaging>
-    <version>1.9.1-SNAPSHOT</version>
+    <version>1.9.2</version>
     <description>We.Retail</description>
 
     <properties>
@@ -39,7 +39,7 @@
         <connection>scm:git:https://git.corp.adobe.com/CQ/aem-sample-we-retail.git</connection>
         <developerConnection>scm:git:git@git.corp.adobe.com:CQ/aem-sample-we-retail.git</developerConnection>
         <url>https://git.corp.adobe.com/CQ/aem-sample-we-retail</url>
-      <tag>HEAD</tag>
+      <tag>we.retail-1.9.2</tag>
   </scm>
 
     <build>
