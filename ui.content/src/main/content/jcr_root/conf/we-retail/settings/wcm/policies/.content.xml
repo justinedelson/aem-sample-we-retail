@@ -153,7 +153,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:Form,/apps/weretail/components/content/text,/apps/weretail/components/content/title,/apps/weretail/components/structure/breadcrumb]">
+                        components="[group:Form,/apps/weretail/components/content/text,/apps/weretail/components/content/title,/apps/weretail/components/content/breadcrumb]">
                         <jcr:content
                             jcr:primaryType="nt:unstructured"
                             mergeList="{Boolean}true"/>

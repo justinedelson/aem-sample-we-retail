@@ -12,7 +12,7 @@
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <breadcrumb
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="weretail/components/structure/breadcrumb"/>
+                sling:resourceType="weretail/components/content/breadcrumb"/>
             <product
                 cq:commerceType="product"
                 jcr:primaryType="nt:unstructured"
