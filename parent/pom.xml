@@ -164,6 +164,8 @@
                         <exclude>**/jcr_root/**/*.xml</exclude>
                         <!-- Ignore auto-generated VLT file -->
                         <exclude>**/META-INF/vault/settings.xml</exclude>
+                        <!-- Ignore .vlt files -->
+                        <exclude>**/.vlt</exclude>
                         <!-- Ignore .vltignore files -->
                         <exclude>**/.vltignore</exclude>
                         <!-- Ignore vendor files -->
