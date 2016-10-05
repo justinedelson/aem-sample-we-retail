@@ -22,6 +22,12 @@
     <filter root="/etc/clientlibs/we-retail"/>
     <filter root="/etc/designs/we-retail"/>
     <filter root="/etc/cloudservices/dynamictagmanagement/we-retail-dtm"/>
-    <filter root="/etc/replication" mode="merge"/>
+    <filter root="/etc/replication/agents.author/flush"/>
+    <filter root="/etc/replication/agents.author/publish"/>
+    <filter root="/etc/replication/agents.author/publish_reverse"/>
+    <filter root="/etc/replication/agents.author/static"/>
+    <filter root="/etc/replication/agents.author/test_and_target"/>
+    <filter root="/etc/replication/agents.publish/flush"/>
+    <filter root="/etc/replication/agents.publish/outbox"/>
     <filter root="/apps/social/console/components/hbs/sitepage" mode="update"/>
 </workspaceFilter>
