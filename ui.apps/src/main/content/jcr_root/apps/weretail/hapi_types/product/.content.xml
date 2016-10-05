@@ -18,7 +18,12 @@
         type="org.apache.sling.hapi.common.Text"/>
     <description
         jcr:primaryType="nt:unstructured"
-        description="Description of&#xa; the product"
+        description="Description of the product"
+        multiple="{Boolean}false"
+        type="org.apache.sling.hapi.common.Text"/>
+    <summary
+        jcr:primaryType="nt:unstructured"
+        description="Summary of the product"
         multiple="{Boolean}false"
         type="org.apache.sling.hapi.common.Text"/>
     <sku
