@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Breadcrumb"
     sling:resourceSuperType="core/wcm/components/breadcrumb"
-    componentGroup="We.Retail.Structure"/>
+    componentGroup="We.Retail"/>
