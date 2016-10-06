@@ -20,10 +20,10 @@
         jcr:primaryType="nt:unstructured"
         description="Asset of the Entry"
         multiple="{Boolean}false"
-        type="&#x9;&#xa;org.apache.sling.hapi.common.Text"/>
+        type="org.apache.sling.hapi.common.Text"/>
     <price
         jcr:primaryType="nt:unstructured"
-        description="Price of&#xa; the entry"
+        description="Price of the entry"
         multiple="{Boolean}false"
         type="org.apache.sling.hapi.common.Text"/>
 </jcr:root>

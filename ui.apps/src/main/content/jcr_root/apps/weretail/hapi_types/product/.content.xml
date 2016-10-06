@@ -33,22 +33,22 @@
         type="org.apache.sling.hapi.common.Text"/>
     <color
         jcr:primaryType="nt:unstructured"
-        description="Color of&#xa; the product"
+        description="Color of the product"
         multiple="{Boolean}false"
         type="org.apache.sling.hapi.common.Text"/>
     <size
         jcr:primaryType="nt:unstructured"
-        description="Size of&#xa; the product"
+        description="Size of the product"
         multiple="{Boolean}false"
         type="org.apache.sling.hapi.common.Text"/>
     <price
         jcr:primaryType="nt:unstructured"
-        description="Price of&#xa; the product"
+        description="Price of the product"
         multiple="{Boolean}false"
         type="org.apache.sling.hapi.common.Text"/>
     <tags
         jcr:primaryType="nt:unstructured"
-        description="Tags of&#xa; the product"
+        description="Tags of the product"
         multiple="{Boolean}true"
         type="/apps/weretail/hapi_types/tag"/>
     <assets
@@ -58,7 +58,7 @@
         type="/apps/weretail/hapi_types/asset"/>
     <variants
         jcr:primaryType="nt:unstructured"
-        description="Variants of&#xa; the product"
+        description="Variants of the product"
         multiple="{Boolean}true"
         type="/apps/weretail/hapi_types/product"/>
 </jcr:root>
