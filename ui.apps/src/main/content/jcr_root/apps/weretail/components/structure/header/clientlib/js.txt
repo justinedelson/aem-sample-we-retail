@@ -18,3 +18,4 @@
 
 modal-search.js
 subitems.js
+profile-store.js
