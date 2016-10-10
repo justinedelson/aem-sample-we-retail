@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
-        cq:template="/conf/we-retail/settings/wcm/templates/product-page"
+        cq:template="/conf/we-retail/settings/wcm/templates/section-page"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="weretail/components/structure/page">
         <root

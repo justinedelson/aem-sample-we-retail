@@ -12,7 +12,7 @@
     <allow1
         jcr:primaryType="rep:GrantACE"
         rep:principalName="template-authors"
-        rep:privileges="{Name}[jcr:versionManagement,crx:replicate,jcr:lockManagement,rep:write]"/>
+        rep:privileges="{Name}[jcr:versionManagement,crx:replicate,rep:write,jcr:lockManagement]"/>
     <allow2
         jcr:primaryType="rep:GrantACE"
         rep:principalName="version-manager-service"

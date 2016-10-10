@@ -4,7 +4,7 @@
     <jcr:content
         cq:lastModified="{Date}2016-09-15T22:32:07.374+02:00"
         cq:lastModifiedBy="admin"
-        cq:template="/conf/we-retail/settings/wcm/templates/product-page"
+        cq:template="/conf/we-retail/settings/wcm/templates/section-page"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="weretail/components/structure/page">
         <root

@@ -72,12 +72,12 @@
                     </we-retail-default>
                     <we-retail-structure
                         jcr:description="Policy for templates to allow structure components"
-                        jcr:lastModified="{Date}2016-09-16T07:50:39.617+02:00"
+                        jcr:lastModified="{Date}2016-10-10T22:34:33.689+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Structure"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:We.Retail,group:We.Retail.Structure,/libs/wcm/foundation/components/responsivegrid,/libs/cq/experience-fragments/editor/components/experiencefragment]"
+                        components="[/libs/wcm/foundation/components/responsivegrid,group:We.Retail,group:We.Retail.Structure]"
                         policyResourceType="wcm/foundation/components/responsivegrid">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -212,7 +212,63 @@
                             mergeList="{Boolean}true"/>
                     </we-retail-product-page>
                 </breadcrumb>
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="nt:unstructured">
+                    <we-retail-hero-page
+                        jcr:description=""
+                        jcr:lastModified="{Date}2016-10-10T23:42:54.948+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="We.Retail Title policy - Hero Page"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        defaultType="h2">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </we-retail-hero-page>
+                    <we-retial-section-page
+                        jcr:description=""
+                        jcr:lastModified="{Date}2016-10-10T17:23:17.909+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="We.Retail Title policy - Section Page"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        defaultType="h2">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </we-retial-section-page>
+                </title>
             </content>
         </components>
     </weretail>
+    <core
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="nt:unstructured">
+        <wcm
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="nt:unstructured">
+            <components
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nt:unstructured">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="nt:unstructured">
+                    <policy_1475741491582
+                        jcr:description=""
+                        jcr:lastModified="{Date}2016-10-06T10:11:49.934+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="title"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        defaultType="h2">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </policy_1475741491582>
+                </title>
+            </components>
+        </wcm>
+    </core>
 </jcr:root>
