@@ -18,7 +18,7 @@
         <p>${item @ context="html"}</p>
         <div data-sly-resource="${'par{0}' @ format=itemList.index, resourceType='wcm/foundation/components/responsivegrid'}"></div>
     </div>
-    <span data-sly-test="${wcmmode.edit}" class="cq-contentfragment-details"
+    <span data-sly-test="${!wcmmode.disabled}" class="cq-contentfragment-details"
           data-fragment-title="${fragment.title}"
           data-fragment-path="${fragment.path}"
           data-fragment-element="${fragment.element}"
