@@ -16,14 +16,14 @@
 
 @import (reference) "/etc/designs/we-retail/common/variables.less";
 
-.core-breadcrumb {
+.cmp .breadcrumb {
     text-align: center;
     min-height: 20px;
     margin-bottom: 0;
     padding: 8px 15px;
 }
 
-.core-breadcrumb-item {
+.cmp .breadcrumb-item {
     float: none;
     display: inline-block;
     & > a {
@@ -31,7 +31,7 @@
         color: @breadcrumb-color;
     }
 
-    & + &::before {
+    & + .breadcrumb-item::before {
         padding: 0 10px;
         color: @breadcrumb-delim-color;
     }
@@ -44,7 +44,7 @@
             color: @breadcrumb-active-color;
         }
 
-        .core-breadcrumb-item + &::before {
+        .breadcrumb-item + .breadcrumb-item::before {
             padding: 0 10px;
             color: @breadcrumb-delim-color;
         }
