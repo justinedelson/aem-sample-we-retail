@@ -50,15 +50,15 @@
         jcr:primaryType="nt:unstructured"
         description="Tags of the product"
         multiple="{Boolean}true"
-        type="/apps/weretail/hapi_types/tag"/>
+        type="/apps/public/weretail/hapi_types/tag"/>
     <assets
         jcr:primaryType="nt:unstructured"
         description="Assets of the product"
         multiple="{Boolean}true"
-        type="/apps/weretail/hapi_types/asset"/>
+        type="/apps/public/weretail/hapi_types/asset"/>
     <variants
         jcr:primaryType="nt:unstructured"
         description="Variants of the product"
         multiple="{Boolean}true"
-        type="/apps/weretail/hapi_types/product"/>
+        type="/apps/public/weretail/hapi_types/product"/>
 </jcr:root>

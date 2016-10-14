@@ -17,7 +17,7 @@
      data-sly-use.product="we.retail.core.model.Product"
      sku="${ product.baseProduct.SKU }"
      page-path="${ product.baseProduct.pagePath }"
-     data-sly-use.hapiProduct="${ 'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/weretail/hapi_types/product' }"
+     data-sly-use.hapiProduct="${ 'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/product' }"
      data-sly-attribute="${ hapiProduct.itemtype }">
 
     <div data-sly-test="${ wcmmode.edit && !product.variants && !product.exists }" class="cq-placeholder"
@@ -100,7 +100,7 @@
             <form class="we-Product-form"
                   action="${ product.addToCartUrl }"
                   method="POST"
-                  data-sly-use.hapiProductForm="${ 'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/weretail/hapi_types/addcartentryform' }"
+                  data-sly-use.hapiProductForm="${ 'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/addcartentryform' }"
                   data-sly-attribute="${ hapiProductForm.itemtype }"
                   data-rel="addCartEntryForm">
                 <input type="hidden" name="redirect" value="${product.redirect}.html" data-sly-attribute="${ hapiProductForm.itemprop.redirectPath }" />

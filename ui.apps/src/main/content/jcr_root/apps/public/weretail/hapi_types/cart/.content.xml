@@ -10,7 +10,7 @@
         jcr:primaryType="nt:unstructured"
         description="Entries in the Shopping Cart"
         multiple="{Boolean}true"
-        type="/apps/weretail/hapi_types/cartentry"/>
+        type="/apps/public/weretail/hapi_types/cartentry"/>
     <totalPrice
         jcr:primaryType="nt:unstructured"
         description="Total sum of the shopping cart"

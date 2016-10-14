@@ -10,7 +10,7 @@
         jcr:primaryType="nt:unstructured"
         description="Product of the entry"
         multiple="{Boolean}false"
-        type="/apps/weretail/hapi_types/product"/>
+        type="/apps/public/weretail/hapi_types/product"/>
     <quantity
         jcr:primaryType="nt:unstructured"
         description="Quantity of the entry"

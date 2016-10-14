@@ -19,6 +19,7 @@
         <exclude pattern="/apps/weretail/install"/>
         <exclude pattern="/apps/weretail/tests"/>
     </filter>
+    <filter root="/apps/public/weretail"/>
     <filter root="/etc/clientlibs/we-retail"/>
     <filter root="/etc/designs/we-retail"/>
     <filter root="/etc/cloudservices/dynamictagmanagement/we-retail-dtm"/>
