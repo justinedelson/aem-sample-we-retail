@@ -15,7 +15,7 @@
 */-->
 <div data-sly-use.fragment="ContentFragmentUsePojo" class="${fragment.cssClass}" data-emptytext="Content Fragment">
     <div data-sly-list="${fragment.paragraphs}">
-        <p>${item @ context="html"}</p>
+        ${item @ context="html"}
         <div data-sly-resource="${'par{0}' @ format=itemList.index, resourceType='wcm/foundation/components/responsivegrid'}"></div>
     </div>
     <span data-sly-test="${!wcmmode.disabled}" class="cq-contentfragment-details"
