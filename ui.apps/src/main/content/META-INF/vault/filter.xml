@@ -23,6 +23,13 @@
     <filter root="/etc/clientlibs/we-retail"/>
     <filter root="/etc/designs/we-retail"/>
     <filter root="/etc/cloudservices/dynamictagmanagement/we-retail-dtm"/>
+
+    <filter root="/etc/blueprints/weretail-english"/>
+    <filter root="/etc/blueprints/weretail-french"/>
+    <filter root="/etc/blueprints/weretail-german"/>
+    <filter root="/etc/blueprints/weretail-italian"/>
+    <filter root="/etc/blueprints/weretail-spanish"/>
+
     <filter root="/etc/replication/agents.author/flush"/>
     <filter root="/etc/replication/agents.author/publish"/>
     <filter root="/etc/replication/agents.author/publish_reverse"/>
