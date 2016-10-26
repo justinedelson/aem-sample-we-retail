@@ -71,6 +71,9 @@
                         value="true"/>
                 </items>
             </column>
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:hideResource="{Boolean}true"/>
         </items>
     </content>
 </jcr:root>
