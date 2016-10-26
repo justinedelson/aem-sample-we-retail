@@ -546,10 +546,16 @@
             </responsivegrid>
         </root>
         <cq:LiveSyncConfig
-            cq:excludedPaths="[men,equipment,about-us,experience,user,women,products]"
             cq:isDeep="{Boolean}true"
             cq:master="/content/we-retail/language-masters/en"
             cq:rolloutConfigs="[/etc/msm/rolloutconfigs/default]"
             jcr:primaryType="cq:LiveCopy"/>
     </jcr:content>
+    <experience/>
+    <men/>
+    <women/>
+    <equipment/>
+    <about-us/>
+    <products/>
+    <user/>
 </jcr:root>
