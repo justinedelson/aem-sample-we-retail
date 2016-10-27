@@ -240,6 +240,23 @@
                             mergeList="{Boolean}true"/>
                     </we-retial-section-page>
                 </title>
+                <contentfragment
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="We.Retail Content Fragment policy"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <default
+                        jcr:lastModified="{Date}2016-10-25T17:12:03.197+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="We.Retail Content Fragment policy - Default"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        cfm-grid-type="dam/cfm/components/grid"
+                        mmf-image-type="dam/cfm/components/mmimage">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </default>
+                </contentfragment>
             </content>
         </components>
     </weretail>
