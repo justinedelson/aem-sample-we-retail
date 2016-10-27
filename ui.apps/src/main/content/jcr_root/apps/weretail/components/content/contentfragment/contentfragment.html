@@ -16,7 +16,7 @@
 <div data-sly-use.fragment="ContentFragmentUsePojo" class="${fragment.cssClass}" data-emptytext="Content Fragment">
     <div data-sly-list="${fragment.paragraphs}">
         ${item @ context="html"}
-        <div data-sly-resource="${'par{0}' @ format=itemList.index, resourceType='dam/cfm/components/grid'}"></div>
+        <div data-sly-resource="${'par{0}' @ format=itemList.index, resourceType=fragment.gridResourceType}"></div>
     </div>
     <span data-sly-test="${!wcmmode.disabled}" class="cq-contentfragment-details"
           data-fragment-title="${fragment.title}"
