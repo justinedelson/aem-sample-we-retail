@@ -25,31 +25,29 @@
             'sku',
             'title',
             'description',
-            'color',
-            'colorClass',
-            'size',
             'price',
             'summary',
             'features',
-            'image'
+            'image',
+            'variantAxes'
         ],
         compiled: function () {
             var self = this, data = {};
 
             Object.getOwnPropertyNames(this._props).forEach(function (prop) {
-                data[prop] = self[prop];
+                if (prop == 'variantAxes') {
+                	data[prop] = JSON.parse(self[prop]);
+                }
+                else {
+                	data[prop] = self[prop];
+                }
             });
 
             self.$parent.variants.push(data);
 
-            if (typeof data.color !== 'undefined') {
-                var colorVariants = self.$parent.colorVariants[data.color];
-
-                self.$parent.colorVariants[data.color] = colorVariants ? colorVariants + 1 : 1;
-            }
-
             if (!!parseInt(self.isBase, 10)) {
                 self.$parent.product = data;
+                self.$parent.variantAxes = JSON.parse(JSON.stringify(data.variantAxes));
             }
         }
     });
@@ -60,11 +58,11 @@
             el: '.we-Product',
             data: {
                 variants: [],
-                colorVariants: {},
                 product: null,
+                variantAxes: null,
 
-                isChecked: function (productSku) {
-                    return productSku === this.product.sku;
+                isChecked: function(name, value) {
+                	return this.product.variantAxes[name] == value;
                 }
             },
             props: [
@@ -76,20 +74,37 @@
                 this.trackView();
             },
             methods: {
-                _setProduct: function(sku) {
+                _setProduct: function(name, value) {
                     var self = this;
+                    self.variantAxes[name] = value;
 
+                    var done = false;
                     self.variants.forEach(function (product) {
-                        if (product.sku === sku) {
-                            self.product = product;
-                        }
+                    	if (done) {
+                    		return;
+                    	}
+                    	
+                    	var ok = true;
+                    	for (var key in self.variantAxes) {
+                    		if (self.variantAxes.hasOwnProperty(key)) {
+                    			if (product.variantAxes[key] != self.variantAxes[key]) {
+                    				ok = false;
+                        			break;
+                        		}
+                    		}
+                    	}
+                    	
+                    	if (ok)
+                    	{
+                    		done = true;
+                    		self.product = product;
+                    	}
                     });
                 },
                 setProduct: function (event) {
-                    this._setProduct(event.currentTarget.attributes['data-sku'].value);
-                },
-                showSizes: function () {
-                    return this.colorVariants[this.product.color] > 1 || Object.keys(this.colorVariants).length === 0;
+                	var name = event.currentTarget.attributes['name'].value;
+                	var value = event.currentTarget.attributes['value'].value;
+                    this._setProduct(name, value);
                 },
                 trackView: function() {
                     if (this.product && window.ContextHub && ContextHub.getStore("recentlyviewed")) {
