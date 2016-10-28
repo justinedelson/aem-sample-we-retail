@@ -40,7 +40,7 @@
             // Load men page
             .execTestCase(window.CQ.WeRetailIT.MenPageLoadTest(h, $))
             // Test navbar
-            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 5))
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             // Test hero image
             .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
             // Test featured products
@@ -61,7 +61,7 @@
             // Load women page
             .execTestCase(window.CQ.WeRetailIT.WomenPageLoadTest(h, $))
             // Test navbar
-            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 5))
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             // Test hero image
             .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
             // Test featured products
@@ -82,7 +82,7 @@
             // Load equipment page
             .execTestCase(window.CQ.WeRetailIT.EquipmentPageLoadTest(h, $))
             // Test navbar
-            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 5))
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             // Test hero image
             .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
             // Test featured categories

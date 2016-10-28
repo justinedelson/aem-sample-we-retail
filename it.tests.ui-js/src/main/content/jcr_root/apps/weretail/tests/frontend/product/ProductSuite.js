@@ -87,7 +87,7 @@
             // Load men products page
             .execTestCase(window.CQ.WeRetailIT.MenProductsPageLoadTest(h, $))
             // Test navbar
-            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 5))
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             // Test products
             .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 19))
             // Test first product
@@ -100,7 +100,7 @@
             // Load women products page
             .execTestCase(window.CQ.WeRetailIT.WomenProductsPageLoadTest(h, $))
             // Test navbar
-            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 5))
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             // Test products
             .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 12))
             // Test first product
@@ -113,7 +113,7 @@
             // Load equipment products page
             .execTestCase(window.CQ.WeRetailIT.EquipmentProductsPageLoadTest(h, $))
             // Test navbar
-            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 5))
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             // Test products
             .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 33))
             // Test first product
@@ -126,7 +126,7 @@
             // Load product page
             .execTestCase(window.CQ.WeRetailIT.ProductPageLoadTest(h, $))
             // Test navbar
-            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 5))
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             // Test breadcrumb
             .execTestCase(window.CQ.WeRetailIT.BreadcrumbTest(h, $, ["Men", "Coats"]))
             // Test product details
