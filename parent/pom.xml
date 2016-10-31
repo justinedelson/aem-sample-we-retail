@@ -20,6 +20,8 @@
     <artifactId>we.retail</artifactId>
     <packaging>pom</packaging>
     <version>1.9.9-SNAPSHOT</version>
+
+    <name>We.Retail - Parent POM</name>
     <description>We.Retail</description>
 
     <properties>
@@ -39,8 +41,8 @@
         <connection>scm:git:https://git.corp.adobe.com/CQ/aem-sample-we-retail.git</connection>
         <developerConnection>scm:git:git@git.corp.adobe.com:CQ/aem-sample-we-retail.git</developerConnection>
         <url>https://git.corp.adobe.com/CQ/aem-sample-we-retail/tree/master/parent</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <build>
         <plugins>
@@ -388,6 +390,21 @@
                     <groupId>org.apache.rat</groupId>
                     <artifactId>apache-rat-plugin</artifactId>
                     <version>0.12</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.sling</groupId>
+                    <artifactId>htl-maven-plugin</artifactId>
+                    <version>1.0.2</version>
+                    <configuration>
+                        <failOnWarnings>true</failOnWarnings>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>validate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
