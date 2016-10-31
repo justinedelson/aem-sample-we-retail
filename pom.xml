@@ -37,7 +37,7 @@
         <module>it.tests.ui-js</module>
         <module>it.launcher</module>
         <module>all</module>
-	<module>parent</module>
+        <module>parent</module>
     </modules>
 
     <scm>
