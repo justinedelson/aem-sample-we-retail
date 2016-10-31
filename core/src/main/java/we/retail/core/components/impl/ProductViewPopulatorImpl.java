@@ -42,97 +42,97 @@ import we.retail.core.view.ProductView;
 @Properties(value = { @Property(name = "service.description", value = "We.Retail commerce product populator") })
 public class ProductViewPopulatorImpl implements ProductViewPopulator {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ProductViewPopulatorImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductViewPopulatorImpl.class);
 
-	private static final String PN_FEATURES = "features";
-	private static final String PN_SUMMARY = "summary";
-	private static final String PN_FILE_REFERENCE = "fileReference";
+    private static final String PN_FEATURES = "features";
+    private static final String PN_SUMMARY = "summary";
+    private static final String PN_FILE_REFERENCE = "fileReference";
 
-	@Override
-	public ProductView populate(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver) {
-		return populate(product, commerceSession, resourceResolver, null);
-	}
+    @Override
+    public ProductView populate(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver) {
+        return populate(product, commerceSession, resourceResolver, null);
+    }
 
-	private ProductView populate(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver,
-			ProductView baseProductView) {
+    private ProductView populate(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver,
+            ProductView baseProductView) {
 
-		ProductView productView = new ProductView();
-		productView.setPath(product.getPath());
-		productView.setPagePath(product.getPagePath());
-		productView.setSku(product.getSKU());
-		productView.setTitle(product.getTitle());
-		productView.setDescription(product.getDescription());
+        ProductView productView = new ProductView();
+        productView.setPath(product.getPath());
+        productView.setPagePath(product.getPagePath());
+        productView.setSku(product.getSKU());
+        productView.setTitle(product.getTitle());
+        productView.setDescription(product.getDescription());
 
-		productView.setSummary(product.getProperty(PN_SUMMARY, String.class));
-		productView.setFeatures(product.getProperty(PN_FEATURES, String.class));
+        productView.setSummary(product.getProperty(PN_SUMMARY, String.class));
+        productView.setFeatures(product.getProperty(PN_FEATURES, String.class));
 
-		productView.setImage(getImage(product, resourceResolver));
+        productView.setImage(getImage(product, resourceResolver));
 
-		try {
-			productView.setPrice(commerceSession.getProductPrice(product));
-		} catch (CommerceException e) {
-			LOGGER.error("Error getting the product price: {}", e);
-		}
+        try {
+            productView.setPrice(commerceSession.getProductPrice(product));
+        } catch (CommerceException e) {
+            LOGGER.error("Error getting the product price: {}", e);
+        }
 
-		if (baseProductView == null) {
-			String[] productVariantAxes = product.getProperty(CommerceConstants.PN_PRODUCT_VARIANT_AXES, String[].class);
-			productView.setVariantAxes(productVariantAxes);
-			getAndPopulateAllVariants(product, commerceSession, resourceResolver, productView);
-		} else {
-			getAndPopulateTheVariantAxesValues(baseProductView, product, productView, resourceResolver);
-		}
+        if (baseProductView == null) {
+            String[] productVariantAxes = product.getProperty(CommerceConstants.PN_PRODUCT_VARIANT_AXES, String[].class);
+            productView.setVariantAxes(productVariantAxes);
+            getAndPopulateAllVariants(product, commerceSession, resourceResolver, productView);
+        } else {
+            getAndPopulateTheVariantAxesValues(baseProductView, product, productView, resourceResolver);
+        }
 
-		return productView;
-	}
+        return productView;
+    }
 
-	private void getAndPopulateAllVariants(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver,
-			ProductView productView) {
+    private void getAndPopulateAllVariants(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver,
+            ProductView productView) {
 
-		try {
-			Iterator<Product> variants = product.getVariants();
-			while (variants.hasNext()) {
-				ProductView variant = populate(variants.next(), commerceSession, resourceResolver, productView);
-				productView.addVariant(variant);
-			}
+        try {
+            Iterator<Product> variants = product.getVariants();
+            while (variants.hasNext()) {
+                ProductView variant = populate(variants.next(), commerceSession, resourceResolver, productView);
+                productView.addVariant(variant);
+            }
 
-			// If there are no variants, the product itself is defined as the first variant
-			if (productView.getVariants().isEmpty()) {
-				productView.addVariant(productView);
-			}
+            // If there are no variants, the product itself is defined as the first variant
+            if (productView.getVariants().isEmpty()) {
+                productView.addVariant(productView);
+            }
 
-		} catch (CommerceException e) {
-			LOGGER.error("Error getting the product variants: {}", e);
-		}
-	}
+        } catch (CommerceException e) {
+            LOGGER.error("Error getting the product variants: {}", e);
+        }
+    }
 
-	private void getAndPopulateTheVariantAxesValues(ProductView baseProductView, Product product, ProductView productView,
-			ResourceResolver resourceResolver) {
+    private void getAndPopulateTheVariantAxesValues(ProductView baseProductView, Product product, ProductView productView,
+            ResourceResolver resourceResolver) {
 
-		for (String variantAxis : baseProductView.getVariantAxes()) {
-			String value = product.getProperty(variantAxis, String.class);
-			if (value != null) {
-				productView.addVariantAxisValue(variantAxis, value);
-			}
-		}
-	}
+        for (String variantAxis : baseProductView.getVariantAxes()) {
+            String value = product.getProperty(variantAxis, String.class);
+            if (value != null) {
+                productView.addVariantAxisValue(variantAxis, value);
+            }
+        }
+    }
 
-	private String getImage(Product product, ResourceResolver resourceResolver) {
-		ImageResource image = product.getImage();
-		if (image == null) {
-			return null;
-		}
-		Resource productImageRes = resourceResolver.getResource(image.getPath());
-		return getFileReference(productImageRes);
-	}
+    private String getImage(Product product, ResourceResolver resourceResolver) {
+        ImageResource image = product.getImage();
+        if (image == null) {
+            return null;
+        }
+        Resource productImageRes = resourceResolver.getResource(image.getPath());
+        return getFileReference(productImageRes);
+    }
 
-	private String getFileReference(Resource productImageResource) {
-		if (productImageResource != null) {
-			ValueMap valueMap = productImageResource.adaptTo(ValueMap.class);
-			if (valueMap != null && valueMap.containsKey(PN_FILE_REFERENCE)) {
-				return valueMap.get(PN_FILE_REFERENCE, StringUtils.EMPTY);
-			}
-		}
-		return StringUtils.EMPTY;
-	}
+    private String getFileReference(Resource productImageResource) {
+        if (productImageResource != null) {
+            ValueMap valueMap = productImageResource.adaptTo(ValueMap.class);
+            if (valueMap != null && valueMap.containsKey(PN_FILE_REFERENCE)) {
+                return valueMap.get(PN_FILE_REFERENCE, StringUtils.EMPTY);
+            }
+        }
+        return StringUtils.EMPTY;
+    }
 
 }
