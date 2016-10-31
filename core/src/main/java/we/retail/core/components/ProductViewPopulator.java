@@ -24,6 +24,6 @@ import we.retail.core.view.ProductView;
 
 public interface ProductViewPopulator {
 
-	public ProductView populate(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver);
+    public ProductView populate(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver);
 
 }

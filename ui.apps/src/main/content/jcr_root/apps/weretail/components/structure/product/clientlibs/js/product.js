@@ -36,10 +36,10 @@
 
             Object.getOwnPropertyNames(this._props).forEach(function (prop) {
                 if (prop == 'variantAxes') {
-                	data[prop] = JSON.parse(self[prop]);
+                    data[prop] = JSON.parse(self[prop]);
                 }
                 else {
-                	data[prop] = self[prop];
+                    data[prop] = self[prop];
                 }
             });
 
@@ -62,7 +62,7 @@
                 variantAxes: null,
 
                 isChecked: function(name, value) {
-                	return this.product.variantAxes[name] == value;
+                    return this.product.variantAxes[name] == value;
                 }
             },
             props: [
@@ -80,30 +80,30 @@
 
                     var done = false;
                     self.variants.forEach(function (product) {
-                    	if (done) {
-                    		return;
-                    	}
-                    	
-                    	var ok = true;
-                    	for (var key in self.variantAxes) {
-                    		if (self.variantAxes.hasOwnProperty(key)) {
-                    			if (product.variantAxes[key] != self.variantAxes[key]) {
-                    				ok = false;
-                        			break;
-                        		}
-                    		}
-                    	}
-                    	
-                    	if (ok)
-                    	{
-                    		done = true;
-                    		self.product = product;
-                    	}
+                        if (done) {
+                            return;
+                        }
+                        
+                        var ok = true;
+                        for (var key in self.variantAxes) {
+                            if (self.variantAxes.hasOwnProperty(key)) {
+                                if (product.variantAxes[key] != self.variantAxes[key]) {
+                                    ok = false;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if (ok)
+                        {
+                            done = true;
+                            self.product = product;
+                        }
                     });
                 },
                 setProduct: function (event) {
-                	var name = event.currentTarget.attributes['name'].value;
-                	var value = event.currentTarget.attributes['value'].value;
+                    var name = event.currentTarget.attributes['name'].value;
+                    var value = event.currentTarget.attributes['value'].value;
                     this._setProduct(name, value);
                 },
                 trackView: function() {

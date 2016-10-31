@@ -40,69 +40,69 @@ import we.retail.core.view.ProductView;
 @Model(adaptables = SlingHttpServletRequest.class)
 public class ProductController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
 
-	@SlingObject
-	private Resource resource;
+    @SlingObject
+    private Resource resource;
 
-	@Inject
-	private ProductViewPopulator productViewPopulator;
+    @Inject
+    private ProductViewPopulator productViewPopulator;
 
-	@SlingObject
-	private SlingHttpServletRequest request;
+    @SlingObject
+    private SlingHttpServletRequest request;
 
-	@SlingObject
-	private SlingHttpServletResponse response;
+    @SlingObject
+    private SlingHttpServletResponse response;
 
-	@SlingObject
-	private ResourceResolver resourceResolver;
+    @SlingObject
+    private ResourceResolver resourceResolver;
 
-	@Self
-	private CommerceHandler commerceHandler;
+    @Self
+    private CommerceHandler commerceHandler;
 
-	private CommerceService commerceService;
-	private Product product;
-	private ProductView productView;
+    private CommerceService commerceService;
+    private Product product;
+    private ProductView productView;
 
-	@PostConstruct
-	private void populateProduct() {
-		try {
-			// The product node represents the node /content/.../jcr:content/root/product
-			// Because WeRetailProductImpl extends AbstractJcrProduct, it will properly extracts the
-			// properties and variants under /etc/commerce/products/we-retail/...
+    @PostConstruct
+    private void populateProduct() {
+        try {
+            // The product node represents the node /content/.../jcr:content/root/product
+            // Because WeRetailProductImpl extends AbstractJcrProduct, it will properly extracts the
+            // properties and variants under /etc/commerce/products/we-retail/...
 
-			product = resource.adaptTo(Product.class);
-			if (product != null) {
-				commerceService = resource.adaptTo(CommerceService.class);
-				CommerceSession commerceSession = commerceService.login(request, response);
-				productView = productViewPopulator.populate(product, commerceSession, resourceResolver);
-			}
-		} catch (CommerceException e) {
-			LOGGER.error("Can't extract product from page", e);
-		}
-	}
+            product = resource.adaptTo(Product.class);
+            if (product != null) {
+                commerceService = resource.adaptTo(CommerceService.class);
+                CommerceSession commerceSession = commerceService.login(request, response);
+                productView = productViewPopulator.populate(product, commerceSession, resourceResolver);
+            }
+        } catch (CommerceException e) {
+            LOGGER.error("Can't extract product from page", e);
+        }
+    }
 
-	public boolean productExists() {
-		return product != null;
-	}
+    public boolean productExists() {
+        return product != null;
+    }
 
-	public boolean productHasVariants() {
-		return productView != null && !productView.getVariants().isEmpty();
-	}
+    public boolean productHasVariants() {
+        return productView != null && !productView.getVariants().isEmpty();
+    }
 
-	public ProductView getProductView() {
-		return productView;
-	}
+    public ProductView getProductView() {
+        return productView;
+    }
 
-	public String getAddToCartUrl() {
-		return commerceHandler.getAddToCardUrl();
-	}
+    public String getAddToCartUrl() {
+        return commerceHandler.getAddToCardUrl();
+    }
 
-	public String getRedirect() {
-		return commerceHandler.getRedirect();
-	}
+    public String getRedirect() {
+        return commerceHandler.getRedirect();
+    }
 
-	public String getErrorRedirect() {
-		return commerceHandler.getErrorRedirect();
-	}
+    public String getErrorRedirect() {
+        return commerceHandler.getErrorRedirect();
+    }
 }
