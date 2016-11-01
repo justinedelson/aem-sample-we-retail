@@ -133,8 +133,10 @@ public class ProductView {
     }
 
     public void setVariantAxes(String[] variantAxes) {
-        for (String axis : variantAxes) {
-            this.variantAxes.add(axis.trim());
+        if (variantAxes != null) {
+            for (String axis : variantAxes) {
+                this.variantAxes.add(axis.trim());
+            }
         }
     }
 
@@ -142,7 +144,7 @@ public class ProductView {
         return variantAxesValues;
     }
 
-    public String getVariantAxesValuesAsJson() {
+    public String getVariantAxesJson() {
         return new JSONObject(variantAxesValues).toString();
     }
 

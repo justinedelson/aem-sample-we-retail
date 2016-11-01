@@ -14,14 +14,12 @@
     limitations under the License.
 */-->
 <div class="we-Product cq-dd-product-data-reference"
-     data-sly-use.controller="we.retail.core.controller.ProductController"
+     data-sly-use.product="we.retail.core.model.Product"
      data-sly-use.hapiProduct="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/product'}"
      data-sly-attribute="${hapiProduct.itemtype}">
 
-    <div data-sly-test="${wcmmode.edit && !controller.productHasVariants && !controller.productExists}" class="cq-placeholder"
+    <div data-sly-test="${wcmmode.edit && !product.hasVariants && !product.exists}" class="cq-placeholder"
          data-emptytext="Product Component"></div>
-
-    <div data-sly-test.product="${controller.productView}" data-sly-unwrap></div>
     
     <we-product-variant
         data-sly-repeat.item="${product.variants}"
@@ -36,7 +34,7 @@
         summary="${item.summary}"
         features="${item.features}"
         image="${item.image}"
-        variant-axes="${item.variantAxesValuesAsJson}"></we-product-variant>
+        variant-axes="${item.variantAxesJson}"></we-product-variant>
     
     <div class="row">
     
@@ -87,24 +85,23 @@
                 </div>
             </div>
             
-            <form class="we-Product-form" action="${controller.addToCartUrl}" method="POST"
+            <form class="we-Product-form" action="${product.addToCartUrl}" method="POST"
                   data-sly-use.hapiProductForm="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/addcartentryform'}"
                   data-sly-attribute="${hapiProductForm.itemtype}"
                   data-rel="addCartEntryForm">
-                <input type="hidden" name="redirect" value="${controller.redirect}.html" data-sly-attribute="${hapiProductForm.itemprop.redirectPath}" />
-                <input type="hidden" name="redirect-product-not-found" value="${controller.errorRedirect}.html" data-sly-attribute="${hapiProductForm.itemprop.redirectErrorPath}" />
+                <input type="hidden" name="redirect" value="${product.redirect}.html" data-sly-attribute="${hapiProductForm.itemprop.redirectPath}" />
+                <input type="hidden" name="redirect-product-not-found" value="${product.errorRedirect}.html" data-sly-attribute="${hapiProductForm.itemprop.redirectErrorPath}" />
                 <input type="hidden" name="product-quantity" value="1" data-sly-attribute="${hapiProductForm.itemprop.quantity}" />
                 <input type="hidden" name="product-path" v-model="product.path" data-sly-attribute="${hapiProductForm.itemprop.productPath}" />
             
-                <sly data-sly-list.axisName="${product.allVariantsByAxes}">
+                <sly data-sly-list.axisName="${product.variantsAxesMap}">
                 <div class="form-group" >
-                    <label>${axisName}</label>
+                    <label>${axisName @ i18n}</label>
                 </div>
                 <div class="form-group">
-                    <div class="we-Product-radio marker radio-inline" data-sly-repeat.axisValue="${product.allVariantsByAxes[axisName]}">
+                    <div class="we-Product-radio marker radio-inline" data-sly-repeat.axisValue="${product.variantsAxesMap[axisName]}">
                         <label>
-                            <sly data-sly-test.hapiName="${axisName}s" />
-                            <meta content="${axisValue}" data-sly-attribute="${hapiProductForm.itemprop[hapiName]}" />
+                            <meta content="${axisValue}" data-sly-attribute="${hapiProductForm.itemprop[axisName]}" />
                             <input type="radio" name="${axisName}"
                                    value="${axisValue}" title="${axisValue}"
                                    v-bind:checked="isChecked('${axisName}','${axisValue}')"

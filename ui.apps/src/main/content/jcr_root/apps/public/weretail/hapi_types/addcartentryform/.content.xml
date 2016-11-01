@@ -6,12 +6,12 @@
     fqdn="we.retail.commerce.hapi.addcartentryform"
     name="addcartentryform"
     parameters="[\0]">
-    <colors
+    <color
         jcr:primaryType="nt:unstructured"
         description="Available colors"
         multiple="{Boolean}true"
         type="org.apache.sling.hapi.common.Text"/>
-    <sizes
+    <size
         jcr:primaryType="nt:unstructured"
         description="Available sizes"
         multiple="{Boolean}true"

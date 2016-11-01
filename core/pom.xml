@@ -50,8 +50,7 @@
                     <instructions>
                         <!-- <Embed-Dependency> artifactId1, artifactId2;inline=true </Embed-Dependency> -->
                         <Sling-Model-Packages>
-                            we.retail.core.model,
-                            we.retail.core.controller
+                            we.retail.core.model
                         </Sling-Model-Packages>
                     </instructions>
                 </configuration>

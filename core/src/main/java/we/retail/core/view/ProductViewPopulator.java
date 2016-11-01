@@ -13,15 +13,11 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-package we.retail.core.components.impl;
+package we.retail.core.view;
 
 import java.util.Iterator;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Properties;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
@@ -34,26 +30,30 @@ import com.adobe.cq.commerce.api.CommerceSession;
 import com.adobe.cq.commerce.api.Product;
 import com.day.cq.commons.ImageResource;
 
-import we.retail.core.components.ProductViewPopulator;
-import we.retail.core.view.ProductView;
+public class ProductViewPopulator {
 
-@Component(metatype = false, label = "We.Retail commerce product populator")
-@Service(value = ProductViewPopulator.class)
-@Properties(value = { @Property(name = "service.description", value = "We.Retail commerce product populator") })
-public class ProductViewPopulatorImpl implements ProductViewPopulator {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductViewPopulatorImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductViewPopulator.class);
 
     private static final String PN_FEATURES = "features";
     private static final String PN_SUMMARY = "summary";
     private static final String PN_FILE_REFERENCE = "fileReference";
 
-    @Override
-    public ProductView populate(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver) {
-        return populate(product, commerceSession, resourceResolver, null);
+    public static ProductView populate(Resource resource, CommerceSession commerceSession) {
+
+        // The product node represents the node /content/.../jcr:content/root/product
+        // Because WeRetailProductImpl extends AbstractJcrProduct, it will properly extracts the
+        // properties and variants under /etc/commerce/products/we-retail/...
+
+        Product product = resource.adaptTo(Product.class);
+        if (product != null) {
+            ResourceResolver resourceResolver = resource.getResourceResolver();
+            return populate(product, commerceSession, resourceResolver, null);
+        } else {
+            return null;
+        }
     }
 
-    private ProductView populate(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver,
+    private static ProductView populate(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver,
             ProductView baseProductView) {
 
         ProductView productView = new ProductView();
@@ -68,24 +68,28 @@ public class ProductViewPopulatorImpl implements ProductViewPopulator {
 
         productView.setImage(getImage(product, resourceResolver));
 
-        try {
-            productView.setPrice(commerceSession.getProductPrice(product));
-        } catch (CommerceException e) {
-            LOGGER.error("Error getting the product price: {}", e);
+        if (commerceSession != null) {
+            try {
+                productView.setPrice(commerceSession.getProductPrice(product));
+            } catch (CommerceException e) {
+                LOGGER.error("Error getting the product price: {}", e);
+            }
         }
 
         if (baseProductView == null) {
             String[] productVariantAxes = product.getProperty(CommerceConstants.PN_PRODUCT_VARIANT_AXES, String[].class);
-            productView.setVariantAxes(productVariantAxes);
-            getAndPopulateAllVariants(product, commerceSession, resourceResolver, productView);
+            if (productVariantAxes != null) {
+                productView.setVariantAxes(productVariantAxes);
+            }
+            populateAllVariants(product, commerceSession, resourceResolver, productView);
         } else {
-            getAndPopulateTheVariantAxesValues(baseProductView, product, productView, resourceResolver);
+            populateTheVariantAxesValues(baseProductView, product, productView, resourceResolver);
         }
 
         return productView;
     }
 
-    private void getAndPopulateAllVariants(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver,
+    private static void populateAllVariants(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver,
             ProductView productView) {
 
         try {
@@ -99,13 +103,12 @@ public class ProductViewPopulatorImpl implements ProductViewPopulator {
             if (productView.getVariants().isEmpty()) {
                 productView.addVariant(productView);
             }
-
         } catch (CommerceException e) {
             LOGGER.error("Error getting the product variants: {}", e);
         }
     }
 
-    private void getAndPopulateTheVariantAxesValues(ProductView baseProductView, Product product, ProductView productView,
+    private static void populateTheVariantAxesValues(ProductView baseProductView, Product product, ProductView productView,
             ResourceResolver resourceResolver) {
 
         for (String variantAxis : baseProductView.getVariantAxes()) {
@@ -116,7 +119,7 @@ public class ProductViewPopulatorImpl implements ProductViewPopulator {
         }
     }
 
-    private String getImage(Product product, ResourceResolver resourceResolver) {
+    private static String getImage(Product product, ResourceResolver resourceResolver) {
         ImageResource image = product.getImage();
         if (image == null) {
             return null;
@@ -125,7 +128,7 @@ public class ProductViewPopulatorImpl implements ProductViewPopulator {
         return getFileReference(productImageRes);
     }
 
-    private String getFileReference(Resource productImageResource) {
+    private static String getFileReference(Resource productImageResource) {
         if (productImageResource != null) {
             ValueMap valueMap = productImageResource.adaptTo(ValueMap.class);
             if (valueMap != null && valueMap.containsKey(PN_FILE_REFERENCE)) {
