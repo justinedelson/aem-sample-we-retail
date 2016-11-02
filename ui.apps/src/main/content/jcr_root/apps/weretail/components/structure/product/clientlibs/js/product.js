@@ -105,6 +105,7 @@
                     	{
                     		done = true;
                     		self.product = product;
+                    		history.pushState(null, null, '#' + product.sku);
                     	}
                     });
                 },
