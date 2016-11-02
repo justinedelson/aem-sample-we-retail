@@ -31,7 +31,7 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <artifactId>we.retail.it.tests.ui-js</artifactId>
-    <version>1.9.1-SNAPSHOT</version>
+    <version>1.9.13-SNAPSHOT</version>
     <packaging>content-package</packaging>
     <name>We.Retail - JavaScript UI Integration Tests Package</name>
     <description>Package for JavaScript UI Integration Tests for We.Retail</description>

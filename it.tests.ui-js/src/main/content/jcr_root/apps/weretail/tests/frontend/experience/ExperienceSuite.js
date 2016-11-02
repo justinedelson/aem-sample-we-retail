@@ -37,7 +37,7 @@
          // Load all experiences page
         .addTestCase(new hobs.TestCase('Load all experiences page')
             .execTestCase(window.CQ.WeRetailIT.ExperiencesPageLoadTest(h, $))
-            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 5))
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
             .execTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 6))
             .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
@@ -46,7 +46,7 @@
         // Load specific experience page
         .addTestCase(new hobs.TestCase('Load specific experience page')
             .execTestCase(window.CQ.WeRetailIT.ExperiencePageLoadTest(h, $))
-            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 5))
+            .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
             .execTestCase(window.CQ.WeRetailIT.BreadcrumbTest(h, $, ["English", "Experience"]))
             .execTestCase(window.CQ.WeRetailIT.ArticleContentTest(h, $))
