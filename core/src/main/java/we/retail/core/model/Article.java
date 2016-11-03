@@ -50,11 +50,11 @@ public class Article {
 
     static Logger LOGGER = LoggerFactory.getLogger(Article.class);
 
-    private static final String CONTENT_FRAGMENT_REF_PATH = "jcr:content/root/responsivegrid/content_fragment";
+    private static final String CONTENT_FRAGMENT_REF_PATH = "jcr:content/root/responsivegrid/contentfragment";
     private static final String METADATA_PATH = "jcr:content/metadata";
     private static final String AUTHOR_REF_PATH = METADATA_PATH + "/" + JcrConstants.JCR_LAST_MODIFIED_BY;
     private static final String LAST_MODIFIED_PATH = METADATA_PATH + "/" + DamConstants.DC_MODIFIED;
-    private static final String PN_FILE_REFERENCE = "fileReference";
+    private static final String PN_FRAGMENT_PATH = "fragmentPath";
 
     private static final String MAIN_ELEMENT = "main";
     private static final String TEASER_VARIATION = "teaser";
@@ -187,7 +187,7 @@ public class Article {
         Resource contentFragmentResource = resource.getChild(CONTENT_FRAGMENT_REF_PATH);
         if (contentFragmentResource != null) {
             ValueMap valueMap = contentFragmentResource.getValueMap();
-            String fileReference = valueMap.get(PN_FILE_REFERENCE, String.class);
+            String fileReference = valueMap.get(PN_FRAGMENT_PATH, String.class);
             if (StringUtils.isNotEmpty(fileReference)) {
                 Resource resource = resourceResolver.getResource(fileReference);
                 if (resource != null) {
