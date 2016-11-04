@@ -10,16 +10,17 @@
     role_owner="projects-we_retail-owner">
     <jcr:content
         cq:template="/libs/cq/core/content/projects/templates/default"
-        jcr:description="Some description."
+        jcr:description="Reference Implementation"
         jcr:primaryType="nt:unstructured"
-        jcr:title="We-Retail"
+        jcr:title="We.Retail"
         sling:resourceType="cq/gui/components/projects/admin/card/projectcontent"
         active="{Boolean}true"
         coverUrl="/content/dam/projects/we-retail/cover"
         damFolderPath="/content/dam/projects/we-retail"
         detailsHref="/projects/details.html"
         project.startDate=""
-        taskid="">
+        taskid=""
+        user="">
         <links jcr:primaryType="nt:unstructured"/>
         <dashboard jcr:primaryType="nt:unstructured">
             <gadgets jcr:primaryType="nt:unstructured">
