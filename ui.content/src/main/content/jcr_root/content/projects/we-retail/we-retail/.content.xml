@@ -31,9 +31,11 @@
                     cardWeight="60"/>
                 <asset
                     jcr:primaryType="nt:unstructured"
+                    jcr:description="Assets Tile"
                     jcr:title="Assets"
                     sling:resourceType="cq/gui/components/projects/admin/pod/assetpod"
-                    cardWeight="90"/>
+                    cardWeight="90"
+                    assetPath="/content/dam/we-retail"/>
                 <work
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Workflows"
@@ -62,16 +64,6 @@
                     jcr:title="Project Info"
                     sling:resourceType="cq/gui/components/projects/admin/pod/projectinfopod"
                     cardWeight="100"/>
-                <asset0
-                    jcr:description="Assets Tile"
-                    jcr:lastModified="{Date}2016-10-28T10:31:34.720+05:30"
-                    jcr:lastModifiedBy="admin"
-                    jcr:mixinTypes="[mix:lastModified]"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Assets"
-                    sling:resourceType="cq/gui/components/projects/admin/pod/assetpod"
-                    assetPath="/content/dam/we-retail"
-                    cardWeight="90"/>
             </gadgets>
         </dashboard>
     </jcr:content>
