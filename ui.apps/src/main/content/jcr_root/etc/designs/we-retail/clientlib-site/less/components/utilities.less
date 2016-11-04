@@ -128,18 +128,18 @@
 
 .width-full {
     margin: 0 -10%;
-    margin: 0 (@grid-gutter-width/-2);
+    margin: 0 (@grid-gutter-width/-1);
 
     @media (min-width: @screen-sm-min) {
-        margin: 0 ~'calc((100vw - @{container-sm} + @{grid-gutter-width}) / -2)';
+        margin: 0 ~'calc((100vw - @{container-sm} + 2 * @{grid-gutter-width}) / -2)';
     }
 
     @media (min-width: @screen-md-min) {
-        margin: 0 ~'calc((100vw - @{container-md} + @{grid-gutter-width}) / -2)';
+        margin: 0 ~'calc((100vw - @{container-md} + 2 * @{grid-gutter-width}) / -2)';
     }
 
     @media (min-width: @screen-lg-min) {
-        margin: 0 ~'calc((100vw - @{container-lg} + @{grid-gutter-width}) / -2)';
+        margin: 0 ~'calc((100vw - @{container-lg} + 2 * @{grid-gutter-width}) / -2)';
     }
 }
 
