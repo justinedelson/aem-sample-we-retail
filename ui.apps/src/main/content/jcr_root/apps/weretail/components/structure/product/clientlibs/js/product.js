@@ -55,6 +55,7 @@
             else if (!!parseInt(self.isBase, 10)) {
                 self.$parent.product = data;
                 self.$parent.variantAxes = JSON.parse(JSON.stringify(data.variantAxes));
+                history.pushState(null, null, '#' + data.sku);
             }
         }
     });

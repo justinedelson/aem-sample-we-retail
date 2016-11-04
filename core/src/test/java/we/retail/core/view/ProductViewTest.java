@@ -32,6 +32,8 @@ import com.day.cq.wcm.api.designer.Style;
 
 import common.AppAemContext;
 import io.wcm.testing.mock.aem.junit.AemContext;
+import we.retail.core.model.ProductModel;
+import we.retail.core.model.ProductModel.ProductItem;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProductViewTest {
@@ -45,7 +47,8 @@ public class ProductViewTest {
     @Mock
     private Style style;
 
-    private ProductView productView;
+    private ProductModel productModel;
+    private ProductItem productItem;
 
     @Before
     public void setUp() throws Exception {
@@ -54,31 +57,32 @@ public class ProductViewTest {
         attribute.put("currentStyle", style);
         attribute.put(WCMBindings.CURRENT_PAGE, context.currentPage());
         context.currentResource(CURRENT_RESOURCE);
-        productView = ProductViewPopulator.populate(context.request().getResource(), null);
+        productModel = context.request().adaptTo(ProductModel.class);
+        productItem = productModel.getProductItem();
     }
 
     @Test
     public void testProduct() throws Exception {
-        assertNotNull(productView);
-        assertNull(productView.getVariantValueForAxis("size"));
-        assertEquals("eqrusufle", productView.getSku());
+        assertNotNull(productItem);
+        assertNull(productItem.getVariantValueForAxis("size"));
+        assertEquals("eqrusufle", productItem.getSku());
     }
 
     @Test
     public void testVariants() throws Exception {
-        assertEquals(3, productView.getVariants().size());
-        ProductView variantView = productView.getVariants().get(0);
-        assertEquals(CURRENT_RESOURCE + "/eqrusufle-9", variantView.getPath());
-        assertNotNull(variantView.getPagePath());
-        assertEquals("eqrusufle-9", variantView.getSku());
-        assertNull(variantView.getTitle());
-        assertNull(variantView.getDescription());
-        assertNull(variantView.getVariantValueForAxis("color"));
-        assertEquals("9", variantView.getVariantValueForAxis("size"));
-        assertNull(variantView.getPrice());
-        assertNull(variantView.getSummary());
-        assertNull(variantView.getFeatures());
-        assertNull(variantView.getImage());
+        assertEquals(3, productItem.getVariants().size());
+        ProductItem variantItem = productItem.getVariants().get(0);
+        assertEquals(CURRENT_RESOURCE + "/eqrusufle-9", variantItem.getPath());
+        assertNotNull(variantItem.getPagePath());
+        assertEquals("eqrusufle-9", variantItem.getSku());
+        assertNull(variantItem.getTitle());
+        assertNull(variantItem.getDescription());
+        assertNull(variantItem.getVariantValueForAxis("color"));
+        assertEquals("9", variantItem.getVariantValueForAxis("size"));
+        assertNull(variantItem.getPrice());
+        assertNull(variantItem.getSummary());
+        assertNull(variantItem.getFeatures());
+        assertNull(variantItem.getImage());
     }
 
 }

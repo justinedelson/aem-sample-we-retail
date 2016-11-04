@@ -14,15 +14,15 @@
     limitations under the License.
 */-->
 <div class="we-Product cq-dd-product-data-reference"
-     data-sly-use.product="we.retail.core.model.Product"
+     data-sly-use.model="we.retail.core.model.ProductModel"
      data-sly-use.hapiProduct="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/product'}"
      data-sly-attribute="${hapiProduct.itemtype}">
 
-    <div data-sly-test="${wcmmode.edit && !product.hasVariants && !product.exists}" class="cq-placeholder"
+    <div data-sly-test="${wcmmode.edit && !model.hasVariants}" class="cq-placeholder"
          data-emptytext="Product Component"></div>
     
     <we-product-variant
-        data-sly-repeat.item="${product.variants}"
+        data-sly-repeat.item="${model.productItem.variants}"
         is-base="${itemList.first ? 1 : 0}"
         path="${item.path}"
         page-path="${item.pagePath}"
@@ -34,7 +34,7 @@
         summary="${item.summary}"
         features="${item.features}"
         image="${item.image}"
-        variant-axes="${item.variantAxesJson}"></we-product-variant>
+        variant-axes="${item.variantAxesMapJson}"></we-product-variant>
     
     <div class="row">
     
@@ -43,9 +43,9 @@
                  data-sly-use.hapiProductAsset="${'org.apache.sling.hapi.sightly.HApiUse' @type=hapiProduct.proptype.assets}"
                  data-sly-attribute="${hapiProduct.itemprop.assets}"> <!-- TODO: add zoom and slider -->
 
-                <meta content="${product.image}" data-sly-attribute="${hapiProductAsset.itemprop.path}" />
+                <meta content="${model.productItem.image}" data-sly-attribute="${hapiProductAsset.itemprop.path}" />
 
-                <img src="${product.image}" class="img-responsive" v-bind:src="product.image"/>
+                <img src="${model.productItem.image}" class="img-responsive" v-bind:src="product.image"/>
                 
                 <!--/*
                 <a href="#" class="we-Product-visual-zoom"><i class="we-Icon we-Icon--zoom-plus"></i> View larger</a>
@@ -56,20 +56,20 @@
         <div class="col-md-5 col-md-offset-1">
             <div class="row">
                 <div class="col-xs-6">
-                    <strong class="we-Product-brand h4" v-html="product.description" data-sly-attribute="${hapiProduct.itemprop.description}">${product.description}</strong>
+                    <strong class="we-Product-brand h4" v-html="product.description" data-sly-attribute="${hapiProduct.itemprop.description}">${model.productItem.description}</strong>
                 </div>
                 <div class="col-xs-6 text-right">
-                    <span class="we-Product-code">SKU: <span v-text="product.sku" data-sly-attribute="${hapiProduct.itemprop.sku}">${product.sku}</span></span>
+                    <span class="we-Product-code">SKU: <span v-text="product.sku" data-sly-attribute="${hapiProduct.itemprop.sku}">${model.productItem.sku}</span></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="we-Product-name" v-html="product.title" data-sly-attribute="${hapiProduct.itemprop.name}">${product.title}</h1>
+                    <h1 class="we-Product-name" v-html="product.title" data-sly-attribute="${hapiProduct.itemprop.name}">${model.productItem.title}</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <strong class="we-Product-price h2" v-html="product.price" data-sly-attribute="${hapiProduct.itemprop.price}">${product.price}</strong>
+                    <strong class="we-Product-price h2" v-html="product.price" data-sly-attribute="${hapiProduct.itemprop.price}">${model.productItem.price}</strong>
                 </div>
             </div>
             <div class="row">
@@ -81,25 +81,25 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="we-Product-description separator" v-html="product.summary" data-sly-attribute="${hapiProduct.itemprop.summary}">${product.summary}</div>
+                    <div class="we-Product-description separator" v-html="product.summary" data-sly-attribute="${hapiProduct.itemprop.summary}">${model.productItem.summary}</div>
                 </div>
             </div>
             
-            <form class="we-Product-form" action="${product.addToCartUrl}" method="POST"
+            <form class="we-Product-form" action="${model.addToCartUrl}" method="POST"
                   data-sly-use.hapiProductForm="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/addcartentryform'}"
                   data-sly-attribute="${hapiProductForm.itemtype}"
                   data-rel="addCartEntryForm">
-                <input type="hidden" name="redirect" value="${product.redirect}.html" data-sly-attribute="${hapiProductForm.itemprop.redirectPath}" />
-                <input type="hidden" name="redirect-product-not-found" value="${product.errorRedirect}.html" data-sly-attribute="${hapiProductForm.itemprop.redirectErrorPath}" />
+                <input type="hidden" name="redirect" v-model="product.pagePath" data-sly-attribute="${hapiProductForm.itemprop.redirectPath}" />
+                <input type="hidden" name="redirect-product-not-found" v-model="product.pagePath" data-sly-attribute="${hapiProductForm.itemprop.redirectErrorPath}" />
                 <input type="hidden" name="product-quantity" value="1" data-sly-attribute="${hapiProductForm.itemprop.quantity}" />
                 <input type="hidden" name="product-path" v-model="product.path" data-sly-attribute="${hapiProductForm.itemprop.productPath}" />
             
-                <sly data-sly-list.axisName="${product.variantsAxesMap}">
+                <sly data-sly-list.axisName="${model.productItem.variantsAxesValues}">
                 <div class="form-group" >
                     <label>${axisName @ i18n}</label>
                 </div>
                 <div class="form-group">
-                    <div class="we-Product-radio marker radio-inline" data-sly-repeat.axisValue="${product.variantsAxesMap[axisName]}">
+                    <div class="we-Product-radio marker radio-inline" data-sly-repeat.axisValue="${model.productItem.variantsAxesValues[axisName]}">
                         <label>
                             <meta content="${axisValue}" data-sly-attribute="${hapiProductForm.itemprop[axisName]}" />
                             <input type="radio" name="${axisName}"
