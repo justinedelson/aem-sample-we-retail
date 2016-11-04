@@ -15,7 +15,7 @@
 */-->
 <div class="we-Product cq-dd-product-data-reference"
      data-sly-use.model="we.retail.core.model.ProductModel"
-     data-sly-use.hapiProduct="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/product'}"
+     data-sly-use.hapiProduct="${'org.apache.sling.hapi.sightly.HApiUse' @ type='/apps/public/weretail/hapi_types/product'}"
      data-sly-attribute="${hapiProduct.itemtype}">
 
     <div data-sly-test="${wcmmode.edit && !model.hasVariants}" class="cq-placeholder"
@@ -40,12 +40,12 @@
     
         <div class="col-md-5 col-md-offset-1">
             <div class="we-Product-visual" 
-                 data-sly-use.hapiProductAsset="${'org.apache.sling.hapi.sightly.HApiUse' @type=hapiProduct.proptype.assets}"
+                 data-sly-use.hapiProductAsset="${'org.apache.sling.hapi.sightly.HApiUse' @ type=hapiProduct.proptype.assets}"
                  data-sly-attribute="${hapiProduct.itemprop.assets}"> <!-- TODO: add zoom and slider -->
 
                 <meta content="${model.productItem.image}" data-sly-attribute="${hapiProductAsset.itemprop.path}" />
 
-                <img src="${model.productItem.image}" class="img-responsive" v-bind:src="product.image"/>
+                <img src="${model.productItem.image}" class="img-responsive" v-bind:src="product.image" />
                 
                 <!--/*
                 <a href="#" class="we-Product-visual-zoom"><i class="we-Icon we-Icon--zoom-plus"></i> View larger</a>
@@ -86,7 +86,7 @@
             </div>
             
             <form class="we-Product-form" action="${model.addToCartUrl}" method="POST"
-                  data-sly-use.hapiProductForm="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/addcartentryform'}"
+                  data-sly-use.hapiProductForm="${'org.apache.sling.hapi.sightly.HApiUse' @ type='/apps/public/weretail/hapi_types/addcartentryform'}"
                   data-sly-attribute="${hapiProductForm.itemtype}"
                   data-rel="addCartEntryForm">
                 <input type="hidden" name="redirect" v-model="product.pagePath" data-sly-attribute="${hapiProductForm.itemprop.redirectPath}" />
@@ -95,7 +95,7 @@
                 <input type="hidden" name="product-path" v-model="product.path" data-sly-attribute="${hapiProductForm.itemprop.productPath}" />
             
                 <sly data-sly-list.axisName="${model.productItem.variantsAxesValues}">
-                <div class="form-group" >
+                <div class="form-group">
                     <label>${axisName @ i18n}</label>
                 </div>
                 <div class="form-group">
@@ -105,7 +105,7 @@
                             <input type="radio" name="${axisName}"
                                    value="${axisValue}" title="${axisValue}"
                                    v-bind:checked="isChecked('${axisName}','${axisValue}')"
-                                   v-on:click="setProduct"/>
+                                   v-on:click="setProduct" />
                         </label>
                     </div>
                 </div>
