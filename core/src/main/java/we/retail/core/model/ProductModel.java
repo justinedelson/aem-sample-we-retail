@@ -288,8 +288,8 @@ public class ProductModel {
          * blue> for the 'color' key).<br/>
          * <br/>
          * For example, the returned map can look like<br/>
-         * color --> red, green, green<br/>
-         * size --> XS, S, M
+         * <code>color --> red, green, blue<br/>
+         * size --> XS, S, M</code>
          * 
          * @return The map of all variant axes and their respective values.
          */

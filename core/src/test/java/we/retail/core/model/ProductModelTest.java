@@ -13,7 +13,7 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-package we.retail.core.view;
+package we.retail.core.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -36,7 +36,7 @@ import we.retail.core.model.ProductModel;
 import we.retail.core.model.ProductModel.ProductItem;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ProductViewTest {
+public class ProductModelTest {
 
     private static final String CURRENT_RESOURCE = "/content/we-retail/us/en/products/equipment/running/fleet-cross-training-shoe/jcr:content/root/product";
     private static final String CURRENT_PAGE = "/content/we-retail/us/en/products/equipment/running/fleet-cross-training-shoe";
