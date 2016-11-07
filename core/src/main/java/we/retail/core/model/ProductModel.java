@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -45,6 +46,7 @@ import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.CommerceSession;
 import com.adobe.cq.commerce.api.Product;
 import com.day.cq.commons.ImageResource;
+import com.day.cq.wcm.api.Page;
 
 import we.retail.core.model.handler.CommerceHandler;
 
@@ -52,7 +54,6 @@ import we.retail.core.model.handler.CommerceHandler;
 public class ProductModel {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductModel.class);
-    private static final String DOT_HTML = ".html";
 
     @SlingObject
     private Resource resource;
@@ -66,6 +67,9 @@ public class ProductModel {
     @SlingObject
     private ResourceResolver resourceResolver;
 
+    @Inject
+    private Page currentPage;
+
     @Self
     private CommerceHandler commerceHandler;
 
@@ -75,7 +79,7 @@ public class ProductModel {
     @PostConstruct
     private void populateProduct() {
         try {
-            commerceService = resource.adaptTo(CommerceService.class);
+            commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
             if (commerceService != null) {
                 CommerceSession commerceSession = commerceService.login(request, response);
                 Product product = resource.adaptTo(Product.class);
@@ -97,8 +101,7 @@ public class ProductModel {
     }
 
     public String getAddToCartUrl() {
-        String addToCartUrl = commerceHandler.getAddToCardUrl();
-        return addToCartUrl.endsWith(DOT_HTML) ? addToCartUrl : (addToCartUrl + DOT_HTML);
+        return commerceHandler.getAddToCardUrl();
     }
 
     public String getProductTrackingPath() {
