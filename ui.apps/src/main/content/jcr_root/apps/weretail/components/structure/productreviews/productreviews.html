@@ -13,6 +13,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<div data-sly-use.model="we.retail.core.model.ProductModel">
-    <sly data-sly-resource="${ '{0}/jcr:content/reviews' @ format=[model.productTrackingPath], resourceType='weretail/components/hbs/reviews', wcmmode='disabled'}"/>
+<div data-sly-use.productModel="we.retail.core.model.ProductModel">
+    <sly data-sly-resource="${ '{0}/jcr:content/reviews' @ format=[productModel.productTrackingPath], resourceType='weretail/components/hbs/reviews', wcmmode='disabled'}"/>
 </div>

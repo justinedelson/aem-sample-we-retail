@@ -27,12 +27,10 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.Self;
@@ -113,7 +111,6 @@ public class ProductModel {
 
         private static final String PN_FEATURES = "features";
         private static final String PN_SUMMARY = "summary";
-        private static final String PN_FILE_REFERENCE = "fileReference";
 
         private String path;
         private String pagePath;
@@ -123,7 +120,7 @@ public class ProductModel {
         private String price;
         private String summary;
         private String features;
-        private String image;
+        private String imageSrc;
 
         private List<ProductItem> variants = new ArrayList<ProductItem>();
 
@@ -146,7 +143,8 @@ public class ProductModel {
             summary = product.getProperty(PN_SUMMARY, String.class);
             features = product.getProperty(PN_FEATURES, String.class);
 
-            image = setImage(product, resourceResolver);
+            ImageResource image = product.getImage();
+            imageSrc = image != null ? image.getFileReference() : null;
 
             if (commerceSession != null) {
                 try {
@@ -165,25 +163,6 @@ public class ProductModel {
             } else {
                 populateVariantAxesValues(baseProductItem.variantAxes, product);
             }
-        }
-
-        private String getFileReference(Resource productImageResource) {
-            if (productImageResource != null) {
-                ValueMap valueMap = productImageResource.adaptTo(ValueMap.class);
-                if (valueMap != null && valueMap.containsKey(PN_FILE_REFERENCE)) {
-                    return valueMap.get(PN_FILE_REFERENCE, StringUtils.EMPTY);
-                }
-            }
-            return StringUtils.EMPTY;
-        }
-
-        private String setImage(Product product, ResourceResolver resourceResolver) {
-            ImageResource image = product.getImage();
-            if (image == null) {
-                return null;
-            }
-            Resource productImageRes = resourceResolver.getResource(image.getPath());
-            return getFileReference(productImageRes);
         }
 
         private void populateAllVariants(Product product, CommerceSession commerceSession, ResourceResolver resourceResolver) {
@@ -253,8 +232,8 @@ public class ProductModel {
             return features;
         }
 
-        public String getImage() {
-            return image;
+        public String getImageSrc() {
+            return imageSrc;
         }
 
         public List<ProductItem> getVariants() {

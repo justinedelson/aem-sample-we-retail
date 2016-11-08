@@ -32,7 +32,6 @@ import com.day.cq.wcm.api.designer.Style;
 
 import common.AppAemContext;
 import io.wcm.testing.mock.aem.junit.AemContext;
-import we.retail.core.model.ProductModel;
 import we.retail.core.model.ProductModel.ProductItem;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -82,7 +81,7 @@ public class ProductModelTest {
         assertNull(variantItem.getPrice());
         assertNull(variantItem.getSummary());
         assertNull(variantItem.getFeatures());
-        assertNull(variantItem.getImage());
+        assertNull(variantItem.getImageSrc());
     }
 
 }
