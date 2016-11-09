@@ -23,7 +23,7 @@
     
     <we-product-variant
         data-sly-repeat.productItem="${productModel.productItem.variants}"
-        is-base="${itemList.first ? 1 : 0}"
+        is-base="${productItemList.first ? 1 : 0}"
         path="${productItem.path}"
         page-path="${productItem.pagePath}"
         variants="${productItem.variants}"
