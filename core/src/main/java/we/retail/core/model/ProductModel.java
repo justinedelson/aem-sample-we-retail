@@ -81,6 +81,12 @@ public class ProductModel {
             if (commerceService != null) {
                 CommerceSession commerceSession = commerceService.login(request, response);
                 Product product = resource.adaptTo(Product.class);
+
+                // If the product is null, it might be a proxy page and the commerceHandler handles that
+                if (product == null) {
+                    product = commerceHandler.getProduct();
+                }
+
                 if (product != null) {
                     productItem = new ProductItem(product, commerceSession, resource.getResourceResolver());
                 }

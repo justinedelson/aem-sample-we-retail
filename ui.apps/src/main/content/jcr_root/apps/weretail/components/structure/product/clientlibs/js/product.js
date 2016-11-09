@@ -46,7 +46,8 @@
             self.$parent.variants.push(data);
             
             if (!!parseInt(self.isBase, 10)) {
-                self.$parent.defaultProduct = data;
+                self.$parent.product = data;
+                self.$parent.variantAxes = JSON.parse(JSON.stringify(data.variantAxes));
             }
         }
     });
@@ -57,7 +58,6 @@
             el: '.we-Product',
             data: {
                 variants: [],
-                defaultProduct: null,
                 product: null,
                 variantAxes: null,
 
@@ -71,8 +71,8 @@
                 'pagePath'
             ],
             ready: function() {
-                this.trackView();
                 this.processHash();
+                this.trackView();
             },
             methods: {
                 _setProduct: function(name, value) {
@@ -128,11 +128,11 @@
                     }
                 },
                 processHash: function() {
+                    var self = this;
                     var done = false;
-                    if (window.location.hash) {
-                        var self = this;
+                    if (window.location.hash) {                  
                         var sku = window.location.hash.slice(1);
-                        this.variants.forEach(function (product) {
+                        self.variants.forEach(function (product) {
                             if (done) {
                                 return;
                             }
@@ -145,11 +145,8 @@
                         });
                     }
                     
-                    // if we didn't get a valid hash, we fallback to the default base product
                     if (!done) {
-                        self.product = self.defaultProduct;
-                        self.variantAxes = JSON.parse(JSON.stringify(self.defaultProduct.variantAxes));
-                        history.pushState(null, null, '#' + self.defaultProduct.sku);
+                        history.pushState(null, null, '#' + self.product.sku);
                     }
                 }
             }

@@ -99,13 +99,14 @@
                 <div class="form-group">
                     <div class="we-Product-radio marker radio-inline" data-sly-repeat.axisValue="${productModel.productItem.variantsAxesValues[axisName]}">
                         <label>
-                            <meta content="${axisValue}" data-sly-attribute="${hapiProductForm.itemprop[axisName]}" />
                             <input data-sly-test="${axisName != 'color'}" type="radio" name="${axisName}" value="${axisValue}" title="${axisValue}"
-                                   v-bind:checked="isChecked('${axisName}','${axisValue}')" v-on:click="setProduct" />
+                                   v-bind:checked="isChecked('${axisName}','${axisValue}')" v-on:click="setProduct"
+                                   data-sly-attribute="${hapiProductForm.itemprop[axisName]}" />
                             <input data-sly-test="${axisName == 'color'}" type="radio" name="${axisName}" value="${axisValue}" title="${axisValue}"
                                    v-bind:checked="isChecked('${axisName}','${axisValue}')" v-on:click="setProduct" 
-                                   style="background-color:${axisValue @context='styleString'};" />
-                            <span data-sly-test="${axisName == 'size'}" data-sly-attribute="${hapiProductForm.itemprop[axisName]}">${axisValue}</span>
+                                   style="background-color:${axisValue @context='styleString'};"
+                                   data-sly-attribute="${hapiProductForm.itemprop[axisName]}" />
+                            <span data-sly-test="${axisName == 'size'}">${axisValue}</span>
                         </label>
                     </div>
                 </div>
