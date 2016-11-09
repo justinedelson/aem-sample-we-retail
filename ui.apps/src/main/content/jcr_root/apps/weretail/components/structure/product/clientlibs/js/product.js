@@ -134,18 +134,23 @@
                         );
                     }
                 },
-                addToWishlist: function(event) {
+                toggleWishlist: function (event) {
                     event.preventDefault();
                     if (this.product) {
+                        var smartListUrl = event.currentTarget.getAttribute("data-smartlist-url");
+                        var data = {
+                            ":operation": this.isFavorited ? "deleteSmartListEntry" : "addToSmartList",
+                            "product-path": this.product.path,
+                            "redirect": this.product.pagePath
+                        };
+                        if (event.currentTarget.hasAttribute("data-smartlist")) {
+                            data["smartlist-path"] = event.currentTarget.getAttribute("data-smartlist");
+                        }
+
                         $.ajax({
-                            type: "POST",
-                            data: {
-                                ":operation": "addToSmartList",
-                                "product-path": this.product.path,
-                                "redirect": this.product.pagePath },
-                            url: event.currentTarget.href,
-                            async: true
+                            type: "POST", data: data, url: smartListUrl
                         });
+                        this.isFavorited = !this.isFavorited;
                     }
                 }
             }

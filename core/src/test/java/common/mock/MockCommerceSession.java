@@ -207,7 +207,7 @@ public class MockCommerceSession implements CommerceSession {
 
     @Override
     public SmartListManager getSmartListManager() {
-        throw new UnsupportedOperationException();
+        return null;
     }
 
     @Override

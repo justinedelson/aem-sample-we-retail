@@ -118,8 +118,8 @@
                         </div>
                         <div class="col-md-8 text-right">
                             <button type="submit" class="btn btn-action btn-primary" data-sly-attribute="${hapiProductForm.itemprop.addToCartButton}">Add to cart</button>
-                            <a href="${productModel.addToSmartListUrl}" v-on:click="addToWishlist" class="btn btn-icon btn-primary">
-                                <i class="fa fa-heart-o"></i>
+                            <a href="#" data-smartlist-url="${productModel.addToSmartListUrl}" data-smartlist="${productModel.defaultSmartList}" v-on:click="toggleWishlist" class="btn btn-icon btn-primary">
+                                <i class="fa" v-bind:class="{ 'fa-heart' : isFavorited, 'fa-heart-o' : !isFavorited }"></i>
                             </a>
                         </div>
                     </div>
