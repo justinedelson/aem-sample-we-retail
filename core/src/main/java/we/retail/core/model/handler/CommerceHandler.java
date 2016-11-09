@@ -72,8 +72,8 @@ public class CommerceHandler {
 
     private String addToCardUrl;
     private Page currentPage;
-    private String redirect;
-    private String errorRedirect;
+    private String redirectUrl;
+    private String errorRedirectUrl;
     private boolean productPageProxy = false;
     private String productTrackingPath;
 
@@ -82,26 +82,30 @@ public class CommerceHandler {
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
         currentPage = pageManager.getContainingPage(resource);
         addToCardUrl = currentPage.getPath() + ADD_CART_ENTRY_SELECTOR;
-        redirect = CommerceHelper.mapPathToCurrentLanguage(currentPage, currentStyle.get(PN_ADD_TO_CART_REDIRECT, StringUtils.EMPTY));
-        errorRedirect = CommerceHelper.mapPathToCurrentLanguage(currentPage, currentStyle.get(PN_CART_ERROR_REDIRECT, StringUtils.EMPTY));
+        redirectUrl = CommerceHelper.mapPathToCurrentLanguage(currentPage, currentStyle.get(PN_ADD_TO_CART_REDIRECT, StringUtils.EMPTY));
+        errorRedirectUrl = CommerceHelper.mapPathToCurrentLanguage(currentPage, currentStyle.get(PN_CART_ERROR_REDIRECT, StringUtils.EMPTY));
 
-        if(StringUtils.isEmpty(redirect) && StringUtils.isNotEmpty(cartObject)) {
-            redirect = cartPage;
-            errorRedirect = productNotFound;
+        if (StringUtils.isEmpty(redirectUrl) && StringUtils.isNotEmpty(cartObject)) {
+            redirectUrl = cartPage;
+            errorRedirectUrl = productNotFound;
             addToCardUrl = cartObject + ADD_SELECTOR;
         }
-        if(StringUtils.isEmpty(redirect) || StringUtils.equals(redirect, ".")) {
-            redirect = currentPage.getPath();
+
+        if (StringUtils.isEmpty(redirectUrl) || StringUtils.equals(redirectUrl, ".")) {
+            redirectUrl = currentPage.getPath();
         }
-        if(StringUtils.isEmpty(errorRedirect)) {
-            errorRedirect = currentPage.getPath();
+
+        if (StringUtils.isEmpty(errorRedirectUrl)) {
+            errorRedirectUrl = currentPage.getPath();
         }
-        if(product == null) {
+
+        if (product == null) {
             product = resource.adaptTo(Product.class);
         } else {
             productPageProxy = true;
         }
-        if(product != null) {
+
+        if (product != null) {
             productTrackingPath = product.getProperty(PN_PRODUCT_DATA, String.class);
             if(StringUtils.isEmpty(productTrackingPath)) {
                 productTrackingPath = product.getPagePath();
@@ -119,12 +123,12 @@ public class CommerceHandler {
         return addToCardUrl;
     }
 
-    public String getRedirect() {
-        return redirect;
+    public String getRedirectUrl() {
+        return redirectUrl;
     }
 
-    public String getErrorRedirect() {
-        return errorRedirect;
+    public String getErrorRedirectUrl() {
+        return errorRedirectUrl;
     }
 
     public boolean isProductPageProxy() {
