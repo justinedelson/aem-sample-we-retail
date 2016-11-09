@@ -118,7 +118,9 @@
                         </div>
                         <div class="col-md-8 text-right">
                             <button type="submit" class="btn btn-action btn-primary" data-sly-attribute="${hapiProductForm.itemprop.addToCartButton}">Add to cart</button>
-                            <a href="#" class="btn btn-icon btn-primary"><i class="we-Icon we-Icon--heart"></i></a>
+                            <a href="${productModel.addToSmartListUrl}" v-on:click="addToWishlist" class="btn btn-icon btn-primary">
+                                <i class="fa fa-heart-o"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

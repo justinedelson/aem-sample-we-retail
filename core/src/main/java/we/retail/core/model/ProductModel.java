@@ -102,6 +102,10 @@ public class ProductModel {
         return commerceHandler.getAddToCardUrl();
     }
 
+    public String getAddToSmartListUrl() {
+        return commerceHandler.getAddToSmartListUrl();
+    }
+
     public String getProductTrackingPath() {
         return commerceHandler.getProductTrackingPath();
     }
