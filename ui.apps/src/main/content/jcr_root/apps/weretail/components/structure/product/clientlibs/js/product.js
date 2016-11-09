@@ -44,18 +44,9 @@
             });
 
             self.$parent.variants.push(data);
-
-            if (window.location.hash) {
-                var sku = window.location.hash.slice(1);
-                if (sku == self.sku) {
-                    self.$parent.product = data;
-                    self.$parent.variantAxes = JSON.parse(JSON.stringify(data.variantAxes));
-                }
-            }
-            else if (!!parseInt(self.isBase, 10)) {
-                self.$parent.product = data;
-                self.$parent.variantAxes = JSON.parse(JSON.stringify(data.variantAxes));
-                history.pushState(null, null, '#' + data.sku);
+            
+            if (!!parseInt(self.isBase, 10)) {
+                self.$parent.defaultProduct = data;
             }
         }
     });
@@ -66,6 +57,7 @@
             el: '.we-Product',
             data: {
                 variants: [],
+                defaultProduct: null,
                 product: null,
                 variantAxes: null,
 
@@ -80,6 +72,7 @@
             ],
             ready: function() {
                 this.trackView();
+                this.processHash();
             },
             methods: {
                 _setProduct: function(name, value) {
@@ -110,7 +103,7 @@
                         }
                     });
                 },
-                setProduct: function (event) {
+                setProduct: function(event) {
                     var name = event.currentTarget.attributes['name'].value;
                     var value = event.currentTarget.attributes['value'].value;
                     this._setProduct(name, value);
@@ -132,6 +125,31 @@
                             this.product.image,
                             this.product.price
                         );
+                    }
+                },
+                processHash: function() {
+                    var done = false;
+                    if (window.location.hash) {
+                        var self = this;
+                        var sku = window.location.hash.slice(1);
+                        this.variants.forEach(function (product) {
+                            if (done) {
+                                return;
+                            }
+                            
+                            if (sku == product.sku) {
+                                self.product = product;
+                                self.variantAxes = JSON.parse(JSON.stringify(product.variantAxes));
+                                done = true;
+                            }
+                        });
+                    }
+                    
+                    // if we didn't get a valid hash, we fallback to the default base product
+                    if (!done) {
+                        self.product = self.defaultProduct;
+                        self.variantAxes = JSON.parse(JSON.stringify(self.defaultProduct.variantAxes));
+                        history.pushState(null, null, '#' + self.defaultProduct.sku);
                     }
                 }
             }
