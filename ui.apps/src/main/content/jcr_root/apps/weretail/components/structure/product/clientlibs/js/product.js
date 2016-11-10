@@ -135,17 +135,9 @@
                     }
                 },
                 addToWishlist: function(event) {
-                    event.preventDefault();
                     if (this.product) {
-                        $.ajax({
-                            type: "POST",
-                            data: {
-                                ":operation": "addToSmartList",
-                                "product-path": this.product.path,
-                                "redirect": this.product.pagePath },
-                            url: event.currentTarget.href,
-                            async: true
-                        });
+                        this.$els.weproductform.setAttribute("action", event.currentTarget.getAttribute("data-smartlist-url"));
+                        this.$els.weproductform.submit();
                     }
                 }
             }
