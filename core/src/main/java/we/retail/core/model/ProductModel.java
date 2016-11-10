@@ -43,10 +43,9 @@ import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.CommerceSession;
 import com.adobe.cq.commerce.api.Product;
-import com.adobe.cq.commerce.api.smartlist.SmartList;
-import com.adobe.cq.commerce.api.smartlist.SmartListManager;
 import com.day.cq.commons.ImageResource;
 import com.day.cq.wcm.api.Page;
+
 import we.retail.core.model.handler.CommerceHandler;
 
 @Model(adaptables = SlingHttpServletRequest.class)
@@ -73,7 +72,6 @@ public class ProductModel {
     private CommerceHandler commerceHandler;
 
     private CommerceService commerceService;
-    private SmartListManager smartListManager;
     private ProductItem productItem;
 
     @PostConstruct
@@ -86,11 +84,7 @@ public class ProductModel {
                 if (product != null) {
                     productItem = new ProductItem(product, commerceSession, resource.getResourceResolver());
                 }
-                if (commerceSession != null) {
-                    smartListManager = commerceSession.getSmartListManager();
-                }
             }
-
         } catch (CommerceException e) {
             LOGGER.error("Can't extract product from page", e);
         }
@@ -110,16 +104,6 @@ public class ProductModel {
 
     public String getAddToSmartListUrl() {
         return commerceHandler.getAddToSmartListUrl();
-    }
-
-    public String getDefaultSmartList() {
-        if (smartListManager != null) {
-            List<SmartList> smartLists = smartListManager.getSmartLists("personal");
-            if (smartLists != null && smartLists.size() > 0) {
-                return smartLists.get(0).getPath();
-            }
-        }
-        return "";
     }
 
     public String getProductTrackingPath() {
