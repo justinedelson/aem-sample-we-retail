@@ -19,7 +19,7 @@
                         name="./label"/>
                     <linkTo
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                         fieldLabel="Link to"
                         name="./linkTo"
                         rootPath="/content"

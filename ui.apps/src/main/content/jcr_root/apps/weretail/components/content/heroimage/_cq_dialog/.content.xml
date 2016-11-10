@@ -50,7 +50,7 @@
                         name="./buttonLabel"/>
                     <buttonLinkTo
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                         fieldLabel="Link to"
                         name="./buttonLinkTo"
                         rootPath="/content"
