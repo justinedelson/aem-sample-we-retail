@@ -24,23 +24,16 @@
         <links jcr:primaryType="nt:unstructured"/>
         <dashboard jcr:primaryType="nt:unstructured">
             <gadgets jcr:primaryType="nt:unstructured">
+                <projectinfo
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Project Info"
+                    sling:resourceType="cq/gui/components/projects/admin/pod/projectinfopod"
+                    cardWeight="100"/>
                 <team
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Team"
                     sling:resourceType="cq/gui/components/projects/admin/pod/teampod"
                     cardWeight="60"/>
-                <asset
-                    jcr:primaryType="nt:unstructured"
-                    jcr:description="Assets Tile"
-                    jcr:title="Assets"
-                    sling:resourceType="cq/gui/components/projects/admin/pod/assetpod"
-                    cardWeight="90"
-                    assetPath="/content/dam/we-retail"/>
-                <work
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Workflows"
-                    sling:resourceType="cq/gui/components/projects/admin/pod/workpod"
-                    cardWeight="80"/>
                 <experiences
                     jcr:lastModified="{Date}2016-10-28T10:26:53.546+05:30"
                     jcr:primaryType="nt:unstructured"
@@ -59,11 +52,18 @@
                         wizard="/etc/projects/dashboard/gadgets/experiences/site"
                         wizard_x0040_Delete=""/>
                 </experiences>
-                <projectinfo
+                <asset
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Project Info"
-                    sling:resourceType="cq/gui/components/projects/admin/pod/projectinfopod"
-                    cardWeight="100"/>
+                    jcr:description="Assets Tile"
+                    jcr:title="Assets"
+                    sling:resourceType="cq/gui/components/projects/admin/pod/assetpod"
+                    cardWeight="90"
+                    assetPath="/content/dam/we-retail/en"/>
+                <work
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Workflows"
+                    sling:resourceType="cq/gui/components/projects/admin/pod/workpod"
+                    cardWeight="80"/>
             </gadgets>
         </dashboard>
     </jcr:content>
