@@ -15,26 +15,40 @@
  ******************************************************************************/
 package we.retail.core;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.Session;
+import javax.jcr.query.Query;
+
+import org.apache.commons.collections.Predicate;
+import org.apache.jackrabbit.util.Text;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.Resource;
+
 import com.adobe.cq.commerce.api.CommerceConstants;
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.PlacedOrder;
 import com.adobe.cq.commerce.common.AbstractJcrCommerceService;
 import com.adobe.cq.commerce.common.AbstractJcrCommerceSession;
 import com.day.cq.i18n.I18n;
-import org.apache.jackrabbit.util.Text;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.Resource;
-import org.apache.commons.collections.Predicate;
-
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.Session;
-import javax.jcr.query.Query;
-import java.math.BigDecimal;
-import java.util.Map;
 
 public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
+
+    private static final Map<String, BigDecimal> shippingCosts = new HashMap<String, BigDecimal>() {
+        {
+            // A simple shipping pricing architecture with fixed shipping costs.
+
+            put("/etc/commerce/shipping-methods/we-retail/two-business-day", BigDecimal.ZERO);
+            put("/etc/commerce/shipping-methods/we-retail/standard-shipping", BigDecimal.ZERO);
+            put("/etc/commerce/shipping-methods/we-retail/ground-shipping", new BigDecimal("10.00"));
+            put("/etc/commerce/shipping-methods/we-retail/one-business-day", new BigDecimal("25.00"));
+        }
+    };
 
     public WeRetailCommerceSessionImpl(AbstractJcrCommerceService commerceService,
                                   SlingHttpServletRequest request,
@@ -46,22 +60,8 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
 
     @Override
     protected BigDecimal getShipping(String method) {
-        //
-        // A simple shipping pricing architecture with fixed shipping costs.
-        //
-        String[][] shippingCosts = {
-                {"/etc/commerce/shipping-methods/geometrixx-outdoors/ground",    "10.00"},
-                {"/etc/commerce/shipping-methods/geometrixx-outdoors/three-day", "20.00"},
-                {"/etc/commerce/shipping-methods/geometrixx-outdoors/two-day",   "25.00"},
-                {"/etc/commerce/shipping-methods/geometrixx-outdoors/overnight", "40.00"}
-        };
-
-        for (String[] entry : shippingCosts) {
-            if (entry[0].equals(method)) {
-                return new BigDecimal(entry[1]);
-            }
-        }
-        return BigDecimal.ZERO;
+        BigDecimal shippingCost = shippingCosts.get(method);
+        return shippingCost != null ? shippingCost : BigDecimal.ZERO;
     }
 
     @Override
