@@ -16,12 +16,12 @@
 
 @import "/etc/designs/we-retail/common/helpers.less";
 
-.we-Cart-entryCol {
+.we-Smartlist-entryCol {
     display: inline-block;
     vertical-align: middle;
 }
 
-.we-Cart {
+.we-Smartlist {
 
     &-content {
 
@@ -35,7 +35,7 @@
         width: 100%;
         transition: top .2s;
 
-        z-index: 1000;
+        z-index: 999;
 
         @media(min-width: @screen-sm-min) {
             width: 300px;
@@ -95,13 +95,13 @@
 
 
     &-image {
-        &:extend(.we-Cart-entryCol);
+        &:extend(.we-Smartlist-entryCol);
         width: 35%;
         padding: 1rem;
     }
 
     &-entryContent {
-        &:extend(.we-Cart-entryCol);
+        &:extend(.we-Smartlist-entryCol);
         width: 40%;
 
         a {
@@ -110,7 +110,7 @@
     }
 
     &-remove {
-        &:extend(.we-Cart-entryCol);
+        &:extend(.we-Smartlist-entryCol);
         width: 25%;
         text-align: center;
     }
@@ -135,7 +135,7 @@
     &-expandable {
         transition: transform .5s;
 
-        &.cart-expanded {
+        &.smartlist-expanded {
             transform: translateX(-100%);
             margin-right: 0;
 
