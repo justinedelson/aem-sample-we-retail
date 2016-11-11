@@ -41,4 +41,9 @@
         description="Add To Cart button"
         multiple="{Boolean}false"
         type="org.apache.sling.hapi.common.Text"/>
+    <addToSmartlistButton
+        jcr:primaryType="nt:unstructured"
+        description="Add To Smartlist button"
+        multiple="{Boolean}false"
+        type="org.apache.sling.hapi.common.Text"/>
 </jcr:root>

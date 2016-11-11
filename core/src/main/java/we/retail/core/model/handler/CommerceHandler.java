@@ -40,6 +40,7 @@ import com.day.cq.wcm.api.designer.Style;
 public class CommerceHandler {
 
     private static final String ADD_CART_ENTRY_SELECTOR = ".commerce.addcartentry.html";
+    private static final String ADD_SMARTLIST_ENTRY_SELECTOR = ".commerce.smartlist.management.html";
     private static final String ADD_SELECTOR = ".add.html";
     private static final String PN_ADD_TO_CART_REDIRECT = "addToCartRedirect";
     private static final String PN_CART_ERROR_REDIRECT = "cartErrorRedirect";
@@ -71,6 +72,7 @@ public class CommerceHandler {
     private Product product;
 
     private String addToCardUrl;
+    private String addToSmartListUrl;
     private Page currentPage;
     private String redirectUrl;
     private String errorRedirectUrl;
@@ -82,8 +84,11 @@ public class CommerceHandler {
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
         currentPage = pageManager.getContainingPage(resource);
         addToCardUrl = currentPage.getPath() + ADD_CART_ENTRY_SELECTOR;
-        redirectUrl = CommerceHelper.mapPathToCurrentLanguage(currentPage, currentStyle.get(PN_ADD_TO_CART_REDIRECT, StringUtils.EMPTY));
-        errorRedirectUrl = CommerceHelper.mapPathToCurrentLanguage(currentPage, currentStyle.get(PN_CART_ERROR_REDIRECT, StringUtils.EMPTY));
+        addToSmartListUrl = currentPage.getPath() + ADD_SMARTLIST_ENTRY_SELECTOR;
+        redirectUrl = CommerceHelper.mapPathToCurrentLanguage(currentPage,
+                currentStyle.get(PN_ADD_TO_CART_REDIRECT, StringUtils.EMPTY));
+        errorRedirectUrl = CommerceHelper.mapPathToCurrentLanguage(currentPage,
+                currentStyle.get(PN_CART_ERROR_REDIRECT, StringUtils.EMPTY));
 
         if (StringUtils.isEmpty(redirectUrl) && StringUtils.isNotEmpty(cartObject)) {
             redirectUrl = cartPage;
@@ -121,6 +126,10 @@ public class CommerceHandler {
 
     public String getAddToCardUrl() {
         return addToCardUrl;
+    }
+
+    public String getAddToSmartListUrl() {
+        return addToSmartListUrl;
     }
 
     public String getRedirectUrl() {

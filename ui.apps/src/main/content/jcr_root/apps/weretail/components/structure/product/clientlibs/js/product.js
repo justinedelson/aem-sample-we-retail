@@ -44,7 +44,7 @@
             });
 
             self.$parent.variants.push(data);
-            
+
             if (!!parseInt(self.isBase, 10)) {
                 self.$parent.product = data;
                 self.$parent.variantAxes = JSON.parse(JSON.stringify(data.variantAxes));
@@ -61,7 +61,7 @@
                 product: null,
                 variantAxes: null,
 
-                isChecked: function(name, value) {
+                isChecked: function (name, value) {
                     return this.product.variantAxes[name] == value;
                 }
             },
@@ -70,12 +70,12 @@
                 'title',
                 'pagePath'
             ],
-            ready: function() {
+            ready: function () {
                 this.processHash();
                 this.trackView();
             },
             methods: {
-                _setProduct: function(name, value) {
+                _setProduct: function (name, value) {
                     var self = this;
                     self.variantAxes[name] = value;
 
@@ -103,7 +103,7 @@
                         }
                     });
                 },
-                setProduct: function(event) {
+                setProduct: function (event) {
                     var name = event.currentTarget.attributes['name'].value;
                     var value = event.currentTarget.attributes['value'].value;
                     this._setProduct(name, value);
@@ -127,16 +127,22 @@
                         );
                     }
                 },
-                processHash: function() {
+                addToWishlist: function (event) {
+                    if (this.product) {
+                        this.$els.weproductform.setAttribute("action", event.currentTarget.getAttribute("data-smartlist-url"));
+                        this.$els.weproductform.submit();
+                    }
+                },
+                processHash: function () {
                     var self = this;
                     var done = false;
-                    if (window.location.hash) {                  
+                    if (window.location.hash) {
                         var sku = window.location.hash.slice(1);
                         self.variants.forEach(function (product) {
                             if (done) {
                                 return;
                             }
-                            
+
                             if (sku == product.sku) {
                                 self.product = product;
                                 self.variantAxes = JSON.parse(JSON.stringify(product.variantAxes));
@@ -144,7 +150,7 @@
                             }
                         });
                     }
-                    
+
                     if (!done) {
                         history.pushState(null, null, '#' + self.product.sku);
                     }

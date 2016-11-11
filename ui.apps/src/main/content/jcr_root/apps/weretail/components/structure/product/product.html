@@ -83,7 +83,7 @@
                 </div>
             </div>
             
-            <form class="we-Product-form" action="${productModel.addToCartUrl}" method="POST"
+            <form class="we-Product-form" v-el:weProductForm action="${productModel.addToCartUrl}" method="POST"
                   data-sly-use.hapiProductForm="${'org.apache.sling.hapi.sightly.HApiUse' @ type='/apps/public/weretail/hapi_types/addcartentryform'}"
                   data-sly-attribute="${hapiProductForm.itemtype}"
                   data-rel="addCartEntryForm">
@@ -91,7 +91,8 @@
                 <input type="hidden" name="redirect-product-not-found" v-model="product.pagePath" data-sly-attribute="${hapiProductForm.itemprop.redirectErrorPath}" />
                 <input type="hidden" name="product-quantity" value="1" data-sly-attribute="${hapiProductForm.itemprop.quantity}" />
                 <input type="hidden" name="product-path" v-model="product.path" data-sly-attribute="${hapiProductForm.itemprop.productPath}" />
-            
+                <input type="hidden" name=":operation" value="addToSmartList" />
+
                 <sly data-sly-list.axisName="${productModel.productItem.variantsAxesValues}">
                 <div class="form-group">
                     <label>${axisName @ i18n}</label>
@@ -120,8 +121,14 @@
                             */-->
                         </div>
                         <div class="col-md-8 text-right">
-                            <button type="submit" class="btn btn-action btn-primary" data-sly-attribute="${hapiProductForm.itemprop.addToCartButton}">Add to cart</button>
-                            <a href="#" class="btn btn-icon btn-primary"><i class="we-Icon we-Icon--heart"></i></a>
+                            <div class="we-Product-actions">
+                                <button type="submit" class="btn btn-action btn-primary" data-sly-attribute="${hapiProductForm.itemprop.addToCartButton}">Add to cart</button>
+                                <a data-sly-test="${!productModel.isAnonymous}" v-on:click.prevent="addToWishlist"
+                                   href="#" data-smartlist-url="${productModel.addToSmartListUrl}" class="btn btn-icon btn-primary"
+                                   data-sly-attribute="${hapiProductForm.itemprop.addToSmartlistButton}">
+                                    <i class="fa fa-heart-o"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

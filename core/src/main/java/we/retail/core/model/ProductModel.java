@@ -73,6 +73,7 @@ public class ProductModel {
 
     private CommerceService commerceService;
     private ProductItem productItem;
+    private boolean isAnonymous;
 
     @PostConstruct
     private void populateProduct() {
@@ -94,6 +95,9 @@ public class ProductModel {
         } catch (CommerceException e) {
             LOGGER.error("Can't extract product from page", e);
         }
+
+        isAnonymous = resourceResolver.getUserID() == null || resourceResolver.getUserID().equals("anonymous") ? true
+                : false;
     }
 
     public ProductItem getProductItem() {
@@ -108,10 +112,17 @@ public class ProductModel {
         return commerceHandler.getAddToCardUrl();
     }
 
+    public String getAddToSmartListUrl() {
+        return commerceHandler.getAddToSmartListUrl();
+    }
+
     public String getProductTrackingPath() {
         return commerceHandler.getProductTrackingPath();
     }
 
+    public boolean isAnonymous() {
+        return isAnonymous;
+    }
 
     public class ProductItem {
 
