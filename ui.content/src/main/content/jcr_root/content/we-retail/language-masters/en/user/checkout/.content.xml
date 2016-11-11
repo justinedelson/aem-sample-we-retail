@@ -44,7 +44,7 @@
                         jcr:title="Shipping Address"
                         sling:resourceType="wcm/foundation/components/title"
                         type="h4"/>
-                    <shipping-fullname
+                    <shipping.firstname
                         jcr:created="{Date}2016-11-10T09:41:00.403+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T13:35:15.676+01:00"
@@ -53,11 +53,24 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="shipping-fullname"
-                        placeholder="Full Name"
+                        name="shipping.firstname"
+                        placeholder="Firstname"
                         required="true"
                         type="input"/>
-                    <shipping-address-line-1
+                    <shipping.lastname
+                        jcr:created="{Date}2016-11-10T09:41:00.403+01:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2016-11-10T13:35:15.676+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="core/wcm/components/form/text"
+                        constraintType="text"
+                        hideTitle="true"
+                        name="shipping.lastname"
+                        placeholder="Lastname"
+                        required="true"
+                        type="input"/>
+                    <shipping.street1
                         jcr:created="{Date}2016-11-10T09:41:45.846+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:42:44.216+01:00"
@@ -66,10 +79,10 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="shipping-address-line-1"
+                        name="shipping.street1"
                         placeholder="Address line 1"
                         type="input"/>
-                    <shipping-address-line-2
+                    <shipping.street2
                         jcr:created="{Date}2016-11-10T09:41:54.541+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:42:54.673+01:00"
@@ -78,10 +91,10 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="shipping-address-line-2"
+                        name="shipping.street2"
                         placeholder="Address line 2"
                         type="input"/>
-                    <shipping-city
+                    <shipping.city
                         jcr:created="{Date}2016-11-10T09:42:10.714+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:43:11.150+01:00"
@@ -90,10 +103,10 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="shipping-city"
+                        name="shipping.city"
                         placeholder="City"
                         type="input"/>
-                    <shipping-npa
+                    <shipping.zip
                         jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:43:25.224+01:00"
@@ -102,7 +115,7 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="shipping-npa"
+                        name="shipping.zip"
                         placeholder="NPA"
                         type="input"/>
                     <shipping-state
@@ -117,7 +130,7 @@
                         name="shipping-state"
                         placeholder="State"
                         type="input"/>
-                    <shipping-country
+                    <shipping.country
                         jcr:created="{Date}2016-11-10T09:42:23.695+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:43:52.083+01:00"
@@ -126,7 +139,7 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="shipping-country"
+                        name="shipping.country"
                         placeholder="Country"
                         type="input"/>
                     <billing-address-title
@@ -150,7 +163,7 @@
                         hideTitle="true"
                         name="billing-is-shipping-address"
                         options="yes=Same as shipping address"/>
-                    <billing-fullname
+                    <billing.firstname
                         jcr:created="{Date}2016-11-10T09:41:00.403+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:41:39.662+01:00"
@@ -159,10 +172,22 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="billing-fullname"
-                        placeholder="Full Name"
+                        name="billing.firstname"
+                        placeholder="First Name"
                         type="input"/>
-                    <billing-address-line-1
+                    <billing.lastname
+                        jcr:created="{Date}2016-11-10T09:41:00.403+01:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2016-11-10T09:41:39.662+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="core/wcm/components/form/text"
+                        constraintType="text"
+                        hideTitle="true"
+                        name="billing.lastname"
+                        placeholder="Last Name"
+                        type="input"/>
+                    <billing.street1
                         jcr:created="{Date}2016-11-10T09:41:45.846+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:42:44.216+01:00"
@@ -171,10 +196,10 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="billing-address-line-1"
+                        name="billing.street1"
                         placeholder="Address line 1"
                         type="input"/>
-                    <billing-address-line-2
+                    <billing.street2
                         jcr:created="{Date}2016-11-10T09:41:54.541+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:42:54.673+01:00"
@@ -183,10 +208,10 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="billing-address-line-2"
+                        name="billing.street2"
                         placeholder="Address line 2"
                         type="input"/>
-                    <billing-city
+                    <billing.city
                         jcr:created="{Date}2016-11-10T09:42:10.714+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:43:11.150+01:00"
@@ -195,10 +220,10 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="billing-city"
+                        name="billing.city"
                         placeholder="City"
                         type="input"/>
-                    <billing-npa
+                    <billing.zip
                         jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:43:25.224+01:00"
@@ -207,10 +232,10 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="billing-npa"
+                        name="billing.zip"
                         placeholder="NPA"
                         type="input"/>
-                    <billing-state
+                    <billing.state
                         jcr:created="{Date}2016-11-10T09:42:17.519+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:43:40.369+01:00"
@@ -219,10 +244,10 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="billing-state"
+                        name="billing.state"
                         placeholder="State"
                         type="input"/>
-                    <billing-country
+                    <billing.country
                         jcr:created="{Date}2016-11-10T09:42:23.695+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:43:52.083+01:00"
@@ -231,7 +256,7 @@
                         sling:resourceType="core/wcm/components/form/text"
                         constraintType="text"
                         hideTitle="true"
-                        name="billing-country"
+                        name="billing.country"
                         placeholder="Country"
                         type="input"/>
                     <shipping-method-title
