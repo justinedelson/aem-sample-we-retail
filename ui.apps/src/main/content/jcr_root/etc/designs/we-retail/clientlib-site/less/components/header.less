@@ -81,6 +81,11 @@
         }
     }
 
+    &-title {
+        border-bottom: 1px solid #000;
+        margin-bottom: @padding-large-vertical;
+    }
+
     &-headerLeft {
         float: left;
     }
@@ -93,26 +98,42 @@
         margin-bottom: 20px;
     }
 
-
     &-image {
         &:extend(.we-Cart-entryCol);
         width: 35%;
-        padding: 1rem;
+        padding: 0 1rem 1rem 1rem;
+        vertical-align: top;
     }
 
     &-entryContent {
         &:extend(.we-Cart-entryCol);
-        width: 40%;
+        width: 50%;
 
         a {
             color: #000;
         }
     }
 
+    &-entryPrice {
+        float: right;
+    }
+
+    &-entryVariants {
+        list-style-type: none;
+        padding-left: 0px;
+        text-transform: capitalize;
+    }
+
     &-remove {
         &:extend(.we-Cart-entryCol);
-        width: 25%;
+        width: 10%;
         text-align: center;
+        vertical-align: top;
+
+        .btn-default {
+            padding-top: 1px;
+            padding-right: 10px;
+        }
     }
 
     &-footer {
