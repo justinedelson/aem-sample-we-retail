@@ -50,7 +50,7 @@
                         <div data-sly-use.hapiCartEntryProduct="${'org.apache.sling.hapi.sightly.HApiUse' @type=hapiCartEntry.proptype.product}"
                              data-sly-attribute="${hapiCartEntry.itemprop.product}">
                             <meta content="${item.product.title}" data-sly-attribute="${hapiCartEntryProduct.itemprop.name}"/>
-                            <a href="${item.product.pagePath}" data-sly-attribute="${hapiCartEntryProduct.itemprop.path}">
+                            <a href="${item.entry.product.pagePath}" data-sly-attribute="${hapiCartEntryProduct.itemprop.path}">
                                 <strong>${item.entry.product.title}</strong>
                             </a>
                             <div class="text-muted">
