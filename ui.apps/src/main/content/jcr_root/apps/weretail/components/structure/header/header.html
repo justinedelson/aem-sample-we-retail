@@ -73,7 +73,7 @@
                         <li class="visible-xs" data-sly-test="${!header.isAnonymous}"><a href="${header.profilePath}.html">Profile</a></li>
                         <li class="visible-xs" data-sly-test="${!header.isAnonymous}"><a href="${header.messagingPath}.html" class="visible-xs">Messages <span class="badge pull-right">0</span></a></li>
                         <li class="visible-xs" data-sly-test="${!header.isAnonymous}"><a href="${header.notificationPath}.html" class="visible-xs">Notifications <span class="badge pull-right">0</span></a></li>
-                        <li class="visible-xs"><a href="#" class="visible-xs">Wishlist <span class="badge pull-right">0</span></a></li>
+                        <li class="visible-xs" data-sly-test="${!header.isAnonymous}" data-sly-resource="${@ resourceType='weretail/components/structure/navwishlist', selectors='mobilelink'}"></li>
                         <li class="visible-xs"><a href="#" data-toggle="modal" data-target=".we-LanguageModal"><i class="we-lang-icon we-lang-icon-${header.currentLanguage.countrycode}"></i> ${header.currentLanguage.languagecode}</a></li>
                     </ul>
                 </div>

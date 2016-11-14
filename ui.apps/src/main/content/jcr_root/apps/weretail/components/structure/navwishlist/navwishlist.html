@@ -51,7 +51,7 @@
                              data-sly-attribute="${hapiCartEntry.itemprop.product}">
                             <meta content="${item.product.title}" data-sly-attribute="${hapiCartEntryProduct.itemprop.name}"/>
                             <a href="${item.product.pagePath}" data-sly-attribute="${hapiCartEntryProduct.itemprop.path}">
-                                <span class="bold">${item.entry.product.title}</span>
+                                <strong>${item.entry.product.title}</strong>
                             </a>
                             <div class="text-muted">
                                 <small data-sly-attribute="${hapiCartEntryProduct.itemprop.description}">
@@ -82,7 +82,11 @@
             </div>
 
             <div class="we-Smartlist-footer">
-                <p>Footer</p>
+                <div class="we-Smartlist-footer-all">
+                    <a href="#">
+                        <span class="bold"><i class="fa fa-shopping-cart"></i> Add all products to cart</span>
+                    </a>
+                </div>
             </div>
         </div>
     </smartlist-content>
