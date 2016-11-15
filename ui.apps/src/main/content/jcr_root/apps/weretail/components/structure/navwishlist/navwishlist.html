@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="we-Smartlist-title">
+            <div class="we-Smartlist-title" data-sly-test="${wishlist.smartList}">
                 <h4 data-sly-attribute="${hapiWishlist.itemprop.name}">${wishlist.smartList.title}</h4>
             </div>
 
@@ -81,12 +81,17 @@
                 </div>
             </div>
 
-            <div class="we-Smartlist-footer">
+            <div class="we-Smartlist-footer" data-sly-test="${wishlist.smartList}" data-sly-test="${wishlist.entries.size != 0}">
                 <div class="we-Smartlist-footer-all">
                     <a href="#">
                         <span class="bold"><i class="fa fa-shopping-cart"></i> Add all products to cart</span>
                     </a>
                 </div>
+            </div>
+
+            <div class="we-Smartlist-empty" data-sly-test="${wishlist.entries.size == 0}">
+                <span data-sly-test="${!wishlist.smartList}">You do not have a wish list. Add a product to create a new wish list.</span>
+                <span data-sly-test="${wishlist.smartList}">You do not have any products on your wish list.</span>
             </div>
         </div>
     </smartlist-content>
