@@ -18,12 +18,12 @@ package common.mock;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import javax.annotation.Nonnull;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceWrapper;
+import org.apache.sling.api.resource.ValueMap;
 
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.Product;
@@ -86,7 +86,7 @@ public class MockProduct extends ResourceWrapper implements Product {
 
     @Override
     public String getThumbnailUrl() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
