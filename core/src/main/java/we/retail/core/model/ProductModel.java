@@ -137,7 +137,8 @@ public class ProductModel {
         private String price;
         private String summary;
         private String features;
-        private String imageSrc;
+        private String imageUrl;
+        private String thumbnailUrl;
 
         private List<ProductItem> variants = new ArrayList<ProductItem>();
 
@@ -161,7 +162,8 @@ public class ProductModel {
             features = product.getProperty(PN_FEATURES, String.class);
 
             ImageResource image = product.getImage();
-            imageSrc = image != null ? image.getFileReference() : null;
+            imageUrl = image != null ? image.getFileReference() : null;
+            thumbnailUrl = product.getThumbnailUrl();
 
             if (commerceSession != null) {
                 try {
@@ -249,8 +251,12 @@ public class ProductModel {
             return features;
         }
 
-        public String getImageSrc() {
-            return imageSrc;
+        public String getImageUrl() {
+            return imageUrl;
+        }
+
+        public String getThumbnailUrl() {
+            return thumbnailUrl;
         }
 
         public List<ProductItem> getVariants() {

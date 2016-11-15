@@ -81,7 +81,7 @@ public class ProductModelTest {
         assertNull(variantItem.getPrice());
         assertNull(variantItem.getSummary());
         assertNull(variantItem.getFeatures());
-        assertNull(variantItem.getImageSrc());
+        assertNull(variantItem.getImageUrl());
     }
 
 }
