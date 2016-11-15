@@ -29,6 +29,7 @@
             'summary',
             'features',
             'image',
+            'thumbnail',
             'variantAxes'
         ],
         compiled: function () {
@@ -113,7 +114,7 @@
                         ContextHub.getStore("recentlyviewed").record(
                             this.pagePath,
                             this.product.title,
-                            this.product.image,
+                            this.product.thumbnail,
                             this.product.price
                         );
                     }
