@@ -16,10 +16,9 @@
 (function () {
     'use strict';
 
-    var EXPANDABLE_CLASS = 'we-Cart-expandable',
+    var EXPANDABLE_CLASS = 'we-Smartlist-expandable',
         EXPAND_SMARTLIST_VALUE = 'smartlist-expanded',
         EXPAND_CART_VALUE = 'cart-expanded',
-
         EXPANDABLE_SELECTOR = 'body';
 
     var _fixed = null;
@@ -43,14 +42,14 @@
         this.$window.off('scroll', this._onScroll);
     };
 
-    Vue.component('cart-content', {
+    Vue.component('smartlist-content', {
         ready: function() {
-            // move cart contents to body
+            // move smartlist contents to body
             // so we won't interfere with any mobile styles
             document.body.appendChild(this.$el);
         },
         events: {
-            'cart-button-expand': function(show) {
+            'smartlist-button-expand': function(show) {
                 // handle fixed in js
                 // position fixed in css doesn't work with transform
                 this._fixed = this._fixed || new Fixed(this.$el);
@@ -63,9 +62,9 @@
         }
     });
 
-    Vue.component('cart-button', {});
+    Vue.component('we-Smartlist-button', {});
 
-    var CartComponent = Vue.extend({
+    var SmartlistComponent = Vue.extend({
         ready: function() {
             this.$expandable = $(this.$el).closest(EXPANDABLE_SELECTOR);
             this.$expandable.addClass(EXPANDABLE_CLASS);
@@ -74,23 +73,23 @@
             toggle: function() {
                 var $el = this.$expandable;
 
-                if ($el.hasClass(EXPAND_CART_VALUE)) {
-                    $el.removeClass(EXPAND_CART_VALUE);
-                    $(".we-Cart-content").hide();
-                    this.$root.$broadcast('cart-button-expand', false);
-                } else {
-                    $el.addClass(EXPAND_CART_VALUE);
+                if ($el.hasClass(EXPAND_SMARTLIST_VALUE)) {
                     $el.removeClass(EXPAND_SMARTLIST_VALUE);
-                    $(".we-Cart-content").show();
                     $(".we-Smartlist-content").hide();
-                    this.$root.$broadcast('cart-button-expand', true);
+                    this.$root.$broadcast('smartlist-button-expand', false);
+                } else {
+                    $el.removeClass(EXPAND_CART_VALUE);
+                    $el.addClass(EXPAND_SMARTLIST_VALUE);
+                    $(".we-Cart-content").hide();
+                    $(".we-Smartlist-content").show()
+                    this.$root.$broadcast('smartlist-button-expand', true);
                 }
             }
         }
     });
 
-    $('.we-Cart').each(function() {
-        new CartComponent().$mount(this);
+    $('.we-Smartlist').each(function() {
+        new SmartlistComponent().$mount(this);
     });
 
 }).call(this);
