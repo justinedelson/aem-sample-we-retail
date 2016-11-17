@@ -4,7 +4,7 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2016-11-11T13:25:03.736+01:00"
+        cq:lastModified="{Date}2016-11-17T14:51:17.617+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         jcr:primaryType="cq:PageContent"
@@ -20,15 +20,6 @@
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
-                <title
-                    jcr:created="{Date}2016-11-11T10:26:21.444+01:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2016-11-11T10:26:50.236+01:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Review Your Order"
-                    sling:resourceType="wcm/foundation/components/title"
-                    type="h2"/>
                 <formcontainer
                     jcr:created="{Date}2016-11-11T10:25:27.434+01:00"
                     jcr:createdBy="admin"
@@ -40,112 +31,192 @@
                     actionType="commerce/components/actions/submitorder"
                     formid="order"
                     redirect="/content/we-retail/language-masters/en/user/checkout/order/thank-you">
-                    <shipping-address-title
-                        jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
+                    <title
+                        jcr:created="{Date}2016-11-11T10:26:21.444+01:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
+                        jcr:lastModified="{Date}2016-11-11T10:26:50.236+01:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Shipping Address"
+                        jcr:title="REVIEW YOUR ORDER"
                         sling:resourceType="wcm/foundation/components/title"
-                        type="h4"/>
-                    <shipping-addressbook
-                        jcr:created="{Date}2016-11-11T10:55:15.170+01:00"
+                        type="h2"/>
+                    <responsivegrid
+                        jcr:created="{Date}2016-11-17T11:52:45.013+01:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-11-11T10:55:32.011+01:00"
+                        jcr:lastModified="{Date}2016-11-17T11:52:45.013+01:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="cq/address/components/addressbook"
-                        addAddressButton="true"
-                        addressType="shipping"
-                        displayType="selected"
-                        readOnly="true"
-                        showDeleteAddressButton="true"
-                        showMakeDefaultAddressButton="true"
-                        showUpdateAddressButton="true"
-                        showUseAddressButton="true"/>
-                    <billing-address-title
-                        jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Billing Address"
-                        sling:resourceType="wcm/foundation/components/title"
-                        type="h4"/>
-                    <billing-addressbook
-                        jcr:created="{Date}2016-11-11T10:55:15.170+01:00"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-11-11T10:55:32.011+01:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="cq/address/components/addressbook"
-                        addAddressButton="true"
-                        addressType="billing"
-                        displayType="selected"
-                        readOnly="true"
-                        showDeleteAddressButton="true"
-                        showMakeDefaultAddressButton="true"
-                        showUpdateAddressButton="true"
-                        showUseAddressButton="true"/>
-                    <shipping-method-title
-                        jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Shipping Method"
-                        sling:resourceType="wcm/foundation/components/title"
-                        type="h4"/>
-                    <shipping-method
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="commerce/components/shippingmethods"
-                        readOnly="true"/>
-                    <payment-method-title
-                        jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Payment Method"
-                        sling:resourceType="wcm/foundation/components/title"
-                        type="h4"/>
-                    <payment-method
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="commerce/components/paymentmethods"
-                        readOnly="true"/>
-                    <gift-promotion-title
-                        jcr:created="{Date}2016-11-10T11:07:14.454+01:00"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-11-10T11:07:31.282+01:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Gift &amp; Promotional Codes"
-                        sling:resourceType="wcm/foundation/components/title"
-                        type="h4"/>
-                    <promotional-code
-                        jcr:created="{Date}2016-11-10T11:07:46.063+01:00"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-11-10T11:08:05.798+01:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="core/wcm/components/form/text"
-                        constraintType="text"
-                        hideTitle="true"
-                        name="promotional-code"
-                        placeholder="Promotional Code"
-                        type="input"/>
-                    <button
-                        jcr:created="{Date}2016-11-10T11:10:58.798+01:00"
-                        jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-11-10T11:12:50.076+01:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="core/wcm/components/form/button"
-                        cssClass="btn-action btn-primary"
-                        title="Place order"
-                        type="submit"/>
+                        sling:resourceType="wcm/foundation/components/responsivegrid">
+                        <cq:responsive jcr:primaryType="nt:unstructured"/>
+                        <column1
+                            jcr:created="{Date}2016-11-17T11:52:45.013+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2016-11-17T11:52:45.013+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/foundation/components/responsivegrid">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    width="6"/>
+                            </cq:responsive>
+                            <shipping-address-title
+                                jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Shipping Address"
+                                sling:resourceType="wcm/foundation/components/title"
+                                type="h4"/>
+                            <shipping-addressbook
+                                jcr:created="{Date}2016-11-11T10:55:15.170+01:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2016-11-11T10:55:32.011+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/address/components/addressbook"
+                                addAddressButton="true"
+                                addressType="shipping"
+                                displayType="selected"
+                                readOnly="true"
+                                showDeleteAddressButton="true"
+                                showMakeDefaultAddressButton="true"
+                                showUpdateAddressButton="true"
+                                showUseAddressButton="true"/>
+                            <billing-address-title
+                                jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Billing Address"
+                                sling:resourceType="wcm/foundation/components/title"
+                                type="h4"/>
+                            <billing-addressbook
+                                jcr:created="{Date}2016-11-11T10:55:15.170+01:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2016-11-11T10:55:32.011+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/address/components/addressbook"
+                                addAddressButton="true"
+                                addressType="billing"
+                                displayType="selected"
+                                readOnly="true"
+                                showDeleteAddressButton="true"
+                                showMakeDefaultAddressButton="true"
+                                showUpdateAddressButton="true"
+                                showUseAddressButton="true"/>
+                        </column1>
+                        <column2
+                            jcr:created="{Date}2016-11-17T11:52:45.013+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2016-11-17T11:52:45.013+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/foundation/components/responsivegrid">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    width="6"/>
+                            </cq:responsive>
+                            <shipping-method-title
+                                jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Shipping Method"
+                                sling:resourceType="wcm/foundation/components/title"
+                                type="h4"/>
+                            <shipping-method
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="commerce/components/shippingmethods"
+                                readOnly="true"/>
+                            <payment-method-title
+                                jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Payment Method"
+                                sling:resourceType="wcm/foundation/components/title"
+                                type="h4"/>
+                            <payment-method
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="commerce/components/paymentmethods"
+                                readOnly="true"/>
+                            <gift-promotion-title
+                                jcr:created="{Date}2016-11-10T11:07:14.454+01:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2016-11-10T11:07:31.282+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Gift &amp; Promotional Codes"
+                                sling:resourceType="wcm/foundation/components/title"
+                                type="h4"/>
+                            <promotional-code
+                                jcr:created="{Date}2016-11-10T11:07:46.063+01:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2016-11-17T12:18:03.221+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Promotional Code"
+                                sling:resourceType="core/wcm/components/form/text"
+                                constraintType="text"
+                                helpMessage="Promotional Code"
+                                hideTitle="true"
+                                name="promotional-code"
+                                type="input"
+                                usePlaceholder="true"/>
+                            <button
+                                jcr:created="{Date}2016-11-10T11:10:58.798+01:00"
+                                jcr:createdBy="admin"
+                                jcr:lastModified="{Date}2016-11-10T11:12:50.076+01:00"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="core/wcm/components/form/button"
+                                cssClass="btn-action btn-primary"
+                                title="Place order"
+                                type="submit">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="2"
+                                        width="4"/>
+                                </cq:responsive>
+                            </button>
+                        </column2>
+                    </responsivegrid>
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            width="8"/>
+                    </cq:responsive>
                 </formcontainer>
+                <responsivegrid
+                    jcr:created="{Date}2016-11-17T11:52:45.013+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-11-17T11:52:45.013+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/foundation/components/responsivegrid">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            width="4"/>
+                    </cq:responsive>
+                    <cart-title
+                        jcr:created="{Date}2016-11-10T09:45:14.834+01:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2016-11-10T09:45:46.049+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="YOUR ORDER"
+                        sling:resourceType="wcm/foundation/components/title"
+                        type="h2"/>
+                </responsivegrid>
             </responsivegrid>
         </root>
     </jcr:content>
