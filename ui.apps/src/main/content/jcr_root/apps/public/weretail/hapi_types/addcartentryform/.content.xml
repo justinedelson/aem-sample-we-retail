@@ -36,9 +36,19 @@
         description="Path to the product"
         multiple="{Boolean}false"
         type="org.apache.sling.hapi.common.Text"/>
+    <smartlistPath
+        jcr:primaryType="nt:unstructured"
+        description="Path / ID of the smart list"
+        multiple="{Boolean}false"
+        type="org.apache.sling.hapi.common.Text"/>
     <addToCartButton
         jcr:primaryType="nt:unstructured"
         description="Add To Cart button"
+        multiple="{Boolean}false"
+        type="org.apache.sling.hapi.common.Text"/>
+    <addAllToCartButton
+        jcr:primaryType="nt:unstructured"
+        description="Add all products to cart button"
         multiple="{Boolean}false"
         type="org.apache.sling.hapi.common.Text"/>
     <addToSmartlistButton

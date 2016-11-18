@@ -13,7 +13,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 @import "/etc/designs/we-retail/common/helpers.less";
 
 .we-Smartlist {
@@ -25,8 +24,27 @@
             transform: translateX(-100%);
             margin-right: 0;
 
-            @media(min-width: @screen-sm-min) {
+            @media (min-width: @screen-sm-min) {
                 transform: translateX(-300px);
+            }
+        }
+    }
+
+    &-footer-all, &-entries {
+
+        .btn-addtocart {
+            background: none;
+            color: @brand-primary;
+            font-size: 14px;
+            text-transform: none;
+            padding: 0;
+
+            &:hover, &.hover,
+            &:focus, &.focus {
+                background-color: transparent;
+                box-shadow: none;
+                outline: none;
+                color: @brand-primary-hover;
             }
         }
     }
