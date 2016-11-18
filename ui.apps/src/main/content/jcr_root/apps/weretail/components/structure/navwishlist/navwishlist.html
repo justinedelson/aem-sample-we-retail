@@ -15,7 +15,7 @@
 */-->
 <div class="we-Smartlist" data-sly-use.wishlist="apps.weretail.components.structure.navwishlist.Wishlist">
     <a class="we-Smartlist-button" href="#" v-on:click="toggle">
-        <i class="fa fa-heart-o"></i> Wishlist <span class="badge active" data-sly-test="${wishlist.entries.size > 0}">${wishlist.entries.size}</span>
+        <i class="fa fa-heart-o"></i> ${'Wishlist' @ i18n} <span class="badge active" data-sly-test="${wishlist.entries.size > 0}">${wishlist.entries.size}</span>
     </a>
 
     <smartlist-content inline-template>
@@ -53,6 +53,15 @@
                             <a href="${item.entry.product.pagePath}" data-sly-attribute="${hapiWishlistEntryProduct.itemprop.path}">
                                 <strong>${item.entry.product.title}</strong>
                             </a>
+                            <form method="post" action="${currentPage.path @ extension = 'html', selectors='commerce.smartlist.management'}">
+                                <input type="hidden" name="redirect"
+                                       value="${currentPage.path @ extension = 'html'}?smartList=${wishlist.smartList.path}">
+                                <input type="hidden" name=":operation" value="addToCart">
+                                <input type="hidden" name="smartlist-path" value="${wishlist.smartList.path}"/>
+                                <input type="hidden" name="product-path" value="${item.entry.product.path}"/>
+                                <input type="hidden" name="_charset_" value="utf-8">
+                                <button type="submit" class="btn btn-addtocart bold"><i class="fa fa-shopping-cart"></i> ${'Add to cart' @ i18n}</button>
+                            </form>
                             <div class="text-muted">
                                 <small data-sly-attribute="${hapiWishlistEntryProduct.itemprop.description}">
                                     ${item.entry.product.baseProduct.description}
@@ -83,15 +92,19 @@
 
             <div class="we-Smartlist-footer" data-sly-test="${wishlist.smartList}" data-sly-test="${wishlist.entries.size != 0}">
                 <div class="we-Smartlist-footer-all">
-                    <a href="#">
-                        <span class="bold"><i class="fa fa-shopping-cart"></i> Add all products to cart</span>
-                    </a>
+                    <form method="post" action="${currentPage.path @ extension = 'html', selectors='commerce.smartlist.management'}">
+                        <input type="hidden" name="redirect" value="${currentPage.path @ extension = 'html'}?smartList=${wishlist.smartList.path}">
+                        <input type="hidden" name=":operation" value="addToCart">
+                        <input type="hidden" name="smartlist-path" value="${wishlist.smartList.path}"/>
+                        <input type="hidden" name="_charset_" value="utf-8">
+                        <button type="submit" class="btn btn-addtocart bold"><i class="fa fa-shopping-cart"></i> ${'Add all products to cart' @ i18n}</button>
+                    </form>
                 </div>
             </div>
 
             <div class="we-Smartlist-empty" data-sly-test="${wishlist.entries.size == 0}">
-                <span data-sly-test="${!wishlist.smartList}">You do not have a wish list. Add a product to create a new wish list.</span>
-                <span data-sly-test="${wishlist.smartList}">You do not have any products on your wish list.</span>
+                <span data-sly-test="${!wishlist.smartList}">${'You do not have a wish list. Add a product to create a new wish list.' @ i18n}</span>
+                <span data-sly-test="${wishlist.smartList}">${'You do not have any products on your wish list.' @ i18n}</span>
             </div>
         </div>
     </smartlist-content>
