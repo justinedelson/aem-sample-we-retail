@@ -15,7 +15,26 @@
  ******************************************************************************/
 package we.retail.core;
 
-import com.adobe.cq.commerce.api.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import javax.jcr.Node;
+
+import org.apache.commons.collections.Predicate;
+import org.apache.jackrabbit.commons.JcrUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceUtil;
+
+import com.adobe.cq.commerce.api.CommerceConstants;
+import com.adobe.cq.commerce.api.CommerceException;
+import com.adobe.cq.commerce.api.CommerceService;
+import com.adobe.cq.commerce.api.CommerceSession;
+import com.adobe.cq.commerce.api.PaymentMethod;
+import com.adobe.cq.commerce.api.Product;
+import com.adobe.cq.commerce.api.ShippingMethod;
 import com.adobe.cq.commerce.api.promotion.Voucher;
 import com.adobe.cq.commerce.common.AbstractJcrCommerceService;
 import com.adobe.cq.commerce.common.CommerceHelper;
@@ -24,17 +43,6 @@ import com.adobe.cq.commerce.common.promotion.AbstractJcrVoucher;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.tagging.Tag;
 import com.day.cq.wcm.api.Page;
-import org.apache.commons.collections.Predicate;
-import org.apache.jackrabbit.commons.JcrUtils;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceUtil;
-
-import javax.jcr.Node;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
 
 public class WeRetailCommerceServiceImpl extends AbstractJcrCommerceService implements CommerceService  {
 
@@ -157,12 +165,12 @@ public class WeRetailCommerceServiceImpl extends AbstractJcrCommerceService impl
 
     @Override
     public List<ShippingMethod> getAvailableShippingMethods() throws CommerceException {
-        return enumerateMethods("/etc/commerce/shipping-methods/geometrixx-outdoors", ShippingMethod.class);
+        return enumerateMethods("/etc/commerce/shipping-methods/we-retail", ShippingMethod.class);
     }
 
     @Override
     public List<PaymentMethod> getAvailablePaymentMethods() throws CommerceException {
-        return enumerateMethods("/etc/commerce/payment-methods/geometrixx-outdoors", PaymentMethod.class);
+        return enumerateMethods("/etc/commerce/payment-methods/we-retail", PaymentMethod.class);
     }
 
     @Override
