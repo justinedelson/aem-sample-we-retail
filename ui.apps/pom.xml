@@ -31,7 +31,7 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <artifactId>we.retail.ui.apps</artifactId>
-    <version>1.9.65-SNAPSHOT</version>
+    <version>1.9.67-SNAPSHOT</version>
     <packaging>content-package</packaging>
     <name>We.Retail - UI apps</name>
     <description>UI apps package for We.Retail</description>
