@@ -21,6 +21,7 @@
 
     if ($(checkbox).is(':checked')) {
 		$("input[name^='billing.']").hide();
+		$("div.we-retail-select-billing").hide();
     }
 
     $(payment).each(function() {
@@ -37,6 +38,7 @@
     
     $(checkbox).change(function() {
         $("input[name^='billing.']").toggle();
+        $("div.we-retail-select-billing").toggle();
     });
 
     $(payment).change(function() {
@@ -57,6 +59,11 @@
                 var $this = $(this);
                 var shippingName = $this.attr('name').replace('billing.', 'shipping.');
                 $this.val($("input[name='" + shippingName + "']").val());
+            });
+            $("select[name^='billing.']").each(function() {
+                var $this = $(this);
+                var shippingName = $this.attr('name').replace('billing.', 'shipping.');
+                $this.val($("select[name='" + shippingName + "']").val());
             });
         }
     });
