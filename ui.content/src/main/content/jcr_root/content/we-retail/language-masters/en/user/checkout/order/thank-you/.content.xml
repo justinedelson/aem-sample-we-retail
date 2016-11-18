@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2016-11-11T15:25:31.891+01:00"
+        cq:lastModified="{Date}2016-11-18T13:40:31.761+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         jcr:primaryType="cq:PageContent"
@@ -25,7 +25,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="THANK YOU !"
-                    sling:resourceType="wcm/foundation/components/title"
+                    sling:resourceType="weretail/components/content/title"
                     type="h2"/>
                 <subtitle
                     jcr:created="{Date}2016-11-11T11:46:13.280+01:00"
@@ -34,7 +34,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Your order is being processed."
-                    sling:resourceType="wcm/foundation/components/title"
+                    sling:resourceType="weretail/components/content/title"
                     type="h4"/>
                 <orderid
                     jcr:created="{Date}2013-05-24T18:42:54.646+01:00"
@@ -48,11 +48,11 @@
                     detailsPagePath="/content/we-retail/en/user/account/order-history/order-details"
                     label="Order No."/>
                 <text
-                    jcr:lastModified="{Date}2016-11-11T15:25:31.888+01:00"
+                    jcr:lastModified="{Date}2016-11-18T13:40:31.759+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="foundation/components/text"
-                    text="&lt;p style=&quot;text-align: left;&quot;>&amp;nbsp;&lt;/p>&#xa;&lt;p style=&quot;text-align: left;&quot;>We are processing your order and a confirmation email has been sent to your email address.&lt;/p>&#xa;&lt;p style=&quot;text-align: left;&quot;>Please check your inbox for further details on shipping and contacts. If you have any problem or question, you can email us and we will promptly see what we can do to help you out.&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
+                    sling:resourceType="weretail/components/content/text"
+                    text="&lt;p style=&quot;text-align: center;&quot;>&amp;nbsp;&lt;/p>&#xa;&lt;p style=&quot;text-align: center;&quot;>We are processing your order and a confirmation email has been sent to your email address.&lt;/p>&#xa;&lt;p style=&quot;text-align: center;&quot;>Please check your inbox for further details on shipping and contacts.&lt;/p>&#xa;&lt;p style=&quot;text-align: center;&quot;>If you have any problem or question, you can email us and we will promptly see what we can do to help you out.&lt;/p>&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xa;"
                     textIsRich="true"/>
                 <button
                     jcr:created="{Date}2016-03-14T21:41:39.706+01:00"

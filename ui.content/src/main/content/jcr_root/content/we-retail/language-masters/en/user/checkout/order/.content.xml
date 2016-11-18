@@ -67,7 +67,7 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Shipping Address"
-                                sling:resourceType="wcm/foundation/components/title"
+                                sling:resourceType="weretail/components/content/title"
                                 type="h4"/>
                             <shipping-addressbook
                                 jcr:created="{Date}2016-11-11T10:55:15.170+01:00"
@@ -91,7 +91,7 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Billing Address"
-                                sling:resourceType="wcm/foundation/components/title"
+                                sling:resourceType="weretail/components/content/title"
                                 type="h4"/>
                             <billing-addressbook
                                 jcr:created="{Date}2016-11-11T10:55:15.170+01:00"
@@ -128,7 +128,7 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Shipping Method"
-                                sling:resourceType="wcm/foundation/components/title"
+                                sling:resourceType="weretail/components/content/title"
                                 type="h4"/>
                             <shipping-method
                                 jcr:primaryType="nt:unstructured"
@@ -141,7 +141,7 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Payment Method"
-                                sling:resourceType="wcm/foundation/components/title"
+                                sling:resourceType="weretail/components/content/title"
                                 type="h4"/>
                             <payment-method
                                 jcr:primaryType="nt:unstructured"
@@ -154,7 +154,7 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Gift &amp; Promotional Codes"
-                                sling:resourceType="wcm/foundation/components/title"
+                                sling:resourceType="weretail/components/content/title"
                                 type="h4"/>
                             <promotional-code
                                 jcr:created="{Date}2016-11-10T11:07:46.063+01:00"
@@ -163,7 +163,7 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Promotional Code"
-                                sling:resourceType="core/wcm/components/form/text"
+                                sling:resourceType="weretail/components/form/text"
                                 constraintType="text"
                                 helpMessage="Promotional Code"
                                 hideTitle="true"
@@ -176,7 +176,7 @@
                                 jcr:lastModified="{Date}2016-11-10T11:12:50.076+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="core/wcm/components/form/button"
+                                sling:resourceType="weretail/components/form/button"
                                 cssClass="btn-action btn-primary"
                                 title="Place order"
                                 type="submit">
