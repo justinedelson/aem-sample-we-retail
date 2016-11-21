@@ -1,0 +1,73 @@
+<!--/*
+    Copyright 2016 Adobe Systems Incorporated
+  
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+  
+        http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+<div id="we-retail-mini-cart" data-sly-use.cart="apps.weretail.components.content.cart.Cart">
+
+	<div class="is-empty" data-sly-test="${cart.entries.size == 0}">${'The cart is empty' @ i18n}.</div>
+
+	<div class="cart-entries" data-sly-list.item="${cart.entries}">
+		<div class="cart-content"
+			data-sly-use.hapiCart="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/cart'}"
+			data-sly-attribute="${hapiCart.itemtype}">
+			<div class="cart-entry"
+				data-sly-use.hapiCartEntry="${'org.apache.sling.hapi.sightly.HApiUse' @type=hapiCart.proptype.entries}"
+				data-sly-attribute="${hapiCart.itemprop.entries}">
+
+				<div class="image">
+					<img src="${item.image}" alt="${item.product.title}" data-sly-attribute="${hapiCartEntry.itemprop.asset}" />
+				</div>
+
+				<div class="description"
+					data-sly-use.hapiCartEntryProduct="${'org.apache.sling.hapi.sightly.HApiUse' @type=hapiCartEntry.proptype.product}"
+					data-sly-attribute="${hapiCartEntry.itemprop.product}">
+					<a href="${item.product.pagePath}" data-sly-attribute="${hapiCartEntryProduct.itemprop.path}">
+						<span class="title" data-sly-attribute="${hapiCartEntryProduct.itemprop.name}">${item.product.title}</span>
+					</a>
+					
+                    <div data-sly-repeat.axisName="${item.variantAxesMap}" class="variant">${axisName}: ${item.variantAxesMap[axisName]}</div>
+                    <label>${'Qty' @ i18n}:</label>
+					<input type="number" value="${item.entry.quantity}" data-sly-attribute="${hapiCartEntry.itemprop.quantity}">
+				</div>
+
+				<div class="delete">
+					<div class="deleteButton"></div>
+					<div class="price" data-sly-attribute="${hapiCartEntry.itemprop.price}">${item.totalPrice}</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div id="cart-summary" class="table" data-sly-test="${cart.entries.size > 0}">
+		<div class="body">
+	        <div class="row">
+	            <div class="cell-title cell-border-bottom">${'Subtotal' @ i18n}</div>
+	            <div class="cell-border-bottom cell-align-right" data-sly-attribute="${hapiCart.itemprop.totalPrice}">${cart.subTotal}</div>
+	        </div>
+	        <div class="row">
+	            <div class="cell-title cell-margin-top">${'Shipping' @ i18n}</div>
+	            <div class="cell cell-margin-top cell-align-right" data-sly-attribute="${hapiCart.itemprop.totalPrice}">${cart.shippingPrice}</div>
+	        </div>
+	        <div class="row">
+	            <div class="cell-title cell-border-bottom">${'Tax' @ i18n}</div>
+	            <div class="cell-border-bottom cell-align-right" data-sly-attribute="${hapiCart.itemprop.totalPrice}">${cart.taxTotal}</div>
+	        </div>
+	        <div class="row">
+	            <div class="cell-title cell-margin-top">${'Total' @ i18n}</div>
+	            <div class="cell cell-margin-top cell-align-right cell-strong" data-sly-attribute="${hapiCart.itemprop.totalPrice}">${cart.total}</div>
+	        </div>
+        </div>
+    </div>
+</div>

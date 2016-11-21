@@ -4,7 +4,7 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2016-09-08T15:22:11.780+02:00"
+        cq:lastModified="{Date}2016-11-22T17:26:47.011+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         jcr:lastModified="{Date}2016-09-08T15:22:11.728+02:00"
@@ -22,7 +22,40 @@
                 jcr:lastModified="2016-01-13T15:58:50.877+01:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <title
+                    jcr:created="{Date}2016-11-21T10:58:22.512+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-11-21T10:58:49.857+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="SHOPPING CART"
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
+                <cart
+                    jcr:created="{Date}2016-11-21T12:36:17.177+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-11-22T17:26:47.009+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="weretail/components/content/cart"/>
+                <button
+                    jcr:created="{Date}2016-03-14T21:41:39.706+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-03-14T21:41:59.336+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="weretail/components/content/button"
+                    label="Check Out"
+                    linkTo="/content/we-retail/language-masters/en/user/checkout">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="9"
+                            width="3"/>
+                    </cq:responsive>
+                </button>
+            </responsivegrid>
         </root>
     </jcr:content>
 </jcr:root>

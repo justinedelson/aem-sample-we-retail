@@ -4,7 +4,7 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2016-11-18T13:52:21.355+01:00"
+        cq:lastModified="{Date}2016-11-22T17:30:03.449+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         jcr:lastModified="{Date}2016-09-08T15:22:11.728+02:00"
@@ -582,6 +582,14 @@
                         jcr:title="YOUR ORDER"
                         sling:resourceType="wcm/foundation/components/title"
                         type="h2"/>
+                    <cart
+                        jcr:created="{Date}2016-11-22T17:29:57.139+01:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2016-11-22T17:30:03.441+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="weretail/components/content/cart"
+                        showMiniCart="true"/>
                 </responsivegrid>
             </responsivegrid>
         </root>
