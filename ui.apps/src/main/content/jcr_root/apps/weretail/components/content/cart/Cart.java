@@ -35,12 +35,14 @@ import com.adobe.cq.commerce.api.PriceInfo;
 import com.adobe.cq.commerce.api.Product;
 import com.adobe.cq.commerce.common.PriceFilter;
 import com.adobe.cq.sightly.WCMUsePojo;
+import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.commons.WCMUtils;
 
 public class Cart extends WCMUsePojo {
 
     private static final String ORDER_ID = "orderId";
     private static final String SHOW_MINI_CART = "showMiniCart";
+    private static final String IS_READ_ONLY = "isReadOnly";
     private static final Logger LOG = LoggerFactory.getLogger(Cart.class);
 
     private String checkoutPage;
@@ -52,13 +54,16 @@ public class Cart extends WCMUsePojo {
     private String taxTotal;
     private String total;
     private Boolean showMiniCart;
+    private Boolean isReadOnly;
 
     @Override
     public void activate() throws Exception {
         createCommerceSession();
         populateCheckoutPage();
         populateCartEntries();
+        
         showMiniCart = getResource().getValueMap().get(SHOW_MINI_CART, Boolean.class);
+        isReadOnly = getResource().getValueMap().get(IS_READ_ONLY, Boolean.class);
     }
 
     private void createCommerceSession() {
@@ -80,13 +85,13 @@ public class Cart extends WCMUsePojo {
             shippingPrice = formatShippingPrice(placedOrder.getCartPriceInfo(new PriceFilter("SHIPPING")));
             subTotal = placedOrder.getCartPrice(new PriceFilter("PRE_TAX"));
             taxTotal = placedOrder.getCartPrice(new PriceFilter("TAX"));
-            total = placedOrder.getCartPrice(new PriceFilter("POST_TAX"));
+            total = placedOrder.getCartPrice(new PriceFilter("TOTAL"));
         } else {
             cartEntries = commerceSession.getCartEntries();
             shippingPrice = formatShippingPrice(commerceSession.getCartPriceInfo(new PriceFilter("SHIPPING")));
             subTotal = commerceSession.getCartPrice(new PriceFilter("PRE_TAX"));
             taxTotal = commerceSession.getCartPrice(new PriceFilter("TAX"));
-            total = commerceSession.getCartPrice(new PriceFilter("POST_TAX"));
+            total = commerceSession.getCartPrice(new PriceFilter("TOTAL"));
         }
         
         for (CommerceSession.CartEntry cartEntry : cartEntries) {
@@ -145,6 +150,11 @@ public class Cart extends WCMUsePojo {
         return Boolean.TRUE.equals(showMiniCart);
     }
     
+    public boolean getIsReadOnly() {
+        Page currentPage = getCurrentPage();
+        return Boolean.TRUE.equals(isReadOnly) || currentPage.getPath().endsWith("checkout") || currentPage.getPath().endsWith("checkout/order");
+    }
+    
     public class CartEntry {
         private CommerceSession commerceSession;
         private CommerceSession.CartEntry entry;
@@ -192,7 +202,7 @@ public class Cart extends WCMUsePojo {
         }
         
         public String getTotalPrice() throws CommerceException {
-            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("UNIT"));
+            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("LINE"));
             return priceInfos.get(0).getFormattedString();
         }
         

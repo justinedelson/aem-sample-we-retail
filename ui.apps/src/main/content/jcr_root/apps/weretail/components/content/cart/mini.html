@@ -38,11 +38,14 @@
 					
                     <div data-sly-repeat.axisName="${item.variantAxesMap}" class="variant">${axisName}: ${item.variantAxesMap[axisName]}</div>
                     <label>${'Qty' @ i18n}:</label>
-					<input type="number" value="${item.entry.quantity}" data-sly-attribute="${hapiCartEntry.itemprop.quantity}">
+                    <span data-sly-test.isReadOnly="${cart.isReadOnly}"
+                    	  data-sly-attribute="${hapiCartEntry.itemprop.quantity}">${item.entry.quantity}</span>
+					<input data-sly-test="${!isReadOnly}" type="number" value="${item.entry.quantity}"
+						  data-sly-attribute="${hapiCartEntry.itemprop.quantity}">
 				</div>
 
 				<div class="delete">
-					<div class="deleteButton"></div>
+					<div class="deleteButton" data-sly-test="${!cart.isReadOnly}"></div>
 					<div class="price" data-sly-attribute="${hapiCartEntry.itemprop.price}">${item.totalPrice}</div>
 				</div>
 
