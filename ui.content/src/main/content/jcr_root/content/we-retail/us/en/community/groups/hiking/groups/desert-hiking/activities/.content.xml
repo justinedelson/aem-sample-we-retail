@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:scg="http://www.adobe.com/social/scg/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/social/console"
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:lastModified="{Date}2014-03-11T15:03:22.973-04:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2016-10-23T11:45:03.251-07:00"
+        cq:lastReplicatedBy="msm-service"
+        cq:lastReplicationAction="Activate"
+        cq:template="/libs/social/console/templates/base_page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Activities"
+        jcr:uuid="50892bb0-cf78-4d8c-ab35-d7312686bce0"
+        sling:resourceType="social/console/components/basepage"
+        etcpath="/etc/community/templates/functions/reference/activitystream"
+        navTitle="Activities"
+        pageTitle="Activities">
+        <clientlibslist
+            jcr:created="{Date}2013-12-06T13:01:47.362-05:00"
+            jcr:createdBy="admin"
+            jcr:lastModified="{Date}2013-12-06T16:46:44.984-05:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            scg:requiredClientLibs="[cq.social.hbs.activitystreams,cq.social.hbs.signup,cq.social.hbs.breadcrumbs,personalization.core.kernel,personalization.clientcontext.kernel,personalization.stores.kernel,personalization.kernel]"
+            sling:resourceType="social/console/components/clientlibslist"/>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="social/console/components/hbs/singlecolumncontent">
+            <breadcrumbs
+                jcr:created="{Date}2013-12-06T16:42:15.659-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-12-09T11:51:26.478-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="social/console/components/hbs/breadcrumbs"
+                feedEnabled="true"
+                maxFileSize="104857600"
+                maxImageFileSize="2097152"
+                maxMessageLength="104857600"
+                maxSubjectLength="104857600"
+                rteEnabled="true"
+                subscribeWorkflow="/etc/workflow/models/social/forum/forum_topic_subscription/jcr:content/model"/>
+            <primary
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <activitystream
+                    jcr:created="{Date}2013-12-06T16:42:15.659-05:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2013-12-09T11:51:26.478-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="social/activitystreams/components/hbs/activitystreams"
+                    allowAllView="true"
+                    allowFollowingView="true"
+                    allowUserView="true"/>
+            </primary>
+        </content>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Decimal}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Decimal}992"/>
+                <mediumscreen
+                    jcr:primaryType="nt:unstructured"
+                    title="Medium Screen"
+                    width="{Decimal}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>

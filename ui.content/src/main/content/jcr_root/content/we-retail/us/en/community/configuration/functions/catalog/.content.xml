@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:oak="http://jackrabbit.apache.org/oak/ns/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    cq:lastReplicated="{Date}2016-10-23T11:40:37.245-07:00"
+    cq:lastReplicatedBy="admin"
+    cq:lastReplicationAction="Activate"
+    jcr:mixinTypes="[cq:ReplicationStatus]"
+    jcr:primaryType="oak:Unstructured"
+    function="/etc/community/templates/functions/reference/catalog"
+    title="Catalog"
+    url="catalog">
+    <configuration
+        cq:lastReplicated="{Date}2016-10-23T11:40:38.125-07:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="oak:Unstructured"
+        tagNamespaces="[/etc/tags/we-retail]"/>
+</jcr:root>

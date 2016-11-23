@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:scg="http://www.adobe.com/social/scg/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/social/console"
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:lastModified="{Date}2014-03-11T15:03:22.973-04:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2016-10-23T11:43:32.614-07:00"
+        cq:lastReplicatedBy="msm-service"
+        cq:lastReplicationAction="Activate"
+        cq:template="/libs/social/console/templates/base_page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Files"
+        jcr:uuid="2f5d1085-549c-478f-92b2-227a9448295c"
+        sling:resourceType="social/console/components/basepage"
+        etcpath="/etc/community/templates/functions/reference/filelibrary"
+        navTitle="Files"
+        pageTitle="Files">
+        <clientlibslist
+            jcr:created="{Date}2013-12-06T13:01:47.362-05:00"
+            jcr:createdBy="admin"
+            jcr:lastModified="{Date}2013-12-06T16:46:44.984-05:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            scg:requiredClientLibs="[cq.ckeditor,cq.social.hbs.voting,cq.social.hbs.filelibrary,cq.social.hbs.signup,cq.social.hbs.breadcrumbs,cq.social.hbs.rating,personalization.core.kernel,personalization.clientcontext.kernel,personalization.stores.kernel,personalization.kernel]"
+            sling:resourceType="social/console/components/clientlibslist"/>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="social/console/components/hbs/singlecolumncontent">
+            <breadcrumbs
+                jcr:created="{Date}2013-12-06T16:42:15.659-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-12-09T11:51:26.478-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="social/console/components/hbs/breadcrumbs"/>
+            <primary
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <library
+                    jcr:created="{Date}2013-12-06T16:42:15.659-05:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2013-12-09T11:51:26.478-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="social/filelibrary/components/hbs/filelibrary"
+                    acceptFileTypes="[.jpeg\, .jpg\, .gif\, .png\, .pdf\, .ppt\, .pptx\, .doc\, .docx]"
+                    allowCloseComments="true"
+                    allowDeleteComments="true"
+                    allowDenyComments="true"
+                    allowFileUploads="true"
+                    allowFlagComments="true"
+                    allowFollowing="true"
+                    allowRepliesToComments="true"
+                    allowUserFlagging="true"
+                    allowVoting="true"
+                    maxFileSize="104857600"
+                    maxImageFileSize="2097152"
+                    maxMessageLength="104857600"
+                    maxSubjectLength="104857600"
+                    richTextEditor="true"
+                    useFlagReasonList="false"
+                    useReferrer="true"/>
+            </primary>
+        </content>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Decimal}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Decimal}992"/>
+                <mediumscreen
+                    jcr:primaryType="nt:unstructured"
+                    title="Medium Screen"
+                    width="{Decimal}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>
