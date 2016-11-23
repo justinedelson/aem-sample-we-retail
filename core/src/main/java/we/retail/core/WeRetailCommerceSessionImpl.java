@@ -60,7 +60,7 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
         super(commerceService, request, response, resource);
         PN_UNIT_PRICE = WeRetailProductImpl.PN_PRICE;
 
-        // The address book gets the shipping and billing addresses from that request attribute
+        // The addressbook component gets the shipping and billing addresses from that request attribute
         ValueMap orderDetailsValueMap = new ValueMapDecorator(getOrder());
         request.setAttribute(FormsHelper.REQ_ATTR_GLOBAL_LOAD_MAP, orderDetailsValueMap);
     }
@@ -149,4 +149,13 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
         return null;
     }
 
+    @Override
+    public void modifyCartEntry(int entryNumber, int quantity) throws CommerceException {
+        //
+        // The default AbstractJcrCommerceSession implementation does not update the cart so we override it
+        //
+        super.doModifyCartEntry(entryNumber, quantity, null);
+        calcCart();
+        saveCart();
+    }
 }

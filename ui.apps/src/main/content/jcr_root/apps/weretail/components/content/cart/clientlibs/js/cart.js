@@ -16,8 +16,12 @@
 (function ($) {
     'use strict';
 
-	if ($('div.is-empty').length == 1) {
+	if ($('div.is-empty').length > 0) {
 	    $('a.btn-primary').hide();
 	}
 
+	$('input[name="quantity"]').change(function() {
+	    $(this).parents('form').submit();
+	});
+	
 })(jQuery);
