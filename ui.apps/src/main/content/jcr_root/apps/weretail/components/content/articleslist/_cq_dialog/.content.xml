@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
-    xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
     jcr:title="List"
     sling:resourceType="cq/gui/components/authoring/dialog"
@@ -26,17 +25,19 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                 fieldLabel="Display as"
                                 name="./displayAs">
-                                <items
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:hideChildren="[teasers,news,links,teaser]">
-                                    <pages
+                                <items jcr:primaryType="nt:unstructured">
+                                    <links
                                         jcr:primaryType="nt:unstructured"
-                                        text="Pages"
+                                        text="Short Teaser"
                                         value="default"/>
-                                    <images
+                                    <teaser
                                         jcr:primaryType="nt:unstructured"
-                                        text="Images"
-                                        value="images"/>
+                                        text="Teasers"
+                                        value="teaser"/>
+                                    <news
+                                        jcr:primaryType="nt:unstructured"
+                                        text="News"
+                                        value="news"/>
                                 </items>
                             </displayAs>
                         </items>
