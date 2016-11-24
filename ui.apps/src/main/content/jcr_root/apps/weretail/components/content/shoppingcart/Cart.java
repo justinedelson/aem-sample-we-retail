@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package apps.weretail.components.content.cart;
+package apps.weretail.components.content.shoppingcart;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,7 +51,6 @@ public class Cart extends WCMUsePojo {
     private String subTotal;
     private String taxTotal;
     private String total;
-    private Boolean showMiniCart;
     private Boolean isReadOnly;
 
     @Override
@@ -61,8 +58,7 @@ public class Cart extends WCMUsePojo {
         createCommerceSession();
         populateCheckoutPage();
         populateCartEntries();
-        
-        showMiniCart = getResource().getValueMap().get(SHOW_MINI_CART, Boolean.class);
+
         isReadOnly = getResource().getValueMap().get(IS_READ_ONLY, Boolean.class);
     }
 
@@ -146,10 +142,6 @@ public class Cart extends WCMUsePojo {
         return total;
     }
 
-    public boolean showMiniCart() {
-        return Boolean.TRUE.equals(showMiniCart);
-    }
-    
     public boolean getIsReadOnly() {
         Page currentPage = getCurrentPage();
         return Boolean.TRUE.equals(isReadOnly) || currentPage.getPath().endsWith("checkout") || currentPage.getPath().endsWith("checkout/order");

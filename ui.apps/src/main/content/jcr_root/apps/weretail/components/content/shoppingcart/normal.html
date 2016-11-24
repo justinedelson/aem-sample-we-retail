@@ -13,7 +13,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<div id="we-retail-mini-cart" data-sly-use.cart="apps.weretail.components.content.cart.Cart">
+<div id="we-retail-cart" data-sly-use.cart="apps.weretail.components.content.shoppingcart.Cart">
 
 	<div class="is-empty" data-sly-test="${cart.entries.size == 0}">${'The cart is empty' @ i18n}.</div>
 
@@ -37,11 +37,15 @@
 					</a>
 					
                     <div data-sly-repeat.axisName="${item.variantAxesMap}" class="variant">${axisName}: ${item.variantAxesMap[axisName]}</div>
-                    <label>${'Qty' @ i18n}:</label>
-                    <span data-sly-test.isReadOnly="${cart.isReadOnly}"
-                    	  data-sly-attribute="${hapiCartEntry.itemprop.quantity}">${item.entry.quantity}</span>
-                    	  
-                    <form data-sly-test="${!isReadOnly}" method="POST" action="${item.product.pagePath @ selectors='weretail.modifycartentry'}">
+				</div>
+
+				<div class="price">
+					<span data-sly-attribute="${hapiCartEntry.itemprop.price}">${item.price}</span>
+				</div>
+
+				<div class="quantity">
+					<label>${'Qty' @ i18n}:</label>
+					<form method="POST" action="${item.product.pagePath @ selectors='weretail.modifycartentry'}">
 						<input type="hidden" name="entryNumber" value="${item.entry.entryIndex}"/>
 						<input type="hidden" name="redirect" value="${currentPage.path}.html"/>
 						<input type="number" name="quantity" value="${item.entry.quantity}" min="0" step="1"
@@ -49,13 +53,16 @@
 					</form>
 				</div>
 
+				<div class="total">
+					<span data-sly-attribute="${hapiCartEntry.itemprop.price}">${item.totalPrice}</span>
+				</div>
+
 				<div class="delete">
-					<form data-sly-test="${!cart.isReadOnly}" method="POST" action="${item.product.pagePath @ selectors='weretail.deletecartentry'}">
+					<form method="POST" action="${item.product.pagePath @ selectors='weretail.deletecartentry'}">
                         <input type="hidden" name="entryNumber" value="${item.entry.entryIndex}"/>
                         <input type="hidden" name="redirect" value="${currentPage.path}.html"/>
                         <button type="submit" class="deleteButton"/></button>
                     </form>
-					<div class="price" data-sly-attribute="${hapiCartEntry.itemprop.price}">${item.totalPrice}</div>
 				</div>
 
 			</div>

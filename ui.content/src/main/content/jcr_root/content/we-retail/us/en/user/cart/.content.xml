@@ -1,37 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:primaryType="cq:Page">
+          jcr:primaryType="cq:Page">
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2016-09-21T21:06:27.956+02:00"
+        cq:lastModified="{Date}2016-11-22T17:26:47.011+01:00"
         cq:lastModifiedBy="admin"
-        cq:lastRolledout="{Date}2016-09-21T21:06:27.957+02:00"
-        cq:lastRolledoutBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         jcr:lastModified="{Date}2016-09-08T15:22:11.728+02:00"
         jcr:lastModifiedBy="admin"
-        jcr:mixinTypes="[cq:LiveRelationship]"
         jcr:primaryType="cq:PageContent"
         jcr:title="My Cart"
         sling:resourceType="weretail/components/structure/page"
         hideInNav="true">
         <root
-            cq:lastRolledout="{Date}2016-09-21T21:06:27.954+02:00"
-            cq:lastRolledoutBy="admin"
-            jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <responsivegrid
-                cq:lastRolledout="{Date}2016-09-21T21:06:27.957+02:00"
-                cq:lastRolledoutBy="admin"
                 jcr:created="{Date}2016-01-13T15:58:09.854+01:00"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2016-09-21T21:06:27.955+02:00"
+                jcr:lastModified="2016-01-13T15:58:50.877+01:00"
                 jcr:lastModifiedBy="admin"
-                jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <title
+                    jcr:created="{Date}2016-11-21T10:58:22.512+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-11-21T10:58:49.857+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="SHOPPING CART"
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
+                <cart
+                    jcr:created="{Date}2016-11-21T12:36:17.177+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-11-22T17:26:47.009+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="weretail/components/content/shoppingcart"/>
+                <button
+                    jcr:created="{Date}2016-03-14T21:41:39.706+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-03-14T21:41:59.336+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="weretail/components/content/button"
+                    label="Check Out"
+                    linkTo="/content/we-retail/us/en/user/checkout">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="9"
+                            width="3"/>
+                    </cq:responsive>
+                </button>
+            </responsivegrid>
         </root>
     </jcr:content>
 </jcr:root>
