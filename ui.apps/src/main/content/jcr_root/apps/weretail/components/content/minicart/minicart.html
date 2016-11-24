@@ -62,33 +62,4 @@
             </div>
         </div>
     </div>
-
-    <div id="cart-summary" class="table" data-sly-test="${cart.entries.size > 0}">
-        <div class="body">
-            <div class="row">
-                <div class="cell-title cell-border-bottom">${'Subtotal' @ i18n}</div>
-                <div class="cell-border-bottom cell-align-right" data-sly-attribute="${hapiCart.itemprop.totalPrice}">
-                    ${cart.subTotal}
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell-title cell-margin-top">${'Shipping' @ i18n}</div>
-                <div class="cell cell-margin-top cell-align-right" data-sly-attribute="${hapiCart.itemprop.totalPrice}">
-                    ${cart.shippingPrice}
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell-title cell-border-bottom">${'Tax' @ i18n}</div>
-                <div class="cell-border-bottom cell-align-right" data-sly-attribute="${hapiCart.itemprop.totalPrice}">
-                    ${cart.taxTotal}
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell-title cell-margin-top">${'Total' @ i18n}</div>
-                <div class="cell cell-margin-top cell-align-right cell-strong"
-                     data-sly-attribute="${hapiCart.itemprop.totalPrice}">${cart.total}
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

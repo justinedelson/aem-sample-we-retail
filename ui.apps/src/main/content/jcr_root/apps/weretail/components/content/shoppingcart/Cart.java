@@ -39,27 +39,22 @@ import com.day.cq.wcm.commons.WCMUtils;
 public class Cart extends WCMUsePojo {
 
     private static final String ORDER_ID = "orderId";
-    private static final String SHOW_MINI_CART = "showMiniCart";
     private static final String IS_READ_ONLY = "isReadOnly";
     private static final Logger LOG = LoggerFactory.getLogger(Cart.class);
 
     private String checkoutPage;
     private List<CartEntry> entries = new ArrayList<CartEntry>();
     private CommerceSession commerceSession;
-    
-    private String shippingPrice;
-    private String subTotal;
-    private String taxTotal;
-    private String total;
+
     private Boolean isReadOnly;
 
     @Override
     public void activate() throws Exception {
+        isReadOnly = getProperties().get(IS_READ_ONLY, Boolean.class);
+
         createCommerceSession();
         populateCheckoutPage();
         populateCartEntries();
-
-        isReadOnly = getResource().getValueMap().get(IS_READ_ONLY, Boolean.class);
     }
 
     private void createCommerceSession() {
@@ -74,45 +69,24 @@ public class Cart extends WCMUsePojo {
     private void populateCartEntries() throws CommerceException {
         String orderId = getRequest().getParameter(ORDER_ID);
         List<CommerceSession.CartEntry> cartEntries;
-        
+
         if (StringUtils.isNotEmpty(orderId)) {
             PlacedOrder placedOrder = commerceSession.getPlacedOrder(orderId);
             cartEntries = placedOrder.getCartEntries();
-            shippingPrice = formatShippingPrice(placedOrder.getCartPriceInfo(new PriceFilter("SHIPPING")));
-            subTotal = placedOrder.getCartPrice(new PriceFilter("PRE_TAX"));
-            taxTotal = placedOrder.getCartPrice(new PriceFilter("TAX"));
-            total = placedOrder.getCartPrice(new PriceFilter("TOTAL"));
+            isReadOnly = true;
         } else {
             cartEntries = commerceSession.getCartEntries();
-            shippingPrice = formatShippingPrice(commerceSession.getCartPriceInfo(new PriceFilter("SHIPPING")));
-            subTotal = commerceSession.getCartPrice(new PriceFilter("PRE_TAX"));
-            taxTotal = commerceSession.getCartPrice(new PriceFilter("TAX"));
-            total = commerceSession.getCartPrice(new PriceFilter("TOTAL"));
         }
-        
+
         for (CommerceSession.CartEntry cartEntry : cartEntries) {
             CartEntry entry = new CartEntry(commerceSession, cartEntry);
             entries.add(entry);
         }
     }
 
-    private String formatShippingPrice(List<PriceInfo> prices) {
-        if (prices.isEmpty()) {
-            return getRequest().getResourceBundle(getRequest().getLocale()).getString("Unknown");
-        }
-        else {
-            PriceInfo priceInfo = prices.get(0);
-            if (priceInfo.getAmount() != null && priceInfo.getAmount().signum() == 0) {
-                return getRequest().getResourceBundle(getRequest().getLocale()).getString("Free");
-            }
-            else {
-                return priceInfo.getFormattedString();
-            }
-        }
-    }
-    
     private void populateCheckoutPage() {
-        String checkoutPageProperty = WCMUtils.getInheritedProperty(getCurrentPage(), getResourceResolver(), CommerceConstants.PN_CHECKOUT_PAGE_PATH);
+        final String checkoutPageProperty = WCMUtils.getInheritedProperty(getCurrentPage(), getResourceResolver(),
+                CommerceConstants.PN_CHECKOUT_PAGE_PATH);
         if (StringUtils.isNotEmpty(checkoutPageProperty)) {
             checkoutPage = getResourceResolver().map(getRequest(), checkoutPageProperty) + ".html";
         }
@@ -126,27 +100,10 @@ public class Cart extends WCMUsePojo {
         return entries;
     }
 
-    public String getShippingPrice() {
-        return shippingPrice;
-    }
-    
-    public String getSubTotal() {
-        return subTotal;
-    }
-    
-    public String getTaxTotal() {
-        return taxTotal;
-    }
-    
-    public String getTotal() {
-        return total;
+    public boolean getIsReadOnly() {
+        return Boolean.TRUE.equals(isReadOnly);
     }
 
-    public boolean getIsReadOnly() {
-        Page currentPage = getCurrentPage();
-        return Boolean.TRUE.equals(isReadOnly) || currentPage.getPath().endsWith("checkout") || currentPage.getPath().endsWith("checkout/order");
-    }
-    
     public class CartEntry {
         private CommerceSession commerceSession;
         private CommerceSession.CartEntry entry;
@@ -155,11 +112,12 @@ public class Cart extends WCMUsePojo {
         public CartEntry(CommerceSession commerceSession, CommerceSession.CartEntry entry) {
             this.commerceSession = commerceSession;
             this.entry = entry;
-            
+
             try {
                 Product product = entry.getProduct();
                 Product baseProduct = product.getBaseProduct();
-                String[] variantAxes = baseProduct.getProperty(CommerceConstants.PN_PRODUCT_VARIANT_AXES, String[].class);
+                String[] variantAxes = baseProduct.getProperty(CommerceConstants.PN_PRODUCT_VARIANT_AXES,
+                        String[].class);
                 if (variantAxes != null) {
                     for (String variantAxis : variantAxes) {
                         String value = product.getProperty(variantAxis, String.class);
@@ -189,15 +147,15 @@ public class Cart extends WCMUsePojo {
             if (entry.getProduct().getImage() != null) {
                 return entry.getProduct().getImage().getFileReference();
             }
-            
+
             return null;
         }
-        
+
         public String getTotalPrice() throws CommerceException {
             List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("LINE"));
             return priceInfos.get(0).getFormattedString();
         }
-        
+
         public Map<String, String> getVariantAxesMap() {
             return variantAxesMap;
         }
