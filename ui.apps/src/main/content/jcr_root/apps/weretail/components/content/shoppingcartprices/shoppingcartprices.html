@@ -13,27 +13,29 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<div id="shoppingcart-prices" data-sly-use.cart="apps.weretail.components.content.shoppingcartprices.Cart">
+<div class="shoppingcart-prices" data-sly-use.cart="apps.weretail.components.content.shoppingcartprices.Cart"
+     data-sly-use.hapiCart="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/cart'}">
+     
     <div class="body">
         <div class="row" data-sly-test="${cart.showSubTotal}">
             <div class="cell-title">${'Subtotal' @ i18n}</div>
             <div class="cell-align-right"
-                data-sly-attribute="${hapiCart.itemprop.totalPrice}">${cart.subTotal}</div>
+                data-sly-attribute="${hapiCart.itemprop.subTotal}">${cart.subTotal}</div>
         </div>
         <div class="row" data-sly-test="${cart.showShippingTotal}">
             <div class="cell-title">${'Shipping' @ i18n}</div>
             <div class="cell-align-right"
-                data-sly-attribute="${hapiCart.itemprop.totalPrice}">${cart.shippingTotal}</div>
+                data-sly-attribute="${hapiCart.itemprop.shippingTotal}">${cart.shippingTotal}</div>
         </div>
         <div class="row" data-sly-test="${cart.showTaxTotal}">
             <div class="cell-title">${'Tax' @ i18n}</div>
             <div class="cell-align-right"
-                data-sly-attribute="${hapiCart.itemprop.totalPrice}">${cart.taxTotal}</div>
+                data-sly-attribute="${hapiCart.itemprop.taxTotal}">${cart.taxTotal}</div>
         </div>
         <div class="row" data-sly-test="${cart.showTotal}">
             <div class="cell-title border-top">${'Total' @ i18n}</div>
             <div class="cell-align-right cell-strong border-top"
-                data-sly-attribute="${hapiCart.itemprop.totalPrice}">${cart.total}</div>
+                data-sly-attribute="${hapiCart.itemprop.total}">${cart.total}</div>
         </div>
     </div>
 </div>
