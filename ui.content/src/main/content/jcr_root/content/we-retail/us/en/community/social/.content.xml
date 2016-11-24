@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:scg="http://www.adobe.com/social/scg/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/social/console"
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:lastModified="{Date}2016-10-23T11:40:19.679-07:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2016-10-23T11:40:40.428-07:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:template="/libs/social/console/templates/base_page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Social"
+        jcr:uuid="f4565a07-3f89-458e-b839-ff820d132f37"
+        sling:resourceType="social/console/components/basepage"
+        etcpath="/etc/community/templates/functions/reference/page"
+        navTitle="Social"
+        offTime_x0040_TypeHint="Date"
+        onTime_x0040_TypeHint="Date"
+        pageTitle="Social">
+        <clientlibslist
+            jcr:primaryType="nt:unstructured"
+            scg:requiredClientLibs="[cq.social.hbs.breadcrumbs,personalization.core.kernel,personalization.clientcontext.kernel,personalization.stores.kernel,personalization.kernel]"
+            sling:resourceType="social/console/components/clientlibslist"/>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="social/console/components/hbs/singlecolumncontent">
+            <primary
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <mediawall
+                    jcr:created="2016-07-16T19:03:53.292-07:00"
+                    jcr:lastModified="2016-07-16T19:03:53.292-07:00"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="social/integrations/livefyre/components/mediawall"/>
+            </primary>
+        </content>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Decimal}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Decimal}992"/>
+                <mediumscreen
+                    jcr:primaryType="nt:unstructured"
+                    title="Medium Screen"
+                    width="{Decimal}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>
