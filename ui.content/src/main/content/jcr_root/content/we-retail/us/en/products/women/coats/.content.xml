@@ -74,9 +74,8 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/content/productgrid"
-                    childDepth="2"
                     displayAs="products"
-                    listFrom="children"
+                    listFrom="descendants"
                     orderBy="jcr:title"
                     ordered="{Boolean}true"
                     pageMax="0">
