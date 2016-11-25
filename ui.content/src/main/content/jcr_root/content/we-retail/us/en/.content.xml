@@ -4,6 +4,7 @@
     <user/>
     <jcr:content
         cq:commerceProvider="we-retail"
+        cq:checkoutPage="/content/we-retail/language-masters/en/user/cart"
         cq:lastModified="{Date}2016-06-29T14:20:45.038+02:00"
         cq:lastModifiedBy="admin"
         cq:lastRolledout="{Date}2016-06-29T14:20:45.039+02:00"

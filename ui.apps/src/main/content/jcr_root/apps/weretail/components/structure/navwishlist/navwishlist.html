@@ -75,14 +75,13 @@
                                 </ul>
                             </div>
                         </div>
-                        <div>
-                            <span class="text-muted">Qty:</span>
+                        <div class="we-Smartlist-entryQuantity">
+                            <span class="text-muted">${'Qty' @ i18n}:</span>
                             <span data-sly-attribute="${hapiWishlistEntry.itemprop.quantity}">${item.entry.quantity}</span>
-                            <strong class="we-Smartlist-entryPrice" data-sly-attribute="${hapiWishlistEntry.itemprop.price}">
-                                ${item.price}
-                            </strong>
                         </div>
-
+                        <div class="we-Smartlist-entryPrice" data-sly-attribute="${hapiWishlistEntry.itemprop.price}">
+                            <strong>${item.price}</strong>
+                        </div>
                     </div>
                     <div class="we-Smartlist-remove">
                         <form method="POST" action="#">

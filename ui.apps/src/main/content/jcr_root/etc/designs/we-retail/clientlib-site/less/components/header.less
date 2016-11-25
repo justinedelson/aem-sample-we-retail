@@ -72,6 +72,8 @@
 
         padding: 8px @padding-small-horizontal;
 
+        margin-bottom: 5px;
+
         a {
             color: #fff;
 
@@ -82,7 +84,7 @@
     }
 
     &-title {
-        border-bottom: 1px solid #000;
+        border-bottom: 1px solid fade(@gray-base, 10);
         margin: 0 1rem @padding-large-vertical 1rem;
     }
 
@@ -122,10 +124,29 @@
         float: right;
     }
 
+    &-entryQuantity {
+        float: left;
+
+        label {
+            text-transform: none;
+            margin-right: 5px;
+        }
+
+        form {
+            display: inline;
+        }
+        input {
+            width: 50px;
+            padding: 2px 5px 2px 10px;
+            border: 1px solid @input-border;
+        }
+    }
+
     &-entryVariants {
         list-style-type: none;
         padding-left: 0px;
         text-transform: capitalize;
+        line-height: 1rem;
     }
 
     &-remove {
@@ -141,11 +162,10 @@
     }
 
     &-footer {
-        position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        border-top: 1px solid #000;
+        border-top: 1px solid fade(@gray-base, 10);
         margin: 0 1rem @padding-large-vertical 1rem;
         padding-top: @padding-large-vertical;
     }

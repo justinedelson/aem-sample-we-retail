@@ -13,17 +13,16 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<div class="we-Cart" data-sly-use.cart="apps.weretail.components.structure.navcart.Cart">
+<div class="we-Cart" data-sly-use.cart="apps.weretail.components.structure.navcart.Cart"
+     data-sly-use.hapiCart="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/cart'}">
 
     <a class="we-Cart-button" href="#" v-on:click="toggle">
-       <i class="fa fa-shopping-cart"></i>
-       My cart <span class="badge active" data-sly-test="${cart.entries.size > 0}">${cart.entries.size}</span>
+        <i class="fa fa-shopping-cart"></i>
+        My cart <span class="badge active" data-sly-test="${cart.entries.size > 0}">${cart.entries.size}</span>
     </a>
 
     <cart-content inline-template>
-        <div class="we-Cart-content"
-            data-sly-use.hapiCart="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/cart'}"
-            data-sly-attribute="${hapiCart.itemtype}">
+        <div class="we-Cart-content" data-sly-attribute="${hapiCart.itemtype}">
             <div class="we-Cart-header">
                 <div class="we-Cart-headerLeft">
                     <a href="#" v-on:click="$parent.toggle">
@@ -35,13 +34,15 @@
                 </div>
             </div>
 
-            <sly data-sly-resource="${@ resourceType='weretail/components/content/minicart'}">
-            
-            <div class="button">
-				<a class="btn btn-primary btn-action cq-dd-linkTo"
-				   href="/content/we-retail/language-masters/en/user/cart.html" role="button">Check Out</a>
-			</div>
-            
+            <sly data-sly-resource="${@ resourceType='weretail/components/content/minicart'}"/>
+
+            <div class="we-Cart-footer">
+                <div class="we-Cart-subtotal">
+                    sub-total: <span data-sly-attribute="${ hapiCart.itemprop.totalPrice }">${ cart.total }</span>
+                </div>
+                <a data-sly-test="${ cart.checkoutPage }" class="btn btn-primary btn-action pull-right"
+                   href="${ cart.checkoutPage }">${ 'Checkout' @ i18n }</a>
+            </div>
         </div>
     </cart-content>
 </div>
