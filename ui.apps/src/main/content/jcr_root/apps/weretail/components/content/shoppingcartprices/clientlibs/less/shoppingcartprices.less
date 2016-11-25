@@ -13,38 +13,38 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
+@import "/etc/designs/we-retail/common/helpers.less";
 
 .shoppingcart-prices {
-	
-	display: table;
-	width: 300px;
+
+    display: table;
+    width: 300px;
     margin: 10px auto 0 auto;
-	
-	.row {
-		display: table-row;
-		padding: 10px 0;
-	}
-	
-	.border-top {
-		border-top: 1px solid #e9e9e9;
-	}
-	
-	.cell-title, .cell-align-right {
-		display: table-cell;
-		padding: 5px 5px;
-		width: 150px;
-	}
-	
-	.cell-title {
-		color: #888;
-	}
-	
-	.cell-align-right {
-		text-align: right;
-	}
-	
-	.cell-strong {
-		font-weight: bold;
-	}
+
+    .row {
+        display: table-row;
+        padding: 10px 0;
+    }
+
+    .border-top {
+        border-top: 1px solid fade(@gray-base, 10);
+    }
+
+    .cell-title, .cell-align-right {
+        display: table-cell;
+        padding: 5px 5px;
+        width: 150px;
+    }
+
+    .cell-title {
+        color: @gray-light;
+    }
+
+    .cell-align-right {
+        text-align: right;
+    }
+
+    .cell-strong {
+        font-weight: bold;
+    }
 }

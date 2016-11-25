@@ -14,184 +14,91 @@
  *  limitations under the License.
  */
 
-#we-retail-mini-cart {
-	
-	margin-top: 20px;
-	
-	.cart-entries {
-		width: 300px;
-		margin: auto;
-		padding-bottom: 10px;
-		border-bottom: 1px solid #e9e9e9;
-	}
+@import "/etc/designs/we-retail/common/helpers.less";
 
-	.cart-entry {
-		display: flex;
-		margin-bottom: 10px;
-	}
-	
-	.image {
-    	float: left;
-    	width: 80px;
-    	margin: auto 0;
-    	
-    	img {
-    		margin-bottom: 0;
-    		max-height: 80px;
-    	}
-    }
-    
-    .description {
-    	float: left;
-    	width: 140px;
-    	padding-left: 20px;
-    	font-size: 11px;
-    	
-    	span.title {
-    		font-weight: bold;
-    		font-size: 13px;
-    	}
-    	
-    	div.variant {
-    		color: #888;
-    	}
-    	
-    	label {
-    		color: #888;
-    		text-transform: none;
-    		margin-right: 5px;
-    		font-weight: normal;
-    	}
-    	
-    	input {
-    		width: 50px;
-    		padding: 0 5px 0 10px;
-    		border: 1px solid #e9e9e9;
-    	}
-    	
-    	form {
-    		display: inline;
-    	}
-    }
-    
-    .delete {
-    	float: left;
-    	width: 80px;
-    	padding: 0 5px 0 20px;
-    	text-align: right;
-    	
-    	.price {
-    		font-weight: bold;
-    	}
-    }
+
+.we-Cart-entryCol {
+    display: inline-block;
+    vertical-align: top;
 }
 
-#we-retail-cart {
+.we-ShoppingCart {
 
-	margin-bottom: 30px;
-	
-	.is-empty {
-		width: 30%;
-		margin: auto;
-		text-align: center;
-	}
-	
-	.cart-entries {
-		width: 80%;
-		margin: auto;
-		padding-bottom: 10px;
-		border-bottom: 1px solid #e9e9e9;
-	}
+    &-entries {
+        border-bottom: 1px solid fade(@gray-base, 10);
+    }
 
-	.cart-entry {
-		display: flex;
-		margin-bottom: 10px;
-	}
+    &-entry {
+        margin-bottom: 20px;
+    }
 
-    .image {
-    	float: left;
-    	width: 10%;
-    	margin: auto 0;
-    	
-    	img {
-    		margin-bottom: 0;
-    	}
+    &-empty {
+        padding: 1rem;
     }
-    
-    .description {
-    	float: left;
-    	width: 35%;
-    	margin-top: 20px;
-    	padding-left: 40px;
-    	
-    	span.title {
-    		font-weight: bold;
-    	}
-    	
-    	div.variant {
-    		color: #888;
-    		font-size: 11px;
-    	}
-    }
-    
-    .price {
-    	float: left;
-    	width: 15%;
-    	margin-top: 20px;
-    	padding-left: 30px;
-    }
-    
-    .quantity {
-    	float: left;
-    	width: 15%;
-    	margin-top: 15px;
-    	padding-left: 40px;
-    	font-size: 13px;
-    	
-    	label {
-    		color: #888;
-    		text-transform: none;
-    		margin-right: 5px;
-    	}
-    	
-    	input {
-    		width: 50px;
-    		padding: 2px 5px 2px 10px;
-    		border: 1px solid #e9e9e9;
-    	}
-    	
-    	form {
-    		display: inline;
-    	}
-    }
-    
-    .total {
-    	float: left;
-    	width: 15%;
-    	margin-top: 20px;
-    	padding-left: 80px;
-    	font-weight: bold;
-    }
-    
-    .delete {
-    	float: left;
-    	width: 5%;
-    	margin-top: 20px;
-    	padding-left: 40px;
-    }
-}
 
-#we-retail-mini-cart, #we-retail-cart {
-	
-	.deleteButton {
-    	padding: 0;
-    	border: none;
-    	background-color: #fff;
+    &-image {
+        &:extend(.we-Cart-entryCol);
+        width: 10%;
+        padding: 0 1rem 1rem 1rem;
     }
-    
-    .deleteButton:after {
-    	content: "\f10e";
-    	font: 14px/24px "we-icons";
-		color: #ccc;
+
+    &-entryContent {
+        &:extend(.we-Cart-entryCol);
+        width: 35%;
+        padding-left: 40px;
+
+        a {
+            color: #000;
+        }
+    }
+
+    &-entryPrice {
+        &:extend(.we-Cart-entryCol);
+        width: 15%;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    &-entryQuantity {
+        &:extend(.we-Cart-entryCol);
+        width: 15%;
+        margin-top: 15px;
+        padding-left: 40px;
+        font-size: 13px;
+
+        label {
+            color: @gray-light;
+            text-transform: none;
+            margin-right: 5px;
+        }
+
+        input {
+            width: 50px;
+            padding: 2px 5px 2px 10px;
+            border: 1px solid @input-border;
+        }
+
+        form {
+            display: inline;
+        }
+    }
+
+    &-entryVariants {
+        list-style-type: none;
+        padding-left: 0px;
+        text-transform: capitalize;
+        line-height: 1rem;
+    }
+
+    &-remove {
+        &:extend(.we-Cart-entryCol);
+        width: 5%;
+        margin-top: 20px;
+        text-align: center;
+
+        .btn-default {
+            padding-top: 1px;
+            padding-right: 10px;
+        }
     }
 }

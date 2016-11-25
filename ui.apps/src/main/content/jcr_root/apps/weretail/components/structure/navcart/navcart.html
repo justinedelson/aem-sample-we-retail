@@ -38,7 +38,7 @@
 
             <div class="we-Cart-footer">
                 <div class="we-Cart-subtotal">
-                    sub-total: <span data-sly-attribute="${ hapiCart.itemprop.totalPrice }">${ cart.total }</span>
+                    ${ 'sub-total' @ i18n }: <span data-sly-attribute="${hapiCart.itemprop.total}">${cart.total}</span>
                 </div>
                 <a data-sly-test="${ cart.checkoutPage }" class="btn btn-primary btn-action pull-right"
                    href="${ cart.checkoutPage }">${ 'Checkout' @ i18n }</a>
