@@ -8,6 +8,7 @@
         cq:lastReplicatedBy="admin"
         cq:lastReplicationAction="Activate"
         cq:template="/conf/we-retail/settings/wcm/templates/hero-page"
+        cq:checkoutPage="/content/we-retail/language-masters/en/user/cart"
         jcr:primaryType="cq:PageContent"
         jcr:title="English"
         sling:resourceType="weretail/components/structure/page"

@@ -13,78 +13,35 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<div class="we-Cart"
-     data-sly-use.cart="apps.weretail.components.structure.navcart.Cart">
+<div class="we-Cart" data-sly-use.cart="apps.weretail.components.structure.navcart.Cart"
+     data-sly-use.hapiCart="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/cart'}">
 
-    <a class="we-Cart-button"
-       href="#"
-       v-on:click="toggle">
-       <i class="fa fa-shopping-cart"></i> My cart <span class="badge active"
-                                                         data-sly-test="${ cart.entries.size > 0 }">${ cart.entries.size }</span>
+    <a class="we-Cart-button" href="#" v-on:click="toggle">
+        <i class="fa fa-shopping-cart"></i>
+        My cart <span class="badge active" data-sly-test="${cart.entries.size > 0}">${cart.entries.size}</span>
     </a>
 
     <cart-content inline-template>
-        <div class="we-Cart-content"
-            data-sly-use.hapiCart="${ 'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/cart' }"
-            data-sly-attribute="${ hapiCart.itemtype }">
+        <div class="we-Cart-content" data-sly-attribute="${hapiCart.itemtype}">
             <div class="we-Cart-header">
                 <div class="we-Cart-headerLeft">
                     <a href="#" v-on:click="$parent.toggle">
                         <i class="we-Icon we-Icon--close"></i>
                     </a>
                 </div>
-                <meta content="${ cart.entries.size }" data-sly-attribute="${ hapiCart.itemprop.totalEntries }" />
-                <div class="we-Cart-headerRight">
+                <div class="we-Cart-headerRight" data-sly-attribute="${hapiCart.itemprop.totalEntries}">
                     ${'{0} items in cart' @ i18n, format=[cart.entries.size]}
                 </div>
             </div>
 
-            <div class="we-Cart-entries"
-                 data-sly-list.item="${ cart.entries }">
-                <div class="we-Cart-entry" 
-                    data-sly-use.hapiCartEntry="${ 'org.apache.sling.hapi.sightly.HApiUse' @type=hapiCart.proptype.entries }"
-                    data-sly-attribute="${ hapiCart.itemprop.entries }">
-
-                    <img class="we-Cart-image" src="${ item.image }" alt="${ item.product.title }"
-                        data-sly-attribute="${ hapiCartEntry.itemprop.asset }" />
-
-                    <div class="we-Cart-entryContent">
-                        <div data-sly-use.hapiCartEntryProduct="${ 'org.apache.sling.hapi.sightly.HApiUse' @type=hapiCartEntry.proptype.product }"
-                            data-sly-attribute="${ hapiCartEntry.itemprop.product }">
-                            <meta content="${ item.product.title }" data-sly-attribute="${ hapiCartEntryProduct.itemprop.name }" />
-                            <a href="${ item.product.pagePath }" data-sly-attribute="${ hapiCartEntryProduct.itemprop.path }">
-                                ${ item.product.title }
-                            </a>
-                            <div class="text-muted">
-                                <small data-sly-attribute="${ hapiCartEntryProduct.itemprop.description }">
-                                    ${ item.product.baseProduct.description }
-                                </small>
-                            </div>
-                        </div>
-                        <div>
-                            <span class="text-muted">Qty:</span>
-                            <span data-sly-attribute="${ hapiCartEntry.itemprop.quantity }">${ item.entry.quantity }</span>
-
-                            <strong data-sly-attribute="${ hapiCartEntry.itemprop.price }">${ item.price }</strong>
-                        </div>
-                    </div><!--
-                    --><!--<div class="we-Cart-remove">
-                        <form method="POST" action="${ resource.path }.delete.html"
-                        onsubmit="return trackCartRemove('${ item.product.baseProduct.productData || item.product.baseProduct.pagePath }')">
-                            <input type="hidden" name="entryNumber" value="${ item.entry.entryIndex }"/>
-                            <input type="hidden" name="redirect" value="${ currentPage.path }.html"/>
-                            <button type="submit" class="btn btn-default btn-icon"><i class="fa fa-trash"></i></button>
-                        </form>
-                    </div>-->
-                </div>
-            </div>
+            <sly data-sly-resource="${@ resourceType='weretail/components/content/minicart'}"/>
 
             <div class="we-Cart-footer">
                 <div class="we-Cart-subtotal">
-                    sub-total: <span data-sly-attribute="${ hapiCart.itemprop.totalPrice }">${ cart.total }</span>
+                    ${ 'sub-total' @ i18n }: <span data-sly-attribute="${hapiCart.itemprop.total}">${cart.total}</span>
                 </div>
-                <a data-sly-test="${ cart.checkoutPage }" class="btn btn-primary btn-action pull-right" 
-                    href="${ cart.checkoutPage }">${ 'Checkout' @ i18n }</a>
+                <a data-sly-test="${ cart.checkoutPage }" class="btn btn-primary btn-action pull-right"
+                   href="${ cart.checkoutPage }">${ 'Checkout' @ i18n }</a>
             </div>
         </div>
     </cart-content>
