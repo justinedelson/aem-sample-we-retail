@@ -48,9 +48,9 @@
                 <span data-sly-test.isReadOnly="${cart.isReadOnly}"
                       data-sly-attribute="${hapiCartEntry.itemprop.quantity}">${item.entry.quantity}</span>
                 <form data-sly-test="${!isReadOnly}" method="POST"
-                      action="${item.product.pagePath @ selectors='weretail.modifycartentry'}">
+                      action="${cart.currentPageUrl @ selectors='weretail.modifycartentry'}">
                     <input type="hidden" name="entryNumber" value="${item.entry.entryIndex}"/>
-                    <input type="hidden" name="redirect" value="${currentPage.path}.html"/>
+                    <input type="hidden" name="redirect" value="${cart.currentPageUrl}"/>
                     <input type="number" name="quantity" value="${item.entry.quantity}" min="0" step="1"
                            data-sly-attribute="${hapiCartEntry.itemprop.quantity}"/>
                 </form>
@@ -61,9 +61,9 @@
         </div>
         <div class="we-Cart-remove">
             <form data-sly-test="${!cart.isReadOnly}" method="POST"
-                  action="${item.product.pagePath @ selectors='weretail.deletecartentry'}">
+                  action="${cart.currentPageUrl @ selectors='weretail.deletecartentry'}">
                 <input type="hidden" name="entryNumber" value="${item.entry.entryIndex}"/>
-                <input type="hidden" name="redirect" value="${currentPage.path}.html"/>
+                <input type="hidden" name="redirect" value="${cart.currentPageUrl}"/>
                 <button type="submit" class="btn btn-default btn-icon"><i
                         class="text-muted fa fa-times-circle-o"></i></button>
             </form>
