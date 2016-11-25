@@ -33,7 +33,6 @@ import com.adobe.cq.commerce.api.PriceInfo;
 import com.adobe.cq.commerce.api.Product;
 import com.adobe.cq.commerce.common.PriceFilter;
 import com.adobe.cq.sightly.WCMUsePojo;
-import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.commons.WCMUtils;
 
 public class Cart extends WCMUsePojo {
@@ -43,6 +42,7 @@ public class Cart extends WCMUsePojo {
     private static final Logger LOG = LoggerFactory.getLogger(Cart.class);
 
     private String checkoutPage;
+    private String currentPageUrl;
     private List<CartEntry> entries = new ArrayList<CartEntry>();
     private CommerceSession commerceSession;
 
@@ -53,7 +53,7 @@ public class Cart extends WCMUsePojo {
         isReadOnly = getProperties().get(IS_READ_ONLY, Boolean.class);
 
         createCommerceSession();
-        populateCheckoutPage();
+        populatePageUrls();
         populateCartEntries();
     }
 
@@ -84,16 +84,22 @@ public class Cart extends WCMUsePojo {
         }
     }
 
-    private void populateCheckoutPage() {
+    private void populatePageUrls() {
         final String checkoutPageProperty = WCMUtils.getInheritedProperty(getCurrentPage(), getResourceResolver(),
                 CommerceConstants.PN_CHECKOUT_PAGE_PATH);
         if (StringUtils.isNotEmpty(checkoutPageProperty)) {
             checkoutPage = getResourceResolver().map(getRequest(), checkoutPageProperty) + ".html";
         }
+
+        currentPageUrl = getResourceResolver().map(getRequest(), getCurrentPage().getPath() + ".html");
     }
 
     public String getCheckoutPage() {
         return checkoutPage;
+    }
+
+    public String getCurrentPageUrl() {
+        return currentPageUrl;
     }
 
     public List<CartEntry> getEntries() {
