@@ -4,7 +4,7 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2016-11-22T17:26:47.011+01:00"
+        cq:lastModified="{Date}2016-11-24T15:51:01.493+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         cq:checkoutPage="/content/we-retail/language-masters/en/user/checkout"
@@ -40,6 +40,24 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/content/shoppingcart"/>
+                <shoppingcartprices
+                    jcr:created="{Date}2016-11-24T15:25:24.467+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-11-24T15:51:01.491+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="weretail/components/content/shoppingcartprices"
+                    showShippingTotal="true"
+                    showSubTotal="true"
+                    showTaxTotal="true"
+                    showTotal="true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="6"
+                            width="6"/>
+                    </cq:responsive>
+                </shoppingcartprices>
                 <button
                     jcr:created="{Date}2016-03-14T21:41:39.706+01:00"
                     jcr:createdBy="admin"
@@ -52,8 +70,8 @@
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
                             jcr:primaryType="nt:unstructured"
-                            offset="9"
-                            width="3"/>
+                            offset="7"
+                            width="5"/>
                     </cq:responsive>
                 </button>
             </responsivegrid>

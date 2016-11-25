@@ -62,7 +62,7 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/content/button"
                     label="Back to We.Retail"
-                    linkTo="/content/we-retail/language-masters/en"/>
+                    linkTo="/content/we-retail/us/en"/>
             </responsivegrid>
         </root>
     </jcr:content>
