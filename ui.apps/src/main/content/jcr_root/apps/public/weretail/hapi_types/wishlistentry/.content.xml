@@ -26,4 +26,9 @@
         description="Price of the entry"
         multiple="{Boolean}false"
         type="org.apache.sling.hapi.common.Text"/>
+    <removeButton
+        jcr:primaryType="nt:unstructured"
+        description="Remove the wish list entry"
+        multiple="{Boolean}false"
+        type="org.apache.sling.hapi.common.Text"/>
 </jcr:root>

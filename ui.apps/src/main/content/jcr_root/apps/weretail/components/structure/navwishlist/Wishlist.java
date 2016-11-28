@@ -31,12 +31,9 @@ import com.adobe.cq.commerce.api.CommerceConstants;
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.CommerceSession;
-import com.adobe.cq.commerce.api.PlacedOrder;
-import com.adobe.cq.commerce.api.Product;
 import com.adobe.cq.commerce.api.smartlist.SmartList;
 import com.adobe.cq.commerce.api.smartlist.SmartListEntry;
 import com.adobe.cq.commerce.api.smartlist.SmartListManager;
-import com.adobe.cq.commerce.common.PriceFilter;
 import com.adobe.cq.sightly.WCMUsePojo;
 import com.adobe.granite.security.user.UserProperties;
 import com.day.cq.personalization.UserPropertiesUtil;
@@ -49,6 +46,9 @@ public class Wishlist extends WCMUsePojo {
 
     private SmartList smartList;
     private List<WishlistEntry> entries = new ArrayList<WishlistEntry>();
+    private String smartListUrl;
+    private String cartPageUrl;
+
     private CommerceSession commerceSession;
 
     @Override
@@ -56,6 +56,7 @@ public class Wishlist extends WCMUsePojo {
         createCommerceSession();
         initSmartlist();
 
+        populatePages();
         populateCartEntries();
     }
 
@@ -96,25 +97,74 @@ public class Wishlist extends WCMUsePojo {
         }
     }
 
+    private void populatePages() {
+        final String cartPageProperty = WCMUtils.getInheritedProperty(getCurrentPage(), getResourceResolver(),
+                CommerceConstants.PN_CART_PAGE_PATH);
+        if (StringUtils.isNotEmpty(cartPageProperty)) {
+            cartPageUrl = getResourceResolver().map(getRequest(), cartPageProperty) + ".html";
+        } else {
+            cartPageUrl = getResourceResolver().map(getRequest(), getCurrentPage().getPath() + ".html");
+        }
+
+        smartListUrl = getResourceResolver().map(getRequest(), getCurrentPage().getPath() + ".html");
+    }
+
     private void populateCartEntries() throws CommerceException {
         if (smartList != null) {
             for (Iterator<SmartListEntry> smartListEntries = smartList.getSmartListEntries(); smartListEntries.hasNext(); ) {
                 SmartListEntry smartListEntry = smartListEntries.next();
                 String image = StringUtils.EMPTY;
-                if(smartListEntry.getProduct().getImage() != null) {
-                    Resource imageResource = getResourceResolver().getResource(smartListEntry.getProduct().getImage().getPath());
+                if (smartListEntry.getProduct().getImage() != null) {
+                    Resource imageResource = getResourceResolver().getResource(
+                            smartListEntry.getProduct().getImage().getPath());
                     if (imageResource != null) {
                         image = imageResource.adaptTo(ValueMap.class).get(PN_FILE_REFERENCE, StringUtils.EMPTY);
                     }
                 }
-                entries.add(new WishlistEntry(smartListEntry, commerceSession.getProductPrice(smartListEntry.getProduct()), image));
+                entries.add(new WishlistEntry(smartListEntry,
+                        commerceSession.getProductPrice(smartListEntry.getProduct()), image));
             }
         }
     }
 
-    private boolean isAnonymous() {
+    /**
+     * Get the smartlist page url.
+     * @return the smart list page url.
+     */
+    public String getSmartListUrl() {
+        return smartListUrl;
+    }
+
+
+    /**
+     * Get the cart page url.
+     * @return the cart page url.
+     */
+    public String getCartPageUrl() {
+        return cartPageUrl;
+    }
+
+    /**
+     * Check if the current user is anonymous.
+     *
+     * @return <code>true</code> if the current user is anonymous.
+     */
+    public boolean isAnonymous() {
         final UserProperties userProperties = getRequest().adaptTo(UserProperties.class);
         return userProperties == null || UserPropertiesUtil.isAnonymous(userProperties);
+    }
+
+    /**
+     * Check if the current user can modify the smart list or smart list entries.
+     *
+     * @return <code>true</code> if the current user can modify the smart list or smart list entries.
+     */
+    public boolean canEdit() {
+        if (smartList != null && !isAnonymous() && (StringUtils.equals(getRequest().getUserPrincipal().getName(),
+                smartList.getOwner()) || smartList.getPrivacy().equals(SmartList.Privacy.SHARED_EDITABLE))) {
+            return true;
+        }
+        return false;
     }
 
     public SmartList getSmartList() {
