@@ -101,20 +101,40 @@ public class Wishlist extends WCMUsePojo {
             for (Iterator<SmartListEntry> smartListEntries = smartList.getSmartListEntries(); smartListEntries.hasNext(); ) {
                 SmartListEntry smartListEntry = smartListEntries.next();
                 String image = StringUtils.EMPTY;
-                if(smartListEntry.getProduct().getImage() != null) {
-                    Resource imageResource = getResourceResolver().getResource(smartListEntry.getProduct().getImage().getPath());
+                if (smartListEntry.getProduct().getImage() != null) {
+                    Resource imageResource = getResourceResolver().getResource(
+                            smartListEntry.getProduct().getImage().getPath());
                     if (imageResource != null) {
                         image = imageResource.adaptTo(ValueMap.class).get(PN_FILE_REFERENCE, StringUtils.EMPTY);
                     }
                 }
-                entries.add(new WishlistEntry(smartListEntry, commerceSession.getProductPrice(smartListEntry.getProduct()), image));
+                entries.add(new WishlistEntry(smartListEntry,
+                        commerceSession.getProductPrice(smartListEntry.getProduct()), image));
             }
         }
     }
 
-    private boolean isAnonymous() {
+    /**
+     * Check if the current user is anonymous.
+     *
+     * @return <code>true</code> if the current user is anonymous.
+     */
+    public boolean isAnonymous() {
         final UserProperties userProperties = getRequest().adaptTo(UserProperties.class);
         return userProperties == null || UserPropertiesUtil.isAnonymous(userProperties);
+    }
+
+    /**
+     * Check if the current user can modify the smart list or smart list entries.
+     *
+     * @return <code>true</code> if the current user can modify the smart list or smart list entries.
+     */
+    public boolean canEdit() {
+        if (smartList != null && !isAnonymous() && (StringUtils.equals(getRequest().getUserPrincipal().getName(),
+                smartList.getOwner()) || smartList.getPrivacy().equals(SmartList.Privacy.SHARED_EDITABLE))) {
+            return true;
+        }
+        return false;
     }
 
     public SmartList getSmartList() {
