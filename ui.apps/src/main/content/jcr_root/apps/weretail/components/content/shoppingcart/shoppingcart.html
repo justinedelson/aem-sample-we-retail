@@ -35,6 +35,7 @@
                          data-sly-attribute="${ hapiCartEntry.itemprop.product }">
                         <meta content="${ item.product.title }"
                               data-sly-attribute="${ hapiCartEntryProduct.itemprop.name }"/>
+
                         <a href="${item.product.pagePath}" data-sly-attribute="${hapiCartEntryProduct.itemprop.path}">
                             <strong>${item.entry.product.title}</strong>
                         </a>
@@ -51,7 +52,7 @@
 
                 </div>
                 <div class="we-ShoppingCart-entryPrice">
-                    <span data-sly-attribute="${hapiCartEntry.itemprop.price}">${item.price}</span>
+                    <span data-sly-attribute="${hapiCartEntry.itemprop.unitPrice}">${item.price}</span>
                 </div>
                 <div class="we-ShoppingCart-entryQuantity">
                     <label class="text-muted">${'Qty' @ i18n}:</label>
@@ -66,7 +67,7 @@
                     </form>
                 </div>
                 <div class="we-ShoppingCart-entryPrice">
-                    <strong data-sly-attribute="${hapiCartEntry.itemprop.price}">${item.totalPrice}</strong>
+                    <strong data-sly-attribute="${hapiCartEntry.itemprop.itemPrice}">${item.totalPrice}</strong>
                 </div>
                 <div class="we-ShoppingCart-remove">
                     <form data-sly-test="${!cart.isReadOnly}" method="POST"

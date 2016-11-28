@@ -21,19 +21,4 @@
         description="Total number of entries in the shopping cart"
         multiple="{Boolean}false"
         type="org.apache.sling.hapi.common.Number"/>
-    <subTotal
-        jcr:primaryType="nt:unstructured"
-        description="Sub-total sum of the shopping cart"
-        multiple="{Boolean}false"
-        type="org.apache.sling.hapi.common.Text"/>
-    <taxTotal
-        jcr:primaryType="nt:unstructured"
-        description="Tax total of the shopping cart"
-        multiple="{Boolean}false"
-        type="org.apache.sling.hapi.common.Text"/>
-    <shippingTotal
-        jcr:primaryType="nt:unstructured"
-        description="Shipping cost total of the shopping cart"
-        multiple="{Boolean}false"
-        type="org.apache.sling.hapi.common.Text"/>
 </jcr:root>
