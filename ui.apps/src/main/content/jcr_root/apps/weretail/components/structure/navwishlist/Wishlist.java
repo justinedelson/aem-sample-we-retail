@@ -31,12 +31,9 @@ import com.adobe.cq.commerce.api.CommerceConstants;
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.CommerceSession;
-import com.adobe.cq.commerce.api.PlacedOrder;
-import com.adobe.cq.commerce.api.Product;
 import com.adobe.cq.commerce.api.smartlist.SmartList;
 import com.adobe.cq.commerce.api.smartlist.SmartListEntry;
 import com.adobe.cq.commerce.api.smartlist.SmartListManager;
-import com.adobe.cq.commerce.common.PriceFilter;
 import com.adobe.cq.sightly.WCMUsePojo;
 import com.adobe.granite.security.user.UserProperties;
 import com.day.cq.personalization.UserPropertiesUtil;
@@ -49,6 +46,9 @@ public class Wishlist extends WCMUsePojo {
 
     private SmartList smartList;
     private List<WishlistEntry> entries = new ArrayList<WishlistEntry>();
+    private String smartListUrl;
+    private String cartPageUrl;
+
     private CommerceSession commerceSession;
 
     @Override
@@ -56,6 +56,7 @@ public class Wishlist extends WCMUsePojo {
         createCommerceSession();
         initSmartlist();
 
+        populatePages();
         populateCartEntries();
     }
 
@@ -96,6 +97,18 @@ public class Wishlist extends WCMUsePojo {
         }
     }
 
+    private void populatePages() {
+        final String cartPageProperty = WCMUtils.getInheritedProperty(getCurrentPage(), getResourceResolver(),
+                CommerceConstants.PN_CART_PAGE_PATH);
+        if (StringUtils.isNotEmpty(cartPageProperty)) {
+            cartPageUrl = getResourceResolver().map(getRequest(), cartPageProperty) + ".html";
+        } else {
+            cartPageUrl = getResourceResolver().map(getRequest(), getCurrentPage().getPath() + ".html");
+        }
+
+        smartListUrl = getResourceResolver().map(getRequest(), getCurrentPage().getPath() + ".html");
+    }
+
     private void populateCartEntries() throws CommerceException {
         if (smartList != null) {
             for (Iterator<SmartListEntry> smartListEntries = smartList.getSmartListEntries(); smartListEntries.hasNext(); ) {
@@ -112,6 +125,23 @@ public class Wishlist extends WCMUsePojo {
                         commerceSession.getProductPrice(smartListEntry.getProduct()), image));
             }
         }
+    }
+
+    /**
+     * Get the smartlist page url.
+     * @return the smart list page url.
+     */
+    public String getSmartListUrl() {
+        return smartListUrl;
+    }
+
+
+    /**
+     * Get the cart page url.
+     * @return the cart page url.
+     */
+    public String getCartPageUrl() {
+        return cartPageUrl;
     }
 
     /**
