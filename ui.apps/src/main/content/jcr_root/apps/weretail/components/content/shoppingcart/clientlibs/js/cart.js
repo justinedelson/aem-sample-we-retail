@@ -16,7 +16,7 @@
 (function ($) {
     'use strict';
 
-	if ($('div.is-empty').length > 0) {
+	if ($('div.we-ShoppingCart-empty').length > 0) {
 	    $('a.btn-primary').hide();
 	}
 

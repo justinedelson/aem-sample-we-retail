@@ -51,6 +51,7 @@ public class Cart extends WCMUsePojo {
     private Boolean showShippingTotal;
     private Boolean showTaxTotal;
     private Boolean showTotal;
+    private boolean isEmpty;
     
     private String shippingTotal;
     private String subTotal;
@@ -70,6 +71,8 @@ public class Cart extends WCMUsePojo {
         } catch (CommerceException e) {
             LOG.error(e.getMessage());
         }
+        
+        isEmpty = commerceSession.getCartEntries().isEmpty();
         
         shippingTotal = formatShippingPrice(commerceSession.getCartPriceInfo(new PriceFilter("SHIPPING")));
         subTotal = commerceSession.getCartPrice(new PriceFilter("PRE_TAX"));
@@ -122,5 +125,9 @@ public class Cart extends WCMUsePojo {
     
     public String getTotal() {
         return total;
+    }
+    
+    public boolean isEmpty() {
+        return isEmpty;
     }
 }

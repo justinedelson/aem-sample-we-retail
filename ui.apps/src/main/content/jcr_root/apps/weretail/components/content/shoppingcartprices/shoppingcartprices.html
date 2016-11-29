@@ -16,7 +16,7 @@
 <sly data-sly-use.cart="apps.weretail.components.content.shoppingcartprices.Cart"
      data-sly-use.hapiCartPrices="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/cartprices'}" />
      
-    <div class="shoppingcart-prices body" data-sly-attribute="${hapiCartPrices.itemtype}">
+    <div class="shoppingcart-prices body" data-sly-attribute="${hapiCartPrices.itemtype}" data-sly-test="${!cart.isEmpty}">
         <div class="row" data-sly-test="${cart.showSubTotal}">
             <div class="cell-title">${'Subtotal' @ i18n}</div>
             <div class="cell-align-right"
