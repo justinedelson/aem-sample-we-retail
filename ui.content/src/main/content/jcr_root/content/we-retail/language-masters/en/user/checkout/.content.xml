@@ -2,9 +2,10 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:checkoutPage=""
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2016-11-24T16:01:12.966+01:00"
+        cq:lastModified="{Date}2016-11-30T09:57:44.711+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         cq:checkoutPage=""
@@ -27,7 +28,7 @@
                 <formcontainer
                     jcr:created="{Date}2016-11-10T09:40:49.430+01:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2016-11-10T12:15:26.265+01:00"
+                    jcr:lastModified="{Date}2016-11-29T17:27:34.984+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/content/checkoutform"
@@ -67,7 +68,7 @@
                             <shipping.firstname
                                 jcr:created="{Date}2016-11-10T09:41:00.403+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-17T10:05:11.900+01:00"
+                                jcr:lastModified="{Date}2016-11-30T09:57:44.695+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Firstname"
@@ -77,7 +78,8 @@
                                 hideTitle="true"
                                 name="shipping.firstname"
                                 required="true"
-                                type="input"
+                                rows="2"
+                                type="text"
                                 usePlaceholder="true">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
@@ -98,7 +100,7 @@
                                 hideTitle="true"
                                 name="shipping.lastname"
                                 required="true"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <shipping.street1
                                 jcr:created="{Date}2016-11-10T09:41:45.846+01:00"
@@ -112,7 +114,7 @@
                                 helpMessage="Address line 1"
                                 hideTitle="true"
                                 name="shipping.street1"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <shipping.street2
                                 jcr:created="{Date}2016-11-10T09:41:54.541+01:00"
@@ -126,7 +128,7 @@
                                 helpMessage="Address line 2"
                                 hideTitle="true"
                                 name="shipping.street2"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <shipping.city
                                 jcr:created="{Date}2016-11-10T09:42:10.714+01:00"
@@ -140,7 +142,7 @@
                                 helpMessage="City"
                                 hideTitle="true"
                                 name="shipping.city"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <shipping.zip
                                 jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
@@ -154,7 +156,7 @@
                                 helpMessage="NPA"
                                 hideTitle="true"
                                 name="shipping.zip"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
@@ -264,7 +266,7 @@
                                 helpMessage="Firstname"
                                 hideTitle="true"
                                 name="billing.firstname"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <billing.lastname
                                 jcr:created="{Date}2016-11-10T09:41:00.403+01:00"
@@ -278,7 +280,7 @@
                                 helpMessage="Lastname"
                                 hideTitle="true"
                                 name="billing.lastname"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <billing.street1
                                 jcr:created="{Date}2016-11-10T09:41:45.846+01:00"
@@ -292,7 +294,7 @@
                                 helpMessage="Address line 1"
                                 hideTitle="true"
                                 name="billing.street1"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <billing.street2
                                 jcr:created="{Date}2016-11-10T09:41:54.541+01:00"
@@ -306,7 +308,7 @@
                                 helpMessage="Address line 2"
                                 hideTitle="true"
                                 name="billing.street2"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <billing.city
                                 jcr:created="{Date}2016-11-10T09:42:10.714+01:00"
@@ -320,7 +322,7 @@
                                 helpMessage="City"
                                 hideTitle="true"
                                 name="billing.city"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <billing.zip
                                 jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
@@ -334,7 +336,7 @@
                                 helpMessage="NPA"
                                 hideTitle="true"
                                 name="billing.zip"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
@@ -472,7 +474,7 @@
                                 helpMessage="Card Number"
                                 hideTitle="true"
                                 name="card.number"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <card-expiration-date
                                 jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
@@ -486,7 +488,7 @@
                                 helpMessage="Expiration date"
                                 hideTitle="true"
                                 name="card.expiration.date"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
@@ -506,7 +508,7 @@
                                 helpMessage="Security Code"
                                 hideTitle="true"
                                 name="card.security.code"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
@@ -535,7 +537,7 @@
                                 helpMessage="Promotional Code"
                                 hideTitle="true"
                                 name="promotional-code"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <button
                                 jcr:created="{Date}2016-11-10T11:10:58.798+01:00"

@@ -23,6 +23,11 @@
 		$("input[name^='billing.']").hide();
 		$("div.we-retail-select-billing").hide();
     }
+    
+    if ($('div.we-Cart-empty').length > 0) {
+        $('#checkout button.btn-primary').hide();
+        $('#order button.btn-primary').hide();
+    }
 
     $(payment).each(function() {
         var $payment = $(this);

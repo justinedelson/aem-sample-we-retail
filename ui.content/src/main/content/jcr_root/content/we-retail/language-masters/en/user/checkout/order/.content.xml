@@ -168,7 +168,7 @@
                                 helpMessage="Promotional Code"
                                 hideTitle="true"
                                 name="promotional-code"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <button
                                 jcr:created="{Date}2016-11-10T11:10:58.798+01:00"
