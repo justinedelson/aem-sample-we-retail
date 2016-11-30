@@ -104,6 +104,14 @@ public class CommerceHandler {
             errorRedirectUrl = currentPage.getPath();
         }
 
+        if (StringUtils.isNotBlank(addToCardUrl)) {
+            addToCardUrl = resourceResolver.map(request, addToCardUrl);
+        }
+
+        if (StringUtils.isNotBlank(addToSmartListUrl)) {
+            addToSmartListUrl = resourceResolver.map(request, addToSmartListUrl);
+        }
+
         if (product == null) {
             product = resource.adaptTo(Product.class);
         } else {

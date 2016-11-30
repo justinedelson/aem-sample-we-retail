@@ -27,6 +27,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
@@ -154,6 +155,9 @@ public class ProductModel {
 
             path = product.getPath();
             pagePath = product.getPagePath();
+            if (StringUtils.isNotBlank(pagePath)) {
+                pagePath = resourceResolver.map(request, pagePath);
+            }
             sku = product.getSKU();
             title = product.getTitle();
             description = product.getDescription();
@@ -163,7 +167,14 @@ public class ProductModel {
 
             ImageResource image = product.getImage();
             imageUrl = image != null ? image.getFileReference() : null;
+            if (StringUtils.isNotBlank(imageUrl)) {
+                imageUrl = resourceResolver.map(request, imageUrl);
+            }
+
             thumbnailUrl = product.getThumbnailUrl();
+            if (StringUtils.isNotBlank(thumbnailUrl)) {
+                thumbnailUrl = resourceResolver.map(request, thumbnailUrl);
+            }
 
             if (commerceSession != null) {
                 try {
