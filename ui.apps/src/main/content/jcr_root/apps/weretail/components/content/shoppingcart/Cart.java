@@ -37,16 +37,15 @@ import com.day.cq.wcm.commons.WCMUtils;
 
 public class Cart extends WCMUsePojo {
 
-    private static final String ORDER_ID = "orderId";
     private static final String IS_READ_ONLY = "isReadOnly";
-    private static final Logger LOG = LoggerFactory.getLogger(Cart.class);
+    protected static final Logger LOG = LoggerFactory.getLogger(Cart.class);
 
     private String checkoutPage;
     private String currentPageUrl;
-    private List<CartEntry> entries = new ArrayList<CartEntry>();
-    private CommerceSession commerceSession;
-
-    private Boolean isReadOnly;
+    
+    protected List<CartEntry> entries = new ArrayList<CartEntry>();
+    protected CommerceSession commerceSession;
+    protected Boolean isReadOnly;
 
     @Override
     public void activate() throws Exception {
@@ -65,21 +64,10 @@ public class Cart extends WCMUsePojo {
             LOG.error(e.getMessage());
         }
     }
-
-    private void populateCartEntries() throws CommerceException {
-        String orderId = getRequest().getParameter(ORDER_ID);
-        List<CommerceSession.CartEntry> cartEntries;
-
-        if (StringUtils.isNotEmpty(orderId)) {
-            PlacedOrder placedOrder = commerceSession.getPlacedOrder(orderId);
-            cartEntries = placedOrder.getCartEntries();
-            isReadOnly = true;
-        } else {
-            cartEntries = commerceSession.getCartEntries();
-        }
-
-        for (CommerceSession.CartEntry cartEntry : cartEntries) {
-            CartEntry entry = new CartEntry(commerceSession, cartEntry);
+    
+    protected void populateCartEntries() throws CommerceException {
+        for (CommerceSession.CartEntry cartEntry : commerceSession.getCartEntries()) {
+            CartEntry entry = new CartEntry(cartEntry);
             entries.add(entry);
         }
     }
@@ -111,12 +99,10 @@ public class Cart extends WCMUsePojo {
     }
 
     public class CartEntry {
-        private CommerceSession commerceSession;
         private CommerceSession.CartEntry entry;
         private Map<String, String> variantAxesMap = new LinkedHashMap<String, String>();
 
-        public CartEntry(CommerceSession commerceSession, CommerceSession.CartEntry entry) {
-            this.commerceSession = commerceSession;
+        public CartEntry(CommerceSession.CartEntry entry) {
             this.entry = entry;
 
             try {
@@ -142,7 +128,8 @@ public class Cart extends WCMUsePojo {
         }
 
         public String getPrice() throws CommerceException {
-            return commerceSession.getProductPrice(entry.getProduct());
+            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("UNIT"));
+            return priceInfos.get(0).getFormattedString();
         }
 
         public Product getProduct() throws CommerceException {

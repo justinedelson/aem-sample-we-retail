@@ -25,4 +25,5 @@
                 sling:resourceType="wcm/foundation/components/responsivegrid"/>
         </root>
     </jcr:content>
+    <order-details/>
 </jcr:root>

@@ -36,7 +36,7 @@ import com.adobe.cq.sightly.WCMUsePojo;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.commons.WCMUtils;
 
-public class Cart extends WCMUsePojo {
+public class CartPrices extends WCMUsePojo {
 
     private static final Logger LOG = LoggerFactory.getLogger(Cart.class);
 
