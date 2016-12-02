@@ -38,7 +38,7 @@ import com.day.cq.wcm.commons.WCMUtils;
 
 public class CartPrices extends WCMUsePojo {
 
-    private static final Logger LOG = LoggerFactory.getLogger(Cart.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CartPrices.class);
 
     private static final String SHOW_SUB_TOTAL = "showSubTotal";
     private static final String SHOW_SHIPPING_TOTAL = "showShippingTotal";
