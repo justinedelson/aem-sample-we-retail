@@ -36,11 +36,10 @@ public class Order extends apps.weretail.components.content.shoppingcart.Cart {
     private static final String ORDER_ID = "orderId";
     private static final String ORDER_PLACED_FORMATTED = "orderPlacedFormatted";
     private static final String ORDER_STATUS = "orderStatus";
-    private static final String CART_SUB_TOTAL = "cartSubtotal";
-    private static final String ORDER_SHIPPING = "orderShipping";
-    private static final String ORDER_TOTAL_TAX = "orderTotalTax";
-    private static final String ORDER_TOTAL_PRICE = "orderTotalPrice";
-    private static final String ORDER_DETAILS = "order-details/";
+    private static final String CART_SUB_TOTAL = "CART";
+    private static final String ORDER_SHIPPING = "SHIPPING";
+    private static final String ORDER_TOTAL_TAX = "TAX";
+    private static final String ORDER_TOTAL_PRICE = "TOTAL";
     
     private static final String BILLING_PREFIX = "billing.";
     private static final String SHIPPING_PREFIX = "shipping.";
@@ -88,11 +87,6 @@ public class Order extends apps.weretail.components.content.shoppingcart.Cart {
         return obj != null ? obj.toString() : null;
     }
     
-    private String getOrderDetailsProperty(String property) {
-        Object obj = orderDetails.get(ORDER_DETAILS + property);
-        return obj != null ? obj.toString() : null;
-    }
-    
     @Override
     public void activate() throws Exception {
         super.activate();
@@ -136,14 +130,14 @@ public class Order extends apps.weretail.components.content.shoppingcart.Cart {
     }
     
     private String getAddress(String prefix) {
-        String firstname = getOrderDetailsProperty(prefix + Address.FIRST_NAME);
-        String lastname = getOrderDetailsProperty(prefix + Address.LAST_NAME);
-        String street1 = getOrderDetailsProperty(prefix + Address.STREET_LINE1);
-        String street2 = getOrderDetailsProperty(prefix + Address.STREET_LINE2);
-        String zipCode = getOrderDetailsProperty(prefix + Address.ZIP_CODE);
-        String city = getOrderDetailsProperty(prefix + Address.CITY);
-        String state = getOrderDetailsProperty(prefix + Address.STATE);
-        String country = getOrderDetailsProperty(prefix + Address.COUNTRY);
+        String firstname = getOrderProperty(prefix + Address.FIRST_NAME);
+        String lastname = getOrderProperty(prefix + Address.LAST_NAME);
+        String street1 = getOrderProperty(prefix + Address.STREET_LINE1);
+        String street2 = getOrderProperty(prefix + Address.STREET_LINE2);
+        String zipCode = getOrderProperty(prefix + Address.ZIP_CODE);
+        String city = getOrderProperty(prefix + Address.CITY);
+        String state = getOrderProperty(prefix + Address.STATE);
+        String country = getOrderProperty(prefix + Address.COUNTRY);
         
         String name = StringUtils.join(new String[] {firstname, lastname}, " ");
         String street = StringUtils.join(new String[] {street1, street2}, " ");

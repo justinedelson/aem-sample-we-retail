@@ -52,6 +52,7 @@ public class Header extends WCMUsePojo {
     public static final String MODERATION_PATH = "/content/we-retail/us/en";
     public static final String MESSAGING_PATH = "/content/we-retail/us/en/user/mailbox";
     public static final String PROFILE_PATH = "/content/we-retail/us/en/user/account/profile";
+    public static final String ACCOUNT_PATH = "/content/we-retail/us/en/user/account";
 
     private ResourceResolver resolver;
     private Resource resource;
@@ -69,6 +70,7 @@ public class Header extends WCMUsePojo {
     private String notificationPath;
     private String moderationPath;
     private String profilePath;
+    private String accountPath;
     private List<PagePojo> items;
     private String theme;
     private String languageRoot;
@@ -112,6 +114,7 @@ public class Header extends WCMUsePojo {
         notificationPath = NOTIFICATION_PATH;
         moderationPath = MODERATION_PATH;
         profilePath = PROFILE_PATH;
+        accountPath = ACCOUNT_PATH;
         theme = properties.get("theme", "default");
         userPath = resolver.adaptTo(UserManager.class).getAuthorizable(resolver.getUserID()).getPath();
 
@@ -162,6 +165,10 @@ public class Header extends WCMUsePojo {
         return profilePath;
     }
 
+    public String getAccountPath() {
+        return accountPath;
+    }
+    
     public List<PagePojo> getItems() {
         return items;
     }
