@@ -40,7 +40,6 @@ import com.adobe.cq.commerce.api.Product;
 import com.adobe.cq.commerce.common.AbstractJcrCommerceService;
 import com.adobe.cq.commerce.common.AbstractJcrCommerceSession;
 import com.adobe.cq.commerce.common.DefaultJcrCartEntry;
-import com.adobe.cq.commerce.common.VendorJcrPlacedOrder;
 import com.day.cq.i18n.I18n;
 import com.day.cq.wcm.foundation.forms.FormsHelper;
 
@@ -178,9 +177,6 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
     @Override
     public PlacedOrder getPlacedOrder(String orderId) throws CommerceException {
         PlacedOrder placedOrder = super.getPlacedOrder(orderId);
-        if (placedOrder.getOrderId() == null) {
-            placedOrder = new VendorJcrPlacedOrder(commerceService, orderId, locale);
-        }
 
         // We restore the product prices from the saved order
         if (placedOrder != null) {

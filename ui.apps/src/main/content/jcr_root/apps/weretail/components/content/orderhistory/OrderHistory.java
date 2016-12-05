@@ -16,7 +16,9 @@
 package apps.weretail.components.content.orderhistory;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -51,8 +53,38 @@ public class OrderHistory extends WCMUsePojo {
         createCommerceSession();    
         PlacedOrderResult orderResult = commerceSession.getPlacedOrders(null, 0, 0, null);
         orders = orderResult.getOrders();
-        Collections.reverse(orders);
+        orders.sort(orderComparator);
     }
+    
+    // Sorting by date, descending
+    private Comparator<PlacedOrder> orderComparator = new Comparator<PlacedOrder>() {
+
+        @Override
+        public int compare(PlacedOrder o1, PlacedOrder o2) {
+            Object p1, p2;
+            try {
+                p1 = o1.getOrder().get("orderPlaced");
+                p2 = o2.getOrder().get("orderPlaced");
+            } catch (CommerceException e) {
+                return 0;
+            }
+
+            if (p1 == null || p2 == null) {
+                return p1 == null ? (p2 == null ? 0 : 1) : -1;
+            }
+
+            boolean p1IsCalendar = (p1 instanceof Calendar);
+            boolean p2IsCalendar = (p2 instanceof Calendar);
+
+            if (p1IsCalendar && p2IsCalendar) {
+                Calendar c1 = (Calendar) p1;
+                Calendar c2 = (Calendar) p2;
+                return c2.compareTo(c1);
+            } else {
+                return p1IsCalendar ? -1 : (p2IsCalendar ? 1 : 0);
+            }
+        }
+    };    
     
     private void createCommerceSession() {
         CommerceService commerceService = getCurrentPage().getContentResource().adaptTo(CommerceService.class);

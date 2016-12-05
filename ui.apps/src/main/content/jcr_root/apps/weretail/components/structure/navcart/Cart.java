@@ -36,7 +36,6 @@ import com.day.cq.wcm.commons.WCMUtils;
 
 public class Cart extends WCMUsePojo {
 
-    private static final String ORDER_ID = "orderId";
     private static final Logger LOG = LoggerFactory.getLogger(Cart.class);
     private static final String PN_FILE_REFERENCE = "fileReference";
     private static final String PN_TYPES = "types";
@@ -63,27 +62,19 @@ public class Cart extends WCMUsePojo {
     }
 
     private void populateCartEntries() throws CommerceException {
-        String orderId = getRequest().getParameter(ORDER_ID);
-        PriceFilter priceFilter = getPriceFilter();
-        List<CommerceSession.CartEntry> cartEntries;
-        if (StringUtils.isNotEmpty(orderId)) {
-            PlacedOrder placedOrder = commerceSession.getPlacedOrder(orderId);
-            cartEntries = placedOrder.getCartEntries();
-            total = placedOrder.getCartPrice(priceFilter);
-        } else {
-            cartEntries = commerceSession.getCartEntries();
-            total = commerceSession.getCartPrice(priceFilter);
-        }
+        PriceFilter priceFilter = getPriceFilter();  
+        List<CommerceSession.CartEntry> cartEntries = commerceSession.getCartEntries();
+        total = commerceSession.getCartPrice(priceFilter);
+        
         for (CommerceSession.CartEntry cartEntry : cartEntries) {
             String image = StringUtils.EMPTY;
-            if(cartEntry.getProduct().getImage() != null) {
+            if (cartEntry.getProduct().getImage() != null) {
                 Resource imageResource = getResourceResolver().getResource(cartEntry.getProduct().getImage().getPath());
                 if (imageResource != null) {
                     image = imageResource.adaptTo(ValueMap.class).get(PN_FILE_REFERENCE, StringUtils.EMPTY);
                 }
             }
-            CartEntry entry =
-                    new CartEntry(cartEntry, commerceSession.getProductPrice(cartEntry.getProduct()), cartEntry.getProduct(), image);
+            CartEntry entry = new CartEntry(cartEntry, commerceSession.getProductPrice(cartEntry.getProduct()), cartEntry.getProduct(), image);
             entries.add(entry);
         }
     }
@@ -94,8 +85,7 @@ public class Cart extends WCMUsePojo {
     }
 
     private void populateCheckoutPage() {
-        String checkoutPageProperty =
-                WCMUtils.getInheritedProperty(getCurrentPage(), getResourceResolver(), CommerceConstants.PN_CHECKOUT_PAGE_PATH);
+        String checkoutPageProperty = WCMUtils.getInheritedProperty(getCurrentPage(), getResourceResolver(), CommerceConstants.PN_CHECKOUT_PAGE_PATH);
         if (StringUtils.isNotEmpty(checkoutPageProperty)) {
             checkoutPage = getResourceResolver().map(getRequest(), checkoutPageProperty) + ".html";
         }
@@ -125,7 +115,6 @@ public class Cart extends WCMUsePojo {
             this.price = price;
             this.image = image;
         }
-
 
         public CommerceSession.CartEntry getEntry() {
             return entry;
