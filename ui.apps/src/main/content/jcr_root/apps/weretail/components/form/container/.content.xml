@@ -4,4 +4,5 @@
     jcr:title="Form Container"
     jcr:description="Container for components that allow users to submit information"
     sling:resourceSuperType="core/wcm/components/form/container/v1/container"
-    componentGroup="We.Retail Form"/>
+    componentGroup="We.Retail Form"
+    cq:isContainer="{Boolean}true"/>
