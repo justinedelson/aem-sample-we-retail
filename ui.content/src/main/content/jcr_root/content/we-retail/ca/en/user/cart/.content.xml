@@ -4,9 +4,9 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2016-10-26T16:44:31.744+02:00"
+        cq:lastModified="{Date}2016-12-02T17:07:44.597+01:00"
         cq:lastModifiedBy="admin"
-        cq:lastRolledout="{Date}2016-10-26T16:44:31.745+02:00"
+        cq:lastRolledout="{Date}2016-12-02T17:07:44.598+01:00"
         cq:lastRolledoutBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         jcr:lastModified="{Date}2016-09-08T15:22:11.728+02:00"
@@ -17,21 +17,98 @@
         sling:resourceType="weretail/components/structure/page"
         hideInNav="true">
         <root
-            cq:lastRolledout="{Date}2016-10-26T16:44:31.742+02:00"
+            cq:lastRolledout="{Date}2016-12-02T17:07:44.572+01:00"
             cq:lastRolledoutBy="admin"
             jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <responsivegrid
-                cq:lastRolledout="{Date}2016-10-26T16:44:31.745+02:00"
+                cq:lastRolledout="{Date}2016-12-02T17:07:44.575+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:created="{Date}2016-01-13T15:58:09.854+01:00"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2016-10-26T16:44:31.744+02:00"
+                jcr:lastModified="{Date}2016-12-02T17:07:44.573+01:00"
                 jcr:lastModifiedBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <title
+                    cq:lastRolledout="{Date}2016-12-02T17:07:44.580+01:00"
+                    cq:lastRolledoutBy="admin"
+                    jcr:created="{Date}2016-11-21T10:58:22.512+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-11-21T10:58:49.857+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="SHOPPING CART"
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
+                <cart
+                    cq:lastRolledout="{Date}2016-12-02T17:07:44.582+01:00"
+                    cq:lastRolledoutBy="admin"
+                    jcr:created="{Date}2016-11-21T12:36:17.177+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-11-22T17:26:47.009+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="weretail/components/content/shoppingcart"/>
+                <shoppingcartprices
+                    cq:lastRolledout="{Date}2016-12-02T17:07:44.585+01:00"
+                    cq:lastRolledoutBy="admin"
+                    jcr:created="{Date}2016-11-24T15:25:24.467+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-11-24T15:51:01.491+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="weretail/components/content/shoppingcartprices"
+                    showShippingTotal="true"
+                    showSubTotal="true"
+                    showTaxTotal="true"
+                    showTotal="true">
+                    <cq:responsive
+                        cq:lastRolledout="{Date}2016-12-02T17:07:44.586+01:00"
+                        cq:lastRolledoutBy="admin"
+                        jcr:mixinTypes="[cq:LiveRelationship]"
+                        jcr:primaryType="nt:unstructured">
+                        <default
+                            cq:lastRolledout="{Date}2016-12-02T17:07:44.590+01:00"
+                            cq:lastRolledoutBy="admin"
+                            jcr:mixinTypes="[cq:LiveRelationship]"
+                            jcr:primaryType="nt:unstructured"
+                            offset="6"
+                            width="6"/>
+                    </cq:responsive>
+                </shoppingcartprices>
+                <button
+                    cq:lastRolledout="{Date}2016-12-02T17:07:44.593+01:00"
+                    cq:lastRolledoutBy="admin"
+                    jcr:created="{Date}2016-03-14T21:41:39.706+01:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2016-03-14T21:41:59.336+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="weretail/components/content/button"
+                    label="Check Out"
+                    linkTo="/content/we-retail/ca/en/user/checkout">
+                    <cq:responsive
+                        cq:lastRolledout="{Date}2016-12-02T17:07:44.595+01:00"
+                        cq:lastRolledoutBy="admin"
+                        jcr:mixinTypes="[cq:LiveRelationship]"
+                        jcr:primaryType="nt:unstructured">
+                        <default
+                            cq:lastRolledout="{Date}2016-12-02T17:07:44.598+01:00"
+                            cq:lastRolledoutBy="admin"
+                            jcr:mixinTypes="[cq:LiveRelationship]"
+                            jcr:primaryType="nt:unstructured"
+                            offset="7"
+                            width="5"/>
+                    </cq:responsive>
+                </button>
+            </responsivegrid>
         </root>
     </jcr:content>
 </jcr:root>
