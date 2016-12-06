@@ -44,7 +44,7 @@
         return new h.TestCase("Check product details")
             // Test image
             .asserts.visible(".we-Product .we-Product-visual img", true)
-            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkImage(h, ".we-Product .we-Product-visual img", "/content/dam/we-retail/en/products/apparel/coats/El Gordo Green.jpg");})
+            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkImage(h, ".we-Product .we-Product-visual img", "/content/dam/we-retail/en/products/apparel/coats/El%20Gordo%20Green.jpg");})
             // Test product details
             .asserts.visible(".we-Product .we-Product-brand", true)
             .asserts.visible(".we-Product .we-Product-code", true)
@@ -60,12 +60,12 @@
         return new h.TestCase("Check product variations")
             // Test color variations
             .click(".we-Product-radio [name='color'][value='red']", {expectNav: false})
-            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkImage(h, ".we-Product .we-Product-visual img", "/content/dam/we-retail/en/products/apparel/coats/El Gordo Red.jpg");})
+            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkImage(h, ".we-Product .we-Product-visual img", "/content/dam/we-retail/en/products/apparel/coats/El%20Gordo%20Red.jpg");})
             .wait(500)
             .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkText(h, ".we-Product .we-Product-code span", "meskwielt.3-XS");})
             .click(".we-Product-radio [name='color'][value='purple']", {expectNav: false})
             .wait(500)
-            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkImage(h, ".we-Product .we-Product-visual img", "/content/dam/we-retail/en/products/apparel/coats/El Gordo Purple.jpg");})
+            .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkImage(h, ".we-Product .we-Product-visual img", "/content/dam/we-retail/en/products/apparel/coats/El%20Gordo%20Purple.jpg");})
             .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkText(h, ".we-Product .we-Product-code span", "meskwielt.2-XS");})
             // Test size variations
             .asserts.isTrue(function () {return window.CQ.WeRetailIT.checkText(h, ".we-Product .we-Product-price", "$119.00");})

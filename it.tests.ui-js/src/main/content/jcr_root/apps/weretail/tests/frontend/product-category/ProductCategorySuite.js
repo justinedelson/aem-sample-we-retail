@@ -51,7 +51,7 @@
             // Test featured categories
             .execTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 2))
             // Test "Top stories"
-            .execTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 3))
+            .execTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 6))
             // Test footer
             .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
         )
@@ -72,7 +72,7 @@
             // Test featured categories
             .execTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 2))
             // Test "Top stories"
-            .execTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 3))
+            .execTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 6))
             // Test footer
             .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
         )
