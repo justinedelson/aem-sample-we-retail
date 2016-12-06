@@ -25,7 +25,7 @@
 
     $(window).load(loadImages);
 
-    if (ContextHub) {
+    if (typeof ContextHub !== "undefined" && ContextHub != null) {
         ContextHub.eventing.on(ContextHub.Constants.EVENT_TEASER_LOADED, loadImages);
     }
 
