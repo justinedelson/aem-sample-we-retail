@@ -17,6 +17,8 @@ package we.retail.core;
 
 public class WeRetailConstants {
 
+    public static final String WE_RETAIL_COMMERCEPROVIDER = "we-retail";
+
     public static final String DELETE_CARTENTRY_SELECTOR = "weretail.deletecartentry";
     public static final String MODIFY_CARTENTRY_SELECTOR = "weretail.modifycartentry";
 

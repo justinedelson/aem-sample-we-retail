@@ -39,28 +39,28 @@ import com.day.cq.wcm.api.Page;
 import we.retail.core.util.WeRetailHelper;
 
 /**
- * <code>SimilarToCurrentRelatedProductsProvider</code> provides a list of relationships to products
- * having at least one tag in common with the current product.  The list is sorted on number of matched
- * tags.
+ * <code>SimilarToCartRelationshipsProvider</code> provides a list of relationships to products
+ * having at least one tag in common with a product in the cart.  The relationships are sorted
+ * on the number of matched tags.
  *
  * NB: this is an example relationship provider which trades off performance for simplicity.  A
  * production system would require a much more performant implementation.
  */
-@Component(metatype = true, label = "We.Retail Similar-to-Current Recommendations Provider",
-        description = "Example ProductRelationshipsProvider which recommends products similar to the current product")
+@Component(metatype = true, label = "We.Retail Similar-to-Cart Recommendations Provider",
+        description = "Example ProductRelationshipsProvider which recommends products similar to the products in the cart")
 @Service
 @Properties(value = {
-        @Property(name = ProductRelationshipsProvider.RELATIONSHIP_TYPE_PN, value = SimilarToCurrentRelationshipsProvider.RELATIONSHIP_TYPE, propertyPrivate = true)
+        @Property(name = ProductRelationshipsProvider.RELATIONSHIP_TYPE_PN, value = SimilarToCartRelationshipsProvider.RELATIONSHIP_TYPE, propertyPrivate = true)
 })
-public class SimilarToCurrentRelationshipsProvider extends AbstractRelationshipsProvider {
+public class SimilarToCartRelationshipsProvider extends AbstractRelationshipsProvider {
 
-    public static final String RELATIONSHIP_TYPE = "we-retail.similar-to-current";
-    public static final String RELATIONSHIP_TITLE = "Similar to current";
+    public static final String RELATIONSHIP_TYPE = "we-retail.similar-to-cart";
+    public static final String RELATIONSHIP_TITLE = "Similar to cart";
 
     @Property(boolValue = true, label = "Enable", description = "Provide recommendations")
     public final static String ENABLED = RELATIONSHIP_TYPE + ".enabled";
 
-    public SimilarToCurrentRelationshipsProvider() {
+    public SimilarToCartRelationshipsProvider() {
         super(RELATIONSHIP_TYPE, RELATIONSHIP_TITLE);
     }
 
@@ -68,22 +68,21 @@ public class SimilarToCurrentRelationshipsProvider extends AbstractRelationships
     protected List<ProductRelationship> calculateRelationships(SlingHttpServletRequest request, CommerceSession session,
                                                                Page currentPage, Product currentProduct)
             throws CommerceException {
-        if (currentProduct == null) {
-            return null;
+        // Add all products of the current cart to context
+        final List<Product> contextProducts = new ArrayList<Product>();
+        final List<CommerceSession.CartEntry> cartEntries = session.getCartEntries();
+        for (CommerceSession.CartEntry entry : cartEntries) {
+            contextProducts.add(entry.getProduct());
         }
-
-        // Add current product to context
-        List<Product> contextProducts = new ArrayList<Product>();
-        contextProducts.add(currentProduct);
 
         // Walk content-pages to find similar products
         ResourceResolver resolver = request.getResourceResolver();
         SimilarProductsCollector collector = new SimilarProductsCollector(resolver, session, RELATIONSHIP_TYPE,
-                RELATIONSHIP_TITLE, contextProducts);
+                RELATIONSHIP_TITLE,
+                contextProducts);
         collector.walk(WeRetailHelper.findRoot(currentPage).getContentResource().getParent());
         return collector.getRelationships();
     }
-
 
     @SuppressWarnings("unused")
     @Activate
@@ -91,3 +90,4 @@ public class SimilarToCurrentRelationshipsProvider extends AbstractRelationships
         enabled = PropertiesUtil.toBoolean(context.getProperties().get(ENABLED), true);
     }
 }
+
