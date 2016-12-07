@@ -16,6 +16,7 @@
 package we.retail.core.model;
 
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class OrderHistoryModel {
             commerceSession = commerceService.login(request, response);
             PlacedOrderResult orderResult = commerceSession.getPlacedOrders(null, 0, 0, null);
             orders = orderResult.getOrders();
-            orders.sort(orderComparator);
+            Collections.sort(orders, orderComparator);
         } catch (CommerceException e) {
             LOGGER.error("Failed to initialize sling model", e);
         }
