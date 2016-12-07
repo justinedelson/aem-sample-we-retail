@@ -21,6 +21,7 @@
                     <li><a href="#" data-toggle="modal" data-target=".we-LanguageModal" title="${header.currentLanguage.name}"><i class="we-lang-icon we-lang-icon-${header.currentLanguage.countrycode}"></i> ${header.currentLanguage.languagecode}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li data-sly-test="${!header.isAnonymous}"><a href="${header.accountPath}.html">Account</a></li>
                     <li data-sly-test="${!header.isAnonymous}"><a href="${header.profilePath}.html">Profile</a></li>
                     <li data-sly-test="${!header.isAnonymous}" data-sly-resource="${@ resourceType='weretail/components/structure/navwishlist'}"></li>
                     <li data-sly-test="${!header.isAnonymous}"><a href="${header.messagingPath}.html"><i class="fa fa-envelope-o"></i> Messages <span class="badge">0</span></a></li>

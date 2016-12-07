@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2016-11-18T13:40:31.761+01:00"
+        cq:lastModified="{Date}2016-12-05T12:04:21.308+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         jcr:primaryType="cq:PageContent"
@@ -39,13 +39,13 @@
                 <orderid
                     jcr:created="{Date}2013-05-24T18:42:54.646+01:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2013-05-24T18:46:22.092+01:00"
+                    jcr:lastModified="{Date}2016-12-05T12:04:21.304+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title=" "
                     sling:resourceType="commerce/components/orderid"
                     columns="[orderPlacedFormatted=Date,#summary=Summary,price=Price,orderStatus=Status]"
-                    detailsPagePath="/content/we-retail/en/user/account/order-history/order-details"
+                    detailsPagePath="/content/we-retail/language-masters/en/user/account/order-history/order-details"
                     label="Order No."/>
                 <text
                     jcr:lastModified="{Date}2016-11-18T13:40:31.759+01:00"

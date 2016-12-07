@@ -2,19 +2,21 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:checkoutPage=""
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2016-11-22T17:30:03.449+01:00"
+        cq:lastModified="{Date}2016-12-02T17:07:33.545+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
-        cq:checkoutPage=""
         jcr:lastModified="{Date}2016-09-08T15:22:11.728+02:00"
         jcr:lastModifiedBy="admin"
+        jcr:mixinTypes="[cq:LiveRelationship]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Checkout"
         sling:resourceType="weretail/components/structure/page"
         hideInNav="true">
         <root
+            jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <responsivegrid
@@ -22,6 +24,7 @@
                 jcr:createdBy="admin"
                 jcr:lastModified="2016-01-13T15:58:50.877+01:00"
                 jcr:lastModifiedBy="admin"
+                jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
                 <formcontainer
@@ -29,6 +32,7 @@
                     jcr:createdBy="admin"
                     jcr:lastModified="{Date}2016-11-10T12:15:26.265+01:00"
                     jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/content/checkoutform"
                     action="/content/usergenerated/we-retail/language-masters/en/user/checkout/cq-gen1478767249431/"
@@ -40,18 +44,25 @@
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-17T09:58:43.279+01:00"
                         jcr:lastModifiedBy="admin"
+                        jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="wcm/foundation/components/responsivegrid">
-                        <cq:responsive jcr:primaryType="nt:unstructured"/>
+                        <cq:responsive
+                            jcr:mixinTypes="[cq:LiveRelationship]"
+                            jcr:primaryType="nt:unstructured"/>
                         <column1
                             jcr:created="{Date}2016-11-17T09:59:29.539+01:00"
                             jcr:createdBy="admin"
                             jcr:lastModified="{Date}2016-11-17T09:59:29.539+01:00"
                             jcr:lastModifiedBy="admin"
+                            jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/foundation/components/responsivegrid">
-                            <cq:responsive jcr:primaryType="nt:unstructured">
+                            <cq:responsive
+                                jcr:mixinTypes="[cq:LiveRelationship]"
+                                jcr:primaryType="nt:unstructured">
                                 <default
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured"
                                     width="6"/>
                             </cq:responsive>
@@ -60,6 +71,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-10T09:45:46.049+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Shipping Address"
                                 sling:resourceType="weretail/components/content/title"
@@ -69,6 +81,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:05:11.900+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Firstname"
                                 sling:resourceType="weretail/components/form/text"
@@ -77,10 +90,13 @@
                                 hideTitle="true"
                                 name="shipping.firstname"
                                 required="true"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                <cq:responsive
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <default
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         width="6"/>
                                 </cq:responsive>
@@ -90,6 +106,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:05:39.321+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Lastname"
                                 sling:resourceType="weretail/components/form/text"
@@ -98,13 +115,14 @@
                                 hideTitle="true"
                                 name="shipping.lastname"
                                 required="true"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <shipping.street1
                                 jcr:created="{Date}2016-11-10T09:41:45.846+01:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:05:50.315+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Address line 1"
                                 sling:resourceType="weretail/components/form/text"
@@ -112,13 +130,14 @@
                                 helpMessage="Address line 1"
                                 hideTitle="true"
                                 name="shipping.street1"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <shipping.street2
                                 jcr:created="{Date}2016-11-10T09:41:54.541+01:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:05:58.195+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Address line 2"
                                 sling:resourceType="weretail/components/form/text"
@@ -126,13 +145,14 @@
                                 helpMessage="Address line 2"
                                 hideTitle="true"
                                 name="shipping.street2"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <shipping.city
                                 jcr:created="{Date}2016-11-10T09:42:10.714+01:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:06:10.373+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="City"
                                 sling:resourceType="weretail/components/form/text"
@@ -140,13 +160,14 @@
                                 helpMessage="City"
                                 hideTitle="true"
                                 name="shipping.city"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <shipping.zip
                                 jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:06:24.400+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="NPA"
                                 sling:resourceType="weretail/components/form/text"
@@ -154,10 +175,13 @@
                                 helpMessage="NPA"
                                 hideTitle="true"
                                 name="shipping.zip"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                <cq:responsive
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <default
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         width="3"/>
                                 </cq:responsive>
@@ -167,27 +191,36 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-18T10:04:31.529+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
                                 collapsed="true"
                                 cssClass="we-retail-select we-retail-select-half we-retail-select-shipping"
                                 name="shipping.state">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                <cq:responsive
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <default
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         offset="0"
                                         width="3"/>
                                 </cq:responsive>
-                                <optionitems jcr:primaryType="nt:unstructured">
+                                <optionitems
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <item0
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         selected="true"
                                         text="State"/>
                                     <item1
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="New-York"
                                         value="NY"/>
                                     <item2
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="California"
                                         value="CA"/>
@@ -198,29 +231,37 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-18T10:04:37.443+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
                                 collapsed="true"
                                 cssClass="we-retail-select we-retail-select-full we-retail-select-shipping"
                                 name="shipping.country">
-                                <optionitems jcr:primaryType="nt:unstructured">
+                                <optionitems
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <item0
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         selected="true"
                                         text="Country"/>
                                     <item1
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="France"
                                         value="FR"/>
                                     <item2
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="Germany"
                                         value="DE"/>
                                     <item3
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="Switzerland"
                                         value="CH"/>
                                     <item4
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="United States"
                                         value="US"/>
@@ -231,6 +272,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-10T09:46:45.124+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Billing address"
                                 sling:resourceType="weretail/components/content/title"
@@ -240,12 +282,16 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-18T13:52:21.346+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
                                 multiSelection="true"
                                 name="billing-is-shipping-address">
-                                <optionitems jcr:primaryType="nt:unstructured">
+                                <optionitems
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <item0
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         selected="true"
                                         text="Same as shipping address"
@@ -257,6 +303,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:06:53.867+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Firstname"
                                 sling:resourceType="weretail/components/form/text"
@@ -264,13 +311,14 @@
                                 helpMessage="Firstname"
                                 hideTitle="true"
                                 name="billing.firstname"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <billing.lastname
                                 jcr:created="{Date}2016-11-10T09:41:00.403+01:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:07:03.891+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Lastname"
                                 sling:resourceType="weretail/components/form/text"
@@ -278,13 +326,14 @@
                                 helpMessage="Lastname"
                                 hideTitle="true"
                                 name="billing.lastname"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <billing.street1
                                 jcr:created="{Date}2016-11-10T09:41:45.846+01:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:07:13.188+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Address line 1"
                                 sling:resourceType="weretail/components/form/text"
@@ -292,13 +341,14 @@
                                 helpMessage="Address line 1"
                                 hideTitle="true"
                                 name="billing.street1"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <billing.street2
                                 jcr:created="{Date}2016-11-10T09:41:54.541+01:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:07:22.048+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Address line 2"
                                 sling:resourceType="weretail/components/form/text"
@@ -306,13 +356,14 @@
                                 helpMessage="Address line 2"
                                 hideTitle="true"
                                 name="billing.street2"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <billing.city
                                 jcr:created="{Date}2016-11-10T09:42:10.714+01:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:07:31.401+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="City"
                                 sling:resourceType="weretail/components/form/text"
@@ -320,13 +371,14 @@
                                 helpMessage="City"
                                 hideTitle="true"
                                 name="billing.city"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <billing.zip
                                 jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:07:39.678+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="NPA"
                                 sling:resourceType="weretail/components/form/text"
@@ -334,10 +386,13 @@
                                 helpMessage="NPA"
                                 hideTitle="true"
                                 name="billing.zip"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                <cq:responsive
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <default
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         width="3"/>
                                 </cq:responsive>
@@ -347,27 +402,36 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-18T10:04:48.894+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
                                 collapsed="true"
                                 cssClass="we-retail-select we-retail-select-half we-retail-select-billing"
                                 name="billing.state">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                <cq:responsive
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <default
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         offset="0"
                                         width="3"/>
                                 </cq:responsive>
-                                <optionitems jcr:primaryType="nt:unstructured">
+                                <optionitems
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <item0
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         selected="true"
                                         text="State"/>
                                     <item1
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="New-York"
                                         value="NY"/>
                                     <item2
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="California"
                                         value="CA"/>
@@ -378,29 +442,37 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-18T10:05:00.554+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
                                 collapsed="true"
                                 cssClass="we-retail-select we-retail-select-full we-retail-select-billing"
                                 name="billing.country">
-                                <optionitems jcr:primaryType="nt:unstructured">
+                                <optionitems
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <item0
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         selected="true"
                                         text="Country"/>
                                     <item1
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="France"
                                         value="FR"/>
                                     <item2
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="Germany"
                                         value="DE"/>
                                     <item3
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="Switzerland"
                                         value="CH"/>
                                     <item4
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="United States"
                                         value="US"/>
@@ -412,10 +484,14 @@
                             jcr:createdBy="admin"
                             jcr:lastModified="{Date}2016-11-17T10:00:29.303+01:00"
                             jcr:lastModifiedBy="admin"
+                            jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/foundation/components/responsivegrid">
-                            <cq:responsive jcr:primaryType="nt:unstructured">
+                            <cq:responsive
+                                jcr:mixinTypes="[cq:LiveRelationship]"
+                                jcr:primaryType="nt:unstructured">
                                 <default
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured"
                                     width="6"/>
                             </cq:responsive>
@@ -424,6 +500,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-10T09:58:39.293+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Shipping method"
                                 sling:resourceType="weretail/components/content/title"
@@ -433,6 +510,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-10T09:58:07.938+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="commerce/components/shippingmethods"/>
                             <payment-method-title
@@ -440,6 +518,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-10T10:57:06.509+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Payment method"
                                 sling:resourceType="weretail/components/content/title"
@@ -449,6 +528,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-10T10:57:21.542+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="commerce/components/paymentmethods"/>
                             <paypal-text
@@ -456,6 +536,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T15:25:05.557+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/content/text"
                                 text="&lt;p>You will be redirected to PayPal site to complete the order.&lt;/p>&#xd;&#xa;"
@@ -465,6 +546,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:07:31.401+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Card Number"
                                 sling:resourceType="weretail/components/form/text"
@@ -472,13 +554,14 @@
                                 helpMessage="Card Number"
                                 hideTitle="true"
                                 name="card.number"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <card-expiration-date
                                 jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:06:24.400+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Expiration date"
                                 sling:resourceType="weretail/components/form/text"
@@ -486,10 +569,13 @@
                                 helpMessage="Expiration date"
                                 hideTitle="true"
                                 name="card.expiration.date"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                <cq:responsive
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <default
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         width="3"/>
                                 </cq:responsive>
@@ -499,6 +585,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:06:24.400+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Security Code"
                                 sling:resourceType="weretail/components/form/text"
@@ -506,10 +593,13 @@
                                 helpMessage="Security Code"
                                 hideTitle="true"
                                 name="card.security.code"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                <cq:responsive
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <default
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         width="3"/>
                                 </cq:responsive>
@@ -519,6 +609,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-10T11:07:31.282+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Gift &amp; Promotional Codes"
                                 sling:resourceType="weretail/components/content/title"
@@ -528,6 +619,7 @@
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-17T10:08:17.039+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Promotional Code"
                                 sling:resourceType="weretail/components/form/text"
@@ -535,20 +627,24 @@
                                 helpMessage="Promotional Code"
                                 hideTitle="true"
                                 name="promotional-code"
-                                type="input"
+                                type="text"
                                 usePlaceholder="true"/>
                             <button
                                 jcr:created="{Date}2016-11-10T11:10:58.798+01:00"
                                 jcr:createdBy="admin"
                                 jcr:lastModified="{Date}2016-11-10T11:12:50.076+01:00"
                                 jcr:lastModifiedBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/button"
                                 cssClass="btn-action btn-primary"
                                 title="Continue"
                                 type="submit">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                <cq:responsive
+                                    jcr:mixinTypes="[cq:LiveRelationship]"
+                                    jcr:primaryType="nt:unstructured">
                                     <default
+                                        jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         offset="3"
                                         width="3"/>
@@ -556,8 +652,11 @@
                             </button>
                         </column2>
                     </responsivegrid>
-                    <cq:responsive jcr:primaryType="nt:unstructured">
+                    <cq:responsive
+                        jcr:mixinTypes="[cq:LiveRelationship]"
+                        jcr:primaryType="nt:unstructured">
                         <default
+                            jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
                             width="8"/>
                     </cq:responsive>
@@ -567,10 +666,14 @@
                     jcr:createdBy="admin"
                     jcr:lastModified="{Date}2016-11-17T10:09:33.329+01:00"
                     jcr:lastModifiedBy="admin"
+                    jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wcm/foundation/components/responsivegrid">
-                    <cq:responsive jcr:primaryType="nt:unstructured">
+                    <cq:responsive
+                        jcr:mixinTypes="[cq:LiveRelationship]"
+                        jcr:primaryType="nt:unstructured">
                         <default
+                            jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
                             width="4"/>
                     </cq:responsive>
@@ -579,6 +682,7 @@
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-10T09:45:46.049+01:00"
                         jcr:lastModifiedBy="admin"
+                        jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="YOUR ORDER"
                         sling:resourceType="wcm/foundation/components/title"
@@ -588,6 +692,7 @@
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-22T17:30:03.441+01:00"
                         jcr:lastModifiedBy="admin"
+                        jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="weretail/components/content/minicart"
                         isReadOnly="true"/>
@@ -596,6 +701,7 @@
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-24T16:01:12.958+01:00"
                         jcr:lastModifiedBy="admin"
+                        jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="weretail/components/content/shoppingcartprices"
                         showShippingTotal="true"

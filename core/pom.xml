@@ -123,6 +123,14 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
         </dependency>
+        
+        <!-- This overrides the version provided by quickstart 6.2 -->
+        <dependency>
+            <groupId>com.adobe.cq.sightly</groupId>
+            <artifactId>cq-wcm-sightly-extension</artifactId>
+            <version>1.4.16</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>com.day.cq</groupId>

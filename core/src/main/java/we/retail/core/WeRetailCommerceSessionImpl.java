@@ -35,8 +35,11 @@ import org.apache.sling.api.wrappers.ValueMapDecorator;
 import com.adobe.cq.commerce.api.CommerceConstants;
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.PlacedOrder;
+import com.adobe.cq.commerce.api.PriceInfo;
+import com.adobe.cq.commerce.api.Product;
 import com.adobe.cq.commerce.common.AbstractJcrCommerceService;
 import com.adobe.cq.commerce.common.AbstractJcrCommerceSession;
+import com.adobe.cq.commerce.common.DefaultJcrCartEntry;
 import com.day.cq.i18n.I18n;
 import com.day.cq.wcm.foundation.forms.FormsHelper;
 
@@ -151,11 +154,44 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
 
     @Override
     public void modifyCartEntry(int entryNumber, int quantity) throws CommerceException {
-        //
         // The default AbstractJcrCommerceSession implementation does not update the cart so we override it
-        //
         super.doModifyCartEntry(entryNumber, quantity, null);
         calcCart();
         saveCart();
+    }
+
+    @Override
+    public void addCartEntry(Product product, int quantity) throws CommerceException {
+        Map<String, Object> properties = new HashMap<String, Object>();
+
+        // The default AbstractJcrCommerceSession implementation does not store the unit price in the saved order
+        // so we explicitly add a property for that (the properties map is saved in the jcr)
+        BigDecimal unitPrice = product.getProperty(PN_UNIT_PRICE, BigDecimal.class);
+        if (unitPrice != null) {
+            properties.put(PN_UNIT_PRICE, unitPrice);
+        }
+
+        addCartEntry(product, quantity, properties);
+    }
+
+    @Override
+    public PlacedOrder getPlacedOrder(String orderId) throws CommerceException {
+        PlacedOrder placedOrder = super.getPlacedOrder(orderId);
+
+        // We restore the product prices from the saved order
+        if (placedOrder != null) {
+            for (CartEntry cartEntry : placedOrder.getCartEntries()) {
+                String price = cartEntry.getProperty(PN_UNIT_PRICE, String.class);
+                if (price != null) {
+                    BigDecimal unitPrice = new BigDecimal(price);
+                    DefaultJcrCartEntry jcrCartEntry = (DefaultJcrCartEntry) cartEntry;
+                    jcrCartEntry.setPrice(new PriceInfo(unitPrice, locale), "UNIT", "PRE_TAX");
+                    BigDecimal preTaxPrice = unitPrice.multiply(new BigDecimal(cartEntry.getQuantity()));
+                    jcrCartEntry.setPrice(new PriceInfo(preTaxPrice, locale), "LINE", "PRE_TAX");
+                }
+            }
+        }
+
+        return placedOrder;
     }
 }

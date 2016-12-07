@@ -13,7 +13,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<div class="we-Smartlist" data-sly-use.wishlist="apps.weretail.components.structure.navwishlist.Wishlist">
+<div class="we-Smartlist" data-sly-use.wishlist="we.retail.core.model.WishlistModel">
     <a class="we-Smartlist-button" href="#" v-on:click="toggle">
         <i class="fa fa-heart-o"></i> ${'Wishlist' @ i18n} <span class="badge active" data-sly-test="${wishlist.entries.size > 0}">${wishlist.entries.size}</span>
     </a>
