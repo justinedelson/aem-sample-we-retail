@@ -1,26 +1,37 @@
-/*******************************************************************************
- * Copyright 2016 Adobe Systems Incorporated
+/*
+ *   Copyright 2016 Adobe Systems Incorporated
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *       http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
-package apps.weretail.components.content.shoppingcart;
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ */
+package we.retail.core.model;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
 import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.models.annotations.Default;
+import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,43 +39,55 @@ import com.adobe.cq.commerce.api.CommerceConstants;
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.CommerceSession;
-import com.adobe.cq.commerce.api.PlacedOrder;
 import com.adobe.cq.commerce.api.PriceInfo;
 import com.adobe.cq.commerce.api.Product;
 import com.adobe.cq.commerce.common.PriceFilter;
-import com.adobe.cq.sightly.WCMUsePojo;
+import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.commons.WCMUtils;
 
-public class Cart extends WCMUsePojo {
+@Model(adaptables = SlingHttpServletRequest.class)
+public class ShoppingCartModel {
 
-    private static final String IS_READ_ONLY = "isReadOnly";
-    protected static final Logger LOG = LoggerFactory.getLogger(Cart.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ShoppingCartModel.class);
+
+    @SlingObject
+    protected SlingHttpServletRequest request;
+
+    @SlingObject
+    protected SlingHttpServletResponse response;
+
+    @SlingObject
+    private ResourceResolver resourceResolver;
+
+    @Inject
+    private Page currentPage;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Default(booleanValues = false)
+    protected boolean isReadOnly;
 
     private String checkoutPage;
     private String currentPageUrl;
-    
+
     protected List<CartEntry> entries = new ArrayList<CartEntry>();
     protected CommerceSession commerceSession;
-    protected Boolean isReadOnly;
 
-    @Override
+    @PostConstruct
     public void activate() throws Exception {
-        isReadOnly = getProperties().get(IS_READ_ONLY, Boolean.class);
-
         createCommerceSession();
         populatePageUrls();
         populateCartEntries();
     }
 
     private void createCommerceSession() {
-        CommerceService commerceService = getCurrentPage().getContentResource().adaptTo(CommerceService.class);
+        CommerceService commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
         try {
-            commerceSession = commerceService.login(getRequest(), getResponse());
+            commerceSession = commerceService.login(request, response);
         } catch (CommerceException e) {
-            LOG.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
-    
+
     protected void populateCartEntries() throws CommerceException {
         for (CommerceSession.CartEntry cartEntry : commerceSession.getCartEntries()) {
             CartEntry entry = new CartEntry(cartEntry);
@@ -73,13 +96,12 @@ public class Cart extends WCMUsePojo {
     }
 
     private void populatePageUrls() {
-        final String checkoutPageProperty = WCMUtils.getInheritedProperty(getCurrentPage(), getResourceResolver(),
-                CommerceConstants.PN_CHECKOUT_PAGE_PATH);
+        String checkoutPageProperty = WCMUtils.getInheritedProperty(currentPage, resourceResolver, CommerceConstants.PN_CHECKOUT_PAGE_PATH);
         if (StringUtils.isNotEmpty(checkoutPageProperty)) {
-            checkoutPage = getResourceResolver().map(getRequest(), checkoutPageProperty) + ".html";
+            checkoutPage = resourceResolver.map(request, checkoutPageProperty) + ".html";
         }
 
-        currentPageUrl = getResourceResolver().map(getRequest(), getCurrentPage().getPath() + ".html");
+        currentPageUrl = resourceResolver.map(request, currentPage.getPath() + ".html");
     }
 
     public String getCheckoutPage() {
@@ -95,7 +117,7 @@ public class Cart extends WCMUsePojo {
     }
 
     public boolean getIsReadOnly() {
-        return Boolean.TRUE.equals(isReadOnly);
+        return isReadOnly;
     }
 
     public class CartEntry {
@@ -108,8 +130,7 @@ public class Cart extends WCMUsePojo {
             try {
                 Product product = entry.getProduct();
                 Product baseProduct = product.getBaseProduct();
-                String[] variantAxes = baseProduct.getProperty(CommerceConstants.PN_PRODUCT_VARIANT_AXES,
-                        String[].class);
+                String[] variantAxes = baseProduct.getProperty(CommerceConstants.PN_PRODUCT_VARIANT_AXES, String[].class);
                 if (variantAxes != null) {
                     for (String variantAxis : variantAxes) {
                         String value = product.getProperty(variantAxis, String.class);
@@ -119,7 +140,7 @@ public class Cart extends WCMUsePojo {
                     }
                 }
             } catch (CommerceException e) {
-                LOG.error(e.getMessage());
+                LOGGER.error(e.getMessage());
             }
         }
 
@@ -153,5 +174,4 @@ public class Cart extends WCMUsePojo {
             return variantAxesMap;
         }
     }
-
 }
