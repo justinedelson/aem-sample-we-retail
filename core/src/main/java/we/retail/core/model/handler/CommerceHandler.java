@@ -36,10 +36,12 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.designer.Style;
 
+import we.retail.core.WeRetailConstants;
+
 @Model(adaptables = SlingHttpServletRequest.class)
 public class CommerceHandler {
 
-    private static final String ADD_CART_ENTRY_SELECTOR = ".commerce.addcartentry.html";
+    private static final String ADD_CART_ENTRY_SELECTOR = "." + WeRetailConstants.ADD_CARTENTRY_SELECTOR + ".html";
     private static final String ADD_SMARTLIST_ENTRY_SELECTOR = ".commerce.smartlist.management.html";
     private static final String ADD_SELECTOR = ".add.html";
     private static final String PN_ADD_TO_CART_REDIRECT = "addToCartRedirect";
