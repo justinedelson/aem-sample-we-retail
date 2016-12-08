@@ -170,9 +170,8 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
-                                collapsed="true"
-                                cssClass="we-retail-select we-retail-select-half we-retail-select-shipping"
-                                name="shipping.state">
+                                name="shipping.state"
+                                type="drop-down">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
                                         jcr:primaryType="nt:unstructured"
@@ -201,9 +200,8 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
-                                collapsed="true"
-                                cssClass="we-retail-select we-retail-select-full we-retail-select-shipping"
-                                name="shipping.country">
+                                name="shipping.country"
+                                type="drop-down">
                                 <optionitems jcr:primaryType="nt:unstructured">
                                     <item0
                                         jcr:primaryType="nt:unstructured"
@@ -243,8 +241,8 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
-                                multiSelection="true"
-                                name="billing-is-shipping-address">
+                                name="billing-is-shipping-address"
+                                type="checkbox">
                                 <optionitems jcr:primaryType="nt:unstructured">
                                     <item0
                                         jcr:primaryType="nt:unstructured"
@@ -350,9 +348,8 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
-                                collapsed="true"
-                                cssClass="we-retail-select we-retail-select-half we-retail-select-billing"
-                                name="billing.state">
+                                name="billing.state"
+                                type="drop-down">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
                                         jcr:primaryType="nt:unstructured"
@@ -381,9 +378,8 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
-                                collapsed="true"
-                                cssClass="we-retail-select we-retail-select-full we-retail-select-billing"
-                                name="billing.country">
+                                name="billing.country"
+                                type="drop-down">
                                 <optionitems jcr:primaryType="nt:unstructured">
                                     <item0
                                         jcr:primaryType="nt:unstructured"

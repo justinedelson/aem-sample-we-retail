@@ -16,12 +16,18 @@
 (function ($) {
     'use strict';
 
-	var checkbox = "input:checkbox[name='billing-is-shipping-address']";
+    var BILLING_IS_SHIPPING_CHECKBOX_SELECTOR = "input:checkbox[name='billing-is-shipping-address']",
+        BILLING_INPUT_FIELD_SELECTOR = "input[name^='billing.']",
+        BILLING_SELECT_FIELD_SELECTOR = "select[name^='billing.']";
+
+    var $billingIsShippingCheckbox = $(BILLING_IS_SHIPPING_CHECKBOX_SELECTOR),
+        $billingFields = $(BILLING_INPUT_FIELD_SELECTOR).add(BILLING_SELECT_FIELD_SELECTOR).closest(".cmp");
+
+
 	var payment = "input:radio[name='payment-option']";
 
-    if ($(checkbox).is(':checked')) {
-		$("input[name^='billing.']").hide();
-		$("div.we-retail-select-billing").hide();
+    if ($billingIsShippingCheckbox.is(':checked')) {
+		$billingFields.hide();
     }
     
     if ($('div.we-Cart-empty').length > 0) {
@@ -40,10 +46,9 @@
             }
         }
     });
-    
-    $(checkbox).change(function() {
-        $("input[name^='billing.']").toggle();
-        $("div.we-retail-select-billing").toggle();
+
+    $billingIsShippingCheckbox.change(function() {
+        $billingFields.toggle();
     });
 
     $(payment).change(function() {
@@ -59,7 +64,7 @@
     });
     
     $('#checkout').submit(function() {
-        if ($(checkbox).is(':checked')) {
+        if ($billingIsShippingCheckbox.is(':checked')) {
             $("input[name^='billing.']").each(function() {
                 var $this = $(this);
                 var shippingName = $this.attr('name').replace('billing.', 'shipping.');

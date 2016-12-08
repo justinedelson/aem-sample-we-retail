@@ -23,7 +23,7 @@
     	padding: 7px 12px;
     }
 
-	select {
+	.cmp-options--drop-down select {
 		font-size: 13px;
 		font-style: normal;
 		font-weight: normal;
@@ -33,12 +33,16 @@
     	-webkit-appearance:none;
     	height: 38px;
 	}
-	
-	.we-retail-select {
+
+	.cmp-options--drop-down {
 		height: 39px;
 	}
-	
-	.we-retail-select:after {
+
+	.cmp-options--drop-down label {
+		display: none;
+	}
+
+	.cmp-options--drop-down:after {
 		content: "\f10a";
 		font: 14px/24px "we-icons";
 		color: #ccc;
@@ -47,11 +51,11 @@
 		pointer-events:none;
 	}
 	
-	.we-retail-select-full:after {
+	.aem-GridColumn--default--6 .cmp-options--drop-down:after {
 		left: 92%;
 	}
 
-	.we-retail-select-half:after {
+	.aem-GridColumn--default--3 .cmp-options--drop-down:after {
 		left: 83%;
 	}
 
