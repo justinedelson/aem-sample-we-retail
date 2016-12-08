@@ -157,9 +157,14 @@ public class ShoppingCartModel {
             return entry.getProduct();
         }
 
+        public String getProductPagePath() throws CommerceException {
+            return resourceResolver.map(request, entry.getProduct().getPagePath());
+        }
+
         public String getImage() throws CommerceException {
             if (entry.getProduct().getImage() != null) {
-                return entry.getProduct().getImage().getFileReference();
+                String imageUrl = entry.getProduct().getImage().getFileReference();
+                return resourceResolver.map(request, imageUrl);
             }
 
             return null;

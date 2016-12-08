@@ -202,10 +202,20 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
         RequestDispatcherOptions options = new RequestDispatcherOptions();
         options.setReplaceSelectors("");
 
-        String[] parts = request.getRequestURI().substring(CONTENT_WE_RETAIL.length()).split("/");
-        String path = CONTENT_WE_RETAIL + parts[0] + "/" + parts[1] + contentPath;
-        request.getRequestDispatcher(path, options).include(requestWrapper, responseWrapper);
+        // From a requested page URL like http://localhost:4502/content/we-retail/us/en/user/cart.html
+        // we extract the prefix /content/we-retail/us/en and append the contentPath method parameter
 
+        // If there is a context path, remove it
+        String uri = request.getRequestURI();
+        if (!uri.startsWith(CONTENT_WE_RETAIL)) {
+            uri = uri.substring(uri.indexOf(CONTENT_WE_RETAIL));
+        }
+
+        // We reconstruct the path by extracting the country and language from the URI 
+        String[] parts = uri.substring(CONTENT_WE_RETAIL.length()).split("/");
+        String path = CONTENT_WE_RETAIL + parts[0] + "/" + parts[1] + contentPath;
+
+        request.getRequestDispatcher(path, options).include(requestWrapper, responseWrapper);
         return responseWrapper.toStrippedOutput();
     }
 
