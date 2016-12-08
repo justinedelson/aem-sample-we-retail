@@ -181,6 +181,7 @@
                                 <optionitems jcr:primaryType="nt:unstructured">
                                     <item0
                                         jcr:primaryType="nt:unstructured"
+                                        disabled="true"
                                         selected="true"
                                         text="State"/>
                                     <item1
@@ -205,6 +206,7 @@
                                 <optionitems jcr:primaryType="nt:unstructured">
                                     <item0
                                         jcr:primaryType="nt:unstructured"
+                                        disabled="true"
                                         selected="true"
                                         text="Country"/>
                                     <item1
