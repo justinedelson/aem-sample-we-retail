@@ -14,9 +14,11 @@
     limitations under the License.
 */-->
 
-<sly data-sly-use.orderHistory="we.retail.core.model.OrderHistoryModel"/>
+<sly data-sly-use.orderHistory="we.retail.core.model.OrderHistoryModel"
+     data-sly-use.hapiOrderHistory="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/orderhistory'}" />
 
-<div class="we-ShoppingHistory">
+<div class="we-ShoppingHistory"
+     data-sly-attribute="${hapiOrderHistory.itemtype}">
 
     <div class="we-ShoppingHistory-login" data-sly-test.anonymous="${orderHistory.anonymous}">
         ${'Please sign in to view your order history.' @ i18n}
@@ -37,11 +39,17 @@
                 <div>${'Total' @ i18n}</div>
             </div>
 
-            <div class="entry" data-sly-repeat.order="${orderHistory.orders}">
-                <div><a href="order-history/order-details.html?orderId=${order.orderId}">${order.orderId}</a></div>
-                <div>${order.order.orderPlacedFormatted}</div>
-                <div>${order.order.orderStatus}</div>
-                <div>${order.order.currencyCode} ${order.order.orderTotalPrice.toString}</div>
+            <div class="entry" 
+                 data-sly-repeat.order="${orderHistory.orders}"
+                 data-sly-use.hapiOrder="${ 'org.apache.sling.hapi.sightly.HApiUse' @type=hapiOrderHistory.proptype.order }"
+                 data-sly-attribute="${ hapiOrderHistory.itemprop.order }">
+                <div>
+                    <meta content="${order.orderId}" data-sly-attribute="${hapiOrder.itemprop.id}" />
+                    <a href="order-history/order-details.html?orderId=${order.orderId}" data-sly-attribute="${hapiOrder.itemprop.path}">${order.orderId}</a>
+                </div>
+                <div data-sly-attribute="${hapiOrder.itemprop.date}">${order.order.orderPlacedFormatted}</div>
+                <div data-sly-attribute="${hapiOrder.itemprop.status}">${order.order.orderStatus}</div>
+                <div data-sly-attribute="${hapiOrder.itemprop.totalPrice}">${order.order.currencyCode} ${order.order.orderTotalPrice.toString}</div>
             </div>
 
         </div>
