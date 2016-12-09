@@ -524,6 +524,7 @@
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
+                                        disabled="true"
                                         selected="true"
                                         text="State"/>
                                     <item1
@@ -564,6 +565,7 @@
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
+                                        disabled="true"
                                         selected="true"
                                         text="Country"/>
                                     <item1
