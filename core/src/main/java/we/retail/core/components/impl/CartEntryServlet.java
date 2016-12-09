@@ -48,8 +48,10 @@ import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.CommerceSession;
 import com.adobe.cq.commerce.api.Product;
+import com.day.cq.wcm.api.Page;
 
 import we.retail.core.WeRetailConstants;
+import we.retail.core.util.WeRetailHelper;
 
 
 /**
@@ -202,18 +204,13 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
         RequestDispatcherOptions options = new RequestDispatcherOptions();
         options.setReplaceSelectors("");
 
-        // From a requested page URL like http://localhost:4502/content/we-retail/us/en/user/cart.html
-        // we extract the prefix /content/we-retail/us/en and append the contentPath method parameter
+        Page currentPage = request.getResource().adaptTo(Page.class);
+        Page root = WeRetailHelper.findRoot(currentPage);
 
-        // If there is a context path, remove it
-        String uri = request.getRequestURI();
-        if (!uri.startsWith(CONTENT_WE_RETAIL)) {
-            uri = uri.substring(uri.indexOf(CONTENT_WE_RETAIL));
+        String path = CONTENT_WE_RETAIL + contentPath; // Fallback if root is not found
+        if (root != null) {
+            path = root.getPath() + contentPath;
         }
-
-        // We reconstruct the path by extracting the country and language from the URI 
-        String[] parts = uri.substring(CONTENT_WE_RETAIL.length()).split("/");
-        String path = CONTENT_WE_RETAIL + parts[0] + "/" + parts[1] + contentPath;
 
         request.getRequestDispatcher(path, options).include(requestWrapper, responseWrapper);
         return responseWrapper.toStrippedOutput();
