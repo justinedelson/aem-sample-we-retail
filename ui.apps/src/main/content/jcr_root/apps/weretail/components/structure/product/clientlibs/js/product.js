@@ -112,7 +112,7 @@
                 trackView: function() {
                     if (this.product && window.ContextHub && ContextHub.getStore("recentlyviewed")) {
                         ContextHub.getStore("recentlyviewed").record(
-                            this.pagePath,
+                            this.product.pagePath,
                             this.product.title,
                             this.product.thumbnail,
                             this.product.price
@@ -121,7 +121,7 @@
 
                     if (this.product && window.CQ_Analytics && CQ_Analytics.ViewedProducts) {
                         CQ_Analytics.ViewedProducts.record(
-                            this.pagePath,
+                            this.product.pagePath,
                             this.product.title,
                             this.product.image,
                             this.product.price
