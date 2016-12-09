@@ -74,16 +74,18 @@ public class OrderModel extends ShoppingCartModel {
         if (!isEditMode && StringUtils.isBlank(orderId)) {
             try {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                return;
             } catch (IOException e) {
                 LOGGER.error(e.getMessage());
             }
         }
 
-        if (StringUtils.isNotEmpty(orderId)) {
+        if (StringUtils.isNotBlank(orderId)) {
             placedOrder = commerceSession.getPlacedOrder(orderId);
             if (!isEditMode && placedOrder.getOrderId() == null) {
                 try {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                    return;
                 } catch (IOException e) {
                     LOGGER.error(e.getMessage());
                 }
@@ -154,11 +156,24 @@ public class OrderModel extends ShoppingCartModel {
         String state = getOrderProperty(prefix + Address.STATE);
         String country = getOrderProperty(prefix + Address.COUNTRY);
 
-        String name = StringUtils.join(new String[]{firstname, lastname}, " ");
-        String street = StringUtils.join(new String[]{street1, street2}, " ");
-        String countryZip = StringUtils.join(new String[]{country, zipCode}, "-");
-        String countryZipCity = StringUtils.join(new String[]{countryZip, city}, " ");
+        String name = join(new String[] { firstname, lastname }, " ");
+        String street = join(new String[] { street1, street2 }, " ");
+        String countryZip = join(new String[] { country, zipCode }, "-");
+        String countryZipCity = join(new String[] { countryZip, city }, " ");
 
-        return StringUtils.join(new String[]{name, street, countryZipCity, state}, ", ");
+        return join(new String[] { name, street, countryZipCity, state }, ", ");
+    }
+
+    private static String join(String[] strings, String separator) {
+        StringBuilder sb = new StringBuilder();
+        for (String s : strings) {
+            if (StringUtils.isNotBlank(s)) {
+                if (sb.length() > 0) {
+                    sb.append(separator);
+                }
+                sb.append(s);
+            }
+        }
+        return sb.toString();
     }
 }
