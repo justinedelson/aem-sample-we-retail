@@ -72,6 +72,11 @@
 
             </div>
         </div>
+        <div class="we-ShoppingOrder-promotions" data-sly-test="${order.orderPromotions}">
+            <sly data-sly-repeat.promotion="${order.orderPromotions}">
+                <span class="we-ShoppingCart-promotion">${promotion.message}</span>
+            </sly>
+        </div>
         
         <div class="we-ShoppingOrder-prices body">
             <div class="row">

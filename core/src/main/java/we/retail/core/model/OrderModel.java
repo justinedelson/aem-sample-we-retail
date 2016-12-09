@@ -40,10 +40,6 @@ import com.adobe.cq.sightly.SightlyWCMMode;
 public class OrderModel extends ShoppingCartModel {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderModel.class);
-
-    @ScriptVariable(name = "wcmmode")
-    private SightlyWCMMode wcmMode;
-
     private static final String ORDER_ID = "orderId";
     private static final String ORDER_PLACED_FORMATTED = "orderPlacedFormatted";
     private static final String ORDER_STATUS = "orderStatus";
@@ -51,9 +47,11 @@ public class OrderModel extends ShoppingCartModel {
     private static final String ORDER_SHIPPING = "SHIPPING";
     private static final String ORDER_TOTAL_TAX = "TAX";
     private static final String ORDER_TOTAL_PRICE = "TOTAL";
-
     private static final String BILLING_PREFIX = "billing.";
     private static final String SHIPPING_PREFIX = "shipping.";
+
+    @ScriptVariable(name = "wcmmode")
+    private SightlyWCMMode wcmMode;
 
     private String orderId;
     private PlacedOrder placedOrder;
@@ -61,11 +59,15 @@ public class OrderModel extends ShoppingCartModel {
 
     @PostConstruct
     public void activate() throws Exception {
-        super.activate();
+        createCommerceSession();
+        populatePageUrls();
+        populateOrder();
+        populatePromotions();
+        populateCartEntries();
         isReadOnly = true;
     }
 
-    protected void populateCartEntries() throws CommerceException {
+    private void populateOrder() throws CommerceException {
         boolean isEditMode = wcmMode.isEdit();
         orderId = request.getParameter(ORDER_ID);
 
@@ -77,8 +79,6 @@ public class OrderModel extends ShoppingCartModel {
             }
         }
 
-        List<CommerceSession.CartEntry> cartEntries = null;
-
         if (StringUtils.isNotEmpty(orderId)) {
             placedOrder = commerceSession.getPlacedOrder(orderId);
             if (!isEditMode && placedOrder.getOrderId() == null) {
@@ -88,14 +88,18 @@ public class OrderModel extends ShoppingCartModel {
                     LOGGER.error(e.getMessage());
                 }
             }
-
-            cartEntries = placedOrder.getCartEntries();
             orderDetails = placedOrder.getOrder();
+            allPromotions = placedOrder.getPromotions();
         }
+    }
 
-        for (CommerceSession.CartEntry cartEntry : cartEntries) {
-            CartEntry entry = new CartEntry(cartEntry);
-            entries.add(entry);
+    protected void populateCartEntries() throws CommerceException {
+        if (placedOrder != null) {
+            final List<CommerceSession.CartEntry> cartEntries = placedOrder.getCartEntries();
+            for (CommerceSession.CartEntry cartEntry : cartEntries) {
+                CartEntry entry = new CartEntry(cartEntry);
+                entries.add(entry);
+            }
         }
     }
 
@@ -150,24 +154,11 @@ public class OrderModel extends ShoppingCartModel {
         String state = getOrderProperty(prefix + Address.STATE);
         String country = getOrderProperty(prefix + Address.COUNTRY);
 
-        String name = join(new String[] { firstname, lastname }, " ");
-        String street = join(new String[] { street1, street2 }, " ");
-        String countryZip = join(new String[] { country, zipCode }, "-");
-        String countryZipCity = join(new String[] { countryZip, city }, " ");
+        String name = StringUtils.join(new String[]{firstname, lastname}, " ");
+        String street = StringUtils.join(new String[]{street1, street2}, " ");
+        String countryZip = StringUtils.join(new String[]{country, zipCode}, "-");
+        String countryZipCity = StringUtils.join(new String[]{countryZip, city}, " ");
 
-        return join(new String[] { name, street, countryZipCity, state }, ", ");
-    }
-
-    private static String join(String[] strings, String separator) {
-        StringBuilder sb = new StringBuilder();
-        for (String s : strings) {
-            if (StringUtils.isNotBlank(s)) {
-                if (sb.length() > 0) {
-                    sb.append(separator);
-                }
-                sb.append(s);
-            }
-        }
-        return sb.toString();
+        return StringUtils.join(new String[]{name, street, countryZipCity, state}, ", ");
     }
 }

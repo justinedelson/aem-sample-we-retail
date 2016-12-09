@@ -80,6 +80,11 @@
                 </div>
             </div>
         </div>
+        <div class="we-ShoppingCart-promotions" data-sly-test="${cart.orderPromotions}">
+            <sly data-sly-repeat.promotion="${cart.orderPromotions}">
+                <span class="we-ShoppingCart-promotion">${promotion.message}</span>
+            </sly>
+        </div>
     </div>
 </div>
 

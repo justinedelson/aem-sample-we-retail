@@ -16,6 +16,7 @@
 package we.retail.core.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,6 +42,7 @@ import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.CommerceSession;
 import com.adobe.cq.commerce.api.PriceInfo;
 import com.adobe.cq.commerce.api.Product;
+import com.adobe.cq.commerce.api.promotion.PromotionInfo;
 import com.adobe.cq.commerce.common.PriceFilter;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.commons.WCMUtils;
@@ -66,23 +68,28 @@ public class ShoppingCartModel {
     @Default(booleanValues = false)
     protected boolean isReadOnly;
 
+    protected CommerceSession commerceSession;
+    protected List<CartEntry> entries = new ArrayList<CartEntry>();
+    protected List<PromotionInfo> allPromotions;
+
     private String checkoutPage;
     private String currentPageUrl;
-
-    protected List<CartEntry> entries = new ArrayList<CartEntry>();
-    protected CommerceSession commerceSession;
+    private List<PromotionInfo> orderPromotions = new ArrayList<PromotionInfo>();
+    private Map<Integer, List<PromotionInfo>> cartEntryPromotions = new HashMap<Integer, List<PromotionInfo>>();
 
     @PostConstruct
     public void activate() throws Exception {
         createCommerceSession();
         populatePageUrls();
+        populatePromotions();
         populateCartEntries();
     }
 
-    private void createCommerceSession() {
+    protected void createCommerceSession() {
         CommerceService commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
         try {
             commerceSession = commerceService.login(request, response);
+            allPromotions = commerceSession.getPromotions();
         } catch (CommerceException e) {
             LOGGER.error(e.getMessage());
         }
@@ -95,8 +102,27 @@ public class ShoppingCartModel {
         }
     }
 
-    private void populatePageUrls() {
-        String checkoutPageProperty = WCMUtils.getInheritedProperty(currentPage, resourceResolver, CommerceConstants.PN_CHECKOUT_PAGE_PATH);
+    protected void populatePromotions() throws CommerceException {
+        if (allPromotions != null && !allPromotions.isEmpty()) {
+            for (PromotionInfo promo : allPromotions) {
+                if (promo.getCartEntryIndex() == null) {
+                    orderPromotions.add(promo);
+                } else {
+                    final Integer cartEntryIndex = promo.getCartEntryIndex();
+                    List<PromotionInfo> promoList = cartEntryPromotions.get(cartEntryIndex);
+                    if (promoList == null) {
+                        promoList = new ArrayList<PromotionInfo>();
+                    }
+                    promoList.add(promo);
+                    cartEntryPromotions.put(cartEntryIndex, promoList);
+                }
+            }
+        }
+    }
+
+    protected void populatePageUrls() {
+        String checkoutPageProperty = WCMUtils.getInheritedProperty(currentPage, resourceResolver,
+                CommerceConstants.PN_CHECKOUT_PAGE_PATH);
         if (StringUtils.isNotEmpty(checkoutPageProperty)) {
             checkoutPage = resourceResolver.map(request, checkoutPageProperty) + ".html";
         }
@@ -116,6 +142,9 @@ public class ShoppingCartModel {
         return entries;
     }
 
+    public List<PromotionInfo> getOrderPromotions() {
+        return orderPromotions;
+    }
     public boolean getIsReadOnly() {
         return isReadOnly;
     }
@@ -123,6 +152,7 @@ public class ShoppingCartModel {
     public class CartEntry {
         private CommerceSession.CartEntry entry;
         private Map<String, String> variantAxesMap = new LinkedHashMap<String, String>();
+        private List<PromotionInfo> entryPromotions = new ArrayList<PromotionInfo>();
 
         public CartEntry(CommerceSession.CartEntry entry) {
             this.entry = entry;
@@ -130,7 +160,8 @@ public class ShoppingCartModel {
             try {
                 Product product = entry.getProduct();
                 Product baseProduct = product.getBaseProduct();
-                String[] variantAxes = baseProduct.getProperty(CommerceConstants.PN_PRODUCT_VARIANT_AXES, String[].class);
+                String[] variantAxes = baseProduct.getProperty(CommerceConstants.PN_PRODUCT_VARIANT_AXES,
+                        String[].class);
                 if (variantAxes != null) {
                     for (String variantAxis : variantAxes) {
                         String value = product.getProperty(variantAxis, String.class);
@@ -139,6 +170,11 @@ public class ShoppingCartModel {
                         }
                     }
                 }
+
+                if (cartEntryPromotions.containsKey(entry.getEntryIndex())) {
+                    entryPromotions = cartEntryPromotions.get(entry.getEntryIndex());
+                }
+
             } catch (CommerceException e) {
                 LOGGER.error(e.getMessage());
             }
@@ -177,6 +213,10 @@ public class ShoppingCartModel {
 
         public Map<String, String> getVariantAxesMap() {
             return variantAxesMap;
+        }
+
+        public List<PromotionInfo> getEntryPromotions() {
+            return entryPromotions;
         }
     }
 }
