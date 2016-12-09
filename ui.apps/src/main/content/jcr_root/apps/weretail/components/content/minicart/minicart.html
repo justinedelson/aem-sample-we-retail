@@ -70,3 +70,9 @@
         </div>
     </div>
 </div>
+
+<div class="we-Cart-promotions" data-sly-test="${cart.orderPromotions}" data-sly-test.="${!cart.isReadOnly}">
+    <sly data-sly-repeat.promotion="${cart.orderPromotions}">
+        <span class="we-Cart-promotion">${promotion.message}</span>
+    </sly>
+</div>
