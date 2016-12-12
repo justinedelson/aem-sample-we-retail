@@ -218,5 +218,13 @@ public class ShoppingCartModel {
         public List<PromotionInfo> getEntryPromotions() {
             return entryPromotions;
         }
+
+        public boolean isWrapping() {
+            return Boolean.TRUE.equals(entry.getProperty("wrapping-selected", Boolean.class));
+        }
+
+        public String getWrappingLabel() {
+            return entry.getProperty("wrapping-label", String.class);
+        }
     }
 }

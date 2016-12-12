@@ -54,7 +54,7 @@ public class OrderModel extends ShoppingCartModel {
     private SightlyWCMMode wcmMode;
 
     private String orderId;
-    private PlacedOrder placedOrder;
+    protected PlacedOrder placedOrder;
     private Map<String, Object> orderDetails;
 
     @PostConstruct
