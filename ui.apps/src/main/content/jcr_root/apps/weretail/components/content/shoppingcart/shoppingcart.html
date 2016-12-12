@@ -82,7 +82,7 @@
         </div>
         <div class="we-ShoppingCart-promotions" data-sly-test="${cart.orderPromotions}">
             <sly data-sly-repeat.promotion="${cart.orderPromotions}">
-                <span class="we-ShoppingCart-promotion">${promotion.message}</span>
+                <span class="we-ShoppingCart-promotion">${promotion.message @ context='html'}</span>
             </sly>
         </div>
     </div>
