@@ -72,7 +72,7 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(CartEntryServlet.class);
 
-    private static final String CONTENT_WE_RETAIL = "/content/we-retail/";
+    private static final String CONTENT_WE_RETAIL_DEFAULT = "/content/we-retail/us/en/";
     private static final String CART_PATH = "/user/cart/jcr:content/root/responsivegrid/cart";
     private static final String CART_PRICES_PATH = "/user/cart/jcr:content/root/responsivegrid/shoppingcartprices";
     private static final String NAV_CART_PATH = "/apps/weretail/components/structure/navcart";
@@ -207,7 +207,7 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
         Page currentPage = request.getResource().adaptTo(Page.class);
         Page root = WeRetailHelper.findRoot(currentPage);
 
-        String path = CONTENT_WE_RETAIL + contentPath; // Fallback if root is not found
+        String path = CONTENT_WE_RETAIL_DEFAULT + contentPath; // Fallback if root is not found
         if (root != null) {
             path = root.getPath() + contentPath;
         }
