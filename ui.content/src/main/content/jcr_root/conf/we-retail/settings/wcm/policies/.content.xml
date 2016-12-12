@@ -63,7 +63,9 @@
                                     jcr:primaryType="nt:unstructured"
                                     droptarget="experiencefragment"
                                     resourceType="cq/experience-fragments/editor/components/experiencefragment"
-                                    type="experiencefragment"/>
+                                    type="experiencefragment"
+                                    assetGroup="media"
+                                    assetMimetype="text/html"/>
                             </assetToComponentMapping>
                         </cq:authoring>
                         <jcr:content
@@ -77,7 +79,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Structure"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/wcm/foundation/components/responsivegrid,group:We.Retail,group:We.Retail.Structure]"
+                        components="[/libs/wcm/foundation/components/responsivegrid,group:We.Retail,group:We.Retail.Structure,/libs/cq/experience-fragments/editor/components/experiencefragment]"
                         policyResourceType="wcm/foundation/components/responsivegrid">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -126,7 +128,9 @@
                                     jcr:primaryType="nt:unstructured"
                                     droptarget="experiencefragment"
                                     resourceType="cq/experience-fragments/editor/components/experiencefragment"
-                                    type="experiencefragment"/>
+                                    type="experiencefragment"
+                                    assetGroup="media"
+                                    assetMimetype="text/html"/>
                             </assetToComponentMapping>
                         </cq:authoring>
                         <jcr:content
