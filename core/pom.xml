@@ -24,7 +24,7 @@
     </parent>
 
     <artifactId>we.retail.core</artifactId>
-    <version>1.9.25-SNAPSHOT</version>
+    <version>1.9.27-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>We.Retail - Core</name>
     <description>Core bundle for We.Retail</description>
