@@ -47,6 +47,7 @@ import com.adobe.cq.wcm.core.components.models.form.DataSourceModel;
 public class CountriesFormOptionsDataSource extends DataSourceModel {
 
     protected final static String RESOURCE_TYPE = "weretail/components/form/options/datasource/countriesdatasource";
+    protected final static String COUNTRY_OPTIONS_HEADER = "Country";
 
     @Self
     private SlingHttpServletRequest request;
@@ -110,6 +111,9 @@ public class CountriesFormOptionsDataSource extends DataSourceModel {
             }
         });
 
+        // add the header of the country options
+        addCountryOptionHeader(countries);
+
         return countries;
     }
 
@@ -119,6 +123,16 @@ public class CountriesFormOptionsDataSource extends DataSourceModel {
         vm.put("text", i18n.get(countryName));
         ValueMapResource countryRes = new ValueMapResource(resolver, "", "", vm);
         countries.add(countryRes);
+    }
+
+    private void addCountryOptionHeader(List<Resource> countries) {
+        ValueMap vm = new ValueMapDecorator(new HashMap<String, Object>());
+        vm.put("value", "");
+        vm.put("text", i18n.get(COUNTRY_OPTIONS_HEADER));
+        vm.put("selected", true);
+        vm.put("disabled", true);
+        ValueMapResource countryRes = new ValueMapResource(resolver, "", "", vm);
+        countries.add(0, countryRes);
     }
 
 }
