@@ -20,7 +20,7 @@
         var shoppingCartPrices = $('.we-ShoppingCartPrices');
         shoppingCartPrices.parent().load(Granite.HTTP.externalize(shoppingCartPrices.data("resource") + ".html"));
     }
-    
+
     $CQ(document).ready(function () {
         if (window.ContextHub) {
             ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":cart", refreshCartPrices);
