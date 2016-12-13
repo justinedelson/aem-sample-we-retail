@@ -16,14 +16,14 @@
 (function ($) {
     'use strict';
 
-    var bindQuantityButtons = function () {
-        $('input[name="quantity"]').change(function () {
+    var bindFormElements = function () {
+        // bind form handler
+        $('.we-ShoppingCart form, .we-Cart-content form, .we-Product-form').submit(submitForm);
+        // submit quantity form on change
+        $('.we-ShoppingCart form input[name="quantity"], .we-Cart-content form input[name="quantity"]').change(function () {
             $(this).parents('form').submit();
         });
-    }
 
-    var bindCartForms = function () {
-        $('.we-ShoppingCart form, .we-Cart-content form, .we-Product-form').submit(submitForm);
     }
 
     var toggleCartEmptyMsg = function () {
@@ -57,14 +57,12 @@
     var refreshCart = function () {
         var shoppingCart = $('div.we-ShoppingCart');
         shoppingCart.parent().load(Granite.HTTP.externalize(shoppingCart.data("resource") + ".html"), function () {
-            bindCartForms();
-            bindQuantityButtons();
+            bindFormElements();
             toggleCartEmptyMsg();
         });
     }
 
-    bindCartForms();
-    bindQuantityButtons();
+    bindFormElements();
     toggleCartEmptyMsg();
 
     if (window.ContextHub) {
