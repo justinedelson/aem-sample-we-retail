@@ -4,9 +4,9 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2016-12-02T17:07:48.152+01:00"
+        cq:lastModified="{Date}2016-12-15T10:46:19.301+01:00"
         cq:lastModifiedBy="admin"
-        cq:lastRolledout="{Date}2016-12-02T17:07:48.153+01:00"
+        cq:lastRolledout="{Date}2016-12-15T10:46:19.303+01:00"
         cq:lastRolledoutBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         jcr:lastModified="{Date}2016-09-08T15:22:11.728+02:00"
@@ -17,27 +17,27 @@
         sling:resourceType="weretail/components/structure/page"
         hideInNav="true">
         <root
-            cq:lastRolledout="{Date}2016-12-02T17:07:47.820+01:00"
+            cq:lastRolledout="{Date}2016-12-15T10:46:19.000+01:00"
             cq:lastRolledoutBy="admin"
             jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <responsivegrid
-                cq:lastRolledout="{Date}2016-12-02T17:07:47.823+01:00"
+                cq:lastRolledout="{Date}2016-12-15T10:46:19.004+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:created="{Date}2016-01-13T15:58:09.854+01:00"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2016-12-02T17:07:47.821+01:00"
+                jcr:lastModified="{Date}2016-12-15T10:46:19.002+01:00"
                 jcr:lastModifiedBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
                 <formcontainer
-                    cq:lastRolledout="{Date}2016-12-02T17:07:47.883+01:00"
+                    cq:lastRolledout="{Date}2016-12-15T10:46:19.011+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:created="{Date}2016-11-10T09:40:49.430+01:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2016-11-29T17:27:34.984+01:00"
+                    jcr:lastModified="{Date}2016-12-15T10:46:19.007+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
@@ -47,48 +47,48 @@
                     formid="checkout"
                     redirect="/content/we-retail/ca/en/user/checkout/order">
                     <responsivegrid
-                        cq:lastRolledout="{Date}2016-12-02T17:07:47.891+01:00"
+                        cq:lastRolledout="{Date}2016-12-15T10:46:19.016+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:created="{Date}2016-11-17T09:58:43.279+01:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-12-02T17:07:47.885+01:00"
+                        jcr:lastModified="{Date}2016-12-15T10:46:19.013+01:00"
                         jcr:lastModifiedBy="admin"
                         jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="wcm/foundation/components/responsivegrid">
                         <cq:responsive
-                            cq:lastRolledout="{Date}2016-12-02T17:07:47.893+01:00"
+                            cq:lastRolledout="{Date}2016-12-15T10:46:19.019+01:00"
                             cq:lastRolledoutBy="admin"
                             jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"/>
                         <column1
-                            cq:lastRolledout="{Date}2016-12-02T17:07:47.899+01:00"
+                            cq:lastRolledout="{Date}2016-12-15T10:46:19.023+01:00"
                             cq:lastRolledoutBy="admin"
                             jcr:created="{Date}2016-11-17T09:59:29.539+01:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2016-12-02T17:07:47.894+01:00"
+                            jcr:lastModified="{Date}2016-12-15T10:46:19.020+01:00"
                             jcr:lastModifiedBy="admin"
                             jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/foundation/components/responsivegrid">
                             <cq:responsive
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.911+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.042+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured">
                                 <default
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:47.914+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.046+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured"
                                     width="6"/>
                             </cq:responsive>
                             <shipping-address-title
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.917+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.050+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:45:14.834+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.915+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.047+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -96,11 +96,11 @@
                                 sling:resourceType="weretail/components/content/title"
                                 type="h4"/>
                             <shipping.firstname
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.921+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.055+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:41:00.403+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.919+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.052+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -115,12 +115,12 @@
                                 type="text"
                                 usePlaceholder="true">
                                 <cq:responsive
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:47.923+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.057+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured">
                                     <default
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.925+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.060+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
@@ -128,11 +128,11 @@
                                 </cq:responsive>
                             </shipping.firstname>
                             <shipping.lastname
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.930+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.066+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:41:00.403+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.927+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.062+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -146,11 +146,11 @@
                                 type="text"
                                 usePlaceholder="true"/>
                             <shipping.street1
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.934+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.071+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:41:45.846+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.931+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.067+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -163,11 +163,11 @@
                                 type="text"
                                 usePlaceholder="true"/>
                             <shipping.street2
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.938+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.075+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:41:54.541+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.935+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.072+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -180,11 +180,11 @@
                                 type="text"
                                 usePlaceholder="true"/>
                             <shipping.city
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.943+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.080+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:42:10.714+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.940+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.077+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -197,11 +197,11 @@
                                 type="text"
                                 usePlaceholder="true"/>
                             <shipping.zip
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.947+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.085+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.944+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.082+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -214,12 +214,12 @@
                                 type="text"
                                 usePlaceholder="true">
                                 <cq:responsive
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:47.949+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.087+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured">
                                     <default
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.951+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.090+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
@@ -227,120 +227,55 @@
                                 </cq:responsive>
                             </shipping.zip>
                             <shipping.state
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.955+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.095+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-17T17:37:33.693+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.953+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.092+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
+                                caption="State"
+                                fromList="weretail/resources/states/us"
                                 name="shipping.state"
+                                source="list"
                                 type="drop-down">
                                 <cq:responsive
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:47.957+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.098+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured">
                                     <default
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.960+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.101+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         offset="0"
                                         width="3"/>
                                 </cq:responsive>
-                                <optionitems
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:47.961+01:00"
-                                    cq:lastRolledoutBy="admin"
-                                    jcr:mixinTypes="[cq:LiveRelationship]"
-                                    jcr:primaryType="nt:unstructured">
-                                    <item0
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.965+01:00"
-                                        cq:lastRolledoutBy="admin"
-                                        jcr:mixinTypes="[cq:LiveRelationship]"
-                                        jcr:primaryType="nt:unstructured"
-                                        disabled="true"
-                                        selected="true"
-                                        text="State"/>
-                                    <item1
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.966+01:00"
-                                        cq:lastRolledoutBy="admin"
-                                        jcr:mixinTypes="[cq:LiveRelationship]"
-                                        jcr:primaryType="nt:unstructured"
-                                        text="New-York"
-                                        value="NY"/>
-                                    <item2
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.968+01:00"
-                                        cq:lastRolledoutBy="admin"
-                                        jcr:mixinTypes="[cq:LiveRelationship]"
-                                        jcr:primaryType="nt:unstructured"
-                                        text="California"
-                                        value="CA"/>
-                                </optionitems>
                             </shipping.state>
                             <shipping.country
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.971+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.107+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-17T16:56:18.279+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.969+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.103+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
+                                caption="Country"
+                                fromDatasource="weretail/components/form/options/datasource/countriesdatasource"
                                 name="shipping.country"
-                                type="drop-down">
-                                <optionitems
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:47.973+01:00"
-                                    cq:lastRolledoutBy="admin"
-                                    jcr:mixinTypes="[cq:LiveRelationship]"
-                                    jcr:primaryType="nt:unstructured">
-                                    <item0
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.979+01:00"
-                                        cq:lastRolledoutBy="admin"
-                                        jcr:mixinTypes="[cq:LiveRelationship]"
-                                        jcr:primaryType="nt:unstructured"
-                                        disabled="true"
-                                        selected="true"
-                                        text="Country"/>
-                                    <item1
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.982+01:00"
-                                        cq:lastRolledoutBy="admin"
-                                        jcr:mixinTypes="[cq:LiveRelationship]"
-                                        jcr:primaryType="nt:unstructured"
-                                        text="France"
-                                        value="FR"/>
-                                    <item2
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.984+01:00"
-                                        cq:lastRolledoutBy="admin"
-                                        jcr:mixinTypes="[cq:LiveRelationship]"
-                                        jcr:primaryType="nt:unstructured"
-                                        text="Germany"
-                                        value="DE"/>
-                                    <item3
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.985+01:00"
-                                        cq:lastRolledoutBy="admin"
-                                        jcr:mixinTypes="[cq:LiveRelationship]"
-                                        jcr:primaryType="nt:unstructured"
-                                        text="Switzerland"
-                                        value="CH"/>
-                                    <item4
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.987+01:00"
-                                        cq:lastRolledoutBy="admin"
-                                        jcr:mixinTypes="[cq:LiveRelationship]"
-                                        jcr:primaryType="nt:unstructured"
-                                        text="United States"
-                                        value="US"/>
-                                </optionitems>
-                            </shipping.country>
+                                source="datasource"
+                                type="drop-down"/>
                             <billing-address-title
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.990+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.110+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:46:07.485+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.988+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.108+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -348,24 +283,25 @@
                                 sling:resourceType="weretail/components/content/title"
                                 type="h4"/>
                             <billing-is-shipping-address
-                                cq:lastRolledout="{Date}2016-12-02T17:07:47.993+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.114+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-18T13:47:35.063+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.991+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.112+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
                                 name="billing-is-shipping-address"
+                                source="local"
                                 type="checkbox">
                                 <optionitems
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:47.995+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.116+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured">
                                     <item0
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:47.997+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.120+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
@@ -375,11 +311,11 @@
                                 </optionitems>
                             </billing-is-shipping-address>
                             <billing.firstname
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.001+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.131+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:41:00.403+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:47.999+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.121+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -392,11 +328,11 @@
                                 type="text"
                                 usePlaceholder="true"/>
                             <billing.lastname
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.005+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.136+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:41:00.403+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.003+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.133+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -409,11 +345,11 @@
                                 type="text"
                                 usePlaceholder="true"/>
                             <billing.street1
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.011+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.140+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:41:45.846+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.007+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.137+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -426,11 +362,11 @@
                                 type="text"
                                 usePlaceholder="true"/>
                             <billing.street2
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.016+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.145+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:41:54.541+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.013+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.142+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -443,11 +379,11 @@
                                 type="text"
                                 usePlaceholder="true"/>
                             <billing.city
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.021+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.150+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:42:10.714+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.018+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.147+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -460,11 +396,11 @@
                                 type="text"
                                 usePlaceholder="true"/>
                             <billing.zip
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.026+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.154+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.023+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.151+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -477,12 +413,12 @@
                                 type="text"
                                 usePlaceholder="true">
                                 <cq:responsive
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:48.027+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.156+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured">
                                     <default
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.029+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.159+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
@@ -490,78 +426,56 @@
                                 </cq:responsive>
                             </billing.zip>
                             <billing.state
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.033+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.163+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-17T17:37:33.693+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.030+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.160+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
+                                caption="State"
+                                fromList="weretail/resources/states/us"
                                 name="billing.state"
+                                source="list"
                                 type="drop-down">
                                 <cq:responsive
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:48.035+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.167+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured">
                                     <default
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.037+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.172+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         offset="0"
                                         width="3"/>
                                 </cq:responsive>
-                                <optionitems
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:48.038+01:00"
-                                    cq:lastRolledoutBy="admin"
-                                    jcr:mixinTypes="[cq:LiveRelationship]"
-                                    jcr:primaryType="nt:unstructured">
-                                    <item0
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.049+01:00"
-                                        cq:lastRolledoutBy="admin"
-                                        jcr:mixinTypes="[cq:LiveRelationship]"
-                                        jcr:primaryType="nt:unstructured"
-                                        disabled="true"
-                                        selected="true"
-                                        text="State"/>
-                                    <item1
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.051+01:00"
-                                        cq:lastRolledoutBy="admin"
-                                        jcr:mixinTypes="[cq:LiveRelationship]"
-                                        jcr:primaryType="nt:unstructured"
-                                        text="New-York"
-                                        value="NY"/>
-                                    <item2
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.052+01:00"
-                                        cq:lastRolledoutBy="admin"
-                                        jcr:mixinTypes="[cq:LiveRelationship]"
-                                        jcr:primaryType="nt:unstructured"
-                                        text="California"
-                                        value="CA"/>
-                                </optionitems>
                             </billing.state>
                             <billing.country
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.056+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.177+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-17T16:56:18.279+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.053+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.174+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
+                                caption="Country"
+                                fromDatasource="weretail/components/form/options/datasource/countriesdatasource"
                                 name="billing.country"
+                                source="datasource"
                                 type="drop-down">
                                 <optionitems
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:48.058+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.180+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured">
                                     <item0
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.063+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.187+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
@@ -569,28 +483,28 @@
                                         selected="true"
                                         text="Country"/>
                                     <item1
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.064+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.189+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="France"
                                         value="FR"/>
                                     <item2
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.066+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.191+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="Germany"
                                         value="DE"/>
                                     <item3
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.068+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.193+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
                                         text="Switzerland"
                                         value="CH"/>
                                     <item4
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.070+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.195+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
@@ -600,33 +514,33 @@
                             </billing.country>
                         </column1>
                         <column2
-                            cq:lastRolledout="{Date}2016-12-02T17:07:48.073+01:00"
+                            cq:lastRolledout="{Date}2016-12-15T10:46:19.198+01:00"
                             cq:lastRolledoutBy="admin"
                             jcr:created="{Date}2016-11-17T10:00:29.303+01:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2016-12-02T17:07:48.070+01:00"
+                            jcr:lastModified="{Date}2016-12-15T10:46:19.196+01:00"
                             jcr:lastModifiedBy="admin"
                             jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/foundation/components/responsivegrid">
                             <cq:responsive
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.081+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.209+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured">
                                 <default
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:48.083+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.214+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured"
                                     width="6"/>
                             </cq:responsive>
                             <shipping-method-title
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.086+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.219+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:58:24.717+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.085+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.216+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -634,21 +548,21 @@
                                 sling:resourceType="weretail/components/content/title"
                                 type="h4"/>
                             <shippingmethods
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.089+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.222+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:58:07.938+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.087+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.220+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="commerce/components/shippingmethods"/>
                             <payment-method-title
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.091+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.225+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T10:56:54.273+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.090+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.223+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -656,21 +570,21 @@
                                 sling:resourceType="weretail/components/content/title"
                                 type="h4"/>
                             <paymentmethods
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.094+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.230+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T10:57:21.542+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.092+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.226+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="commerce/components/paymentmethods"/>
                             <paypal-text
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.097+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.234+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-17T15:23:59.005+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.095+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.231+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -678,11 +592,11 @@
                                 text="&lt;p>You will be redirected to PayPal site to complete the order.&lt;/p>&#xd;&#xa;"
                                 textIsRich="true"/>
                             <card-number
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.101+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.240+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:42:10.714+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.098+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.236+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -695,11 +609,11 @@
                                 type="text"
                                 usePlaceholder="true"/>
                             <card-expiration-date
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.105+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.246+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.102+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.241+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -712,12 +626,12 @@
                                 type="text"
                                 usePlaceholder="true">
                                 <cq:responsive
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:48.107+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.249+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured">
                                     <default
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.109+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.252+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
@@ -725,11 +639,11 @@
                                 </cq:responsive>
                             </card-expiration-date>
                             <card-security-code
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.113+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.258+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T09:42:14.074+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.110+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.254+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -742,12 +656,12 @@
                                 type="text"
                                 usePlaceholder="true">
                                 <cq:responsive
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:48.114+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.260+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured">
                                     <default
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.116+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.262+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
@@ -755,11 +669,11 @@
                                 </cq:responsive>
                             </card-security-code>
                             <gift-promotion-title
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.119+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.266+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T11:07:14.454+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.117+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.264+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -767,11 +681,11 @@
                                 sling:resourceType="weretail/components/content/title"
                                 type="h4"/>
                             <promotional-code
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.123+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.271+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T11:07:46.063+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.121+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.268+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -784,25 +698,24 @@
                                 type="text"
                                 usePlaceholder="true"/>
                             <button
-                                cq:lastRolledout="{Date}2016-12-02T17:07:48.127+01:00"
+                                cq:lastRolledout="{Date}2016-12-15T10:46:19.275+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:created="{Date}2016-11-10T11:10:58.798+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-12-02T17:07:48.124+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:46:19.273+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/button"
-                                cssClass="btn-action btn-primary"
-                                title="Continue"
+                                caption="Continue"
                                 type="submit">
                                 <cq:responsive
-                                    cq:lastRolledout="{Date}2016-12-02T17:07:48.128+01:00"
+                                    cq:lastRolledout="{Date}2016-12-15T10:46:19.277+01:00"
                                     cq:lastRolledoutBy="admin"
                                     jcr:mixinTypes="[cq:LiveRelationship]"
                                     jcr:primaryType="nt:unstructured">
                                     <default
-                                        cq:lastRolledout="{Date}2016-12-02T17:07:48.130+01:00"
+                                        cq:lastRolledout="{Date}2016-12-15T10:46:19.280+01:00"
                                         cq:lastRolledoutBy="admin"
                                         jcr:mixinTypes="[cq:LiveRelationship]"
                                         jcr:primaryType="nt:unstructured"
@@ -813,12 +726,12 @@
                         </column2>
                     </responsivegrid>
                     <cq:responsive
-                        cq:lastRolledout="{Date}2016-12-02T17:07:48.131+01:00"
+                        cq:lastRolledout="{Date}2016-12-15T10:46:19.281+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured">
                         <default
-                            cq:lastRolledout="{Date}2016-12-02T17:07:48.133+01:00"
+                            cq:lastRolledout="{Date}2016-12-15T10:46:19.283+01:00"
                             cq:lastRolledoutBy="admin"
                             jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
@@ -826,33 +739,33 @@
                     </cq:responsive>
                 </formcontainer>
                 <responsivegrid
-                    cq:lastRolledout="{Date}2016-12-02T17:07:48.139+01:00"
+                    cq:lastRolledout="{Date}2016-12-15T10:46:19.286+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:created="{Date}2016-11-17T10:09:33.329+01:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2016-11-17T10:09:33.329+01:00"
+                    jcr:lastModified="{Date}2016-12-15T10:46:19.284+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wcm/foundation/components/responsivegrid">
                     <cq:responsive
-                        cq:lastRolledout="{Date}2016-12-02T17:07:48.142+01:00"
+                        cq:lastRolledout="{Date}2016-12-15T10:46:19.290+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured">
                         <default
-                            cq:lastRolledout="{Date}2016-12-02T17:07:48.144+01:00"
+                            cq:lastRolledout="{Date}2016-12-15T10:46:19.293+01:00"
                             cq:lastRolledoutBy="admin"
                             jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
                             width="4"/>
                     </cq:responsive>
                     <cart-title
-                        cq:lastRolledout="{Date}2016-12-02T17:07:48.147+01:00"
+                        cq:lastRolledout="{Date}2016-12-15T10:46:19.296+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:created="{Date}2016-11-10T09:45:14.834+01:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-12-02T17:07:48.145+01:00"
+                        jcr:lastModified="{Date}2016-12-15T10:46:19.294+01:00"
                         jcr:lastModifiedBy="admin"
                         jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -860,22 +773,22 @@
                         sling:resourceType="wcm/foundation/components/title"
                         type="h2"/>
                     <cart
-                        cq:lastRolledout="{Date}2016-12-02T17:07:48.150+01:00"
+                        cq:lastRolledout="{Date}2016-12-15T10:46:19.299+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:created="{Date}2016-11-22T17:29:57.139+01:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-12-02T17:07:48.148+01:00"
+                        jcr:lastModified="{Date}2016-12-15T10:46:19.297+01:00"
                         jcr:lastModifiedBy="admin"
                         jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="weretail/components/content/minicart"
                         isReadOnly="true"/>
                     <shoppingcartprices
-                        cq:lastRolledout="{Date}2016-12-02T17:07:48.153+01:00"
+                        cq:lastRolledout="{Date}2016-12-15T10:46:19.303+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:created="{Date}2016-11-24T15:13:26.530+01:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2016-12-02T17:07:48.151+01:00"
+                        jcr:lastModified="{Date}2016-12-15T10:46:19.300+01:00"
                         jcr:lastModifiedBy="admin"
                         jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"

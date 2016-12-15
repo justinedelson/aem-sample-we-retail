@@ -5,7 +5,7 @@
         cq:checkoutPage=""
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:lastModified="{Date}2016-11-30T09:57:44.711+01:00"
+        cq:lastModified="{Date}2016-12-15T10:19:44.020+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         jcr:lastModified="{Date}2016-09-08T15:22:11.728+02:00"
@@ -166,11 +166,14 @@
                             <shipping.state
                                 jcr:created="{Date}2016-11-17T17:37:33.693+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-18T10:04:31.529+01:00"
+                                jcr:lastModified="{Date}2016-12-15T10:19:44.010+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
+                                caption="State"
+                                fromList="weretail/resources/states/us"
                                 name="shipping.state"
+                                source="list"
                                 type="drop-down">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
@@ -178,55 +181,19 @@
                                         offset="0"
                                         width="3"/>
                                 </cq:responsive>
-                                <optionitems jcr:primaryType="nt:unstructured">
-                                    <item0
-                                        jcr:primaryType="nt:unstructured"
-                                        disabled="true"
-                                        selected="true"
-                                        text="State"/>
-                                    <item1
-                                        jcr:primaryType="nt:unstructured"
-                                        text="New-York"
-                                        value="NY"/>
-                                    <item2
-                                        jcr:primaryType="nt:unstructured"
-                                        text="California"
-                                        value="CA"/>
-                                </optionitems>
                             </shipping.state>
                             <shipping.country
                                 jcr:created="{Date}2016-11-17T16:56:18.279+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-18T10:04:37.443+01:00"
+                                jcr:lastModified="{Date}2016-12-14T13:51:55.670+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
+                                caption="Country"
+                                fromDatasource="weretail/components/form/options/datasource/countriesdatasource"
                                 name="shipping.country"
-                                type="drop-down">
-                                <optionitems jcr:primaryType="nt:unstructured">
-                                    <item0
-                                        jcr:primaryType="nt:unstructured"
-                                        disabled="true"
-                                        selected="true"
-                                        text="Country"/>
-                                    <item1
-                                        jcr:primaryType="nt:unstructured"
-                                        text="France"
-                                        value="FR"/>
-                                    <item2
-                                        jcr:primaryType="nt:unstructured"
-                                        text="Germany"
-                                        value="DE"/>
-                                    <item3
-                                        jcr:primaryType="nt:unstructured"
-                                        text="Switzerland"
-                                        value="CH"/>
-                                    <item4
-                                        jcr:primaryType="nt:unstructured"
-                                        text="United States"
-                                        value="US"/>
-                                </optionitems>
-                            </shipping.country>
+                                source="datasource"
+                                type="drop-down"/>
                             <billing-address-title
                                 jcr:created="{Date}2016-11-10T09:46:07.485+01:00"
                                 jcr:createdBy="admin"
@@ -239,11 +206,12 @@
                             <billing-is-shipping-address
                                 jcr:created="{Date}2016-11-18T13:47:35.063+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-18T13:52:21.346+01:00"
+                                jcr:lastModified="{Date}2016-12-14T15:41:22.119+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
                                 name="billing-is-shipping-address"
+                                source="local"
                                 type="checkbox">
                                 <optionitems jcr:primaryType="nt:unstructured">
                                     <item0
@@ -350,7 +318,10 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
+                                caption="State"
+                                fromList="weretail/resources/states/us"
                                 name="billing.state"
+                                source="list"
                                 type="drop-down">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
@@ -358,30 +329,18 @@
                                         offset="0"
                                         width="3"/>
                                 </cq:responsive>
-                                <optionitems jcr:primaryType="nt:unstructured">
-                                    <item0
-                                        jcr:primaryType="nt:unstructured"
-                                        disabled="true"
-                                        selected="true"
-                                        text="State"/>
-                                    <item1
-                                        jcr:primaryType="nt:unstructured"
-                                        text="New-York"
-                                        value="NY"/>
-                                    <item2
-                                        jcr:primaryType="nt:unstructured"
-                                        text="California"
-                                        value="CA"/>
-                                </optionitems>
                             </billing.state>
                             <billing.country
                                 jcr:created="{Date}2016-11-17T16:56:18.279+01:00"
                                 jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-18T10:05:00.554+01:00"
+                                jcr:lastModified="{Date}2016-12-14T15:41:01.126+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/options"
+                                caption="Country"
+                                fromDatasource="weretail/components/form/options/datasource/countriesdatasource"
                                 name="billing.country"
+                                source="datasource"
                                 type="drop-down">
                                 <optionitems jcr:primaryType="nt:unstructured">
                                     <item0
@@ -545,7 +504,6 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="weretail/components/form/button"
-                                cssClass="btn-action btn-primary"
                                 caption="Continue"
                                 type="submit">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
