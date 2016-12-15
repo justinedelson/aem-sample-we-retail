@@ -55,13 +55,13 @@
         data: function() {
             var _cart = null;
             if (window.ContextHub) {
-                _cart = ContextHub.getStore("cart");
+                _cart = ContextHub.getStore('cart');
             }
             return {
-                cartEntries: _cart.getItem("entries"),
-                cartEntriesSize: _cart.getItem("entries") ? _cart.getItem("entries").length : 0,
-                cartTotalPrice: _cart.getItem("totalPrice"),
-                cartPromotions: _cart.getItem("promotions")
+                cartEntries: _cart.getItem('entries'),
+                cartEntriesSize: _cart.getItem('entries') ? _cart.getItem('entries').length : 0,
+                cartTotalPrice: _cart.getItem('totalPrice'),
+                cartPromotions: _cart.getItem('promotions')
             }
         },
         events: {
@@ -79,17 +79,30 @@
         methods: {
             refreshCart: function(event) {
                 if (window.ContextHub) {
-                    var _cart = ContextHub.getStore("cart");
-                    this.$data.cartEntries = _cart.getItem("entries");
-                    this.$data.cartEntriesSize = _cart.getItem("entries") ? _cart.getItem("entries").length : 0;
-                    this.$data.cartTotalPrice = _cart.getItem("totalPrice");
-                    this.$data.cartPromotions = _cart.getItem("promotions");
+                    var _cart = ContextHub.getStore('cart');
+                    this.$data.cartEntries = _cart.getItem('entries');
+                    this.$data.cartEntriesSize = _cart.getItem('entries') ? _cart.getItem('entries').length : 0;
+                    this.$data.cartTotalPrice = _cart.getItem('totalPrice');
+                    this.$data.cartPromotions = _cart.getItem('promotions');
                 }
+            },
+            updateCart: function(event) {
+                var $form = $(event.target).parents('form');
+                $.ajax({
+                    url: $form.attr('action'),
+                    data: $form.serialize(),
+                    cache: false,
+                    type: $form.attr('method')
+                }).done(function (json) {
+                    if (window.ContextHub) {
+                        ContextHub.getStore('cart').queryService();
+                    }
+                }).fail(function () {
+                    alert('An error occured while trying to perform this operation.');
+                });
             }
         }
     });
-
-    Vue.component('cart-button', {});
 
     var CartComponent = Vue.extend({
         ready: function() {
@@ -102,10 +115,10 @@
         data: function() {
             var _cart = null;
             if (window.ContextHub) {
-                _cart = ContextHub.getStore("cart");
+                _cart = ContextHub.getStore('cart');
             }
             return {
-                cartEntriesSize: _cart.getItem("entries") ? _cart.getItem("entries").length : 0
+                cartEntriesSize: _cart.getItem('entries') ? _cart.getItem('entries').length : 0
             }
         },
         methods: {
@@ -126,8 +139,8 @@
             },
             refreshCart: function(event) {
                 if (window.ContextHub) {
-                    var _cart = ContextHub.getStore("cart");
-                    this.$data.cartEntriesSize = _cart.getItem("entries") ? _cart.getItem("entries").length : 0;
+                    var _cart = ContextHub.getStore('cart');
+                    this.$data.cartEntriesSize = _cart.getItem('entries') ? _cart.getItem('entries').length : 0;
                 }
             }
         }
