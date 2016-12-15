@@ -48,6 +48,21 @@
             // move cart contents to body
             // so we won't interfere with any mobile styles
             document.body.appendChild(this.$el);
+            if (window.ContextHub) {
+                ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":cart", this.refreshCart);
+            }
+        },
+        data: function() {
+            var _cart = null;
+            if (window.ContextHub) {
+                _cart = ContextHub.getStore("cart");
+            }
+            return {
+                cartEntries: _cart.getItem("entries"),
+                cartEntriesSize: _cart.getItem("entries") ? _cart.getItem("entries").length : 0,
+                cartTotalPrice: _cart.getItem("totalPrice"),
+                cartPromotions: _cart.getItem("promotions")
+            }
         },
         events: {
             'cart-button-expand': function(show) {
@@ -60,6 +75,17 @@
                     this._fixed.off();
                 }
             }
+        },
+        methods: {
+            refreshCart: function(event) {
+                if (window.ContextHub) {
+                    var _cart = ContextHub.getStore("cart");
+                    this.$data.cartEntries = _cart.getItem("entries");
+                    this.$data.cartEntriesSize = _cart.getItem("entries") ? _cart.getItem("entries").length : 0;
+                    this.$data.cartTotalPrice = _cart.getItem("totalPrice");
+                    this.$data.cartPromotions = _cart.getItem("promotions");
+                }
+            }
         }
     });
 
@@ -69,6 +95,18 @@
         ready: function() {
             this.$expandable = $(this.$el).closest(EXPANDABLE_SELECTOR);
             this.$expandable.addClass(EXPANDABLE_CLASS);
+            if (window.ContextHub) {
+                ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":cart", this.refreshCart);
+            }
+        },
+        data: function() {
+            var _cart = null;
+            if (window.ContextHub) {
+                _cart = ContextHub.getStore("cart");
+            }
+            return {
+                cartEntriesSize: _cart.getItem("entries") ? _cart.getItem("entries").length : 0
+            }
         },
         methods: {
             toggle: function() {
@@ -85,10 +123,16 @@
                     $(".we-Smartlist-content").hide();
                     this.$root.$broadcast('cart-button-expand', true);
                 }
+            },
+            refreshCart: function(event) {
+                if (window.ContextHub) {
+                    var _cart = ContextHub.getStore("cart");
+                    this.$data.cartEntriesSize = _cart.getItem("entries") ? _cart.getItem("entries").length : 0;
+                }
             }
         }
     });
-    
+
     $('.we-Cart').each(function() {
         new CartComponent().$mount(this);
     });
