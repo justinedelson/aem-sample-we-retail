@@ -38,10 +38,11 @@
         var stateName = $this.attr('name').replace('country', 'state');
         var selector = "select[name='" + stateName + "']";
         if ($.inArray($this.val(), USA_CODES) > -1) {
-            $(selector).show();
+            $(selector).show().parents('.cmp-options--drop-down').removeClass('hidden');
         }
         else {
-            $(selector).hide();
+            $(selector).hide().parents('.cmp-options--drop-down').addClass('hidden');
+            $("select[name$='.state']").prop('selectedIndex', 0).change();
         }
     }
     
@@ -81,6 +82,8 @@
     });
     
     $('#checkout').submit(function() {
+        var $form = $(this);
+        
         if ($billingIsShippingCheckbox.is(':checked')) {
             $("input[name^='billing.']").each(function() {
                 var $this = $(this);
@@ -93,6 +96,16 @@
                 $this.val($("select[name='" + shippingName + "']").val());
             });
         }
+        
+        // Browsers usually do not POST an "empty" selected option
+        // To make sure we initialize the 'states' field if USA is not selected, we add an empty hidden input on the fly 
+        $countryFields.each(function() {
+            var $this = $(this);
+            if ($.inArray($this.val(), USA_CODES) < 0) {
+                var stateName = $this.attr('name').replace('country', 'state');
+                $form.append('<input type="hidden" name="' + stateName + '" value="" />');
+            }
+        });
     });
 
 })(jQuery);
