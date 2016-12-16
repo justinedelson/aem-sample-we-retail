@@ -16,6 +16,7 @@
 package we.retail.core.model;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -41,7 +42,7 @@ public class OrderModel extends ShoppingCartModel {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderModel.class);
     private static final String ORDER_ID = "orderId";
-    private static final String ORDER_PLACED_FORMATTED = "orderPlacedFormatted";
+    private static final String ORDER_PLACED = "orderPlaced";
     private static final String ORDER_STATUS = "orderStatus";
     private static final String CART_SUB_TOTAL = "CART";
     private static final String ORDER_SHIPPING = "SHIPPING";
@@ -114,8 +115,8 @@ public class OrderModel extends ShoppingCartModel {
         return orderId;
     }
 
-    public String getOrderDate() {
-        return getOrderProperty(ORDER_PLACED_FORMATTED);
+    public Calendar getOrderDate() {
+        return (Calendar) orderDetails.get(ORDER_PLACED);
     }
 
     public String getOrderStatus() {

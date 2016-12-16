@@ -24,6 +24,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -186,7 +187,7 @@ public class ShoppingCartModel {
 
         public String getPrice() throws CommerceException {
             List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("UNIT"));
-            return priceInfos.get(0).getFormattedString();
+            return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
         }
 
         public Product getProduct() throws CommerceException {
@@ -208,7 +209,7 @@ public class ShoppingCartModel {
 
         public String getTotalPrice() throws CommerceException {
             List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("LINE"));
-            return priceInfos.get(0).getFormattedString();
+            return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
         }
 
         public Map<String, String> getVariantAxesMap() {

@@ -47,7 +47,7 @@
                     <meta content="${order.orderId}" data-sly-attribute="${hapiOrder.itemprop.id}" />
                     <a href="order-history/order-details.html?orderId=${order.orderId}" data-sly-attribute="${hapiOrder.itemprop.path}">${order.orderId}</a>
                 </div>
-                <div data-sly-attribute="${hapiOrder.itemprop.date}">${order.order.orderPlacedFormatted}</div>
+                <div data-sly-attribute="${hapiOrder.itemprop.date}">${'dd MMM, yyyy' @ format=order.order.orderPlaced}</div>
                 <div data-sly-attribute="${hapiOrder.itemprop.status}">${order.order.orderStatus}</div>
                 <div data-sly-attribute="${hapiOrder.itemprop.totalPrice}">${order.order.currencyCode} ${order.order.orderTotalPrice.toString}</div>
             </div>
