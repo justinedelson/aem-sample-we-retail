@@ -21,7 +21,7 @@
         $('.we-ShoppingCart form, .we-Cart-content form, .we-Product-form').submit(submitForm);
         // submit quantity form on change
         $('.we-ShoppingCart form input[name="quantity"], .we-Cart-content form input[name="quantity"]').change(function () {
-            $(this).parents('form').submit();
+            $(this).closest('form').submit();
         });
 
     }
