@@ -87,7 +87,7 @@
                 }
             },
             updateCart: function(event) {
-                var $form = $(event.target).parents('form');
+                var $form = $(event.target).closest('form');
                 $.ajax({
                     url: $form.attr('action'),
                     data: $form.serialize(),

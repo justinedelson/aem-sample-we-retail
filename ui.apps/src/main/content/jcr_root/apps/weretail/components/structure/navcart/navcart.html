@@ -29,8 +29,8 @@
                         <i class="we-Icon we-Icon--close"></i>
                     </a>
                 </div>
-                <div class="we-Cart-headerRight" data-sly-attribute="${hapiCart.itemprop.totalEntries}">
-                    {{cartEntriesSize}} ${'items in cart' @ i18n}
+                <div class="we-Cart-headerRight">
+                    <span data-sly-attribute="${hapiCart.itemprop.totalEntries}">{{cartEntriesSize}}</span> ${'items in cart' @ i18n}
                 </div>
             </div>
 
@@ -74,7 +74,6 @@
                                        data-sly-attribute="${hapiCartEntry.itemprop.quantity}" v-on:change.prevent="updateCart"/>
                             </form>
                         </div>
-                        
                         <div class="we-Cart-entryPrice" data-sly-attribute="${hapiCartEntry.itemprop.itemPrice}">
                             <strong>{{ cartEntry.priceFormatted }}</strong>
                         </div>
