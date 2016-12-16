@@ -51,6 +51,16 @@
                             <a href="#" v-bind:href="cartEntry.page" data-sly-attribute="${hapiCartEntryProduct.itemprop.path}">
                                 <strong>{{ cartEntry.title }}</strong>
                             </a>
+                            <div class="text-muted">
+                                <small data-sly-attribute="${hapiCartEntryProduct.itemprop.description}">
+                                    {{ cartEntry.description }}
+                                </small>
+                                <ul v-if="cartEntry.variant" class="small we-Cart-entryVariants">
+                                    <li v-for="(key, val) in cartEntry.variant">
+                                        <span>{{ key }}</span>: {{ val }}
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="we-Cart-entryQuantity">
                             <label class="text-muted">${'Qty' @ i18n}:</label>
@@ -64,8 +74,7 @@
                                        data-sly-attribute="${hapiCartEntry.itemprop.quantity}" v-on:change.prevent="updateCart"/>
                             </form>
                         </div>
-
-
+                        
                         <div class="we-Cart-entryPrice" data-sly-attribute="${hapiCartEntry.itemprop.itemPrice}">
                             <strong>{{ cartEntry.priceFormatted }}</strong>
                         </div>
