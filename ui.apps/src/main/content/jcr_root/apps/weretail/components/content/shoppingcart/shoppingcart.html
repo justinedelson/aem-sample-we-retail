@@ -16,7 +16,7 @@
 <sly data-sly-use.cart="we.retail.core.model.ShoppingCartModel"
      data-sly-use.hapiCart="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/cart'}"/>
 
-<div class="we-ShoppingCart">
+<div class="we-ShoppingCart" data-resource="${resource.path}">
 
     <div class="we-ShoppingCart-content" data-sly-attribute="${hapiCart.itemtype}">
 

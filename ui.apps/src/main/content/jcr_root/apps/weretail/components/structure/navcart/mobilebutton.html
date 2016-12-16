@@ -13,12 +13,8 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<div class="we-Cart"
-     data-sly-use.cart="we.retail.core.model.NavCartModel">
-
-    <a class="we-Cart-button"
-       href="#"
-       v-on:click="toggle"><i class="fa fa-shopping-cart"></i> <span class="badge active" data-sly-test="${ cart.entries.size > 0 }">${
-        cart.entries.size }</span>
+<div class="we-Cart">
+    <a class="we-Cart-button" href="#" v-on:click="toggle">
+        <i class="fa fa-shopping-cart"></i> <span class="badge active" v-if="cartEntriesSize > 0">{{cartEntriesSize}}</span>
     </a>
 </div>
