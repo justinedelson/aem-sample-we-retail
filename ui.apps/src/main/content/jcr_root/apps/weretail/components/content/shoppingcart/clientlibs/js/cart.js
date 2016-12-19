@@ -28,9 +28,9 @@
 
     var toggleCartEmptyMsg = function () {
         if ($('div.we-ShoppingCart div.we-ShoppingCart-empty').length > 0) {
-            $('a.btn-primary').hide();
+            $('a.btn-checkout').hide();
         } else {
-            $('a.btn-primary.btn-cart').show();
+            $('a.btn-checkout').show();
         }
     }
 

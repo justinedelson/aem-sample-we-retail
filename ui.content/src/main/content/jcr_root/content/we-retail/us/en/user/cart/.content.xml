@@ -98,6 +98,7 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/content/button"
+                    cssClass="btn-checkout"
                     label="Check Out"
                     linkTo="/content/we-retail/us/en/user/checkout">
                     <cq:responsive
