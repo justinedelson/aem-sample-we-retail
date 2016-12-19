@@ -1033,5 +1033,29 @@
             "sling:resourceType": "wcm/foundation/components/responsivegrid"
         },
         "sling:resourceType": "weretail/components/structure/page"
+    },
+    
+    "user" : {
+         "jcr:primaryType": "cq:Page",
+         "account" : {
+             "jcr:primaryType": "cq:Page",
+             "order-history" : {
+                 "jcr:primaryType": "cq:Page",
+                 "order-details" : {
+                     "jcr:primaryType": "cq:Page",
+                     "jcr:content": {
+                         "jcr:primaryType": "cq:PageContent",
+                         "jcr:mixinTypes": ["cq:LiveRelationship"],
+                         "jcr:createdBy": "admin",
+                         "jcr:title": "Order Details",
+                         "cq:template": "/conf/we-retail/settings/wcm/templates/content-page",
+                         "cq:lastRolledout": "Fri Dec 02 2016 17:07:37 GMT+0100",
+                         "jcr:created": "Mon Dec 12 2016 14:24:50 GMT+0100",
+                         "cq:lastModified": "Fri Dec 02 2016 17:07:37 GMT+0100",
+                         "sling:resourceType": "weretail/components/structure/page",
+                     }
+                 }
+             }
+         }
     }
 }

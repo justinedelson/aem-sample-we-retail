@@ -15,6 +15,8 @@
  ******************************************************************************/
 package common.mock;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -35,6 +37,9 @@ import com.adobe.cq.commerce.api.promotion.VoucherInfo;
 import com.adobe.cq.commerce.api.smartlist.SmartListManager;
 
 public class MockCommerceSession implements CommerceSession {
+
+    private Map<String, PlacedOrder> placedOrders = new HashMap<String, PlacedOrder>();
+
     @Override
     public void addCartEntry(Product product, int quantity) throws CommerceException {
         throw new UnsupportedOperationException();
@@ -162,7 +167,7 @@ public class MockCommerceSession implements CommerceSession {
 
     @Override
     public List<PromotionInfo> getPromotions() throws CommerceException {
-        throw new UnsupportedOperationException();
+        return Collections.emptyList();
     }
 
     @Override
@@ -202,7 +207,7 @@ public class MockCommerceSession implements CommerceSession {
 
     @Override
     public PlacedOrder getPlacedOrder(String orderId) throws CommerceException {
-        throw new UnsupportedOperationException();
+        return placedOrders.get(orderId);
     }
 
     @Override
@@ -263,5 +268,9 @@ public class MockCommerceSession implements CommerceSession {
     @Override
     public void submitOrder(Map<String, String> orderDetailsDelta) throws CommerceException {
         throw new UnsupportedOperationException();
+    }
+
+    public void registerPlacedOrder(String orderId, PlacedOrder placedOrder) {
+        placedOrders.put(orderId, placedOrder);
     }
 }

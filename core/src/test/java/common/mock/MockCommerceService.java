@@ -34,11 +34,11 @@ import com.adobe.cq.commerce.api.collection.ProductCollection;
 import com.adobe.cq.commerce.api.promotion.Promotion;
 import com.adobe.cq.commerce.api.promotion.Voucher;
 import com.day.cq.wcm.api.Page;
-import we.retail.core.WeRetailCommerceSessionImpl;
 
 public class MockCommerceService extends SlingAdaptable implements CommerceService {
 
     private Resource resource;
+    private MockCommerceSession mockCommerceSession = new MockCommerceSession();
 
     public MockCommerceService(Resource resource) {
         this.resource = resource;
@@ -51,7 +51,7 @@ public class MockCommerceService extends SlingAdaptable implements CommerceServi
 
     @Override
     public CommerceSession login(SlingHttpServletRequest request, SlingHttpServletResponse response) throws CommerceException {
-        return new MockCommerceSession();
+        return mockCommerceSession;
     }
 
     @Override

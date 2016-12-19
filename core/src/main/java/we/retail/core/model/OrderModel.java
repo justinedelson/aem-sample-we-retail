@@ -56,7 +56,7 @@ public class OrderModel extends ShoppingCartModel {
 
     private String orderId;
     protected PlacedOrder placedOrder;
-    private Map<String, Object> orderDetails;
+    protected Map<String, Object> orderDetails;
 
     @PostConstruct
     public void activate() throws Exception {
@@ -68,7 +68,7 @@ public class OrderModel extends ShoppingCartModel {
         isReadOnly = true;
     }
 
-    private void populateOrder() throws CommerceException {
+    protected void populateOrder() throws CommerceException {
         boolean isEditMode = wcmMode.isEdit();
         orderId = request.getParameter(ORDER_ID);
 
@@ -96,7 +96,9 @@ public class OrderModel extends ShoppingCartModel {
         }
     }
 
+    @Override
     protected void populateCartEntries() throws CommerceException {
+        entries.clear();
         if (placedOrder != null) {
             final List<CommerceSession.CartEntry> cartEntries = placedOrder.getCartEntries();
             for (CommerceSession.CartEntry cartEntry : cartEntries) {
