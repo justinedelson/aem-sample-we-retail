@@ -107,7 +107,7 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/content/productgrid"
-                    childDepth="2"
+                    childDepth="3"
                     displayAs="products"
                     listFrom="children"
                     orderBy="jcr:title"
