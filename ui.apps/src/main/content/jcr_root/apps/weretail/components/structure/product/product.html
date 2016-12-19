@@ -123,7 +123,8 @@
                         </div>
                         <div class="col-md-8 text-right">
                             <div class="we-Product-actions">
-                                <button type="submit" class="btn btn-action btn-primary" data-sly-attribute="${hapiProductForm.itemprop.addToCartButton}">Add to cart</button>
+                                <button type="submit" class="btn btn-action btn-primary" v-on:click="trackCartAdd"
+                                        data-sly-attribute="${hapiProductForm.itemprop.addToCartButton}">Add to cart</button>
                                 <a data-sly-test="${!productModel.isAnonymous}" v-on:click.prevent="addToWishlist"
                                    href="#" data-smartlist-url="${productModel.addToSmartListUrl}" class="btn btn-icon btn-primary"
                                    data-sly-attribute="${hapiProductForm.itemprop.addToSmartlistButton}">

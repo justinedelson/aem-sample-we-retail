@@ -128,6 +128,16 @@
                         );
                     }
                 },
+                trackCartAdd: function (event) {
+                    if (this.product && window.ContextHub && ContextHub.getStore("abandonedproducts")) {
+                        ContextHub.getStore("abandonedproducts").record(
+                            this.product.pagePath,
+                            this.product.title,
+                            this.product.thumbnail,
+                            this.product.price
+                        );
+                    }
+                },
                 addToWishlist: function (event) {
                     if (this.product) {
                         this.$els.weproductform.setAttribute("action", event.currentTarget.getAttribute("data-smartlist-url"));
