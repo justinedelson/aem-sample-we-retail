@@ -343,6 +343,9 @@
                         showTaxTotal="true"
                         showTotal="true"/>
                 </responsivegrid>
+                <trackcheckout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="commerce/components/trackcheckout"/>
             </responsivegrid>
         </root>
     </jcr:content>
