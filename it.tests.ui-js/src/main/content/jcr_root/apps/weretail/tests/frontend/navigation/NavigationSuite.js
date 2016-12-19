@@ -74,7 +74,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
-            .click('a[href="/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html"]', {expectNav: true})
+            .click('a[href$="/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html"]', {expectNav: true})
             .asserts.location("/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html", true)
 
             .click(".cmp .breadcrumb a:contains(Men)", {expectNav: true})
@@ -88,7 +88,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
-            .click('a[href="/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html"]', {expectNav: true})
+            .click('a[href$="/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html"]', {expectNav: true})
             .asserts.location("/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html", true)
 
             .click(".cmp .breadcrumb a:contains(Shirts)", {expectNav: true})
@@ -179,7 +179,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
-            .click('a[href="/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html"]', {expectNav: true})
+            .click('a[href$="/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html"]', {expectNav: true})
             .asserts.location("/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html", true)
 
             .click(".cmp .breadcrumb a:contains(Women)", {expectNav: true})
@@ -193,7 +193,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
-            .click('a[href="/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html"]', {expectNav: true})
+            .click('a[href$="/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html"]', {expectNav: true})
             .asserts.location("/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html", true)
 
             .click(".cmp .breadcrumb a:contains(Shirts)", {expectNav: true})
@@ -284,7 +284,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
-            .click('a[href="/content/we-retail/us/en/products/equipment/running/faba-running-pants.html"]', {expectNav: true})
+            .click('a[href$="/content/we-retail/us/en/products/equipment/running/faba-running-pants.html"]', {expectNav: true})
             .asserts.location("/content/we-retail/us/en/products/equipment/running/faba-running-pants.html", true)
 
             .click(".cmp .breadcrumb a:contains(Equipment)", {expectNav: true})
@@ -298,7 +298,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
-            .click('a[href="/content/we-retail/us/en/products/equipment/running/faba-running-pants.html"]', {expectNav: true})
+            .click('a[href$="/content/we-retail/us/en/products/equipment/running/faba-running-pants.html"]', {expectNav: true})
             .asserts.location("/content/we-retail/us/en/products/equipment/running/faba-running-pants.html", true)
 
             .click(".cmp .breadcrumb a:contains(Running)", {expectNav: true})

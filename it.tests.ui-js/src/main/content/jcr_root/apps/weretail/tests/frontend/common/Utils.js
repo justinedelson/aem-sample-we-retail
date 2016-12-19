@@ -23,7 +23,7 @@
  * @returns {boolean} True if at least one element matching the given selector points to the image, false otherwise
  */
 window.CQ.WeRetailIT.checkImage = function (hobs, selector, src) {
-    var res = hobs.find(selector + "[src='" + src + "'");
+    var res = hobs.find(selector + "[src$='" + src + "'");
     return res && (res.length > 0);
 };
 
