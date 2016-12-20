@@ -16,7 +16,7 @@
 <sly data-sly-use.cart="we.retail.core.model.ShoppingCartModel"
      data-sly-use.hapiCart="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/cart'}"/>
 
-<div class="we-Cart-empty" data-sly-test="${cart.entries.size == 0}">${'The cart is empty' @ i18n}.</div>
+<div class="we-MiniCart-empty" data-sly-test="${cart.entries.size == 0}">${'The cart is empty' @ i18n}.</div>
 
 <div class="we-Cart-entries" data-sly-list.item="${cart.entries}">
     <div class="we-Cart-entry"

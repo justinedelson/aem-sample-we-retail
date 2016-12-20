@@ -48,7 +48,7 @@
     
     $countryFields.each(toogleStateSelect).change(toogleStateSelect);
     
-    if ($('div.we-Cart-empty').length > 0) {
+    if ($('div.we-MiniCart-empty:visible').length > 0) {
         $('#checkout button.btn-primary').hide();
         $('#order button.btn-primary').hide();
     }
