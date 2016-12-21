@@ -162,6 +162,10 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
 
     @Override
     public void addCartEntry(Product product, int quantity) throws CommerceException {
+        if (checkAddProductQuantity(product, quantity)) {
+            return;
+        }
+
         Map<String, Object> properties = new HashMap<String, Object>();
 
         // The default AbstractJcrCommerceSession implementation does not store the unit price in the saved order
@@ -172,6 +176,28 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
         }
 
         addCartEntry(product, quantity, properties);
+    }
+
+    /**
+     * If the given product is already in the cart, this method adds the given quantity to that cart entry. The product check in the cart is
+     * based on the product SKU.
+     * 
+     * @param product
+     *            The product to check.
+     * @param quantity
+     *            The quantity to be added to the existing cart entry.
+     * @return true, if the product was already in the cart and the quantity has been updated.
+     * @throws CommerceException
+     */
+    private boolean checkAddProductQuantity(Product product, int quantity) throws CommerceException {
+        for (CartEntry existingEntry : cart) {
+            DefaultJcrCartEntry existingEntryImpl = (DefaultJcrCartEntry) existingEntry;
+            if (existingEntryImpl.getProduct().getSKU().equals(product.getSKU())) {
+                modifyCartEntry(existingEntryImpl.getEntryIndex(), existingEntryImpl.getQuantity() + quantity);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
