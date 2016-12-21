@@ -13,17 +13,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-(function ($) {
-    $(function () {
-        ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":profile", function () {
-            var profileStore = ContextHub.getStore("profile");
-            if (profileStore.getItem("authorizableId") === "anonymous") {
-                $(".we-retail-anonymous").removeClass("hidden");
-                $(".we-retail-not-anonymous").addClass("hidden");
-            } else {
-                $(".we-retail-not-anonymous").removeClass("hidden");
-                $(".we-retail-anonymous").addClass("hidden");
-            }
-        }, null);
-    });
-})(jQuery);
+jQuery(function ($) {
+    ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":profile", function () {
+        var profileStore = ContextHub.getStore("profile");
+        if (profileStore.getItem("authorizableId") === "anonymous") {
+            $(".we-retail-anonymous").removeClass("hidden");
+            $(".we-retail-not-anonymous").addClass("hidden");
+        } else {
+            $(".we-retail-not-anonymous").removeClass("hidden");
+            $(".we-retail-anonymous").addClass("hidden");
+        }
+    }, null);
+});
