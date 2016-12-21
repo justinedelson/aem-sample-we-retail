@@ -43,8 +43,10 @@ public class WeRetailHelper {
 
     /**
      * Checks if a page is the root page of the site
-     * @param page current page to check
-     * @return
+     * 
+     * @param page
+     *            current page to check
+     * @return <code>true</code> if the page is the root page of the site, <code>false</code> otherwise.
      */
     public static boolean isRoot(Page page) {
         Resource res = page.getContentResource();

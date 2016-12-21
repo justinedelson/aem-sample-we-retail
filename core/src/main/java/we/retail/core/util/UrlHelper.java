@@ -48,8 +48,11 @@ public class UrlHelper {
 
     /**
      * Resolve the page to the redirect page
-     * @param page to resolve
+     * 
+     * @param page
+     *            to resolve
      * @param pageManager
+     *            the page manager
      * @return the redirect target or the given page
      */
     public static Page resolveRedirectPage(Page page, PageManager pageManager) {

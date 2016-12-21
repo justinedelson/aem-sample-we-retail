@@ -88,7 +88,13 @@ public class SimilarProductsCollector {
     }
 
     /**
-     * Add a product relationship.  Include 'price', 'matched-tags' and 'rank' as extra metadata.
+     * Add a product relationship. Include 'price', 'matched-tags' and 'rank' as extra metadata.
+     * 
+     * @param product
+     *            The product to add
+     * @param matchedTags
+     *            The list of matched tags
+     * @throws CommerceException
      */
     protected void addProduct(Product product, List<String> matchedTags) throws CommerceException {
         int rank = matchedTags.size();
@@ -150,6 +156,8 @@ public class SimilarProductsCollector {
 
     /**
      * Return the collected relationships, sorted by 'rank'.
+     * 
+     * @return the list of relationships, sorted by 'rank'
      */
     public List<ProductRelationship> getRelationships() {
         List<ProductRelationship> relationshipList = new ArrayList<ProductRelationship>(relationships.values());
