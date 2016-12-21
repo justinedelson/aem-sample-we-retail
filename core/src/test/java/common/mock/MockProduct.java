@@ -91,7 +91,7 @@ public class MockProduct extends ResourceWrapper implements Product {
 
     @Override
     public String getThumbnailUrl(int width) {
-        throw new UnsupportedOperationException();
+        return null;
     }
 
     @Override

@@ -48,6 +48,8 @@ import com.adobe.cq.commerce.common.PriceFilter;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.commons.WCMUtils;
 
+import we.retail.core.WeRetailConstants;
+
 @Model(adaptables = SlingHttpServletRequest.class)
 public class ShoppingCartModel {
 
@@ -199,12 +201,7 @@ public class ShoppingCartModel {
         }
 
         public String getImage() throws CommerceException {
-            if (entry.getProduct().getImage() != null) {
-                String imageUrl = entry.getProduct().getImage().getFileReference();
-                return resourceResolver.map(request, imageUrl);
-            }
-
-            return null;
+            return resourceResolver.map(request, entry.getProduct().getThumbnailUrl(WeRetailConstants.PRODUCT_THUMBNAIL_WIDTH));
         }
 
         public String getTotalPrice() throws CommerceException {

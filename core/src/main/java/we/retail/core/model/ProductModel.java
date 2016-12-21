@@ -47,6 +47,7 @@ import com.adobe.cq.commerce.api.Product;
 import com.day.cq.commons.ImageResource;
 import com.day.cq.wcm.api.Page;
 
+import we.retail.core.WeRetailConstants;
 import we.retail.core.model.handler.CommerceHandler;
 
 @Model(adaptables = SlingHttpServletRequest.class)
@@ -171,7 +172,7 @@ public class ProductModel {
                 imageUrl = resourceResolver.map(request, imageUrl);
             }
 
-            thumbnailUrl = product.getThumbnailUrl();
+            thumbnailUrl = product.getThumbnailUrl(WeRetailConstants.PRODUCT_THUMBNAIL_WIDTH);
             if (StringUtils.isNotBlank(thumbnailUrl)) {
                 thumbnailUrl = resourceResolver.map(request, thumbnailUrl);
             }
