@@ -281,7 +281,7 @@
                         </execution>
                     </executions>
                     <configuration>
-                        <slingUrl>http://${aem.host}:${aem.port}/system/console/bundles</slingUrl>
+                        <slingUrl>http://${aem.host}:${aem.port}${aem.contextPath}/system/console/bundles</slingUrl>
                         <failOnError>true</failOnError>
                     </configuration>
                 </plugin>
@@ -291,7 +291,7 @@
                     <artifactId>content-package-maven-plugin</artifactId>
                     <version>0.0.24</version>
                     <configuration>
-                        <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
+                        <targetURL>http://${aem.host}:${aem.port}${aem.contextPath}/crx/packmgr/service.jsp</targetURL>
                         <failOnError>true</failOnError>
                         <failOnMissingEmbed>true</failOnMissingEmbed>
                     </configuration>
