@@ -23,7 +23,7 @@
     <parent>
         <groupId>we</groupId>
         <artifactId>we.retail</artifactId>
-        <version>1.9.8</version>
+        <version>1.9.14</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
@@ -162,7 +162,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
+                            <targetURL>http://${aem.host}:${aem.port}${aem.contextPath}/crx/packmgr/service.jsp</targetURL>
                             <failOnError>true</failOnError>
                             <failOnMissingEmbed>true</failOnMissingEmbed>
                             <requiresRoot>true</requiresRoot>
