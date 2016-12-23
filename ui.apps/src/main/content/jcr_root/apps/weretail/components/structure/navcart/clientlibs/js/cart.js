@@ -22,27 +22,6 @@
 
         EXPANDABLE_SELECTOR = 'body';
 
-    var _fixed = null;
-
-    var Fixed = function($el) {
-        this.$el = $($el);
-        this.$window = $(window);
-
-        this._onScroll = _.throttle(this.onScroll.bind(this), 100);
-    };
-
-    Fixed.prototype.onScroll = function() {
-        this.$el.css('top', this.$window.scrollTop());
-    };
-
-    Fixed.prototype.on = function() {
-        this.$window.on('scroll', this._onScroll);
-    };
-
-    Fixed.prototype.off = function() {
-        this.$window.off('scroll', this._onScroll);
-    };
-
     Vue.component('cart-content', {
         ready: function() {
             // move cart contents to body
@@ -62,18 +41,6 @@
                 cartEntriesSize: _cart.getItem('entries') ? _cart.getItem('entries').length : 0,
                 cartTotalPrice: _cart.getItem('totalPrice'),
                 cartPromotions: _cart.getItem('promotions')
-            }
-        },
-        events: {
-            'cart-button-expand': function(show) {
-                // handle fixed in js
-                // position fixed in css doesn't work with transform
-                this._fixed = this._fixed || new Fixed(this.$el);
-                if (show) {
-                    this._fixed.on();
-                } else {
-                    this._fixed.off();
-                }
             }
         },
         methods: {
