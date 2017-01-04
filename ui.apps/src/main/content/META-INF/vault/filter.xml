@@ -39,5 +39,4 @@
     <filter root="/etc/replication/agents.author/test_and_target"/>
     <filter root="/etc/replication/agents.publish/flush"/>
     <filter root="/etc/replication/agents.publish/outbox"/>
-    <filter root="/apps/social/console/components/hbs/sitepage" mode="update"/>
 </workspaceFilter>
