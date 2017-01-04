@@ -21,11 +21,11 @@ import java.util.Comparator;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +50,7 @@ public class OrderHistoryModel {
     @SlingObject
     private SlingHttpServletResponse response;
 
-    @Inject
+    @ScriptVariable
     private Page currentPage;
 
     private CommerceSession commerceSession;

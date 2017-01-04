@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -32,6 +31,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
@@ -48,6 +48,8 @@ import com.adobe.cq.commerce.common.PriceFilter;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.commons.WCMUtils;
 
+import we.retail.core.WeRetailConstants;
+
 @Model(adaptables = SlingHttpServletRequest.class)
 public class ShoppingCartModel {
 
@@ -62,7 +64,7 @@ public class ShoppingCartModel {
     @SlingObject
     private ResourceResolver resourceResolver;
 
-    @Inject
+    @ScriptVariable
     private Page currentPage;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -186,7 +188,7 @@ public class ShoppingCartModel {
         }
 
         public String getPrice() throws CommerceException {
-            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("UNIT"));
+            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_UNIT));
             return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
         }
 
@@ -208,7 +210,7 @@ public class ShoppingCartModel {
         }
 
         public String getTotalPrice() throws CommerceException {
-            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("LINE"));
+            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_LINE));
             return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
         }
 

@@ -16,15 +16,17 @@
 package we.retail.core.model;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
@@ -35,7 +37,10 @@ import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.CommerceSession;
 import com.adobe.cq.commerce.api.PriceInfo;
 import com.adobe.cq.commerce.common.PriceFilter;
+import com.day.cq.i18n.I18n;
 import com.day.cq.wcm.api.Page;
+
+import we.retail.core.WeRetailConstants;
 
 @Model(adaptables = SlingHttpServletRequest.class)
 public class ShoppingCartPricesModel {
@@ -48,7 +53,7 @@ public class ShoppingCartPricesModel {
     @SlingObject
     private SlingHttpServletResponse response;
 
-    @Inject
+    @ScriptVariable
     private Page currentPage;
     
     private CommerceSession commerceSession;
@@ -75,6 +80,8 @@ public class ShoppingCartPricesModel {
     private String taxTotal;
     private String total;
 
+    private I18n i18n;
+
     @PostConstruct
     public void activate() throws Exception {
 
@@ -87,20 +94,24 @@ public class ShoppingCartPricesModel {
         
         isEmpty = commerceSession.getCartEntries().isEmpty();
         
-        shippingTotal = formatShippingPrice(commerceSession.getCartPriceInfo(new PriceFilter("SHIPPING")));
-        subTotal = commerceSession.getCartPrice(new PriceFilter("PRE_TAX"));
-        taxTotal = commerceSession.getCartPrice(new PriceFilter("TAX"));
-        total = commerceSession.getCartPrice(new PriceFilter("TOTAL"));
+        shippingTotal = formatShippingPrice(commerceSession.getCartPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_SHIPPING)));
+        subTotal = commerceSession.getCartPrice(new PriceFilter(WeRetailConstants.PRICE_FILTER_PRE_TAX));
+        taxTotal = commerceSession.getCartPrice(new PriceFilter(WeRetailConstants.PRICE_FILTER_TAX));
+        total = commerceSession.getCartPrice(new PriceFilter(WeRetailConstants.PRICE_FILTER_TOTAL));
+
+        Locale pageLocale = currentPage.getLanguage(true);
+        ResourceBundle bundle = request.getResourceBundle(pageLocale);
+        i18n = new I18n(bundle);
     }
 
     private String formatShippingPrice(List<PriceInfo> prices) {
         if (prices.isEmpty()) {
-            return request.getResourceBundle(request.getLocale()).getString("Unknown");
+            return i18n.get("Unknown");
         }
         else {
             PriceInfo priceInfo = prices.get(0);
             if (priceInfo.getAmount() != null && priceInfo.getAmount().signum() == 0) {
-                return request.getResourceBundle(request.getLocale()).getString("Free");
+                return i18n.get("Free");
             }
             else {
                 return priceInfo.getFormattedString();

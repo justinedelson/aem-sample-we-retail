@@ -31,6 +31,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.address.api.Address;
+import com.adobe.cq.commerce.api.CommerceConstants;
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceSession;
 import com.adobe.cq.commerce.api.PlacedOrder;
@@ -48,8 +49,8 @@ public class OrderModel extends ShoppingCartModel {
     private static final String ORDER_SHIPPING = "SHIPPING";
     private static final String ORDER_TOTAL_TAX = "TAX";
     private static final String ORDER_TOTAL_PRICE = "TOTAL";
-    private static final String BILLING_PREFIX = "billing.";
-    private static final String SHIPPING_PREFIX = "shipping.";
+    private static final String BILLING_PREFIX = CommerceConstants.BILLING_ADDRESS_PREDICATE + ".";
+    private static final String SHIPPING_PREFIX = CommerceConstants.SHIPPING_ADDRESS_PREDICATE + ".";
 
     @ScriptVariable(name = "wcmmode")
     private SightlyWCMMode wcmMode;

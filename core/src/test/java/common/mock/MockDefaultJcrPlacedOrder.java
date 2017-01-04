@@ -1,8 +1,24 @@
+/*
+ *   Copyright 2016 Adobe Systems Incorporated
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ */
 package common.mock;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,8 +30,11 @@ import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceSession;
 import com.adobe.cq.commerce.api.CommerceSession.CartEntry;
 import com.adobe.cq.commerce.api.Product;
+import com.adobe.cq.commerce.common.AbstractJcrCommerceService;
 import com.adobe.cq.commerce.common.AbstractJcrCommerceSession;
 import com.adobe.cq.commerce.common.DefaultJcrPlacedOrder;
+
+import we.retail.core.model.Constants;
 
 public class MockDefaultJcrPlacedOrder extends DefaultJcrPlacedOrder {
 
@@ -41,6 +60,34 @@ public class MockDefaultJcrPlacedOrder extends DefaultJcrPlacedOrder {
         return details;
     }
 
+    @Override
+    public String getOrderId() throws CommerceException {
+        if (details == null) {
+            lazyLoadOrderDetails();
+        }
+        return (String) details.get(Constants.ORDER_ID);
+    }
+
+    public void setOrderId(String orderId) throws CommerceException {
+        if (details == null) {
+            lazyLoadOrderDetails();
+        }
+        details.put(Constants.ORDER_ID, orderId);
+    }
+
+    public void setOrderPlacedDate(Date orderPlacedDate) throws CommerceException {
+        if (details == null) {
+            lazyLoadOrderDetails();
+        }
+        details.put(Constants.ORDER_PLACED, orderPlacedDate);
+    }
+
+    /**
+     * A one-to-one copy of {@link DefaultJcrPlacedOrder#lazyLoadOrderDetails()} except for the last line being removed. The problem is that
+     * this method is declared private in {@link DefaultJcrPlacedOrder} so duplicating the code is the easiest way to mock this method.
+     * 
+     * @throws CommerceException
+     */
     private void lazyLoadOrderDetails() throws CommerceException {
         details = new HashMap<String, Object>();
         if (order != null) {
@@ -83,6 +130,12 @@ public class MockDefaultJcrPlacedOrder extends DefaultJcrPlacedOrder {
         }
     }
 
+    /**
+     * A one-to-one copy of {@link DefaultJcrPlacedOrder#lazyLoadCartEntries()} except for the deserialization part. The problem is that
+     * this method is declared private in {@link DefaultJcrPlacedOrder} so duplicating the code is the easiest way to mock this method.
+     * 
+     * @throws CommerceException
+     */
     @Override
     protected void lazyLoadCartEntries() throws CommerceException {
         entries = new ArrayList<CommerceSession.CartEntry>();
@@ -100,6 +153,12 @@ public class MockDefaultJcrPlacedOrder extends DefaultJcrPlacedOrder {
         }
     }
 
+    /**
+     * This is almost a one-to-one copy of {@link AbstractJcrCommerceSession#deserializeCartEntry(String, int)}. We had to copy that method
+     * here because it is the easiest way to mock that code.
+     * 
+     * @throws CommerceException
+     */
     protected CartEntry deserializeCartEntry(String str, int index) throws CommerceException {
         Object[] entryData = deserializeCartEntryData(str);
         Product product = (Product) entryData[0];
@@ -115,6 +174,12 @@ public class MockDefaultJcrPlacedOrder extends DefaultJcrPlacedOrder {
         return entry;
     }
 
+    /**
+     * This is a one-to-one copy of {@link AbstractJcrCommerceService#deserializeCartEntryData(String)}. We had to copy that method here
+     * because it is the easiest way to mock that code.
+     * 
+     * @throws CommerceException
+     */
     public Object[] deserializeCartEntryData(String str) throws CommerceException {
         Object[] entryData = new Object[3];
         String[] entryFields = str.split(";", 3);
