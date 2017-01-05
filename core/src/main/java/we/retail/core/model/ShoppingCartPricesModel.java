@@ -91,16 +91,16 @@ public class ShoppingCartPricesModel {
             LOGGER.error("Failed to create commerce session", e);
         }
         
+        Locale pageLocale = currentPage.getLanguage(true);
+        ResourceBundle bundle = request.getResourceBundle(pageLocale);
+        i18n = new I18n(bundle);
+
         isEmpty = commerceSession.getCartEntries().isEmpty();
         
         shippingTotal = formatShippingPrice(commerceSession.getCartPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_SHIPPING)));
         subTotal = commerceSession.getCartPrice(new PriceFilter(WeRetailConstants.PRICE_FILTER_PRE_TAX));
         taxTotal = commerceSession.getCartPrice(new PriceFilter(WeRetailConstants.PRICE_FILTER_TAX));
         total = commerceSession.getCartPrice(new PriceFilter(WeRetailConstants.PRICE_FILTER_TOTAL));
-
-        Locale pageLocale = currentPage.getLanguage(true);
-        ResourceBundle bundle = request.getResourceBundle(pageLocale);
-        i18n = new I18n(bundle);
     }
 
     private String formatShippingPrice(List<PriceInfo> prices) {

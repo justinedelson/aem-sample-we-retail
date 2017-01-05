@@ -24,6 +24,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
@@ -132,7 +133,7 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
 
     private void doModifyProduct(SlingHttpServletRequest request, SlingHttpServletResponse response, CommerceSession session) throws IOException {
         String qty = request.getParameter("quantity");
-        int quantity = xssAPI.getValidInteger(qty, 1);
+        int quantity = StringUtils.isNumeric(qty) ? xssAPI.getValidInteger(qty, 1) : -1;
         if (quantity < 0) {
             response.sendError(HttpServletResponse.SC_FORBIDDEN);
             return;
