@@ -54,14 +54,17 @@ public class OrderHistoryModelTest {
         Page page = context.currentPage(Constants.TEST_ORDER_PAGE);
         context.currentResource(Constants.TEST_ORDER_RESOURCE);
 
-        MockSlingHttpServletRequest request = context.request();
-
+        // This sets the page attribute injected in OrderHistoryModel with @ScriptVariable
         SlingBindings slingBindings = (SlingBindings) context.request().getAttribute(SlingBindings.class.getName());
         slingBindings.put(WCMBindings.CURRENT_PAGE, page);
 
+        MockSlingHttpServletRequest request = context.request();
         CommerceService commerceService = page.getContentResource().adaptTo(CommerceService.class);
         MockCommerceSession commerceSession = (MockCommerceSession) commerceService.login(request, context.response());
 
+        // We will use the mocked order defined in src/test/resources/sample-order.json twice
+        // in order to have 2 orders in the order history: the "dummy" order is a copy of the mocked
+        // order for which we just change the order-id and the date of the order
         Resource orderResource = context.resourceResolver().getResource(Constants.TEST_ORDER_RESOURCE);
 
         // The dummy order is inserted first but should appear second in the test (see below)
@@ -70,6 +73,7 @@ public class OrderHistoryModelTest {
         dummyOrder.setOrderPlacedDate(DateParser.parseDate(DUMMY_ORDER_DATE));
         commerceSession.registerPlacedOrder(DUMMY_ORDER_ID, dummyOrder);
 
+        // This is the "original" mocked order
         MockDefaultJcrPlacedOrder mockDefaultJcrPlacedOrder = new MockDefaultJcrPlacedOrder(null, Constants.TEST_ORDER_ID, orderResource);
         commerceSession.registerPlacedOrder(Constants.TEST_ORDER_ID, mockDefaultJcrPlacedOrder);
 

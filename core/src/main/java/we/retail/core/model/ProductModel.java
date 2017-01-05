@@ -77,7 +77,7 @@ public class ProductModel {
     private boolean isAnonymous;
 
     @PostConstruct
-    private void populateProduct() {
+    private void initModel() {
         try {
             commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
             if (commerceService != null) {

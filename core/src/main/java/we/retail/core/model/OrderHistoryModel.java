@@ -57,7 +57,7 @@ public class OrderHistoryModel {
     private List<PlacedOrder> orders;
 
     @PostConstruct
-    private void activate() {
+    private void initModel() {
         try {
             CommerceService commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
             commerceSession = commerceService.login(request, response);

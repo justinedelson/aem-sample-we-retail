@@ -35,7 +35,6 @@ import com.adobe.cq.sightly.SightlyWCMMode;
 import com.adobe.cq.sightly.WCMBindings;
 import com.day.cq.dam.commons.util.DateParser;
 import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.WCMMode;
 
 import common.AppAemContext;
 import common.mock.MockCommerceSession;
@@ -55,19 +54,23 @@ public class OrderModelTest {
         Page page = context.currentPage(Constants.TEST_ORDER_PAGE);
         context.currentResource(Constants.TEST_ORDER_RESOURCE);
 
-        MockSlingHttpServletRequest request = context.request();
+        // The OrderModel expects the orderId as a request parameter
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put(Constants.ORDER_ID, Constants.TEST_ORDER_ID);
+        MockSlingHttpServletRequest request = context.request();
         request.setParameterMap(parameters);
-        request.setAttribute(WCMMode.REQUEST_ATTRIBUTE_NAME, WCMMode.EDIT);
 
+        // This sets the instance attributes injected in OrderModel (and ShoppingCartModel) with @ScriptVariable
         SlingBindings slingBindings = (SlingBindings) context.request().getAttribute(SlingBindings.class.getName());
         slingBindings.put(WCMBindings.CURRENT_PAGE, page);
         slingBindings.put(WCMBindings.WCM_MODE, new SightlyWCMMode(request));
 
+        // This creates the mocked order defined in src/test/resources/sample-order.json
         Resource orderResource = context.resourceResolver().getResource(Constants.TEST_ORDER_RESOURCE);
         MockDefaultJcrPlacedOrder mockDefaultJcrPlacedOrder = new MockDefaultJcrPlacedOrder(null, Constants.TEST_ORDER_ID, orderResource);
 
+        // This registers the mocked order in the current session so that it can be retrieved 
+        // in OrderModel by commerceSession.getPlacedOrder(String)
         CommerceService commerceService = page.getContentResource().adaptTo(CommerceService.class);
         MockCommerceSession commerceSession = (MockCommerceSession) commerceService.login(request, context.response());
         commerceSession.registerPlacedOrder(Constants.TEST_ORDER_ID, mockDefaultJcrPlacedOrder);

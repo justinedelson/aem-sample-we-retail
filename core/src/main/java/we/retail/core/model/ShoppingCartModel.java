@@ -81,7 +81,7 @@ public class ShoppingCartModel {
     private Map<Integer, List<PromotionInfo>> cartEntryPromotions = new HashMap<Integer, List<PromotionInfo>>();
 
     @PostConstruct
-    public void activate() throws Exception {
+    private void initModel() throws Exception {
         createCommerceSession();
         populatePageUrls();
         populatePromotions();
@@ -94,7 +94,7 @@ public class ShoppingCartModel {
             commerceSession = commerceService.login(request, response);
             allPromotions = commerceSession.getPromotions();
         } catch (CommerceException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Failed to create commerce session", e);
         }
     }
 
@@ -179,7 +179,7 @@ public class ShoppingCartModel {
                 }
 
             } catch (CommerceException e) {
-                LOGGER.error(e.getMessage());
+                LOGGER.error("Failed to the product variant axes data", e);
             }
         }
 

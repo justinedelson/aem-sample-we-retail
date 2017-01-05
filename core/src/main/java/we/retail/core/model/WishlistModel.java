@@ -73,10 +73,9 @@ public class WishlistModel {
     private CommerceSession commerceSession;
 
     @PostConstruct
-    public void activate() throws Exception {
+    private void initModel() throws Exception {
         createCommerceSession();
         initSmartlist();
-
         populatePages();
         populateCartEntries();
     }
@@ -86,7 +85,7 @@ public class WishlistModel {
         try {
             commerceSession = commerceService.login(request, response);
         } catch (CommerceException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Failed to create commerce session", e);
         }
     }
 

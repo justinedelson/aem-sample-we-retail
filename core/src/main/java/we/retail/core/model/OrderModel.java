@@ -60,7 +60,7 @@ public class OrderModel extends ShoppingCartModel {
     protected Map<String, Object> orderDetails;
 
     @PostConstruct
-    public void activate() throws Exception {
+    private void initModel() throws Exception {
         createCommerceSession();
         populatePageUrls();
         populateOrder();
@@ -78,7 +78,7 @@ public class OrderModel extends ShoppingCartModel {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 return;
             } catch (IOException e) {
-                LOGGER.error(e.getMessage());
+                LOGGER.error("Failed to set HTTP error response code", e);
             }
         }
 
@@ -89,7 +89,7 @@ public class OrderModel extends ShoppingCartModel {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                     return;
                 } catch (IOException e) {
-                    LOGGER.error(e.getMessage());
+                    LOGGER.error("Failed to set HTTP error response code", e);
                 }
             }
             orderDetails = placedOrder.getOrder();

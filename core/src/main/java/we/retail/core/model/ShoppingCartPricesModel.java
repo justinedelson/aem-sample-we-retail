@@ -83,13 +83,12 @@ public class ShoppingCartPricesModel {
     private I18n i18n;
 
     @PostConstruct
-    public void activate() throws Exception {
-
+    private void initModel() throws Exception {
         CommerceService commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
         try {
             commerceSession = commerceService.login(request, response);
         } catch (CommerceException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Failed to create commerce session", e);
         }
         
         isEmpty = commerceSession.getCartEntries().isEmpty();

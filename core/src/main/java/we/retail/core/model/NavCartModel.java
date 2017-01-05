@@ -59,7 +59,7 @@ public class NavCartModel {
     private String currentPageUrl;
 
     @PostConstruct
-    public void activate() throws Exception {
+    private void initModel() throws Exception {
         populatePageUrls();
     }
 

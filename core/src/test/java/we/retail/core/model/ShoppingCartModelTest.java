@@ -50,15 +50,16 @@ public class ShoppingCartModelTest {
         Page page = context.currentPage(Constants.TEST_ORDER_PAGE);
         context.currentResource(Constants.TEST_ORDER_RESOURCE);
 
-        MockSlingHttpServletRequest request = context.request();
-
+        // This sets the page attribute injected in the models with @ScriptVariable
         SlingBindings slingBindings = (SlingBindings) context.request().getAttribute(SlingBindings.class.getName());
         slingBindings.put(WCMBindings.CURRENT_PAGE, page);
 
-        // To mock a shopping cart, the MockCommerceSession uses the first order registered in the session
+        // To mock the shopping cart, the MockCommerceSession uses the first order registered in the session
+        // We hence register the mocked order defined in src/test/resources/sample-order.json in the session
         Resource orderResource = context.resourceResolver().getResource(Constants.TEST_ORDER_RESOURCE);
         MockDefaultJcrPlacedOrder mockDefaultJcrPlacedOrder = new MockDefaultJcrPlacedOrder(null, Constants.TEST_ORDER_ID, orderResource);
 
+        MockSlingHttpServletRequest request = context.request();
         CommerceService commerceService = page.getContentResource().adaptTo(CommerceService.class);
         MockCommerceSession commerceSession = (MockCommerceSession) commerceService.login(request, context.response());
         commerceSession.registerPlacedOrder(Constants.TEST_ORDER_ID, mockDefaultJcrPlacedOrder);
