@@ -16,7 +16,6 @@
 package we.retail.core.model;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -25,6 +24,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
@@ -45,7 +45,7 @@ public class NavCartModel {
     @SlingObject
     private SlingHttpServletResponse response;
 
-    @Inject
+    @ScriptVariable
     private Page currentPage;
 
     @SlingObject
@@ -59,7 +59,7 @@ public class NavCartModel {
     private String currentPageUrl;
 
     @PostConstruct
-    public void activate() throws Exception {
+    private void initModel() throws Exception {
         populatePageUrls();
     }
 

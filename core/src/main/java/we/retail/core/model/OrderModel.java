@@ -31,6 +31,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.address.api.Address;
+import com.adobe.cq.commerce.api.CommerceConstants;
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceSession;
 import com.adobe.cq.commerce.api.PlacedOrder;
@@ -48,18 +49,18 @@ public class OrderModel extends ShoppingCartModel {
     private static final String ORDER_SHIPPING = "SHIPPING";
     private static final String ORDER_TOTAL_TAX = "TAX";
     private static final String ORDER_TOTAL_PRICE = "TOTAL";
-    private static final String BILLING_PREFIX = "billing.";
-    private static final String SHIPPING_PREFIX = "shipping.";
+    private static final String BILLING_PREFIX = CommerceConstants.BILLING_ADDRESS_PREDICATE + ".";
+    private static final String SHIPPING_PREFIX = CommerceConstants.SHIPPING_ADDRESS_PREDICATE + ".";
 
     @ScriptVariable(name = "wcmmode")
     private SightlyWCMMode wcmMode;
 
     private String orderId;
     protected PlacedOrder placedOrder;
-    private Map<String, Object> orderDetails;
+    protected Map<String, Object> orderDetails;
 
     @PostConstruct
-    public void activate() throws Exception {
+    private void initModel() throws Exception {
         createCommerceSession();
         populatePageUrls();
         populateOrder();
@@ -68,7 +69,7 @@ public class OrderModel extends ShoppingCartModel {
         isReadOnly = true;
     }
 
-    private void populateOrder() throws CommerceException {
+    protected void populateOrder() throws CommerceException {
         boolean isEditMode = wcmMode.isEdit();
         orderId = request.getParameter(ORDER_ID);
 
@@ -77,7 +78,7 @@ public class OrderModel extends ShoppingCartModel {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 return;
             } catch (IOException e) {
-                LOGGER.error(e.getMessage());
+                LOGGER.error("Failed to set HTTP error response code", e);
             }
         }
 
@@ -88,7 +89,7 @@ public class OrderModel extends ShoppingCartModel {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                     return;
                 } catch (IOException e) {
-                    LOGGER.error(e.getMessage());
+                    LOGGER.error("Failed to set HTTP error response code", e);
                 }
             }
             orderDetails = placedOrder.getOrder();
@@ -96,7 +97,9 @@ public class OrderModel extends ShoppingCartModel {
         }
     }
 
+    @Override
     protected void populateCartEntries() throws CommerceException {
+        entries.clear();
         if (placedOrder != null) {
             final List<CommerceSession.CartEntry> cartEntries = placedOrder.getCartEntries();
             for (CommerceSession.CartEntry cartEntry : cartEntries) {

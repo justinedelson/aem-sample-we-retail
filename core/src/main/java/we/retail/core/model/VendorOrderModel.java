@@ -40,7 +40,7 @@ public class VendorOrderModel extends OrderModel {
     private String title;
 
     @PostConstruct
-    public void activate() throws Exception {
+    private void initModel() throws Exception {
         placedOrder = order;
         populateCartEntries();
     }

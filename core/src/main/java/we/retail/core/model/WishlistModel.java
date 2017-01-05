@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -31,6 +30,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,7 +59,7 @@ public class WishlistModel {
     @SlingObject
     private SlingHttpServletResponse response;
 
-    @Inject
+    @ScriptVariable
     private Page currentPage;
 
     @SlingObject
@@ -73,10 +73,9 @@ public class WishlistModel {
     private CommerceSession commerceSession;
 
     @PostConstruct
-    public void activate() throws Exception {
+    private void initModel() throws Exception {
         createCommerceSession();
         initSmartlist();
-
         populatePages();
         populateCartEntries();
     }
@@ -86,7 +85,7 @@ public class WishlistModel {
         try {
             commerceSession = commerceService.login(request, response);
         } catch (CommerceException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Failed to create commerce session", e);
         }
     }
 

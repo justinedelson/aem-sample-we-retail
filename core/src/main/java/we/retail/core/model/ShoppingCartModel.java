@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -32,6 +31,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
@@ -64,7 +64,7 @@ public class ShoppingCartModel {
     @SlingObject
     private ResourceResolver resourceResolver;
 
-    @Inject
+    @ScriptVariable
     private Page currentPage;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -81,7 +81,7 @@ public class ShoppingCartModel {
     private Map<Integer, List<PromotionInfo>> cartEntryPromotions = new HashMap<Integer, List<PromotionInfo>>();
 
     @PostConstruct
-    public void activate() throws Exception {
+    private void initModel() throws Exception {
         createCommerceSession();
         populatePageUrls();
         populatePromotions();
@@ -94,7 +94,7 @@ public class ShoppingCartModel {
             commerceSession = commerceService.login(request, response);
             allPromotions = commerceSession.getPromotions();
         } catch (CommerceException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Failed to create commerce session", e);
         }
     }
 
@@ -179,7 +179,7 @@ public class ShoppingCartModel {
                 }
 
             } catch (CommerceException e) {
-                LOGGER.error(e.getMessage());
+                LOGGER.error("Failed to the product variant axes data", e);
             }
         }
 
@@ -188,7 +188,7 @@ public class ShoppingCartModel {
         }
 
         public String getPrice() throws CommerceException {
-            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("UNIT"));
+            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_UNIT));
             return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
         }
 
@@ -205,7 +205,7 @@ public class ShoppingCartModel {
         }
 
         public String getTotalPrice() throws CommerceException {
-            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("LINE"));
+            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_LINE));
             return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
         }
 

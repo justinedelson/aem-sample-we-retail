@@ -24,4 +24,12 @@ public class WeRetailConstants {
     public static final String MODIFY_CARTENTRY_SELECTOR = "weretail.modifycartentry";
 
     public static final int PRODUCT_THUMBNAIL_WIDTH = 120;
+
+    public static final String PRICE_FILTER_UNIT = "UNIT";
+    public static final String PRICE_FILTER_LINE = "LINE";
+
+    public static final String PRICE_FILTER_SHIPPING = "SHIPPING";
+    public static final String PRICE_FILTER_PRE_TAX = "PRE_TAX";
+    public static final String PRICE_FILTER_TAX = "TAX";
+    public static final String PRICE_FILTER_TOTAL = "TOTAL";
 }
