@@ -23,7 +23,7 @@
     <parent>
         <groupId>we</groupId>
         <artifactId>we.retail</artifactId>
-        <version>1.9.16</version>
+        <version>1.9.18</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
@@ -246,7 +246,7 @@
         <dependency>
             <groupId>we</groupId>
             <artifactId>we.retail.core</artifactId>
-            <version>1.9.38</version>
+            <version>1.9.40</version>
         </dependency>
         <dependency>
             <groupId>com.day.cq</groupId>
