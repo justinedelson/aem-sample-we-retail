@@ -199,6 +199,14 @@
                 }
             }
         }
+        
+        &.marker {
+            input[name=size]:checked {
+                &::after {
+                    content: '';
+                }
+            }
+        }
     }
 
     &-status {
