@@ -54,6 +54,9 @@
                 }
             },
             updateCart: function(event) {
+                if (parseInt($(event.target).val()) < 0) {
+                    return;
+                }
                 var $form = $(event.target).closest('form');
                 $.ajax({
                     url: $form.attr('action'),
