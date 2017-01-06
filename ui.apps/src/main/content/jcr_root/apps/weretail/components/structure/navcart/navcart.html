@@ -91,7 +91,7 @@
                 </div>
             </div>
 
-            <div class="we-Cart-promotions" v-if="cartPromotions.length > 0" data-sly-test="${!cart.isReadOnly}">
+            <div class="we-Cart-promotions" v-if="cartPromotions && cartPromotions.length > 0" data-sly-test="${!cart.isReadOnly}">
                 <span v-for="promotion in cartPromotions" class="we-Cart-promotion" v-html="promotion.message"></span>
             </div>
 
