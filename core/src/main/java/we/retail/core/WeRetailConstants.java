@@ -32,4 +32,6 @@ public class WeRetailConstants {
     public static final String PRICE_FILTER_PRE_TAX = "PRE_TAX";
     public static final String PRICE_FILTER_TAX = "TAX";
     public static final String PRICE_FILTER_TOTAL = "TOTAL";
+
+    public static final String ORDER_PLACED = "orderPlaced";
 }

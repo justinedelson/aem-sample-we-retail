@@ -39,17 +39,14 @@
                 <div>${'Total' @ i18n}</div>
             </div>
 
-            <div class="entry" 
+            <div class="entry order-data" data-href="order-history/order-details.html?orderId=${order.orderId}"
                  data-sly-repeat.order="${orderHistory.orders}"
                  data-sly-use.hapiOrder="${ 'org.apache.sling.hapi.sightly.HApiUse' @type=hapiOrderHistory.proptype.order }"
                  data-sly-attribute="${ hapiOrderHistory.itemprop.order }">
-                <div>
-                    <meta content="${order.orderId}" data-sly-attribute="${hapiOrder.itemprop.id}" />
-                    <a href="order-history/order-details.html?orderId=${order.orderId}" data-sly-attribute="${hapiOrder.itemprop.path}">${order.orderId}</a>
-                </div>
+                <div><meta content="${order.orderId}" data-sly-attribute="${hapiOrder.itemprop.id}" />${order.listOrderId}</div>
                 <div data-sly-attribute="${hapiOrder.itemprop.date}">${'dd MMM, yyyy' @ format=order.order.orderPlaced}</div>
                 <div data-sly-attribute="${hapiOrder.itemprop.status}">${order.order.orderStatus}</div>
-                <div data-sly-attribute="${hapiOrder.itemprop.totalPrice}">${order.order.currencyCode} ${order.order.orderTotalPrice.toString}</div>
+                <div data-sly-attribute="${hapiOrder.itemprop.totalPrice}">${order.order.currencyCode} ${'#.00' @ format=order.order.orderTotalPrice}</div>
             </div>
 
         </div>

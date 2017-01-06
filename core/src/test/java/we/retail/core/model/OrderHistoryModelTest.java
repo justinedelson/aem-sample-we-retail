@@ -38,6 +38,7 @@ import common.AppAemContext;
 import common.mock.MockCommerceSession;
 import common.mock.MockDefaultJcrPlacedOrder;
 import io.wcm.testing.mock.aem.junit.AemContext;
+import we.retail.core.model.OrderHistoryModel.PlacedOrderWrapper;
 
 public class OrderHistoryModelTest {
 
@@ -82,7 +83,7 @@ public class OrderHistoryModelTest {
 
     @Test
     public void testOrderHistory() throws Exception {
-        List<PlacedOrder> orders = orderHistoryModel.getOrders();
+        List<PlacedOrderWrapper> orders = orderHistoryModel.getOrders();
         assertEquals(Constants.ENTRIES_SIZE, orders.size());
 
         // The dummy order should always appear second in the list because of the descending sorting by date

@@ -29,7 +29,6 @@
     }
     
     &-entries {
-
         display: table;
         margin: 10px auto 0 auto;
         border-collapse: collapse;
@@ -45,9 +44,14 @@
         }
     
         .header {
-            background-color: @gray-lighter;
+            background-color: #ddd;
             text-align: center;
             font-weight: bold;
+        }
+        
+        .order-data:hover {
+            cursor: pointer;
+            background-color: @gray-lighter;
         }
     }
 }
