@@ -793,10 +793,7 @@
                         jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="weretail/components/content/shoppingcartprices"
-                        showShippingTotal="true"
-                        showSubTotal="true"
-                        showTaxTotal="true"
-                        showTotal="true"/>
+                        showSubTotal="true"/>
                 </responsivegrid>
             </responsivegrid>
         </root>
