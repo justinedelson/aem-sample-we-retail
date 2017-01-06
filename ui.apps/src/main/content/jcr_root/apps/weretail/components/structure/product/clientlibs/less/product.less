@@ -132,31 +132,63 @@
 
             line-height: 30px;
 
-            //.radio &,
-            //.radio-inline &,
-            //.checkbox &,
-            //.checkbox-inline & {
-            //}
-            &::after {
-                content: '\200b';
-            }
-
-            span {
+            div {
                 line-height: 30px;
                 color: #fff;
 
                 text-align: center;
 
                 position: absolute;
-                top: 0;
                 right: 0;
-                left: 0;
-
+                left: -1px;
+                
                 cursor: pointer;
             }
         }
 
-        input[type=radio],
+        label {
+            display: block;
+            padding: 0 0 20px 0;  
+            height: 20px;
+            width: 30px;
+            
+            div {
+                display: inline-block;
+                padding: 0px;
+                height:30px;
+                width:30px;
+                background: black;
+                cursor: pointer;
+            }  
+        }
+
+        label > input:checked +div {  
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 30px 30px;
+            background-color: #ed1c24;
+        }
+
+        div.tick::after {  
+            content: @we-Icon--var-check;
+
+            display: inline-block;
+
+            width: auto;
+            height: auto;
+
+            border-radius: 0;
+
+            background: none;
+
+            font: normal normal normal 11px/30px "we-icons";
+            color: #fff;
+        }
+
+        input[type=radio] {
+            visibility: hidden;    
+        }
+        
         input[type=checkbox] {
             width: 30px;
             height: 30px;
@@ -251,6 +283,14 @@
         margin-bottom: 12px;
 
         &.separator {
+            margin-bottom: 22px;
+        }
+        
+        &.fg-title {
+            margin-bottom: 0;
+        }
+        
+        &.fg-content {
             margin-bottom: 22px;
         }
     }

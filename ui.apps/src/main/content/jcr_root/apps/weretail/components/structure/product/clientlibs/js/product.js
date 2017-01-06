@@ -63,6 +63,11 @@
                 variantAxes: null,
 
                 isChecked: function (name, value) {
+                    if (name == 'color' && this.product.variantAxes[name] == value) {
+                        $("input[name='color']").siblings('div').removeClass('tick');
+                        $("input[value='" + value + "']").siblings('div').addClass('tick');
+                    }
+                    
                     return this.product.variantAxes[name] == value;
                 }
             },
@@ -108,6 +113,11 @@
                     var name = event.currentTarget.attributes['name'].value;
                     var value = event.currentTarget.attributes['value'].value;
                     this._setProduct(name, value);
+                    
+                    if (name == 'color') {
+                        $("input[name='color']").siblings('span').removeClass('tick');
+                        $("input[value='" + value + "']").siblings('span').addClass('tick');
+                    }
                 },
                 trackView: function() {
                     if (this.product && window.ContextHub && ContextHub.getStore("recentlyviewed")) {
