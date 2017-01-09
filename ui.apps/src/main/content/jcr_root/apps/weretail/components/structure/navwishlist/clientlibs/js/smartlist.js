@@ -68,6 +68,7 @@
         ready: function() {
             this.$expandable = $(this.$el).closest(EXPANDABLE_SELECTOR);
             this.$expandable.addClass(EXPANDABLE_CLASS);
+            window.smartlistComponent = this;
         },
         methods: {
             toggle: function() {
@@ -78,6 +79,17 @@
                     $(".we-Smartlist-content").hide();
                     this.$root.$broadcast('smartlist-button-expand', false);
                 } else {
+                    $el.removeClass(EXPAND_CART_VALUE);
+                    $el.addClass(EXPAND_SMARTLIST_VALUE);
+                    $(".we-Cart-content").hide();
+                    $(".we-Smartlist-content").show()
+                    this.$root.$broadcast('smartlist-button-expand', true);
+                }
+            },
+            show: function() {
+                var $el = this.$expandable;
+
+                if (!$el.hasClass(EXPAND_SMARTLIST_VALUE)) {
                     $el.removeClass(EXPAND_CART_VALUE);
                     $el.addClass(EXPAND_SMARTLIST_VALUE);
                     $(".we-Cart-content").hide();

@@ -81,6 +81,7 @@
             if (window.ContextHub) {
                 ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":cart", this.refreshCart);
             }
+            window.cartComponent = this;
         },
         data: function() {
             var _cart = null;
@@ -111,6 +112,17 @@
                 if (window.ContextHub) {
                     var _cart = ContextHub.getStore('cart');
                     this.$data.cartEntriesSize = _cart.getItem('entries') ? _cart.getItem('entries').length : 0;
+                }
+            },
+            show: function() {
+                var $el = this.$expandable;
+
+                if (!$el.hasClass(EXPAND_CART_VALUE)) {
+                    $el.addClass(EXPAND_CART_VALUE);
+                    $el.removeClass(EXPAND_SMARTLIST_VALUE);
+                    $(".we-Cart-content").show();
+                    $(".we-Smartlist-content").hide();
+                    this.$root.$broadcast('cart-button-expand', true);
                 }
             }
         }

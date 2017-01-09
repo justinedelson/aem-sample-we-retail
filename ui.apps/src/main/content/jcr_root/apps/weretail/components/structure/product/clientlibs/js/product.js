@@ -147,12 +147,14 @@
                             this.product.price
                         );
                     }
+                    window.cartComponent.show();
                 },
                 addToWishlist: function (event) {
                     if (this.product) {
                         this.$els.weproductform.setAttribute("action", event.currentTarget.getAttribute("data-smartlist-url"));
                         this.$els.weproductform.submit();
                     }
+                    window.smartlistComponent.show();
                 },
                 processHash: function () {
                     var self = this;
