@@ -29,8 +29,6 @@ import org.apache.jackrabbit.util.Text;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ValueMap;
-import org.apache.sling.api.wrappers.ValueMapDecorator;
 
 import com.adobe.cq.commerce.api.CommerceConstants;
 import com.adobe.cq.commerce.api.CommerceException;
@@ -41,7 +39,6 @@ import com.adobe.cq.commerce.common.AbstractJcrCommerceService;
 import com.adobe.cq.commerce.common.AbstractJcrCommerceSession;
 import com.adobe.cq.commerce.common.DefaultJcrCartEntry;
 import com.day.cq.i18n.I18n;
-import com.day.cq.wcm.foundation.forms.FormsHelper;
 
 public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
 
@@ -62,10 +59,6 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
                                   Resource resource) throws CommerceException {
         super(commerceService, request, response, resource);
         PN_UNIT_PRICE = WeRetailProductImpl.PN_PRICE;
-
-        // The addressbook component gets the shipping and billing addresses from that request attribute
-        ValueMap orderDetailsValueMap = new ValueMapDecorator(getOrder());
-        request.setAttribute(FormsHelper.REQ_ATTR_GLOBAL_LOAD_MAP, orderDetailsValueMap);
     }
 
     @Override
