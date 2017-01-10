@@ -16,6 +16,8 @@
 package apps.weretail.components.content.categoryteaser;
 
 import java.lang.String;
+
+import org.apache.jackrabbit.util.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.commons.lang3.StringUtils;
@@ -43,7 +45,8 @@ public class CategoryTeaser extends WCMUsePojo {
         Resource resource = getResource();
         ValueMap properties = getProperties();
         ResourceResolver resolver = getResourceResolver();
-        imagePath = resource.getPath() + ".img.jpeg";
+        String escapedResourcePath = Text.escapePath(resource.getPath());
+        imagePath = getRequest().getContextPath() + escapedResourcePath + ".img.jpeg";
         buttonLinkTo = properties.get(PROP_BUTTON_LINK_TO, "");
         buttonLabel = properties.get(PROP_BUTTON_LABEL, "");
         if (StringUtils.isNotEmpty(buttonLinkTo)) {

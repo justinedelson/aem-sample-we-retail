@@ -16,6 +16,8 @@
 package apps.weretail.components.content.heroimage;
 
 import java.lang.String;
+
+import org.apache.jackrabbit.util.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.sling.api.resource.Resource;
@@ -62,7 +64,8 @@ public class HeroImage extends WCMUsePojo {
         if (image != null) {
             return image;
         }
-        String src = resource.getPath() + ".img.jpeg";
+        String escapedResourcePath = Text.escapePath(resource.getPath());
+        String src = getRequest().getContextPath() + escapedResourcePath + ".img.jpeg";
         image = new Image(src);
         return image;
     }
