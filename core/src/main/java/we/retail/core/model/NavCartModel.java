@@ -19,7 +19,6 @@ import javax.annotation.PostConstruct;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
@@ -41,9 +40,6 @@ public class NavCartModel {
 
     @SlingObject
     private SlingHttpServletRequest request;
-
-    @SlingObject
-    private SlingHttpServletResponse response;
 
     @ScriptVariable
     private Page currentPage;

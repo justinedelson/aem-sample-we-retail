@@ -21,43 +21,50 @@
         EXPAND_CART_VALUE = 'cart-expanded',
         EXPANDABLE_SELECTOR = 'body';
 
-    var _fixed = null;
-
-    var Fixed = function($el) {
-        this.$el = $($el);
-        this.$window = $(window);
-
-        this._onScroll = _.throttle(this.onScroll.bind(this), 100);
-    };
-
-    Fixed.prototype.onScroll = function() {
-        this.$el.css('top', this.$window.scrollTop());
-    };
-
-    Fixed.prototype.on = function() {
-        this.$window.on('scroll', this._onScroll);
-    };
-
-    Fixed.prototype.off = function() {
-        this.$window.off('scroll', this._onScroll);
-    };
-
     Vue.component('smartlist-content', {
         ready: function() {
             // move smartlist contents to body
             // so we won't interfere with any mobile styles
             document.body.appendChild(this.$el);
+            if (window.ContextHub) {
+                ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":smartlists", this.refreshSmartlist);
+            }
         },
-        events: {
-            'smartlist-button-expand': function(show) {
-                // handle fixed in js
-                // position fixed in css doesn't work with transform
-                this._fixed = this._fixed || new Fixed(this.$el);
-                if (show) {
-                    this._fixed.on();
-                } else {
-                    this._fixed.off();
+        data: function() {
+            var _smartlists = null;
+            if (window.ContextHub) {
+                _smartlists = ContextHub.getStore('smartlists');
+            }
+            return {
+                smartlist: _smartlists.getTree()[0],
+                smartlistEntriesSize: _smartlists.getTree()[0] ? _smartlists.getTree()[0].entries.length : 0
+            }
+        },
+        methods: {
+            refreshSmartlist: function(event) {
+                if (window.ContextHub) {
+                    var _smartlists = ContextHub.getStore('smartlists');
+                    this.$data.smartlist = _smartlists.getTree()[0];
+                    this.$data.smartlistEntriesSize = _smartlists.getTree()[0] ? _smartlists.getTree()[0].entries.length : 0;
                 }
+            },
+            updateSmartlist: function(event) {
+                if (parseInt($(event.target).val()) < 0) {
+                    return;
+                }
+                var $form = $(event.target).closest('form');
+                $.ajax({
+                    url: $form.attr('action'),
+                    data: $form.serialize(),
+                    cache: false,
+                    type: $form.attr('method')
+                }).done(function (json) {
+                    if (window.ContextHub) {
+                        ContextHub.getStore('smartlists').queryService();
+                    }
+                }).fail(function () {
+                    alert('An error occured while trying to perform this operation.');
+                });
             }
         }
     });
@@ -68,7 +75,19 @@
         ready: function() {
             this.$expandable = $(this.$el).closest(EXPANDABLE_SELECTOR);
             this.$expandable.addClass(EXPANDABLE_CLASS);
+            if (window.ContextHub) {
+                ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":smartlists", this.refreshSmartlist);
+            }
             window.smartlistComponent = this;
+        },
+        data: function() {
+            var _smartlists = null;
+            if (window.ContextHub) {
+                _smartlists = ContextHub.getStore('smartlists');
+            }
+            return {
+                smartlistEntriesSize: _smartlists.getTree()[0] ? _smartlists.getTree()[0].entries.length : 0
+            }
         },
         methods: {
             toggle: function() {
@@ -84,6 +103,12 @@
                     $(".we-Cart-content").hide();
                     $(".we-Smartlist-content").show()
                     this.$root.$broadcast('smartlist-button-expand', true);
+                }
+            },
+            refreshSmartlist: function(event) {
+                if (window.ContextHub) {
+                    var _smartlists = ContextHub.getStore('smartlists');
+                    this.$data.smartlistEntriesSize = _smartlists.getTree()[0] ? _smartlists.getTree()[0].entries.length : 0;
                 }
             },
             show: function() {
