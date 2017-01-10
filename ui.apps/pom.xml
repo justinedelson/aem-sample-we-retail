@@ -31,7 +31,7 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <artifactId>we.retail.ui.apps</artifactId>
-    <version>1.9.171-SNAPSHOT</version>
+    <version>1.9.172</version>
     <packaging>content-package</packaging>
     <name>We.Retail - UI apps</name>
     <description>UI apps package for We.Retail</description>
@@ -40,7 +40,7 @@
         <connection>scm:git:https://git.corp.adobe.com/CQ/aem-sample-we-retail.git</connection>
         <developerConnection>scm:git:git@git.corp.adobe.com:CQ/aem-sample-we-retail.git</developerConnection>
         <url>https://git.corp.adobe.com/CQ/aem-sample-we-retail/tree/master/ui.apps</url>
-      <tag>HEAD</tag>
+      <tag>we.retail.ui.apps-1.9.172</tag>
   </scm>
 
     <!-- ====================================================================== -->
