@@ -25,7 +25,7 @@
 
     &-content {
 
-        position: absolute;
+        position: fixed;
         display: none;
         left: 100%;
         top: 0;
@@ -43,6 +43,11 @@
         }
     }
 
+    &-data {
+        overflow-y: auto;
+        max-height: 95%;
+    }
+    
     &-button {
         display: block;
         line-height: 24px;

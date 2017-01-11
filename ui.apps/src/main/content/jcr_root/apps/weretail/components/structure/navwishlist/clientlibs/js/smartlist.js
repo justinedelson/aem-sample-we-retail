@@ -21,6 +21,27 @@
         EXPAND_CART_VALUE = 'cart-expanded',
         EXPANDABLE_SELECTOR = 'body';
 
+    var _fixed = null;
+
+    var Fixed = function($el) {
+        this.$el = $($el);
+        this.$window = $(window);
+
+        this._onScroll = _.throttle(this.onScroll.bind(this), 100);
+    };
+
+    Fixed.prototype.onScroll = function() {
+        this.$el.css('top', this.$window.scrollTop());
+    };
+
+    Fixed.prototype.on = function() {
+        this.$window.on('scroll', this._onScroll);
+    };
+
+    Fixed.prototype.off = function() {
+        this.$window.off('scroll', this._onScroll);
+    };
+    
     Vue.component('smartlist-content', {
         ready: function() {
             // move smartlist contents to body
@@ -29,6 +50,7 @@
             if (window.ContextHub) {
                 ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":smartlists", this.refreshSmartlist);
             }
+            window.smartlistContent = this;
         },
         data: function() {
             var _smartlists = null;
@@ -38,6 +60,18 @@
             return {
                 smartlist: _smartlists.getTree()[0],
                 smartlistEntriesSize: _smartlists.getTree()[0] ? _smartlists.getTree()[0].entries.length : 0
+            }
+        },
+        events: {
+            'smartlist-button-expand': function(show) {
+                // handle fixed in js
+                // position fixed in css doesn't work with transform
+                this._fixed = this._fixed || new Fixed(this.$el);
+                if (show) {
+                    this._fixed.on();
+                } else {
+                    this._fixed.off();
+                }
             }
         },
         methods: {
@@ -65,6 +99,13 @@
                 }).fail(function () {
                     alert('An error occured while trying to perform this operation.');
                 });
+            },
+            setTop: function(show) {
+                // handle fixed in js
+                // position fixed in css doesn't work with transform
+                this._fixed = this._fixed || new Fixed(this.$el);
+                this._fixed.on();
+                this._fixed.onScroll();
             }
         }
     });
@@ -119,7 +160,9 @@
                     $el.addClass(EXPAND_SMARTLIST_VALUE);
                     $(".we-Cart-content").hide();
                     $(".we-Smartlist-content").show()
-                    this.$root.$broadcast('smartlist-button-expand', true);
+                    // this.$root.$broadcast('smartlist-button-expand', true); does not work
+                    // when this method is called by product.js, so this is a workaround
+                    window.smartlistContent.setTop();
                 }
             }
         }

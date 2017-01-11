@@ -51,6 +51,7 @@
             if (window.ContextHub) {
                 ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":cart", this.refreshCart);
             }
+            window.cartContent = this;
         },
         data: function() {
             var _cart = null;
@@ -103,6 +104,13 @@
                 }).fail(function () {
                     alert('An error occured while trying to perform this operation.');
                 });
+            },
+            setTop: function() {
+                // handle fixed in js
+                // position fixed in css doesn't work with transform
+                this._fixed = this._fixed || new Fixed(this.$el);
+                this._fixed.on();
+                this._fixed.onScroll();
             }
         }
     });
@@ -155,7 +163,9 @@
                     $el.removeClass(EXPAND_SMARTLIST_VALUE);
                     $(".we-Cart-content").show();
                     $(".we-Smartlist-content").hide();
-                    this.$root.$broadcast('cart-button-expand', true);
+                    // this.$root.$broadcast('smartlist-button-expand', true); does not work
+                    // when this method is called by product.js, so this is a workaround
+                    window.cartContent.setTop();
                 }
             }
         }
