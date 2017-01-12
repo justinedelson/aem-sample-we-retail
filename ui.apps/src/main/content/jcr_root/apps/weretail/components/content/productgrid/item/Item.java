@@ -58,16 +58,7 @@ public class Item extends WCMUsePojo {
         SlingHttpServletResponse response = getResponse();
         PageManager pageManager = getPageManager();
 
-        CommerceService commerceService = resource.adaptTo(CommerceService.class);
-        CommerceSession commerceSession = commerceService.login(request, response);
         Page productPage = pageManager.getContainingPage(resource.getPath());
-        String productPath = productPage.getProperties().get("cq:productMaster", String.class);
-
-        Resource productResource = resolver.getResource(productPath);
-        if (productResource == null) {
-            exists = false;
-            return;
-        }
         Product currentProduct = CommerceHelper.findCurrentProduct(productPage);
         if(currentProduct == null) {
             exists = false;
@@ -79,13 +70,15 @@ public class Item extends WCMUsePojo {
             return;
         }
         exists = true;
-        Product baseProduct = commerceService.getProduct(productPath);
-        this.image = imageResource.getPath();
-        name = baseProduct.getTitle();
-        description = baseProduct.getDescription();
-        price = commerceSession.getProductPrice(baseProduct);
+        CommerceService commerceService = resource.adaptTo(CommerceService.class);
+        CommerceSession commerceSession = commerceService.login(request, response);
+        Product pimProduct = currentProduct.getPIMProduct();
+        image = imageResource.getPath();
+        name = pimProduct.getTitle();
+        description = pimProduct.getDescription();
+        price = commerceSession.getProductPrice(pimProduct);
         path = productPage.getPath();
-        filters = getProductFilters(baseProduct, commerceSession);
+        filters = getProductFilters(pimProduct, commerceSession);
     }
 
     public boolean exists() {
@@ -116,14 +109,14 @@ public class Item extends WCMUsePojo {
         return filters;
     }
 
-    private ProductFilters getProductFilters(Product product, CommerceSession commerceSession) throws Exception{
+    private ProductFilters getProductFilters(Product product, CommerceSession commerceSession) throws Exception {
         String variationAxis = product.getProperty("cq:productVariantAxes", String.class);
         ProductFilters productFilters = new ProductFilters();
         if (StringUtils.isNotEmpty(variationAxis)) {
             Iterator<Product> unorderedVariations = product.getVariants();
             while (unorderedVariations.hasNext()) {
                 Product productVariation = unorderedVariations.next();
-                ProductProperties variation = getProductProperties(productVariation, commerceSession);
+                ProductProperties variation = new ProductProperties(productVariation, commerceSession);
                 if (StringUtils.isNotEmpty(variation.getColor())) {
                     productFilters.setColor(variation.getColor().toLowerCase());
                 }
@@ -138,13 +131,9 @@ public class Item extends WCMUsePojo {
                 productFilters.setColor(color.toLowerCase());
             }
             productFilters.setSize(product.getProperty("size", String.class));
-            productFilters.setPrice(commerceSession.getProductPrice(product));
+            productFilters.setPrice(price);
         }
         return productFilters;
-    }
-
-    private ProductProperties getProductProperties(Product product, CommerceSession commerceSession) {
-        return new ProductProperties(product, commerceSession);
     }
 
     public class ProductFilters {
@@ -183,6 +172,10 @@ public class Item extends WCMUsePojo {
     }
 
     public class ProductProperties {
+
+        private Product product;
+        private CommerceSession commerceSession;
+
         private String path;
         private Iterator<String> variants;
         private String sku;
@@ -197,86 +190,103 @@ public class Item extends WCMUsePojo {
         private String image;
 
         public ProductProperties(Product product, CommerceSession commerceSession) {
-            if (product == null) {
-                return;
-            }
-            this.path = product.getPath();
-            this.variants = product.getVariantAxes();
-            this.sku = product.getSKU();
-            this.title = product.getTitle();
-            this.description = product.getDescription();
-            this.color = product.getProperty("color", String.class);
-            if (color != null) {
-                this.colorClass = color.toLowerCase();
-            }
-            this.size = product.getProperty("size", String.class);
-            try {
-                this.price = commerceSession.getProductPrice(product);
-            } catch (CommerceException e) {
-                LOGGER.error("Error getting the product price: {}", e);
-            }
-            this.summary = product.getProperty("summary", String.class);
-            this.features = product.getProperty("features", String.class);
-            this.image = getImage(product);
+            this.product = product;
+            this.commerceSession = commerceSession;
         }
 
         public String getPath() {
+            if (path == null) {
+                path = product.getPath();
+            }
             return path;
         }
 
         public Iterator<String> getVariants() {
+            if (variants == null) {
+                variants = product.getVariantAxes();
+            }
             return variants;
         }
 
         public String getSku() {
+            if (sku == null) {
+                sku = product.getSKU();
+            }
             return sku;
         }
 
         public String getTitle() {
+            if (title == null) {
+                title = product.getTitle();
+            }
             return title;
         }
 
         public String getDescription() {
+            if (description == null) {
+                description = product.getDescription();
+            }
             return description;
         }
 
         public String getColor() {
+            if (color == null) {
+                color = product.getProperty("color", String.class);
+            }
             return color;
         }
 
         public String getColorClass() {
+            if (colorClass == null) {
+                String color = getColor();
+                if (color != null) {
+                    colorClass = color.toLowerCase();
+                }
+            }
             return colorClass;
         }
 
         public String getSize() {
+            if (size == null) {
+                size = product.getProperty("size", String.class);
+            }
             return size;
         }
 
         public String getPrice() {
+            if (price == null) {
+                try {
+                    price = commerceSession.getProductPrice(product);
+                } catch (CommerceException e) {
+                    LOGGER.error("Error getting the product price: {}", e);
+                }
+            }
             return price;
         }
 
         public String getSummary() {
+            if (summary == null) {
+                summary = product.getProperty("summary", String.class);
+            }
             return summary;
         }
 
         public String getFeatures() {
+            if (features == null) {
+                features = product.getProperty("features", String.class);
+            }
             return features;
         }
 
         public String getImage() {
+            if (image == null) {
+                ImageResource imageResource = product.getImage();
+                if (imageResource != null) {
+                    image = imageResource.getFileReference();
+                }
+            }
             return image;
         }
-
-        private String getImage(Product product) {
-            ImageResource image = product.getImage();
-            if (image == null) {
-                return null;
-            }
-            Resource productImageRes = getResourceResolver().getResource(image.getPath());
-            return (productImageRes != null)? productImageRes.adaptTo(ValueMap.class).get("fileReference", String.class) : "";
-        }
-
     }
 
 }

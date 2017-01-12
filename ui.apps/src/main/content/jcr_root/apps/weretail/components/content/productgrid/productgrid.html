@@ -15,7 +15,6 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <div class="we-product-grid-container"
      data-sly-use.list="com.adobe.cq.wcm.core.components.models.List"
-     data-sly-use.itemTemplate="list_item.html"
      data-sly-use.template="core/wcm/components/commons/v1/templates.html">
     <ul data-sly-list.listItem="${list.listItems}" class="foundation-ordered-list-container">
         <sly data-sly-resource="${ '{0}/jcr:content' @ format=[listItem.page.path], resourceType='weretail/components/content/productgrid/item' }"></sly>
