@@ -38,10 +38,10 @@
         var stateName = $this.attr('name').replace('country', 'state');
         var selector = "select[name='" + stateName + "']";
         if ($.inArray($this.val(), USA_CODES) > -1) {
-            $(selector).show().parents('.cmp-options--drop-down').removeClass('hidden');
+            $(selector).show().parents('.cmp-options').removeClass('hidden');
         }
         else {
-            $(selector).hide().parents('.cmp-options--drop-down').addClass('hidden');
+            $(selector).hide().parents('.cmp-options').addClass('hidden');
             $("select[name$='.state']").prop('selectedIndex', 0).change();
         }
     }
