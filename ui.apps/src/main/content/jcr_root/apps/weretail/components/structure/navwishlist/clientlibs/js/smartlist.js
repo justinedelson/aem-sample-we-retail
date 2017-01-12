@@ -100,6 +100,22 @@
                     alert('An error occured while trying to perform this operation.');
                 });
             },
+            onAddToCartSubmit: function(event) {
+                var $form = $(event.target).closest('form');
+                $.ajax({
+                    url: $form.attr('action'),
+                    data: $form.serialize(),
+                    cache: false,
+                    type: $form.attr('method')
+                }).done(function (json) {
+                    if (window.ContextHub) {
+                        ContextHub.getStore('cart').queryService();
+                    }
+                    window.cartComponent.show();
+                }).fail(function () {
+                    alert('An error occured while trying to perform this operation.');
+                });
+            },
             setTop: function(show) {
                 // handle fixed in js
                 // position fixed in css doesn't work with transform

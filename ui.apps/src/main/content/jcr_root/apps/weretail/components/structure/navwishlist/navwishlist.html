@@ -55,7 +55,7 @@
                                     <strong>{{ smartlistEntry.title }}</strong>
                                 </a>
     
-                                <form class="we-Smartlist-addToCart-form" method="post"
+                                <form class="we-Smartlist-addToCart-form" method="post" v-on:submit.prevent="onAddToCartSubmit"
                                       action="${wishlist.smartListUrl @ extension = 'html', selectors='commerce.smartlist.management'}"
                                       data-sly-use.hapiAddToCartForm="${'org.apache.sling.hapi.sightly.HApiUse' @ type='/apps/public/weretail/hapi_types/addcartentryform'}"
                                       data-sly-attribute="${hapiAddToCartForm.itemtype}" data-rel="addCartEntryForm">
@@ -116,7 +116,8 @@
     
                 <div class="we-Smartlist-footer" v-if="smartlist && smartlistEntriesSize > 0">
                     <div class="we-Smartlist-footer-all">
-                        <form method="post" action="${wishlist.smartListUrl @ extension = 'html', selectors='commerce.smartlist.management'}"
+                        <form method="post" v-on:submit.prevent="onAddToCartSubmit"
+                              action="${wishlist.smartListUrl @ extension = 'html', selectors='commerce.smartlist.management'}"
                               data-sly-use.hapiAddAllToCartForm="${'org.apache.sling.hapi.sightly.HApiUse' @ type='/apps/public/weretail/hapi_types/addcartentryform'}"
                               data-sly-attribute="${hapiAddAllToCartForm.itemtype}" data-rel="addCartEntryForm">
                             <input type="hidden" name="redirect" value="${wishlist.cartPageUrl @ extension = 'html'}" data-sly-attribute="${hapiAddAllToCartForm.itemprop.redirectPath}">
