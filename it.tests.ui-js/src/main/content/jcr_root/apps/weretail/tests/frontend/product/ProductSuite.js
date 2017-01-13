@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 ;(function(h,$){
-    var PRODUCT_GRID_CLASS = ".productgrid";
+    var PRODUCT_GRID_CLASS = ".we-product-grid-container";
 
     window.CQ.WeRetailIT.MenProductsPageLoadTest = function (h, $) {
         return new h.TestCase("Load Men category page")
