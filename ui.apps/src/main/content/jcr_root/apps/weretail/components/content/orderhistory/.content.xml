@@ -3,4 +3,5 @@
     jcr:primaryType="cq:Component"
     jcr:title="Order History"
     jcr:description="We.Retail Order History overview"
+    cq:icon="history"
     componentGroup="We.Retail Commerce"/>

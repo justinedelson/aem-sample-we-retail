@@ -3,4 +3,5 @@
     jcr:primaryType="cq:Component"
     jcr:title="Shopping Cart Prices"
     jcr:description="We.Retail Shopping Cart Prices"
+    cq:icon="shoppingCart"
     componentGroup="We.Retail Commerce"/>

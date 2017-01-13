@@ -3,4 +3,5 @@
     jcr:primaryType="cq:Component"
     jcr:title="Order Details"
     jcr:description="We.Retail Order Details"
+    cq:icon="paste"
     componentGroup="We.Retail Commerce"/>
