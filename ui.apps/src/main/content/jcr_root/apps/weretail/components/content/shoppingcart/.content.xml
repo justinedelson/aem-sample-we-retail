@@ -2,5 +2,5 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Component"
     jcr:title="Shopping Cart"
-    jcr:description="Main Shopping Cart"
-    componentGroup="We.Retail"/>
+    jcr:description="We.Retail Shopping Cart"
+    componentGroup="We.Retail Commerce"/>

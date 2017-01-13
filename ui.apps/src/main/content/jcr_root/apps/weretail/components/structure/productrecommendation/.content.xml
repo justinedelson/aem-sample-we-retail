@@ -4,4 +4,4 @@
     jcr:title="Product Recommendations"
     jcr:description="Display product recommendations"
     sling:resourceSuperType="commerce/components/recommendation"
-    componentGroup="We.Retail.Structure"/>
+    componentGroup="We.Retail Commerce"/>
