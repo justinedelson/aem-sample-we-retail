@@ -41,30 +41,35 @@
                     url: "/libs/granite/security/currentuser.json",
                     async: true,
                     success: function(json) {
-                        var profileStore = ContextHub.getStore('profile');
-
                         // toggle visibility of header elements as per the current logged in user
                         toggleHeaderElements(json['authorizableId']);
 
                         // On publish: load the request user into ContextHub
-                        var requestUser = json["home"];
-                        var contextHubUser = profileStore.getTree().path;
-                        if (!contextHubUser || contextHubUser !== requestUser) {
-                            profileStore.loadProfile(requestUser);
+                        if(ContextHub) {
+                            var profileStore = ContextHub.getStore('profile');
+                            var requestUser = json["home"];
+                            var contextHubUser = profileStore.getTree().path;
+                            if (!contextHubUser || contextHubUser !== requestUser) {
+                                profileStore.loadProfile(requestUser);
+                            }
                         }
                     }
                 });
             } else {
                 // toggle visibility of header elements as per the current user stored in the ContextHub
-                toggleHeaderElements(ContextHub.getStore("profile").getItem("authorizableId"));
+                if(ContextHub) {
+                    toggleHeaderElements(ContextHub.getStore("profile").getItem("authorizableId"));
+                }
             }
         });
 
         // toggle visibility of header elements when the current user changes in ContextHub
         // such as when simulating different personas
-        ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":profile", function () {
-            var profileStore = ContextHub.getStore("profile");
-            toggleHeaderElements(profileStore.getItem("authorizableId"));
-        }, null);
+        if(ContextHub) {
+            ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":profile", function () {
+                var profileStore = ContextHub.getStore("profile");
+                toggleHeaderElements(profileStore.getItem("authorizableId"));
+            }, null);
+        }
     });
 })(jQuery);
