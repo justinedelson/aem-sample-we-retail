@@ -4,4 +4,4 @@
     jcr:title="Product Grid"
     jcr:description="Show product overview"
     sling:resourceSuperType="core/wcm/components/list/v1/list"
-    componentGroup="We.Retail"/>
+    componentGroup="We.Retail Commerce"/>

@@ -3,6 +3,6 @@
     xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Component"
     jcr:title="Mini Shopping Cart"
-    jcr:description="Compact shopping cart for small gird"
+    jcr:description="We.Retail Mini Shopping Cart"
     sling:resourceSuperType="/apps/weretail/components/content/shoppingcart"
-    componentGroup="We.Retail"/>
+    componentGroup="We.Retail Commerce"/>
