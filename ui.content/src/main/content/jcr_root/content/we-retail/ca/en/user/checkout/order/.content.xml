@@ -251,9 +251,9 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
+                                jcr:title="Place order"
                                 sling:resourceType="weretail/components/form/button"
                                 cssClass="btn-action btn-primary"
-                                title="Place order"
                                 type="submit">
                                 <cq:responsive
                                     cq:lastRolledout="{Date}2016-12-02T17:07:48.265+01:00"

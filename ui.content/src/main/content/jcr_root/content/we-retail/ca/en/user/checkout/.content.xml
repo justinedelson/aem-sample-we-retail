@@ -706,8 +706,8 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
+                                jcr:title="Continue"
                                 sling:resourceType="weretail/components/form/button"
-                                caption="Continue"
                                 type="submit">
                                 <cq:responsive
                                     cq:lastRolledout="{Date}2016-12-15T10:46:19.277+01:00"

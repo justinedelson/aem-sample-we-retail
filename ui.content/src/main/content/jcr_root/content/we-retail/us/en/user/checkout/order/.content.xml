@@ -251,8 +251,8 @@
                                 jcr:lastModifiedBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
+                                jcr:title="Place order"
                                 sling:resourceType="weretail/components/form/button"
-                                caption="Place order"
                                 type="submit">
                                 <cq:responsive
                                     cq:lastRolledout="{Date}2016-12-14T14:05:09.252+01:00"

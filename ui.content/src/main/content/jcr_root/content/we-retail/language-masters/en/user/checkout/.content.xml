@@ -503,8 +503,8 @@
                                 jcr:lastModified="{Date}2016-11-10T11:12:50.076+01:00"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
+                                jcr:title="Continue"
                                 sling:resourceType="weretail/components/form/button"
-                                caption="Continue"
                                 type="submit">
                                 <cq:responsive jcr:primaryType="nt:unstructured">
                                     <default
