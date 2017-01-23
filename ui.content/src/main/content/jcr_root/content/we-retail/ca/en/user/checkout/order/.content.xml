@@ -6,7 +6,7 @@
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
         cq:lastModified="{Date}2016-12-02T17:07:48.284+01:00"
         cq:lastModifiedBy="admin"
-        cq:lastRolledout="{Date}2016-12-15T16:10:06.806+01:00"
+        cq:lastRolledout="{Date}2017-01-23T16:43:16.442+01:00"
         cq:lastRolledoutBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/content-page"
         jcr:mixinTypes="[cq:LiveRelationship]"

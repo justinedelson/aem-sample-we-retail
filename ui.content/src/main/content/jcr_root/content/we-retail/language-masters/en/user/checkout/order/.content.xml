@@ -40,159 +40,150 @@
                         jcr:title="REVIEW YOUR ORDER"
                         sling:resourceType="wcm/foundation/components/title"
                         type="h2"/>
-                    <responsivegrid
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            width="8"/>
+                    </cq:responsive>
+                    <column1
                         jcr:created="{Date}2016-11-17T11:52:45.013+01:00"
                         jcr:createdBy="admin"
                         jcr:lastModified="{Date}2016-11-17T11:52:45.013+01:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="wcm/foundation/components/responsivegrid">
-                        <cq:responsive jcr:primaryType="nt:unstructured"/>
-                        <column1
-                            jcr:created="{Date}2016-11-17T11:52:45.013+01:00"
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
+                        </cq:responsive>
+                        <shipping-address-title
+                            jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
                             jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2016-11-17T11:52:45.013+01:00"
+                            jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="wcm/foundation/components/responsivegrid">
+                            jcr:title="Shipping Address"
+                            sling:resourceType="weretail/components/content/title"
+                            type="h4"/>
+                        <shipping-addressbook
+                            jcr:created="{Date}2016-11-11T10:55:15.170+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2016-11-11T10:55:32.011+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/address/components/addressbook"
+                            addAddressButton="true"
+                            addressType="shipping"
+                            displayType="selected"
+                            readOnly="true"
+                            showDeleteAddressButton="true"
+                            showMakeDefaultAddressButton="true"
+                            showUpdateAddressButton="true"
+                            showUseAddressButton="true"/>
+                        <billing-address-title
+                            jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Billing Address"
+                            sling:resourceType="weretail/components/content/title"
+                            type="h4"/>
+                        <billing-addressbook
+                            jcr:created="{Date}2016-11-11T10:55:15.170+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2016-11-11T10:55:32.011+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/address/components/addressbook"
+                            addAddressButton="true"
+                            addressType="billing"
+                            displayType="selected"
+                            readOnly="true"
+                            showDeleteAddressButton="true"
+                            showMakeDefaultAddressButton="true"
+                            showUpdateAddressButton="true"
+                            showUseAddressButton="true"/>
+                    </column1>
+                    <column2
+                        jcr:created="{Date}2016-11-17T11:52:45.013+01:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2016-11-17T11:52:45.013+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/foundation/components/responsivegrid">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
+                        </cq:responsive>
+                        <shipping-method-title
+                            jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Shipping Method"
+                            sling:resourceType="weretail/components/content/title"
+                            type="h4"/>
+                        <shipping-method
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="commerce/components/shippingmethods"
+                            readOnly="true"/>
+                        <payment-method-title
+                            jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Payment Method"
+                            sling:resourceType="weretail/components/content/title"
+                            type="h4"/>
+                        <payment-method
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="commerce/components/paymentmethods"
+                            readOnly="true"/>
+                        <gift-promotion-title
+                            jcr:created="{Date}2016-11-10T11:07:14.454+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2016-11-10T11:07:31.282+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Gift &amp; Promotional Codes"
+                            sling:resourceType="weretail/components/content/title"
+                            type="h4"/>
+                        <promotional-code
+                            jcr:created="{Date}2016-11-10T11:07:46.063+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2016-11-17T12:18:03.221+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Promotional Code"
+                            sling:resourceType="weretail/components/form/text"
+                            constraintType="text"
+                            helpMessage="Promotional Code"
+                            hideTitle="true"
+                            name="promotional-code"
+                            type="text"
+                            usePlaceholder="true"/>
+                        <button
+                            jcr:created="{Date}2016-11-10T11:10:58.798+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2016-11-10T11:12:50.076+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Place order"
+                            sling:resourceType="weretail/components/form/button"
+                            type="submit">
                             <cq:responsive jcr:primaryType="nt:unstructured">
                                 <default
                                     jcr:primaryType="nt:unstructured"
-                                    width="6"/>
+                                    offset="2"
+                                    width="4"/>
                             </cq:responsive>
-                            <shipping-address-title
-                                jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                jcr:title="Shipping Address"
-                                sling:resourceType="weretail/components/content/title"
-                                type="h4"/>
-                            <shipping-addressbook
-                                jcr:created="{Date}2016-11-11T10:55:15.170+01:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-11T10:55:32.011+01:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="cq/address/components/addressbook"
-                                addAddressButton="true"
-                                addressType="shipping"
-                                displayType="selected"
-                                readOnly="true"
-                                showDeleteAddressButton="true"
-                                showMakeDefaultAddressButton="true"
-                                showUpdateAddressButton="true"
-                                showUseAddressButton="true"/>
-                            <billing-address-title
-                                jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                jcr:title="Billing Address"
-                                sling:resourceType="weretail/components/content/title"
-                                type="h4"/>
-                            <billing-addressbook
-                                jcr:created="{Date}2016-11-11T10:55:15.170+01:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-11T10:55:32.011+01:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="cq/address/components/addressbook"
-                                addAddressButton="true"
-                                addressType="billing"
-                                displayType="selected"
-                                readOnly="true"
-                                showDeleteAddressButton="true"
-                                showMakeDefaultAddressButton="true"
-                                showUpdateAddressButton="true"
-                                showUseAddressButton="true"/>
-                        </column1>
-                        <column2
-                            jcr:created="{Date}2016-11-17T11:52:45.013+01:00"
-                            jcr:createdBy="admin"
-                            jcr:lastModified="{Date}2016-11-17T11:52:45.013+01:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="wcm/foundation/components/responsivegrid">
-                            <cq:responsive jcr:primaryType="nt:unstructured">
-                                <default
-                                    jcr:primaryType="nt:unstructured"
-                                    width="6"/>
-                            </cq:responsive>
-                            <shipping-method-title
-                                jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                jcr:title="Shipping Method"
-                                sling:resourceType="weretail/components/content/title"
-                                type="h4"/>
-                            <shipping-method
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="commerce/components/shippingmethods"
-                                readOnly="true"/>
-                            <payment-method-title
-                                jcr:created="{Date}2016-11-11T10:53:37.297+01:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-11T10:54:38.471+01:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                jcr:title="Payment Method"
-                                sling:resourceType="weretail/components/content/title"
-                                type="h4"/>
-                            <payment-method
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="commerce/components/paymentmethods"
-                                readOnly="true"/>
-                            <gift-promotion-title
-                                jcr:created="{Date}2016-11-10T11:07:14.454+01:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-10T11:07:31.282+01:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                jcr:title="Gift &amp; Promotional Codes"
-                                sling:resourceType="weretail/components/content/title"
-                                type="h4"/>
-                            <promotional-code
-                                jcr:created="{Date}2016-11-10T11:07:46.063+01:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-17T12:18:03.221+01:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                jcr:title="Promotional Code"
-                                sling:resourceType="weretail/components/form/text"
-                                constraintType="text"
-                                helpMessage="Promotional Code"
-                                hideTitle="true"
-                                name="promotional-code"
-                                type="text"
-                                usePlaceholder="true"/>
-                            <button
-                                jcr:created="{Date}2016-11-10T11:10:58.798+01:00"
-                                jcr:createdBy="admin"
-                                jcr:lastModified="{Date}2016-11-10T11:12:50.076+01:00"
-                                jcr:lastModifiedBy="admin"
-                                jcr:primaryType="nt:unstructured"
-                                jcr:title="Place order"
-                                sling:resourceType="weretail/components/form/button"
-                                type="submit">
-                                <cq:responsive jcr:primaryType="nt:unstructured">
-                                    <default
-                                        jcr:primaryType="nt:unstructured"
-                                        offset="2"
-                                        width="4"/>
-                                </cq:responsive>
-                            </button>
-                        </column2>
-                    </responsivegrid>
-                    <cq:responsive jcr:primaryType="nt:unstructured">
-                        <default
-                            jcr:primaryType="nt:unstructured"
-                            width="8"/>
-                    </cq:responsive>
+                        </button>
+                    </column2>
                 </formcontainer>
                 <responsivegrid
                     jcr:created="{Date}2016-11-17T11:52:45.013+01:00"
