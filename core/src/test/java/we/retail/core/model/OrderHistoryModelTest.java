@@ -29,7 +29,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import com.adobe.cq.commerce.api.CommerceService;
-import com.adobe.cq.commerce.api.PlacedOrder;
+import com.adobe.cq.commerce.common.PriceFilter;
 import com.adobe.cq.sightly.WCMBindings;
 import com.day.cq.dam.commons.util.DateParser;
 import com.day.cq.wcm.api.Page;
@@ -44,6 +44,7 @@ public class OrderHistoryModelTest {
 
     private static final String DUMMY_ORDER_ID = "dummy-order-id";
     private static final String DUMMY_ORDER_DATE = "Sun Dec 11 2016 16:42:15 GMT+0100";
+    private static final String DUMMY_ORDER_LIST_ID = "201612110";
 
     @Rule
     public final AemContext context = AppAemContext.newAemContext();
@@ -93,5 +94,23 @@ public class OrderHistoryModelTest {
         assertEquals(1, date0.compareTo(date1));
         assertEquals(Constants.TEST_ORDER_ID, orders.get(0).getOrderId());
         assertEquals(DUMMY_ORDER_ID, orders.get(1).getOrderId());
+
+        // The list id index is also descending, so that the last order has the highest index
+        assertEquals(Constants.ORDER_LIST_ID, orders.get(0).getListOrderId());
+        assertEquals(DUMMY_ORDER_LIST_ID, orders.get(1).getListOrderId());
+    }
+
+    @Test
+    public void testOrder() throws Exception {
+        List<PlacedOrderWrapper> orders = orderHistoryModel.getOrders();
+        PlacedOrderWrapper order = orders.get(0);
+
+        assertEquals(Constants.TEST_ORDER_ID, order.getOrderId());
+        assertEquals(Constants.ORDER_LIST_ID, order.getListOrderId());
+        assertEquals(Constants.ORDER_STATUS, order.getOrder().get("orderStatus"));
+        assertEquals(Constants.TOTAL, order.getCartPrice(new PriceFilter("TOTAL")));
+        assertEquals(Constants.ENTRIES_SIZE, order.getCartEntries().size());
+        assertEquals(0, order.getPromotions().size());
+        assertEquals(0, order.getVoucherInfos().size());
     }
 }

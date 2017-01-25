@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -64,7 +65,7 @@ public class OrderHistoryModel {
     private Page currentPage;
 
     private CommerceSession commerceSession;
-    private List<PlacedOrderWrapper> orders;
+    private List<PlacedOrderWrapper> wrappedOrders;
 
     @PostConstruct
     private void initModel() {
@@ -72,8 +73,9 @@ public class OrderHistoryModel {
             CommerceService commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
             commerceSession = commerceService.login(request, response);
             PlacedOrderResult orderResult = commerceSession.getPlacedOrders(null, 0, 0, null);
-            orders = convert(orderResult.getOrders());
+            List<PlacedOrder> orders = orderResult.getOrders();
             Collections.sort(orders, orderComparator);
+            wrappedOrders = convert(orders);
         } catch (CommerceException e) {
             LOGGER.error("Failed to initialize sling model", e);
         }
@@ -96,15 +98,23 @@ public class OrderHistoryModel {
                 return p1 == null ? (p2 == null ? 0 : 1) : -1;
             }
 
-            boolean p1IsCalendar = (p1 instanceof Calendar);
-            boolean p2IsCalendar = (p2 instanceof Calendar);
+            Date d1 = null, d2 = null;
+            if (p1 instanceof Calendar) {
+                d1 = ((Calendar) p1).getTime();
+            } else if (p1 instanceof Date) {
+                d1 = (Date) p1;
+            }
 
-            if (p1IsCalendar && p2IsCalendar) {
-                Calendar c1 = (Calendar) p1;
-                Calendar c2 = (Calendar) p2;
-                return c2.compareTo(c1);
+            if (p2 instanceof Calendar) {
+                d2 = ((Calendar) p2).getTime();
+            } else if (p2 instanceof Date) {
+                d2 = (Date) p2;
+            }
+
+            if (d1 != null && d2 != null) {
+                return d2.compareTo(d1);
             } else {
-                return p1IsCalendar ? -1 : (p2IsCalendar ? 1 : 0);
+                return d1 != null ? -1 : (d2 != null ? 1 : 0);
             }
         }
     };
@@ -115,17 +125,19 @@ public class OrderHistoryModel {
     }
 
     public List<PlacedOrderWrapper> getOrders() {
-        return orders;
+        return wrappedOrders;
     }
 
     public boolean isEmpty() {
-        return orders == null || orders.isEmpty();
+        return wrappedOrders == null || wrappedOrders.isEmpty();
     }
 
     private List<PlacedOrderWrapper> convert(List<PlacedOrder> orders) {
         List<PlacedOrderWrapper> wrappedOrders = new ArrayList<PlacedOrderWrapper>();
         for (int i = 0, l = orders.size(); i < l; i++) {
-            wrappedOrders.add(new PlacedOrderWrapper(orders.get(i), i));
+            // The list id index is descending, so that the last order (in time) has the highest index
+            // This ensures that an old order keeps the same id when a new order is added 
+            wrappedOrders.add(new PlacedOrderWrapper(orders.get(i), l - 1 - i));
         }
         return wrappedOrders;
     }
@@ -141,9 +153,16 @@ public class OrderHistoryModel {
         }
 
         public String getListOrderId() throws CommerceException {
-            Calendar c = (Calendar) placedOrder.getOrder().get(WeRetailConstants.ORDER_PLACED);
+            Date date = null;
+            Object obj = placedOrder.getOrder().get(WeRetailConstants.ORDER_PLACED);
+            if (obj instanceof Date) {
+                date = (Date) obj;
+            } else if (obj instanceof Calendar) {
+                date = ((Calendar) obj).getTime();
+            }
+
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-            return sdf.format(c.getTime()) + index;
+            return sdf.format(date) + index;
         }
 
         @Override

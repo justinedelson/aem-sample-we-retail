@@ -15,11 +15,14 @@
  ******************************************************************************/
 package we.retail.core;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+
 import com.adobe.cq.commerce.common.AbstractJcrProduct;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
+
 import we.retail.core.util.WeRetailHelper;
 
 public class WeRetailProductImpl extends AbstractJcrProduct {
@@ -74,7 +77,7 @@ public class WeRetailProductImpl extends AbstractJcrProduct {
             if (productPage != null)
                 brand = WeRetailHelper.getPageTitle(productPage.getAbsoluteParent(2));
             // Make sure that the value is not null, to avoid initializing it again
-            if (WeRetailHelper.isEmpty(brand))
+            if (StringUtils.isBlank(brand))
                 brand = "";
         }
         return brand;

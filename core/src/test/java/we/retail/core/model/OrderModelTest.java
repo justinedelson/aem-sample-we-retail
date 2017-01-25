@@ -95,7 +95,7 @@ public class OrderModelTest {
     @Test
     public void testOrderEntries() throws CommerceException {
         List<CartEntry> entries = orderModel.getEntries();
-        assertEquals(2, entries.size());
+        assertEquals(Constants.ENTRIES_SIZE, entries.size());
 
         CartEntry entry0 = entries.get(0);
         assertEquals(Constants.ENTRY_0_PATH, entry0.getProduct().getPath());
