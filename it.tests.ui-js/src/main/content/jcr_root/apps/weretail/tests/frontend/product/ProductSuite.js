@@ -91,7 +91,7 @@
             // Test navbar
             .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             // Test products
-            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 19))
+            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 21))
             // Test first product
             .execTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + " .we-ProductsGrid-item:first"))
             // Test footer
@@ -117,7 +117,7 @@
             // Test navbar
             .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             // Test products
-            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 33))
+            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS, 46))
             // Test first product
             .execTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + " .we-ProductsGrid-item:first"))
             // Test footer
