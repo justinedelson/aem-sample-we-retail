@@ -246,7 +246,7 @@
         <dependency>
             <groupId>we</groupId>
             <artifactId>we.retail.core</artifactId>
-            <version>1.9.62</version>
+            <version>1.9.64</version>
         </dependency>
         <dependency>
             <groupId>com.day.cq</groupId>
