@@ -15,6 +15,8 @@
  */
 ;(function(h,$){
 
+    hobs.config.pacing_delay = 250;
+
     window.CQ.WeRetailIT.ExperienceNavigationTest = function (h, $) {
         return new h.TestCase("Navigation to experiences")
 
