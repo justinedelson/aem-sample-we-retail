@@ -15,24 +15,22 @@
  */
 (function ($) {
     $(function () {
-        $CQ(document).ready(function () {
-            var wcmmodeDisabled = typeof $(".we-retail-header").data("wcmmodeDisabled") != "undefined";
-            // On publish: load the request user into ContextHub
-            if (wcmmodeDisabled) {
-                $.ajax({
-                    type: "GET",
-                    url: "/libs/granite/security/currentuser.json",
-                    async: true,
-                    success: function(json) {
-                        var profileStore = ContextHub.getStore('profile');
-                        var requestUser = json["home"];
-                        var contextHubUser = profileStore.getTree().path;
-                        if (!contextHubUser || contextHubUser !== requestUser) {
-                            profileStore.loadProfile(requestUser);
-                        }
+        var wcmmodeDisabled = typeof $(".we-retail-header").data("wcmmodeDisabled") != "undefined";
+        // On publish: load the request user into ContextHub
+        if (wcmmodeDisabled) {
+            $.ajax({
+                type: "GET",
+                url: "/libs/granite/security/currentuser.json",
+                async: true,
+                success: function(json) {
+                    var profileStore = ContextHub.getStore('profile');
+                    var requestUser = json["home"];
+                    var contextHubUser = profileStore.getTree().path;
+                    if (!contextHubUser || contextHubUser !== requestUser) {
+                        profileStore.loadProfile(requestUser);
                     }
-                });
-            }
-        });
+                }
+            });
+        }
     });
 })(jQuery);

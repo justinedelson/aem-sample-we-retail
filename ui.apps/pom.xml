@@ -199,13 +199,13 @@
                                 <goals>
                                     <goal>install</goal>
                                 </goals>
+                                <configuration>
+                                    <targetURL>http://${aem.host}:${aem.port}${aem.contextPath}/crx/packmgr/service.jsp</targetURL>
+                                    <failOnError>true</failOnError>
+                                    <failOnMissingEmbed>true</failOnMissingEmbed>
+                                </configuration>
                             </execution>
                         </executions>
-                        <configuration>
-                            <targetURL>http://${aem.host}:${aem.port}${aem.contextPath}/crx/packmgr/service.jsp</targetURL>
-                            <failOnError>true</failOnError>
-                            <failOnMissingEmbed>true</failOnMissingEmbed>
-                        </configuration>
                      </plugin>
                  </plugins>
             </build>
@@ -222,17 +222,17 @@
                         <artifactId>content-package-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>install-package</id>
+                                <id>install-package-publish</id>
                                 <goals>
                                     <goal>install</goal>
                                 </goals>
+                                <configuration>
+                                    <targetURL>http://${aem.publish.host}:${aem.publish.port}${aem.contextPath}/crx/packmgr/service.jsp</targetURL>
+                                    <failOnError>true</failOnError>
+                                    <failOnMissingEmbed>true</failOnMissingEmbed>
+                                </configuration>
                             </execution>
                         </executions>
-                        <configuration>
-                            <targetURL>http://${aem.publish.host}:${aem.publish.port}${aem.contextPath}/crx/packmgr/service.jsp</targetURL>
-                            <failOnError>true</failOnError>
-                            <failOnMissingEmbed>true</failOnMissingEmbed>
-                        </configuration>
                      </plugin>
                  </plugins>
             </build>
