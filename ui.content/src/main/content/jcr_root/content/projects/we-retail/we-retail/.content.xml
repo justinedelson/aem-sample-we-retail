@@ -18,7 +18,6 @@
         coverUrl="/content/dam/projects/we-retail/cover"
         damFolderPath="/content/dam/projects/we-retail"
         detailsHref="/projects/details.html"
-        project.startDate=""
         taskid=""
         user="">
         <links jcr:primaryType="nt:unstructured"/>

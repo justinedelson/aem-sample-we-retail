@@ -28,16 +28,18 @@ public class Button extends WCMUsePojo {
 
     public static final Logger log = LoggerFactory.getLogger(Button.class);
 
-
     public static final String PROP_LINK_TO = "linkTo";
+    public static final String CSS_CLASS = "cssClass";
 
     private String linkTo;
+    private String cssClass;
 
     @Override
     public void activate() throws Exception {
         Resource resource = getResource();
         ValueMap properties = getProperties();
         linkTo = properties.get(PROP_LINK_TO, "#");
+        cssClass = properties.get(CSS_CLASS, "");
         if (StringUtils.isNotEmpty(linkTo) && !"#".equals(linkTo)) {
             linkTo = linkTo + ".html";
         }
@@ -49,4 +51,7 @@ public class Button extends WCMUsePojo {
         return linkTo;
     }
 
+    public String getCssClass() {
+        return cssClass;
+    }
 }

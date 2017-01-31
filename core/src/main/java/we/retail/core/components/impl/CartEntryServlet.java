@@ -24,6 +24,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
@@ -72,7 +73,7 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(CartEntryServlet.class);
 
-    private static final String CONTENT_WE_RETAIL = "/content/we-retail/";
+    private static final String CONTENT_WE_RETAIL_DEFAULT = "/content/we-retail/us/en/";
     private static final String CART_PATH = "/user/cart/jcr:content/root/responsivegrid/cart";
     private static final String CART_PRICES_PATH = "/user/cart/jcr:content/root/responsivegrid/shoppingcartprices";
     private static final String NAV_CART_PATH = "/apps/weretail/components/structure/navcart";
@@ -132,7 +133,7 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
 
     private void doModifyProduct(SlingHttpServletRequest request, SlingHttpServletResponse response, CommerceSession session) throws IOException {
         String qty = request.getParameter("quantity");
-        int quantity = xssAPI.getValidInteger(qty, 1);
+        int quantity = StringUtils.isNumeric(qty) ? xssAPI.getValidInteger(qty, 1) : -1;
         if (quantity < 0) {
             response.sendError(HttpServletResponse.SC_FORBIDDEN);
             return;
@@ -207,7 +208,7 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
         Page currentPage = request.getResource().adaptTo(Page.class);
         Page root = WeRetailHelper.findRoot(currentPage);
 
-        String path = CONTENT_WE_RETAIL + contentPath; // Fallback if root is not found
+        String path = CONTENT_WE_RETAIL_DEFAULT + contentPath; // Fallback if root is not found
         if (root != null) {
             path = root.getPath() + contentPath;
         }

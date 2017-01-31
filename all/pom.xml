@@ -171,28 +171,28 @@
         <dependency>
             <groupId>com.adobe.aem.sample</groupId>
             <artifactId>we.retail.commons.content</artifactId>
-            <version>1.9.4</version>
+            <version>1.9.23-SNAPSHOT</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>com.adobe.cq.wcm.core.components.content</artifactId>
-            <version>0.9.6</version>
+            <version>0.9.157-SNAPSHOT</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>we</groupId>
             <artifactId>we.retail.ui.apps</artifactId>
-            <version>1.9.6</version>
+            <version>1.9.189-SNAPSHOT</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>we</groupId>
             <artifactId>we.retail.ui.content</artifactId>
-            <version>1.9.4</version>
+            <version>1.9.93-SNAPSHOT</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>

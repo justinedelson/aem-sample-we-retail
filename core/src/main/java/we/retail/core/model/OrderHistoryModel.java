@@ -15,17 +15,22 @@
  */
 package we.retail.core.model;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
+import org.apache.commons.collections.Predicate;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,11 +38,17 @@ import org.slf4j.LoggerFactory;
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.CommerceSession;
+import com.adobe.cq.commerce.api.CommerceSession.CartEntry;
 import com.adobe.cq.commerce.api.PlacedOrder;
 import com.adobe.cq.commerce.api.PlacedOrderResult;
+import com.adobe.cq.commerce.api.PriceInfo;
+import com.adobe.cq.commerce.api.promotion.PromotionInfo;
+import com.adobe.cq.commerce.api.promotion.VoucherInfo;
 import com.adobe.granite.security.user.UserProperties;
 import com.day.cq.personalization.UserPropertiesUtil;
 import com.day.cq.wcm.api.Page;
+
+import we.retail.core.WeRetailConstants;
 
 @Model(adaptables = SlingHttpServletRequest.class)
 public class OrderHistoryModel {
@@ -50,20 +61,21 @@ public class OrderHistoryModel {
     @SlingObject
     private SlingHttpServletResponse response;
 
-    @Inject
+    @ScriptVariable
     private Page currentPage;
 
     private CommerceSession commerceSession;
-    private List<PlacedOrder> orders;
+    private List<PlacedOrderWrapper> wrappedOrders;
 
     @PostConstruct
-    private void activate() {
+    private void initModel() {
         try {
             CommerceService commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
             commerceSession = commerceService.login(request, response);
             PlacedOrderResult orderResult = commerceSession.getPlacedOrders(null, 0, 0, null);
-            orders = orderResult.getOrders();
+            List<PlacedOrder> orders = orderResult.getOrders();
             Collections.sort(orders, orderComparator);
+            wrappedOrders = convert(orders);
         } catch (CommerceException e) {
             LOGGER.error("Failed to initialize sling model", e);
         }
@@ -76,8 +88,8 @@ public class OrderHistoryModel {
         public int compare(PlacedOrder o1, PlacedOrder o2) {
             Object p1, p2;
             try {
-                p1 = o1.getOrder().get("orderPlaced");
-                p2 = o2.getOrder().get("orderPlaced");
+                p1 = o1.getOrder().get(WeRetailConstants.ORDER_PLACED);
+                p2 = o2.getOrder().get(WeRetailConstants.ORDER_PLACED);
             } catch (CommerceException e) {
                 return 0;
             }
@@ -86,15 +98,23 @@ public class OrderHistoryModel {
                 return p1 == null ? (p2 == null ? 0 : 1) : -1;
             }
 
-            boolean p1IsCalendar = (p1 instanceof Calendar);
-            boolean p2IsCalendar = (p2 instanceof Calendar);
+            Date d1 = null, d2 = null;
+            if (p1 instanceof Calendar) {
+                d1 = ((Calendar) p1).getTime();
+            } else if (p1 instanceof Date) {
+                d1 = (Date) p1;
+            }
 
-            if (p1IsCalendar && p2IsCalendar) {
-                Calendar c1 = (Calendar) p1;
-                Calendar c2 = (Calendar) p2;
-                return c2.compareTo(c1);
+            if (p2 instanceof Calendar) {
+                d2 = ((Calendar) p2).getTime();
+            } else if (p2 instanceof Date) {
+                d2 = (Date) p2;
+            }
+
+            if (d1 != null && d2 != null) {
+                return d2.compareTo(d1);
             } else {
-                return p1IsCalendar ? -1 : (p2IsCalendar ? 1 : 0);
+                return d1 != null ? -1 : (d2 != null ? 1 : 0);
             }
         }
     };
@@ -104,11 +124,80 @@ public class OrderHistoryModel {
         return userProperties == null || UserPropertiesUtil.isAnonymous(userProperties);
     }
 
-    public List<PlacedOrder> getOrders() {
-        return orders;
+    public List<PlacedOrderWrapper> getOrders() {
+        return wrappedOrders;
     }
 
     public boolean isEmpty() {
-        return orders == null || orders.isEmpty();
+        return wrappedOrders == null || wrappedOrders.isEmpty();
+    }
+
+    private List<PlacedOrderWrapper> convert(List<PlacedOrder> orders) {
+        List<PlacedOrderWrapper> wrappedOrders = new ArrayList<PlacedOrderWrapper>();
+        for (int i = 0, l = orders.size(); i < l; i++) {
+            // The list id index is descending, so that the last order (in time) has the highest index
+            // This ensures that an old order keeps the same id when a new order is added 
+            wrappedOrders.add(new PlacedOrderWrapper(orders.get(i), l - 1 - i));
+        }
+        return wrappedOrders;
+    }
+
+    public class PlacedOrderWrapper implements PlacedOrder {
+
+        private PlacedOrder placedOrder;
+        private int index;
+
+        public PlacedOrderWrapper(PlacedOrder placedOrder, int index) {
+            this.placedOrder = placedOrder;
+            this.index = index;
+        }
+
+        public String getListOrderId() throws CommerceException {
+            Date date = null;
+            Object obj = placedOrder.getOrder().get(WeRetailConstants.ORDER_PLACED);
+            if (obj instanceof Date) {
+                date = (Date) obj;
+            } else if (obj instanceof Calendar) {
+                date = ((Calendar) obj).getTime();
+            }
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+            return sdf.format(date) + index;
+        }
+
+        @Override
+        public String getOrderId() throws CommerceException {
+            return placedOrder.getOrderId();
+        }
+
+        @Override
+        public Map<String, Object> getOrder() throws CommerceException {
+            return placedOrder.getOrder();
+        }
+
+        @Override
+        public List<PriceInfo> getCartPriceInfo(Predicate filter) throws CommerceException {
+            return placedOrder.getCartPriceInfo(filter);
+        }
+
+        @Override
+        public String getCartPrice(Predicate filter) throws CommerceException {
+            return placedOrder.getCartPrice(filter);
+        }
+
+        @Override
+        public List<CartEntry> getCartEntries() throws CommerceException {
+            return placedOrder.getCartEntries();
+        }
+
+        @Override
+        public List<PromotionInfo> getPromotions() throws CommerceException {
+            return placedOrder.getPromotions();
+        }
+
+        @Override
+        public List<VoucherInfo> getVoucherInfos() throws CommerceException {
+            return placedOrder.getVoucherInfos();
+        }
     }
 }

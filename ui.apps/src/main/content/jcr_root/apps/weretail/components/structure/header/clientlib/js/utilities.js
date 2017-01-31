@@ -22,7 +22,7 @@
      * @param currentUser The id of the current logged in user
      * (should be anonymous if there is no logged in user)
      */
-    function toggleHeaderElements(currentUser){
+    function toggleHeaderElements(currentUser) {
         if (currentUser === "anonymous") {
             $(".we-retail-anonymous").removeClass("hidden");
             $(".we-retail-not-anonymous").addClass("hidden");
@@ -33,39 +33,37 @@
     }
 
     $(function () {
-        $CQ(document).ready(function () {
-            var wcmmodeDisabled = typeof $(".we-retail-header").data("wcmmodeDisabled") != "undefined";
-            if (wcmmodeDisabled) {
-                $.ajax({
-                    type: "GET",
-                    url: "/libs/granite/security/currentuser.json",
-                    async: true,
-                    success: function(json) {
-                        // toggle visibility of header elements as per the current logged in user
-                        toggleHeaderElements(json['authorizableId']);
+        var wcmmodeDisabled = typeof $(".we-retail-header").data("wcmmodeDisabled") != "undefined";
+        if (wcmmodeDisabled) {
+            $.ajax({
+                type: "GET",
+                url: "/libs/granite/security/currentuser.json",
+                async: true,
+                success: function (json) {
+                    // toggle visibility of header elements as per the current logged in user
+                    toggleHeaderElements(json['authorizableId']);
 
-                        // On publish: load the request user into ContextHub
-                        if(ContextHub) {
-                            var profileStore = ContextHub.getStore('profile');
-                            var requestUser = json["home"];
-                            var contextHubUser = profileStore.getTree().path;
-                            if (!contextHubUser || contextHubUser !== requestUser) {
-                                profileStore.loadProfile(requestUser);
-                            }
+                    // On publish: load the request user into ContextHub
+                    if (ContextHub) {
+                        var profileStore = ContextHub.getStore('profile');
+                        var requestUser = json["home"];
+                        var contextHubUser = profileStore.getTree().path;
+                        if (!contextHubUser || contextHubUser !== requestUser) {
+                            profileStore.loadProfile(requestUser);
                         }
                     }
-                });
-            } else {
-                // toggle visibility of header elements as per the current user stored in the ContextHub
-                if(ContextHub) {
-                    toggleHeaderElements(ContextHub.getStore("profile").getItem("authorizableId"));
                 }
+            });
+        } else {
+            // toggle visibility of header elements as per the current user stored in the ContextHub
+            if (ContextHub) {
+                toggleHeaderElements(ContextHub.getStore("profile").getItem("authorizableId"));
             }
-        });
+        }
 
         // toggle visibility of header elements when the current user changes in ContextHub
         // such as when simulating different personas
-        if(ContextHub) {
+        if (ContextHub) {
             ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":profile", function () {
                 var profileStore = ContextHub.getStore("profile");
                 toggleHeaderElements(profileStore.getItem("authorizableId"));

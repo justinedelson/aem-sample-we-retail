@@ -23,7 +23,7 @@
     <parent>
         <groupId>we</groupId>
         <artifactId>we.retail</artifactId>
-        <version>1.9.8</version>
+        <version>1.9.18</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
@@ -31,7 +31,7 @@
     <!-- P R O J E C T D E S C R I P T I O N -->
     <!-- ====================================================================== -->
     <artifactId>we.retail.ui.content</artifactId>
-  <version>1.9.63-SNAPSHOT</version>
+  <version>1.9.109-SNAPSHOT</version>
     <packaging>content-package</packaging>
     <name>We.Retail - UI content</name>
     <description>UI content package for We.Retail</description>
@@ -159,7 +159,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
+                            <targetURL>http://${aem.host}:${aem.port}${aem.contextPath}/crx/packmgr/service.jsp</targetURL>
                             <failOnError>true</failOnError>
                             <failOnMissingEmbed>true</failOnMissingEmbed>
                             <requiresRoot>true</requiresRoot>
@@ -193,7 +193,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <targetURL>http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
+                            <targetURL>http://${aem.publish.host}:${aem.publish.port}${aem.contextPath}/crx/packmgr/service.jsp</targetURL>
                             <failOnError>true</failOnError>
                             <failOnMissingEmbed>true</failOnMissingEmbed>
                         </configuration>

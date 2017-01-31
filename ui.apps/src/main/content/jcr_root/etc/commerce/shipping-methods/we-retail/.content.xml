@@ -7,8 +7,8 @@
         jcr:primaryType="nt:unstructured"
         jcr:title="We.Retail"
         sling:resourceType="foundation/components/page"/>
-    <two-business-day/>
     <standard-shipping/>
     <ground-shipping/>
+    <two-business-day/>
     <one-business-day/>
 </jcr:root>

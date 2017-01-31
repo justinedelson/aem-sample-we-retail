@@ -29,7 +29,7 @@
             </div>
             <div>
                 <span class="title">${'Order date' @ i18n}:</span> 
-                <span data-sly-attribute="${hapiOrder.itemprop.date}">${order.orderDate}</span>
+                <span data-sly-attribute="${hapiOrder.itemprop.date}">${'dd MMM, yyyy' @ format=order.orderDate}</span>
             </div>
             <div>
                 <span class="title">${'Order status' @ i18n}:</span>
@@ -91,7 +91,7 @@
         </div>
         <div class="we-ShoppingOrder-promotions" data-sly-test="${order.orderPromotions}">
             <sly data-sly-repeat.promotion="${order.orderPromotions}">
-                <span class="we-ShoppingCart-promotion">${promotion.message}</span>
+                <span class="we-ShoppingCart-promotion">${promotion.message @ context='html'}</span>
             </sly>
         </div>
         

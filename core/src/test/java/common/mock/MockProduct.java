@@ -91,7 +91,7 @@ public class MockProduct extends ResourceWrapper implements Product {
 
     @Override
     public String getThumbnailUrl(int width) {
-        throw new UnsupportedOperationException();
+        return null;
     }
 
     @Override
@@ -160,6 +160,9 @@ public class MockProduct extends ResourceWrapper implements Product {
 
     @Override
     public Product getBaseProduct() throws CommerceException {
+        if (StringUtils.equals(getValueMap().get("cq:commerceType", String.class), "variant")) {
+            return new MockProduct(resource.getParent());
+        }
         return null;
     }
 

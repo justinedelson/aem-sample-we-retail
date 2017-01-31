@@ -63,6 +63,11 @@
                 variantAxes: null,
 
                 isChecked: function (name, value) {
+                    if (name == 'color' && this.product.variantAxes[name] == value) {
+                        $("input[name='color']").siblings('div').removeClass('tick');
+                        $("input[value='" + value + "']").siblings('div').addClass('tick');
+                    }
+
                     return this.product.variantAxes[name] == value;
                 }
             },
@@ -85,7 +90,7 @@
                         if (done) {
                             return;
                         }
-                        
+
                         var ok = true;
                         for (var key in self.variantAxes) {
                             if (self.variantAxes.hasOwnProperty(key)) {
@@ -95,7 +100,7 @@
                                 }
                             }
                         }
-                        
+
                         if (ok)
                         {
                             done = true;
@@ -108,6 +113,11 @@
                     var name = event.currentTarget.attributes['name'].value;
                     var value = event.currentTarget.attributes['value'].value;
                     this._setProduct(name, value);
+
+                    if (name == 'color') {
+                        $("input[name='color']").siblings('span').removeClass('tick');
+                        $("input[value='" + value + "']").siblings('span').addClass('tick');
+                    }
                 },
                 trackView: function() {
                     if (this.product && window.ContextHub && ContextHub.getStore("recentlyviewed")) {
@@ -128,11 +138,46 @@
                         );
                     }
                 },
+                trackCartAdd: function (event) {
+                    if (this.product && window.ContextHub && ContextHub.getStore("abandonedproducts")) {
+                        ContextHub.getStore("abandonedproducts").record(
+                            this.product.pagePath,
+                            this.product.title,
+                            this.product.thumbnail,
+                            this.product.price
+                        );
+                    }
+                    window.cartComponent.show();
+                },
                 addToWishlist: function (event) {
                     if (this.product) {
-                        this.$els.weproductform.setAttribute("action", event.currentTarget.getAttribute("data-smartlist-url"));
-                        this.$els.weproductform.submit();
+                        var $form = $(event.target).closest('form');
+                        $.ajax({
+                            url: event.currentTarget.getAttribute("data-smartlist-url"),
+                            data: $form.serialize(),
+                            cache: false,
+                            type: $form.attr('method')
+                        }).done(function (json) {
+                            if (window.ContextHub) {
+                                if (ContextHub.getStore('smartlists').getTree().length == 0) {
+                                    // wait until new created smart list is available, which may take > 1 sec
+                                    var smartlistCheck = setInterval(function(){
+                                        ContextHub.getStore('smartlists').queryService();
+                                        if (ContextHub.getStore('smartlists').getTree().length > 0) {
+                                            clearInterval(smartlistCheck);
+                                            window.smartlistComponent.show();
+                                        }
+                                    }, 500);
+                                } else {
+                                    ContextHub.getStore('smartlists').queryService();
+                                    window.smartlistComponent.show();
+                                }
+                            }
+                        }).fail(function () {
+                            alert('An error occured while trying to perform this operation.');
+                        });
                     }
+
                 },
                 processHash: function () {
                     var self = this;

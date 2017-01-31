@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -31,6 +31,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
@@ -47,6 +48,8 @@ import com.adobe.cq.commerce.common.PriceFilter;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.commons.WCMUtils;
 
+import we.retail.core.WeRetailConstants;
+
 @Model(adaptables = SlingHttpServletRequest.class)
 public class ShoppingCartModel {
 
@@ -61,7 +64,7 @@ public class ShoppingCartModel {
     @SlingObject
     private ResourceResolver resourceResolver;
 
-    @Inject
+    @ScriptVariable
     private Page currentPage;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -78,7 +81,7 @@ public class ShoppingCartModel {
     private Map<Integer, List<PromotionInfo>> cartEntryPromotions = new HashMap<Integer, List<PromotionInfo>>();
 
     @PostConstruct
-    public void activate() throws Exception {
+    private void initModel() throws Exception {
         createCommerceSession();
         populatePageUrls();
         populatePromotions();
@@ -91,7 +94,7 @@ public class ShoppingCartModel {
             commerceSession = commerceService.login(request, response);
             allPromotions = commerceSession.getPromotions();
         } catch (CommerceException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Failed to create commerce session", e);
         }
     }
 
@@ -176,7 +179,7 @@ public class ShoppingCartModel {
                 }
 
             } catch (CommerceException e) {
-                LOGGER.error(e.getMessage());
+                LOGGER.error("Failed to the product variant axes data", e);
             }
         }
 
@@ -185,8 +188,8 @@ public class ShoppingCartModel {
         }
 
         public String getPrice() throws CommerceException {
-            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("UNIT"));
-            return priceInfos.get(0).getFormattedString();
+            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_UNIT));
+            return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
         }
 
         public Product getProduct() throws CommerceException {
@@ -198,17 +201,12 @@ public class ShoppingCartModel {
         }
 
         public String getImage() throws CommerceException {
-            if (entry.getProduct().getImage() != null) {
-                String imageUrl = entry.getProduct().getImage().getFileReference();
-                return resourceResolver.map(request, imageUrl);
-            }
-
-            return null;
+            return resourceResolver.map(request, entry.getProduct().getThumbnailUrl(WeRetailConstants.PRODUCT_THUMBNAIL_WIDTH));
         }
 
         public String getTotalPrice() throws CommerceException {
-            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter("LINE"));
-            return priceInfos.get(0).getFormattedString();
+            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_LINE));
+            return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
         }
 
         public Map<String, String> getVariantAxesMap() {
@@ -217,6 +215,14 @@ public class ShoppingCartModel {
 
         public List<PromotionInfo> getEntryPromotions() {
             return entryPromotions;
+        }
+
+        public boolean isWrapping() {
+            return Boolean.TRUE.equals(entry.getProperty("wrapping-selected", Boolean.class));
+        }
+
+        public String getWrappingLabel() {
+            return entry.getProperty("wrapping-label", String.class);
         }
     }
 }

@@ -13,9 +13,9 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<sly data-sly-use.cart="we.retail.core.model.ShoppingCartPricesModel"
-     data-sly-use.hapiCartPrices="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/cartprices'}" />
-     
+<div class="we-ShoppingCartPrices" data-resource="${resource.path}"
+     data-sly-use.cart="we.retail.core.model.ShoppingCartPricesModel"
+     data-sly-use.hapiCartPrices="${'org.apache.sling.hapi.sightly.HApiUse' @type='/apps/public/weretail/hapi_types/cartprices'}">
     <div class="shoppingcart-prices body" data-sly-attribute="${hapiCartPrices.itemtype}" data-sly-test="${!cart.isEmpty}">
         <div class="row" data-sly-test="${cart.showSubTotal}">
             <div class="cell-title">${'Subtotal' @ i18n}</div>

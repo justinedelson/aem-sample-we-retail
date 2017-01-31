@@ -24,6 +24,11 @@
                         name="./linkTo"
                         rootPath="/content"
                         suffix=".html"/>
+                    <cssClass
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Css class(es)"
+                        name="./cssClass"/>
                 </items>
             </column>
         </items>

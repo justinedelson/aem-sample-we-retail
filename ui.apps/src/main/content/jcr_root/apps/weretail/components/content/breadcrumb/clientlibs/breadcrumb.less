@@ -15,38 +15,35 @@
  */
 
 @import (reference) "/etc/designs/we-retail/common/variables.less";
-
-.cmp .breadcrumb {
+.cmp-breadcrumb {
     text-align: center;
-    min-height: 20px;
-    margin-bottom: 0;
-    padding: 8px 15px;
-}
 
-.cmp .breadcrumb-item {
-    float: none;
-    display: inline-block;
-    & > a {
-        font-weight: 600;
-        color: @breadcrumb-color;
+    & .breadcrumb {
+        display: inline-block;
+        min-height: 20px;
+        margin-bottom: 0;
+        padding: 8px 15px;
     }
 
-    & + .breadcrumb-item::before {
-        padding: 0 10px;
-        color: @breadcrumb-delim-color;
-    }
-
-    &--active {
+    & .breadcrumb-item {
         float: none;
         display: inline-block;
-
         & > a {
-            color: @breadcrumb-active-color;
+            float: left;
+            font-weight: 600;
+            color: @breadcrumb-color;
         }
 
-        .breadcrumb-item + .breadcrumb-item::before {
+        & + .breadcrumb-item::before {
             padding: 0 10px;
+            float: left;
             color: @breadcrumb-delim-color;
+        }
+
+        &.active {
+            & > a {
+                color: @breadcrumb-active-color;
+            }
         }
     }
 }

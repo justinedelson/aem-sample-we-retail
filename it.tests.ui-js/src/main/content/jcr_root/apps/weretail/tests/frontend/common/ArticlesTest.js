@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 ;(function(h) {
-    var ARTICLES_LIST_CLASS = ".articleslist";
+    var ARTICLES_LIST_CLASS = ".we-ArticlesList";
 
     window.CQ.WeRetailIT.ArticlesTest = function (h, $, count) {
         return new h.TestCase("Check articles")

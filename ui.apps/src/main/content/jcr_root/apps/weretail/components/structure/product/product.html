@@ -95,10 +95,10 @@
                 <input type="hidden" name=":operation" value="addToSmartList" />
 
                 <sly data-sly-list.axisName="${productModel.productItem.variantsAxesValues}">
-                <div class="form-group">
+                <div class="form-group fg-title">
                     <label>${axisName @ i18n}</label>
                 </div>
-                <div class="form-group">
+                <div class="form-group fg-content">
                     <div class="we-Product-radio marker radio-inline" data-sly-repeat.axisValue="${productModel.productItem.variantsAxesValues[axisName]}">
                         <label>
                             <input data-sly-test="${axisName != 'color'}" type="radio" name="${axisName}" value="${axisValue}" title="${axisValue}"
@@ -108,7 +108,8 @@
                                    v-bind:checked="isChecked('${axisName}','${axisValue}')" v-on:click="setProduct" 
                                    style="background-color:${axisValue @context='styleString'};"
                                    data-sly-attribute="${hapiProductForm.itemprop[axisName]}" />
-                            <span data-sly-test="${axisName == 'size'}">${axisValue}</span>
+                            <div data-sly-test="${axisName != 'color'}">${axisValue}</div>
+                            <div data-sly-test="${axisName == 'color'}" style="background-color:${axisValue @context='styleString'};"></div>
                         </label>
                     </div>
                 </div>
@@ -123,7 +124,8 @@
                         </div>
                         <div class="col-md-8 text-right">
                             <div class="we-Product-actions">
-                                <button type="submit" class="btn btn-action btn-primary" data-sly-attribute="${hapiProductForm.itemprop.addToCartButton}">Add to cart</button>
+                                <button type="submit" class="btn btn-action btn-primary" v-on:click="trackCartAdd"
+                                        data-sly-attribute="${hapiProductForm.itemprop.addToCartButton}">Add to cart</button>
                                 <a data-sly-test="${!productModel.isAnonymous}" v-on:click.prevent="addToWishlist"
                                    href="#" data-smartlist-url="${productModel.addToSmartListUrl}" class="btn btn-icon btn-primary"
                                    data-sly-attribute="${hapiProductForm.itemprop.addToSmartlistButton}">

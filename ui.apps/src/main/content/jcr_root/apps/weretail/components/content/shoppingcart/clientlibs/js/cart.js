@@ -16,56 +16,59 @@
 (function ($) {
     'use strict';
 
-	if ($('div.we-ShoppingCart-empty').length > 0) {
-	    $('a.btn-primary').hide();
-	}
+    var bindFormElements = function () {
+        // bind form handler
+        $('.we-ShoppingCart form, .we-Cart-content form, .we-Product-form').submit(submitForm);
+        // submit quantity form on change
+        $('.we-ShoppingCart form input[name="quantity"], .we-Cart-content form input[name="quantity"]').change(function () {
+            if (parseInt($(this).val()) >= 0) {
+                $(this).closest('form').submit();
+            }
+        });
 
-	var bindQuantityButtons = function() {
-	    $('input[name="quantity"]').change(function() {
-	        $(this).parents('form').submit();
-	    });
-	}
-	
-	var bindCartForms = function() {
-    	$('.we-ShoppingCart form, .we-Cart-content form, .we-Product-form').submit(function(event) {
-    	    event.preventDefault();
-    	    var $form = $(event.target);
-    	    $.ajax({
-                url: $form.attr('action'),
-                data: $form.serialize(),
-                cache: false,
-                type: 'POST',
-                success: function(json) {
-                    $('.we-ShoppingCart').replaceWith(json.shoppingCart);
-                    $('.we-Cart').replaceWith(json.navCart);
-                    
-                    // This reinitializes the navcart Vue.js component
-                    // See /apps/weretail/components/structure/navcart/clientlibs/js/cart.js
-                    navcart.call(this);
-                    
-                    if (json.entries == '0') {
-                        $('.shoppingcart-prices').remove();
-                    }
-                    else {
-                        $('.shoppingcart-prices').replaceWith(json.cartPrices);
-                    }
-                    
-                    if ($('div.we-ShoppingCart-empty').length > 0) {
-                        $('a.btn-primary').hide();
-                    }
-                    
-                    // We have to rebind the jQuery event handlers for the new content
-                    bindCartForms();
-                    bindQuantityButtons();
-                },
-                error: function() {
-                    alert('An error occured while trying to perform this operation.');
-                }
-            });
-    	});
-	}
-	
-	bindCartForms();
-	bindQuantityButtons();
-	
+    }
+
+    var toggleCartEmptyMsg = function () {
+        if ($('div.we-ShoppingCart div.we-ShoppingCart-empty').length > 0) {
+            $('a.btn-checkout').hide();
+        } else {
+            $('a.btn-checkout').show();
+        }
+    }
+
+    var submitForm = function (event) {
+        event.preventDefault();
+        var $form = $(event.target);
+        $.ajax({
+            url: $form.attr('action'),
+            data: $form.serialize(),
+            cache: false,
+            type: 'POST'
+        }).done(function (json) {
+            if (window.ContextHub) {
+                ContextHub.getStore("cart").queryService();
+            } else {
+                refreshCart();
+            }
+
+        }).fail(function () {
+            alert('An error occured while trying to perform this operation.');
+        });
+    }
+
+    var refreshCart = function () {
+        var shoppingCart = $('div.we-ShoppingCart');
+        shoppingCart.parent().load(Granite.HTTP.externalize(shoppingCart.data("resource") + ".html"), function () {
+            bindFormElements();
+            toggleCartEmptyMsg();
+        });
+    }
+
+    bindFormElements();
+    toggleCartEmptyMsg();
+
+    if (window.ContextHub) {
+        ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":cart", refreshCart);
+    }
+
 })(jQuery);

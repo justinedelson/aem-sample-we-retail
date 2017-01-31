@@ -29,8 +29,6 @@ import org.apache.jackrabbit.util.Text;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ValueMap;
-import org.apache.sling.api.wrappers.ValueMapDecorator;
 
 import com.adobe.cq.commerce.api.CommerceConstants;
 import com.adobe.cq.commerce.api.CommerceException;
@@ -41,7 +39,6 @@ import com.adobe.cq.commerce.common.AbstractJcrCommerceService;
 import com.adobe.cq.commerce.common.AbstractJcrCommerceSession;
 import com.adobe.cq.commerce.common.DefaultJcrCartEntry;
 import com.day.cq.i18n.I18n;
-import com.day.cq.wcm.foundation.forms.FormsHelper;
 
 public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
 
@@ -49,9 +46,9 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
         {
             // A simple shipping pricing architecture with fixed shipping costs.
 
-            put("/etc/commerce/shipping-methods/we-retail/two-business-day", BigDecimal.ZERO);
-            put("/etc/commerce/shipping-methods/we-retail/standard-shipping", BigDecimal.ZERO);
+            put("/etc/commerce/shipping-methods/we-retail/standard-shipping", new BigDecimal("5.00"));
             put("/etc/commerce/shipping-methods/we-retail/ground-shipping", new BigDecimal("10.00"));
+            put("/etc/commerce/shipping-methods/we-retail/two-business-day", new BigDecimal("15.00"));
             put("/etc/commerce/shipping-methods/we-retail/one-business-day", new BigDecimal("25.00"));
         }
     };
@@ -62,10 +59,6 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
                                   Resource resource) throws CommerceException {
         super(commerceService, request, response, resource);
         PN_UNIT_PRICE = WeRetailProductImpl.PN_PRICE;
-
-        // The addressbook component gets the shipping and billing addresses from that request attribute
-        ValueMap orderDetailsValueMap = new ValueMapDecorator(getOrder());
-        request.setAttribute(FormsHelper.REQ_ATTR_GLOBAL_LOAD_MAP, orderDetailsValueMap);
     }
 
     @Override
@@ -162,6 +155,10 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
 
     @Override
     public void addCartEntry(Product product, int quantity) throws CommerceException {
+        if (checkAddProductQuantity(product, quantity)) {
+            return;
+        }
+
         Map<String, Object> properties = new HashMap<String, Object>();
 
         // The default AbstractJcrCommerceSession implementation does not store the unit price in the saved order
@@ -172,6 +169,28 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
         }
 
         addCartEntry(product, quantity, properties);
+    }
+
+    /**
+     * If the given product is already in the cart, this method adds the given quantity to that cart entry. The product check in the cart is
+     * based on the product SKU.
+     * 
+     * @param product
+     *            The product to check.
+     * @param quantity
+     *            The quantity to be added to the existing cart entry.
+     * @return true, if the product was already in the cart and the quantity has been updated.
+     * @throws CommerceException
+     */
+    private boolean checkAddProductQuantity(Product product, int quantity) throws CommerceException {
+        for (CartEntry existingEntry : cart) {
+            DefaultJcrCartEntry existingEntryImpl = (DefaultJcrCartEntry) existingEntry;
+            if (existingEntryImpl.getProduct().getSKU().equals(product.getSKU())) {
+                modifyCartEntry(existingEntryImpl.getEntryIndex(), existingEntryImpl.getQuantity() + quantity);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

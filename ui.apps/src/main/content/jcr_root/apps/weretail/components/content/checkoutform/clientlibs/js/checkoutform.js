@@ -18,10 +18,13 @@
 
     var BILLING_IS_SHIPPING_CHECKBOX_SELECTOR = "input:checkbox[name='billing-is-shipping-address']",
         BILLING_INPUT_FIELD_SELECTOR = "input[name^='billing.']",
-        BILLING_SELECT_FIELD_SELECTOR = "select[name^='billing.']";
+        BILLING_SELECT_FIELD_SELECTOR = "select[name^='billing.']",
+        COUNTRY_SELECT_FIELD_SELECTOR = "select[name$='.country']",
+        USA_CODES = ['US', 'USA'];
 
     var $billingIsShippingCheckbox = $(BILLING_IS_SHIPPING_CHECKBOX_SELECTOR),
-        $billingFields = $(BILLING_INPUT_FIELD_SELECTOR).add(BILLING_SELECT_FIELD_SELECTOR).closest(".cmp");
+        $billingFields = $(BILLING_INPUT_FIELD_SELECTOR).add(BILLING_SELECT_FIELD_SELECTOR).closest(".cmp"),
+        $countryFields = $(COUNTRY_SELECT_FIELD_SELECTOR);
 
 
 	var payment = "input:radio[name='payment-option']";
@@ -30,7 +33,22 @@
 		$billingFields.hide();
     }
     
-    if ($('div.we-Cart-empty').length > 0) {
+    var toogleStateSelect = function() {
+        var $this = $(this);
+        var stateName = $this.attr('name').replace('country', 'state');
+        var selector = "select[name='" + stateName + "']";
+        if ($.inArray($this.val(), USA_CODES) > -1) {
+            $(selector).show().parents('.cmp-options').removeClass('hidden');
+        }
+        else {
+            $(selector).hide().parents('.cmp-options').addClass('hidden');
+            $("select[name$='.state']").prop('selectedIndex', 0).change();
+        }
+    }
+    
+    $countryFields.each(toogleStateSelect).change(toogleStateSelect);
+    
+    if ($('div.we-MiniCart-empty:visible').length > 0) {
         $('#checkout button.btn-primary').hide();
         $('#order button.btn-primary').hide();
     }
@@ -50,7 +68,7 @@
     $billingIsShippingCheckbox.change(function() {
         $billingFields.toggle();
     });
-
+    
     $(payment).change(function() {
         var $payment = $(this);
         if ($payment.is(':checked') && !$payment.val().endsWith('creditcard')) {
@@ -64,6 +82,8 @@
     });
     
     $('#checkout').submit(function() {
+        var $form = $(this);
+        
         if ($billingIsShippingCheckbox.is(':checked')) {
             $("input[name^='billing.']").each(function() {
                 var $this = $(this);
@@ -76,6 +96,16 @@
                 $this.val($("select[name='" + shippingName + "']").val());
             });
         }
+        
+        // Browsers usually do not POST an "empty" selected option
+        // To make sure we initialize the 'states' field if USA is not selected, we add an empty hidden input on the fly 
+        $countryFields.each(function() {
+            var $this = $(this);
+            if ($.inArray($this.val(), USA_CODES) < 0) {
+                var stateName = $this.attr('name').replace('country', 'state');
+                $form.append('<input type="hidden" name="' + stateName + '" value="" />');
+            }
+        });
     });
 
 })(jQuery);

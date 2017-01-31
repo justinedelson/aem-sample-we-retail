@@ -46,6 +46,8 @@ import com.day.cq.wcm.api.Page;
 
 public class WeRetailCommerceServiceImpl extends AbstractJcrCommerceService implements CommerceService  {
 
+    private static final String REQUEST_ATTRIBUTE_NAME = WeRetailCommerceServiceImpl.class.getName();
+
     private Resource resource;
 
     public WeRetailCommerceServiceImpl(ServiceContext serviceContext, Resource resource) {
@@ -55,7 +57,15 @@ public class WeRetailCommerceServiceImpl extends AbstractJcrCommerceService impl
 
     @Override
     public CommerceSession login(SlingHttpServletRequest request, SlingHttpServletResponse response) throws CommerceException {
-        return new WeRetailCommerceSessionImpl(this, request, response, resource);
+        // This avoids that the session is instantiated multiple times by multiple components for the same request
+        Object session = request.getAttribute(REQUEST_ATTRIBUTE_NAME);
+        if (session != null) {
+            return (CommerceSession) session;
+        }
+
+        CommerceSession commerceSession = new WeRetailCommerceSessionImpl(this, request, response, resource);
+        request.setAttribute(REQUEST_ATTRIBUTE_NAME, commerceSession);
+        return commerceSession;
     }
 
     @Override

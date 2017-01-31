@@ -16,6 +16,7 @@
 package we.retail.core.model;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +31,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.address.api.Address;
+import com.adobe.cq.commerce.api.CommerceConstants;
 import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceSession;
 import com.adobe.cq.commerce.api.PlacedOrder;
@@ -41,24 +43,24 @@ public class OrderModel extends ShoppingCartModel {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderModel.class);
     private static final String ORDER_ID = "orderId";
-    private static final String ORDER_PLACED_FORMATTED = "orderPlacedFormatted";
+    private static final String ORDER_PLACED = "orderPlaced";
     private static final String ORDER_STATUS = "orderStatus";
     private static final String CART_SUB_TOTAL = "CART";
     private static final String ORDER_SHIPPING = "SHIPPING";
     private static final String ORDER_TOTAL_TAX = "TAX";
     private static final String ORDER_TOTAL_PRICE = "TOTAL";
-    private static final String BILLING_PREFIX = "billing.";
-    private static final String SHIPPING_PREFIX = "shipping.";
+    private static final String BILLING_PREFIX = CommerceConstants.BILLING_ADDRESS_PREDICATE + ".";
+    private static final String SHIPPING_PREFIX = CommerceConstants.SHIPPING_ADDRESS_PREDICATE + ".";
 
     @ScriptVariable(name = "wcmmode")
     private SightlyWCMMode wcmMode;
 
     private String orderId;
-    private PlacedOrder placedOrder;
-    private Map<String, Object> orderDetails;
+    protected PlacedOrder placedOrder;
+    protected Map<String, Object> orderDetails;
 
     @PostConstruct
-    public void activate() throws Exception {
+    private void initModel() throws Exception {
         createCommerceSession();
         populatePageUrls();
         populateOrder();
@@ -67,7 +69,7 @@ public class OrderModel extends ShoppingCartModel {
         isReadOnly = true;
     }
 
-    private void populateOrder() throws CommerceException {
+    protected void populateOrder() throws CommerceException {
         boolean isEditMode = wcmMode.isEdit();
         orderId = request.getParameter(ORDER_ID);
 
@@ -76,7 +78,7 @@ public class OrderModel extends ShoppingCartModel {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 return;
             } catch (IOException e) {
-                LOGGER.error(e.getMessage());
+                LOGGER.error("Failed to set HTTP error response code", e);
             }
         }
 
@@ -87,7 +89,7 @@ public class OrderModel extends ShoppingCartModel {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                     return;
                 } catch (IOException e) {
-                    LOGGER.error(e.getMessage());
+                    LOGGER.error("Failed to set HTTP error response code", e);
                 }
             }
             orderDetails = placedOrder.getOrder();
@@ -95,7 +97,9 @@ public class OrderModel extends ShoppingCartModel {
         }
     }
 
+    @Override
     protected void populateCartEntries() throws CommerceException {
+        entries.clear();
         if (placedOrder != null) {
             final List<CommerceSession.CartEntry> cartEntries = placedOrder.getCartEntries();
             for (CommerceSession.CartEntry cartEntry : cartEntries) {
@@ -114,8 +118,8 @@ public class OrderModel extends ShoppingCartModel {
         return orderId;
     }
 
-    public String getOrderDate() {
-        return getOrderProperty(ORDER_PLACED_FORMATTED);
+    public Calendar getOrderDate() {
+        return (Calendar) orderDetails.get(ORDER_PLACED);
     }
 
     public String getOrderStatus() {

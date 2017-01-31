@@ -68,6 +68,8 @@
                     }
 
                     this.$dispatch('show-product-item', this.$parent.activeFilters);
+                    
+                    $("input[value='" + val + "']").siblings('div').toggleClass('tick');
                 },
                 toggle: function() {
                     we.app.$broadcast('toggle-filters');

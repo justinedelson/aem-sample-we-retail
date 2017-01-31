@@ -19,12 +19,12 @@
     <parent>
         <groupId>we</groupId>
         <artifactId>we.retail</artifactId>
-        <version>1.9.2</version>
+        <version>1.9.18</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>we.retail.core</artifactId>
-  <version>1.9.23-SNAPSHOT</version>
+    <version>1.9.65-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>We.Retail - Core</name>
     <description>Core bundle for We.Retail</description>
@@ -95,11 +95,11 @@
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.core</artifactId>
+            <artifactId>osgi.core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.compendium</artifactId>
+            <artifactId>osgi.cmpn</artifactId>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
@@ -133,11 +133,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.day.cq</groupId>
-            <artifactId>cq-quickstart</artifactId>
-            <classifier>apis</classifier>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
@@ -160,6 +155,32 @@
         <dependency>
             <groupId>io.wcm</groupId>
             <artifactId>io.wcm.testing.aem-mock</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.models.api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>com.adobe.cq.wcm.core.components.core</artifactId>
+            <version>0.9.120</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-imaging</artifactId>
+            <version>1.0-R1725432-B002</version>
+            <scope>test</scope>
+        </dependency>
+        <!--
+            AEM APIs; make sure to not move this bundle upper in the list so that newer APIs available in AEM but not in the Uber
+            Jar can be used as dependencies.
+         -->
+        <dependency>
+            <groupId>com.day.cq</groupId>
+            <artifactId>cq-quickstart</artifactId>
+            <classifier>apis</classifier>
         </dependency>
 
     </dependencies>

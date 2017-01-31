@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -34,6 +33,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
@@ -47,6 +47,7 @@ import com.adobe.cq.commerce.api.Product;
 import com.day.cq.commons.ImageResource;
 import com.day.cq.wcm.api.Page;
 
+import we.retail.core.WeRetailConstants;
 import we.retail.core.model.handler.CommerceHandler;
 
 @Model(adaptables = SlingHttpServletRequest.class)
@@ -66,7 +67,7 @@ public class ProductModel {
     @SlingObject
     private ResourceResolver resourceResolver;
 
-    @Inject
+    @ScriptVariable
     private Page currentPage;
 
     @Self
@@ -77,7 +78,7 @@ public class ProductModel {
     private boolean isAnonymous;
 
     @PostConstruct
-    private void populateProduct() {
+    private void initModel() {
         try {
             commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
             if (commerceService != null) {
@@ -171,7 +172,7 @@ public class ProductModel {
                 imageUrl = resourceResolver.map(request, imageUrl);
             }
 
-            thumbnailUrl = product.getThumbnailUrl();
+            thumbnailUrl = product.getThumbnailUrl(WeRetailConstants.PRODUCT_THUMBNAIL_WIDTH);
             if (StringUtils.isNotBlank(thumbnailUrl)) {
                 thumbnailUrl = resourceResolver.map(request, thumbnailUrl);
             }
@@ -286,10 +287,10 @@ public class ProductModel {
         }
 
         /**
-         * This method returns a JSON representation of the variant axes and values for a product variant.<br/>
+         * This method returns a JSON representation of the variant axes and values for a product variant.<br>
          * For example and since the variant axes and values are typically represented as a map, this method might return the following
-         * String for a variant product with 2 axes color and size:<br/>
-         * <br/>
+         * String for a variant product with 2 axes color and size:<br>
+         * <br>
          * <code>{'color':'red','size':'XS'}</code>
          * 
          * @return The JSON representation of the variant axes and values.
@@ -299,13 +300,12 @@ public class ProductModel {
         }
 
         /**
-         * This method returns a map of variant axes and all their respective values by axis.<br/>
-         * The keys of the map represent the axis names (e.g. color, size), and the values are stored in a Collection (e.g. <red, green
-         * blue> for the 'color' key).<br/>
-         * <br/>
-         * For example, the returned map can look like<br/>
-         * <code>color --> red, green, blue<br/>
-         * size --> XS, S, M</code>
+         * This method returns a map of variant axes and all their respective values by axis.<br>
+         * The keys of the map represent the axis names (e.g. color, size), and the values are stored in a Collection.<br>
+         * <br>
+         * For example, the returned map can look like<br>
+         * <code>color --&gt; red, green, blue<br>
+         * size --&gt; XS, S, M</code>
          * 
          * @return The map of all variant axes and their respective values.
          */
