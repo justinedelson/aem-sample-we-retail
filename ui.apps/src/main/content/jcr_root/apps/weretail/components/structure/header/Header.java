@@ -194,11 +194,14 @@ public class Header extends WCMUsePojo {
     private String computePagePath(final String relativePath) {
         String computedPagePath;
         if (root != null) {
-            computedPagePath = root.getPath() + relativePath;
+            computedPagePath = root.getPath() + "/" + relativePath;
+            LOGGER.debug("Computed Path" +  computedPagePath);
             if (pageExists(computedPagePath)) {
+                LOGGER.debug("Returning Computed Path "+ computedPagePath);
                 return computedPagePath;
             }
         }
+        LOGGER.debug("Returning defaulf path Path "+ DEFAULT_ROOT_PATH + relativePath);
         return DEFAULT_ROOT_PATH + relativePath;
     }
     
