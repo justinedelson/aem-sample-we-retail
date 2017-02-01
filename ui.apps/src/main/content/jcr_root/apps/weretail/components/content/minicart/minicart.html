@@ -39,7 +39,7 @@
                         ${item.entry.product.baseProduct.description}
                     </small>
                     <ul class="small we-Cart-entryVariants" data-sly-list.key="${item.variantAxesMap}">
-                        <li><span>${key}</span>: ${item.variantAxesMap[key]}</li>
+                        <li><span>${key @ i18n}</span>: ${item.variantAxesMap[key]}</li>
                     </ul>
                 </div>
             </div>

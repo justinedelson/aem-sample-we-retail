@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -159,12 +160,15 @@ public class ProductModel {
             if (StringUtils.isNotBlank(pagePath)) {
                 pagePath = resourceResolver.map(request, pagePath);
             }
-            sku = product.getSKU();
-            title = product.getTitle();
-            description = product.getDescription();
 
-            summary = product.getProperty(PN_SUMMARY, String.class);
-            features = product.getProperty(PN_FEATURES, String.class);
+            Locale currentLocale = currentPage.getLanguage(false);
+
+            sku = product.getSKU();
+            title = product.getTitle(currentLocale.getLanguage());
+            description = product.getDescription(currentLocale.getLanguage());
+
+            summary = product.getProperty(PN_SUMMARY, currentLocale.getLanguage(), String.class);
+            features = product.getProperty(PN_FEATURES, currentLocale.getLanguage(), String.class);
 
             ImageResource image = product.getImage();
             imageUrl = image != null ? image.getFileReference() : null;

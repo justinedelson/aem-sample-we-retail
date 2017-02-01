@@ -71,7 +71,7 @@ public class MockProduct extends ResourceWrapper implements Product {
 
     @Override
     public String getTitle(String selectorString) {
-        throw new UnsupportedOperationException();
+        return getTitle();
     }
 
     @Override
@@ -81,7 +81,7 @@ public class MockProduct extends ResourceWrapper implements Product {
 
     @Override
     public String getDescription(String selectorString) {
-        throw new UnsupportedOperationException();
+        return getDescription();
     }
 
     @Override
@@ -134,7 +134,7 @@ public class MockProduct extends ResourceWrapper implements Product {
 
     @Override
     public <T> T getProperty(String name, String selectorString, Class<T> type) {
-        return null;
+        return getProperty(name, type);
     }
 
     @Override
