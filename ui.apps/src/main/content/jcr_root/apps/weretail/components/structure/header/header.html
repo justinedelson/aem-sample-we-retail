@@ -21,15 +21,15 @@
                     <li><a href="#" data-toggle="modal" data-target=".we-LanguageModal" title="${header.currentLanguage.name}"><i class="we-lang-icon we-lang-icon-${header.currentLanguage.countrycode}"></i> ${header.currentLanguage.languagecode}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li data-sly-test="${!header.isAnonymous}"><a href="${header.accountPath}.html">Account</a></li>
-                    <li data-sly-test="${!header.isAnonymous}"><a href="${header.profilePath}.html">Profile</a></li>
-                    <li data-sly-test="${!header.isAnonymous}" data-sly-resource="${@ resourceType='weretail/components/structure/navwishlist'}"></li>
-                    <li data-sly-test="${!header.isAnonymous}"><a href="${header.messagingPath}.html"><i class="fa fa-envelope-o"></i> Messages <span class="badge">0</span></a></li>
-                    <li data-sly-test="${!header.isAnonymous}"><a href="${header.notificationPath}.html"><i class="fa fa-flag-o"></i> Notifications <span class="badge" id="scf-js-notificationsUnreadCount" data-siteurl="/content/we-retail/us/en">0</span></a></li>
+                    <li class="we-retail-not-anonymous hidden"><a href="${header.accountPath}.html">Account</a></li>
+                    <li class="we-retail-not-anonymous hidden"><a href="${header.profilePath}.html">Profile</a></li>
+                    <li class="we-retail-not-anonymous hidden" data-sly-resource="${@ resourceType='weretail/components/structure/navwishlist'}"></li>
+                    <li class="we-retail-not-anonymous hidden"><a href="${header.messagingPath}.html"><i class="fa fa-envelope-o"></i> Messages <span class="badge">0</span></a></li>
+                    <li class="we-retail-not-anonymous hidden"><a href="${header.notificationPath}.html"><i class="fa fa-flag-o"></i> Notifications <span class="badge" id="scf-js-notificationsUnreadCount" data-siteurl="/content/we-retail/us/en">0</span></a></li>
                     <li data-sly-resource="${@ resourceType='weretail/components/structure/navcart'}"></li>
                     <li data-sly-test="${header.isModerator}"><a href="${header.moderationPath}.html">Moderation</a></li>
-                    <li data-sly-test="${header.isAnonymous}"><a href="#" data-toggle="modal" data-target=".we-SignInModal">Login</a></li>
-                    <li data-sly-test="${!header.isAnonymous}"><a href="/system/sling/logout.html?resource=${header.currentPath}.html">Log out</a></li>
+                    <li class="we-retail-anonymous hidden"><a href="#" data-toggle="modal" data-target=".we-SignInModal">Login</a></li>
+                    <li class="we-retail-not-anonymous hidden"><a href="/system/sling/logout.html?resource=${header.currentPath}.html">Log out</a></li>
                 </ul>
             </div>
         </div>
@@ -69,12 +69,12 @@
                             </li>
                         </sly>
                         <li class="visible-xs divider" role="separator"></li>
-                        <li class="visible-xs" data-sly-test="${header.isAnonymous}"><a href="#" data-toggle="modal" data-target=".we-SignInModal">Login</a></li>
-                        <li class="visible-xs" data-sly-test="${!header.isAnonymous}"><a href="/system/sling/logout.html?resource=${header.currentPath}.html">Log out</a></li>
-                        <li class="visible-xs" data-sly-test="${!header.isAnonymous}"><a href="${header.profilePath}.html">Profile</a></li>
-                        <li class="visible-xs" data-sly-test="${!header.isAnonymous}"><a href="${header.messagingPath}.html" class="visible-xs">Messages <span class="badge pull-right">0</span></a></li>
-                        <li class="visible-xs" data-sly-test="${!header.isAnonymous}"><a href="${header.notificationPath}.html" class="visible-xs">Notifications <span class="badge pull-right">0</span></a></li>
-                        <li class="visible-xs" data-sly-test="${!header.isAnonymous}" data-sly-resource="${@ resourceType='weretail/components/structure/navwishlist', selectors='mobilelink'}"></li>
+                        <li class="visible-xs we-retail-anonymous hidden"><a href="#" data-toggle="modal" data-target=".we-SignInModal">Login</a></li>
+                        <li class="visible-xs we-retail-not-anonymous hidden"><a href="/system/sling/logout.html?resource=${header.currentPath}.html">Log out</a></li>
+                        <li class="visible-xs we-retail-not-anonymous hidden"><a href="${header.profilePath}.html">Profile</a></li>
+                        <li class="visible-xs we-retail-not-anonymous hidden"><a href="${header.messagingPath}.html" class="visible-xs">Messages <span class="badge pull-right">0</span></a></li>
+                        <li class="visible-xs we-retail-not-anonymous hidden"><a href="${header.notificationPath}.html" class="visible-xs">Notifications <span class="badge pull-right">0</span></a></li>
+                        <li class="visible-xs we-retail-not-anonymous hidden" data-sly-resource="${@ resourceType='weretail/components/structure/navwishlist', selectors='mobilelink'}"></li>
                         <li class="visible-xs"><a href="#" data-toggle="modal" data-target=".we-LanguageModal"><i class="we-lang-icon we-lang-icon-${header.currentLanguage.countrycode}"></i> ${header.currentLanguage.languagecode}</a></li>
                     </ul>
                 </div>

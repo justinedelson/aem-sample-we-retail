@@ -221,7 +221,7 @@
                             jcr:primaryType="nt:unstructured"
                             jcr:title="State"
                             sling:resourceType="weretail/components/form/options"
-                            fromList="/content/we-retail/resources/states/us"
+                            listPath="/content/we-retail/resources/states/us"
                             name="shipping.state"
                             source="list"
                             type="drop-down">
@@ -250,7 +250,7 @@
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Country"
                             sling:resourceType="weretail/components/form/options"
-                            fromDatasource="weretail/components/form/options/datasource/countriesdatasource"
+                            datasourceRT="weretail/components/form/options/datasource/countriesdatasource"
                             name="shipping.country"
                             source="datasource"
                             type="drop-down"/>
@@ -279,7 +279,7 @@
                             name="billing-is-shipping-address"
                             source="local"
                             type="checkbox">
-                            <optionitems
+                            <items
                                 cq:lastRolledout="{Date}2017-01-25T15:30:49.521+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
@@ -292,7 +292,7 @@
                                     selected="true"
                                     text="Same as shipping address"
                                     value="yes"/>
-                            </optionitems>
+                            </items>
                         </billing-is-shipping-address>
                         <billing.firstname
                             cq:lastRolledout="{Date}2017-01-25T15:30:49.529+01:00"
@@ -420,7 +420,7 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="weretail/components/form/options"
                             caption="State"
-                            fromList="/content/we-retail/resources/states/us"
+                            listPath="/content/we-retail/resources/states/us"
                             name="billing.state"
                             source="list"
                             type="drop-down">
@@ -449,11 +449,11 @@
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="weretail/components/form/options"
                             caption="Country"
-                            fromDatasource="weretail/components/form/options/datasource/countriesdatasource"
+                            datasourceRT="weretail/components/form/options/datasource/countriesdatasource"
                             name="billing.country"
                             source="datasource"
                             type="drop-down">
-                            <optionitems
+                            <items
                                 cq:lastRolledout="{Date}2017-01-25T15:30:49.574+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
@@ -494,7 +494,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     text="United States"
                                     value="US"/>
-                            </optionitems>
+                            </items>
                         </billing.country>
                     </column1>
                     <column2

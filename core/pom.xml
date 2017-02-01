@@ -24,7 +24,7 @@
     </parent>
 
     <artifactId>we.retail.core</artifactId>
-    <version>1.9.63-SNAPSHOT</version>
+    <version>1.9.65-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>We.Retail - Core</name>
     <description>Core bundle for We.Retail</description>
@@ -163,7 +163,7 @@
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>com.adobe.cq.wcm.core.components.core</artifactId>
-            <version>0.9.110</version>
+            <version>0.9.120</version>
             <scope>provided</scope>
         </dependency>
         
