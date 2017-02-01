@@ -15,10 +15,6 @@
  */
 package we.retail.core.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-
 import org.apache.sling.api.scripting.SlingBindings;
 import org.junit.Before;
 import org.junit.Rule;
@@ -29,10 +25,12 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.adobe.cq.sightly.WCMBindings;
 import com.day.cq.wcm.api.designer.Style;
-
 import common.AppAemContext;
 import io.wcm.testing.mock.aem.junit.AemContext;
-import we.retail.core.model.ProductModel.ProductItem;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProductModelTest {
@@ -65,6 +63,14 @@ public class ProductModelTest {
         assertNotNull(productItem);
         assertNull(productItem.getVariantValueForAxis("size"));
         assertEquals("eqrusufle", productItem.getSku());
+        assertEquals(CURRENT_RESOURCE, productItem.getPath());
+        assertNull(productItem.getTitle());
+        assertNull(productItem.getDescription());
+        assertNotNull(productItem.getSummary());
+        assertNotNull(productItem.getFeatures());
+        assertNotNull(productItem.getPrice());
+        assertNull(productItem.getImageUrl());
+        assertNull(productItem.getThumbnailUrl());
     }
 
     @Test
@@ -82,6 +88,7 @@ public class ProductModelTest {
         assertNull(variantItem.getSummary());
         assertNull(variantItem.getFeatures());
         assertNull(variantItem.getImageUrl());
+        assertNull(variantItem.getThumbnailUrl());
     }
 
 }

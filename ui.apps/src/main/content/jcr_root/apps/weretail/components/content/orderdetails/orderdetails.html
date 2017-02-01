@@ -50,7 +50,7 @@
                  data-sly-use.hapiOrderEntry="${'org.apache.sling.hapi.sightly.HApiUse' @type=hapiOrder.proptype.entry}"
                  data-sly-attribute="${hapiOrder.itemprop.entry}">
 
-                <img class="we-ShoppingOrder-image" src="${item.image}" alt="${item.product.title}"
+                <img class="we-ShoppingOrder-image" src="${item.product.imageUrl}" alt="${item.product.title}"
                      data-sly-attribute="${hapiOrderEntry.itemprop.asset}"/>
 
                 <div class="we-ShoppingOrder-entryContent">
@@ -59,15 +59,15 @@
 
                         <meta content="${item.entry.product.title}" data-sly-attribute="${ hapiOrderEntryProduct.itemprop.name }" />
                         <a href="${item.product.pagePath}" data-sly-attribute="${hapiOrderEntryProduct.itemprop.path}">
-                            <strong>${item.entry.product.title}</strong>
+                            <strong>${item.product.title}</strong>
                         </a>
 
                         <div class="text-muted">
                             <small data-sly-attribute="${hapiOrderEntryProduct.itemprop.description}">
-                                ${item.entry.product.baseProduct.description}
+                                ${item.product.description}
                             </small>
                             <ul class="small we-ShoppingOrder-entryVariants" data-sly-list.key="${item.variantAxesMap}">
-                                <li><span>${key}</span>: ${item.variantAxesMap[key]}</li>
+                                <li><span>${key @ i18n}</span>: ${item.variantAxesMap[key]}</li>
                             </ul>
                         </div>
                     </div>

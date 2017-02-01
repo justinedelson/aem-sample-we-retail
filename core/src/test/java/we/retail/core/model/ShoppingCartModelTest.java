@@ -15,8 +15,6 @@
  */
 package we.retail.core.model;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.List;
 
 import org.apache.sling.api.resource.Resource;
@@ -30,12 +28,13 @@ import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.sightly.WCMBindings;
 import com.day.cq.wcm.api.Page;
-
 import common.AppAemContext;
 import common.mock.MockCommerceSession;
 import common.mock.MockDefaultJcrPlacedOrder;
 import io.wcm.testing.mock.aem.junit.AemContext;
 import we.retail.core.model.ShoppingCartModel.CartEntry;
+
+import static org.junit.Assert.assertEquals;
 
 public class ShoppingCartModelTest {
 
@@ -75,12 +74,14 @@ public class ShoppingCartModelTest {
 
         CartEntry entry0 = entries.get(0);
         assertEquals(Constants.ENTRY_0_PATH, entry0.getProduct().getPath());
+        assertEquals(Constants.ENTRY_0_SKU, entry0.getProduct().getSku());
         assertEquals(Constants.ENTRY_0_PRICE, entry0.getPrice());
         assertEquals(Constants.ENTRY_0_QUANTITY, entry0.getEntry().getQuantity());
         assertEquals(Constants.ENTRY_0_TOTAL_PRICE, entry0.getTotalPrice());
 
         CartEntry entry1 = entries.get(1);
         assertEquals(Constants.ENTRY_1_PATH, entry1.getProduct().getPath());
+        assertEquals(Constants.ENTRY_1_SKU, entry1.getProduct().getSku());
         assertEquals(Constants.ENTRY_1_PRICE, entry1.getPrice());
         assertEquals(Constants.ENTRY_1_QUANTITY, entry1.getEntry().getQuantity());
         assertEquals(Constants.ENTRY_1_TOTAL_PRICE, entry1.getTotalPrice());

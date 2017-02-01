@@ -154,6 +154,7 @@ public class ShoppingCartModel {
 
     public class CartEntry {
         private CommerceSession.CartEntry entry;
+        private ProductItem productItem;
         private Map<String, String> variantAxesMap = new LinkedHashMap<String, String>();
         private List<PromotionInfo> entryPromotions = new ArrayList<PromotionInfo>();
 
@@ -162,6 +163,7 @@ public class ShoppingCartModel {
 
             try {
                 Product product = entry.getProduct();
+                productItem = new ProductItem(product, commerceSession, request, currentPage);
                 Product baseProduct = product.getBaseProduct();
                 String[] variantAxes = baseProduct.getProperty(CommerceConstants.PN_PRODUCT_VARIANT_AXES,
                         String[].class);
@@ -192,16 +194,8 @@ public class ShoppingCartModel {
             return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
         }
 
-        public Product getProduct() throws CommerceException {
-            return entry.getProduct();
-        }
-
-        public String getProductPagePath() throws CommerceException {
-            return resourceResolver.map(request, entry.getProduct().getPagePath());
-        }
-
-        public String getImage() throws CommerceException {
-            return resourceResolver.map(request, entry.getProduct().getThumbnailUrl(WeRetailConstants.PRODUCT_THUMBNAIL_WIDTH));
+        public ProductItem getProduct() throws CommerceException {
+            return productItem;
         }
 
         public String getTotalPrice() throws CommerceException {
