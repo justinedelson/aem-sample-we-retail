@@ -23,23 +23,23 @@
          data-sly-use.hapiCartEntry="${ 'org.apache.sling.hapi.sightly.HApiUse' @type=hapiCart.proptype.entries }"
          data-sly-attribute="${ hapiCart.itemprop.entries }">
 
-        <img class="we-Cart-image" src="${ item.image }" alt="${ item.product.title }"
+        <img class="we-Cart-image" src="${ item.product.thumbnailUrl }" alt="${ item.product.title }"
              data-sly-attribute="${ hapiCartEntry.itemprop.asset }" />
 
         <div class="we-Cart-entryContent">
             <div data-sly-use.hapiCartEntryProduct="${ 'org.apache.sling.hapi.sightly.HApiUse' @type=hapiCartEntry.proptype.product }"
                  data-sly-attribute="${ hapiCartEntry.itemprop.product }">
                 <meta content="${ item.product.title }" data-sly-attribute="${ hapiCartEntryProduct.itemprop.name }" />
-                <a href="${item.productPagePath}" data-sly-attribute="${hapiCartEntryProduct.itemprop.path}">
-                    <strong>${item.entry.product.title}</strong>
+                <a href="${item.product.pagePath}" data-sly-attribute="${hapiCartEntryProduct.itemprop.path}">
+                    <strong>${item.product.title}</strong>
                 </a>
 
                 <div class="text-muted">
                     <small data-sly-attribute="${hapiCartEntryProduct.itemprop.description}">
-                        ${item.entry.product.baseProduct.description}
+                        ${item.product.description}
                     </small>
                     <ul class="small we-Cart-entryVariants" data-sly-list.key="${item.variantAxesMap}">
-                        <li><span>${key}</span>: ${item.variantAxesMap[key]}</li>
+                        <li><span>${key @ i18n}</span>: ${item.variantAxesMap[key]}</li>
                     </ul>
                 </div>
             </div>

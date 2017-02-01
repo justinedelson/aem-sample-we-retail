@@ -44,11 +44,13 @@ public class Constants {
     public static final String ENTRY_0_PATH = "/content/we-retail/us/en/products/equipment/running/fleet-cross-training-shoe/jcr:content/root/product/eqrusufle-9";
     public static final String ENTRY_0_PRICE = "$24.00";
     public static final String ENTRY_0_TOTAL_PRICE = "$48.00";
+    public static final String ENTRY_0_SKU = "eqrusufle-9";
     public static final int ENTRY_0_QUANTITY = 2;
 
     public static final String ENTRY_1_PATH = "/content/we-retail/us/en/products/equipment/running/fleet-cross-training-shoe/jcr:content/root/product/eqrusufle-11";
     public static final String ENTRY_1_PRICE = "$119.00";
     public static final String ENTRY_1_TOTAL_PRICE = "$119.00";
+    public static final String ENTRY_1_SKU = "eqrusufle-11";
     public static final int ENTRY_1_QUANTITY = 1;
 
     public static final String ORDER_ID = "orderId";
