@@ -45,14 +45,15 @@ public class Header extends WCMUsePojo {
     public static final String PROP_HIDE_SUB_IN_NAV = "hideSubItemsInNav";
 
 
-    public static final String SIGN_IN_PATH = "/content/we-retail/us/en/user/account/sign-in/j_security_check";
-    public static final String SIGN_UP_PATH = "/content/we-retail/us/en/user/account/sign-up";
-    public static final String FORGOT_PWD_PATH = "/content/we-retail/us/en/user/account/forgot-password";
-    public static final String NOTIFICATION_PATH = "/content/we-retail/us/en";
-    public static final String MODERATION_PATH = "/content/we-retail/us/en";
-    public static final String MESSAGING_PATH = "/content/we-retail/us/en/user/mailbox";
-    public static final String PROFILE_PATH = "/content/we-retail/us/en/user/account/profile";
+    public static final String SIGN_IN_PATH = "community/signin";
+    public static final String SIGN_UP_PATH = "community/signup";
+    public static final String FORGOT_PWD_PATH = "community/useraccount/forgotpassword";
+    public static final String NOTIFICATION_PATH = "community/notifications";
+    public static final String MODERATION_PATH = "community/moderation";
+    public static final String MESSAGING_PATH = "community/messaging";
+    public static final String PROFILE_PATH = "community/profile";
     public static final String ACCOUNT_PATH = "/content/we-retail/us/en/user/account";
+    public static final String DEFAULT_ROOT_PATH = "/content/we-retail/us/en/";
 
     private ResourceResolver resolver;
     private Resource resource;
@@ -77,7 +78,8 @@ public class Header extends WCMUsePojo {
     private List<Country> countries;
     private Language currentLanguage;
     private String userPath;
-
+    private Page root;
+    
     @Override
     public void activate() throws Exception {
         resolver = getResourceResolver();
@@ -91,7 +93,7 @@ public class Header extends WCMUsePojo {
             resourcePage = currentPage;
         }
 
-        Page root = WeRetailHelper.findRoot(resourcePage);
+        root = WeRetailHelper.findRoot(resourcePage);
         languageRoot = "#";
         if (root != null) {
             items = getPages(root, 2, currentPage);
@@ -138,31 +140,31 @@ public class Header extends WCMUsePojo {
     }
 
     public String getSignInPath() {
-        return signInPath;
+        return computePagePath(signInPath);
     }
 
     public String getSignUpPath() {
-        return signUpPath;
+        return computePagePath(signUpPath);
     }
 
     public String getForgotPwdPath() {
-        return forgotPwdPath;
+        return computePagePath(forgotPwdPath);
     }
 
     public String getMessagingPath() {
-        return messagingPath;
+        return computePagePath(messagingPath);
     }
 
     public String getNotificationPath() {
-        return notificationPath;
+        return computePagePath(notificationPath);
     }
 
     public String getModerationPath() {
-        return moderationPath;
+        return computePagePath(moderationPath);
     }
 
     public String getProfilePath() {
-        return profilePath;
+        return computePagePath(profilePath);
     }
 
     public String getAccountPath() {
@@ -187,6 +189,27 @@ public class Header extends WCMUsePojo {
 
     public Language getCurrentLanguage() {
         return currentLanguage;
+    }
+    
+    private String computePagePath(final String relativePath) {
+        String computedPagePath;
+        if (root != null) {
+            computedPagePath = root.getPath() + relativePath;
+            if (pageExists(computedPagePath)) {
+                return computedPagePath;
+            }
+        }
+        return DEFAULT_ROOT_PATH + relativePath;
+    }
+    
+    private boolean pageExists (final String pagePath) {
+        if (pageManager != null) {
+            Page page = pageManager.getPage(pagePath);
+            if (page != null) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
