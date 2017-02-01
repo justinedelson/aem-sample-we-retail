@@ -55,6 +55,7 @@ import we.retail.core.util.WeRetailHelper;
 public class SimilarToCurrentRelationshipsProvider extends AbstractRelationshipsProvider {
 
     public static final String RELATIONSHIP_TYPE = "we-retail.similar-to-current";
+    // i18n.get("Similar to current");
     public static final String RELATIONSHIP_TITLE = "Similar to current";
 
     @Property(boolValue = true, label = "Enable", description = "Provide recommendations")

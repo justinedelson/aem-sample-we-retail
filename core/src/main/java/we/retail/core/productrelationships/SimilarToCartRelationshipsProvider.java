@@ -55,6 +55,7 @@ import we.retail.core.util.WeRetailHelper;
 public class SimilarToCartRelationshipsProvider extends AbstractRelationshipsProvider {
 
     public static final String RELATIONSHIP_TYPE = "we-retail.similar-to-cart";
+    // i18n.get("Similar to cart");
     public static final String RELATIONSHIP_TITLE = "Similar to cart";
 
     @Property(boolValue = true, label = "Enable", description = "Provide recommendations")
