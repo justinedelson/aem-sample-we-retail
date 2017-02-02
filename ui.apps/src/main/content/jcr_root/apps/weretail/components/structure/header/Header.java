@@ -109,13 +109,13 @@ public class Header extends WCMUsePojo {
                 .checkIfUserIsModerator(resolver.adaptTo(UserManager.class), resolver.getUserID());
         isAnonymous = resolver.getUserID().equals("anonymous");
         currentPath = currentPage.getPath();
-        signInPath = SIGN_IN_PATH;
-        signUpPath = SIGN_UP_PATH;
-        forgotPwdPath = FORGOT_PWD_PATH;
-        messagingPath = MESSAGING_PATH;
-        notificationPath = NOTIFICATION_PATH;
-        moderationPath = MODERATION_PATH;
-        profilePath = PROFILE_PATH;
+        signInPath = computePagePath(SIGN_IN_PATH);
+        signUpPath = computePagePath(SIGN_UP_PATH);
+        forgotPwdPath = computePagePath(FORGOT_PWD_PATH);
+        messagingPath = computePagePath(MESSAGING_PATH);
+        notificationPath = computePagePath(NOTIFICATION_PATH);
+        moderationPath = computePagePath(MODERATION_PATH);
+        profilePath = computePagePath(PROFILE_PATH);
         accountPath = ACCOUNT_PATH;
         theme = properties.get("theme", "default");
         userPath = resolver.adaptTo(UserManager.class).getAuthorizable(resolver.getUserID()).getPath();
@@ -140,31 +140,31 @@ public class Header extends WCMUsePojo {
     }
 
     public String getSignInPath() {
-        return computePagePath(signInPath);
+        return signInPath;
     }
 
     public String getSignUpPath() {
-        return computePagePath(signUpPath);
+        return signUpPath;
     }
 
     public String getForgotPwdPath() {
-        return computePagePath(forgotPwdPath);
+        return forgotPwdPath;
     }
 
     public String getMessagingPath() {
-        return computePagePath(messagingPath);
+        return messagingPath;
     }
 
     public String getNotificationPath() {
-        return computePagePath(notificationPath);
+        return notificationPath;
     }
 
     public String getModerationPath() {
-        return computePagePath(moderationPath);
+        return moderationPath;
     }
 
     public String getProfilePath() {
-        return computePagePath(profilePath);
+        return profilePath;
     }
 
     public String getAccountPath() {
@@ -201,7 +201,7 @@ public class Header extends WCMUsePojo {
                 return computedPagePath;
             }
         }
-        LOGGER.debug("Returning defaulf path Path "+ DEFAULT_ROOT_PATH + relativePath);
+        LOGGER.debug("Returning default path "+ DEFAULT_ROOT_PATH + relativePath);
         return DEFAULT_ROOT_PATH + relativePath;
     }
     
