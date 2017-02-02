@@ -15,7 +15,7 @@
 */-->
 <div class="we-Smartlist" data-sly-use.wishlist="we.retail.core.model.WishlistModel">
     <a class="we-Smartlist-button" href="#" v-on:click="toggle">
-        <i class="fa fa-heart-o"></i> ${'Wishlist' @ i18n} <span class="badge active"  v-if="smartlistEntriesSize > 0">{{smartlistEntriesSize}}</span>
+        <i class="fa fa-heart-o"></i> ${'Wishlist' @ i18n} <span class="badge active" v-cloak v-if="smartlistEntriesSize > 0">{{smartlistEntriesSize}}</span>
     </a>
 
     <smartlist-content inline-template>

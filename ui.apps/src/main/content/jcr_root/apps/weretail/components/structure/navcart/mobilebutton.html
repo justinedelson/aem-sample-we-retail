@@ -15,6 +15,6 @@
 */-->
 <div class="we-Cart">
     <a class="we-Cart-button" href="#" v-on:click="toggle">
-        <i class="fa fa-shopping-cart"></i> <span class="badge active" v-if="cartEntriesSize > 0">{{cartEntriesSize}}</span>
+        <i class="fa fa-shopping-cart"></i> <span class="badge active" v-cloak v-if="cartEntriesSize > 0">{{cartEntriesSize}}</span>
     </a>
 </div>
