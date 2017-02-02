@@ -15,6 +15,6 @@
 */-->
 <sly data-sly-use.wishlist="we.retail.core.model.WishlistModel">
     <a class="visible-xs we-Smartlist" href="#" v-on:click="toggle">
-        Wishlist <span class="badge active pull-right"  v-if="smartlistEntriesSize > 0">{{smartlistEntriesSize}}</span>
+        ${'Wishlist' @ i18n} <span class="badge active pull-right" v-cloak v-if="smartlistEntriesSize > 0">{{smartlistEntriesSize}}</span>
     </a>
 </sly>
