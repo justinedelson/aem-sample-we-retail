@@ -15,21 +15,26 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ====================================================================== -->
+    <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
+    <!-- ====================================================================== -->
     <parent>
-        <groupId>we</groupId>
-        <artifactId>we.retail</artifactId>
-        <version>1.9.0</version>
+        <groupId>com.adobe.cq.sample</groupId>
+        <artifactId>we.retail.parent</artifactId>
+        <version>1.9.20</version>
         <relativePath>parent/pom.xml</relativePath>
     </parent>
 
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>we</groupId>
     <artifactId>we.retail.reactor</artifactId>
     <packaging>pom</packaging>
     <version>1.9.1-SNAPSHOT</version>
-    <description>We.Retail</description>
+    <description>We.Retail Reactor</description>
     
     <modules>
+        <module>parent</module>
+        <module>config</module>
         <module>core</module>
         <module>ui.apps</module>
         <module>ui.content</module>
@@ -37,7 +42,6 @@
         <module>it.tests.ui-js</module>
         <module>it.launcher</module>
         <module>all</module>
-        <module>parent</module>
     </modules>
 
     <scm>

@@ -21,9 +21,9 @@
     <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>we</groupId>
-        <artifactId>we.retail</artifactId>
-        <version>1.9.18</version>
+        <groupId>com.adobe.cq.sample</groupId>
+        <artifactId>we.retail.parent</artifactId>
+        <version>1.9.20</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
@@ -123,6 +123,7 @@
                     <properties>
                         <acHandling>merge_preserve</acHandling>
                     </properties>
+                    <failOnMissingEmbed>true</failOnMissingEmbed>
                     <embeddeds>
                         <embedded>
                             <groupId>we</groupId>
@@ -202,7 +203,6 @@
                                 <configuration>
                                     <targetURL>http://${aem.host}:${aem.port}${aem.contextPath}/crx/packmgr/service.jsp</targetURL>
                                     <failOnError>true</failOnError>
-                                    <failOnMissingEmbed>true</failOnMissingEmbed>
                                 </configuration>
                             </execution>
                         </executions>
@@ -229,7 +229,6 @@
                                 <configuration>
                                     <targetURL>http://${aem.publish.host}:${aem.publish.port}${aem.contextPath}/crx/packmgr/service.jsp</targetURL>
                                     <failOnError>true</failOnError>
-                                    <failOnMissingEmbed>true</failOnMissingEmbed>
                                 </configuration>
                             </execution>
                         </executions>
