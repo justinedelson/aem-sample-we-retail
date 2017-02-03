@@ -123,7 +123,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
         </dependency>
-        
+
         <!-- This overrides the version provided by quickstart 6.2 -->
         <dependency>
             <groupId>com.adobe.cq.sightly</groupId>
@@ -162,11 +162,11 @@
         </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>
-            <artifactId>com.adobe.cq.wcm.core.components.core</artifactId>
-            <version>0.9.120</version>
+            <artifactId>core.wcm.components.core</artifactId>
+            <version>0.9.132</version>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-imaging</artifactId>
