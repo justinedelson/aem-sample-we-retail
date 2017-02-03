@@ -16,13 +16,13 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>we</groupId>
-    <artifactId>we.retail</artifactId>
+    <groupId>com.adobe.cq.sample</groupId>
+    <artifactId>we.retail.parent</artifactId>
     <packaging>pom</packaging>
     <version>1.9.19-SNAPSHOT</version>
 
     <name>We.Retail - Parent POM</name>
-    <description>We.Retail</description>
+    <description>We.Retail Parent POM</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
