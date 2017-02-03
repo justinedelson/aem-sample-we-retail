@@ -45,14 +45,15 @@ public class Header extends WCMUsePojo {
     public static final String PROP_HIDE_SUB_IN_NAV = "hideSubItemsInNav";
 
 
-    public static final String SIGN_IN_PATH = "/content/we-retail/us/en/user/account/sign-in/j_security_check";
-    public static final String SIGN_UP_PATH = "/content/we-retail/us/en/user/account/sign-up";
-    public static final String FORGOT_PWD_PATH = "/content/we-retail/us/en/user/account/forgot-password";
-    public static final String NOTIFICATION_PATH = "/content/we-retail/us/en";
-    public static final String MODERATION_PATH = "/content/we-retail/us/en";
-    public static final String MESSAGING_PATH = "/content/we-retail/us/en/user/mailbox";
-    public static final String PROFILE_PATH = "/content/we-retail/us/en/user/account/profile";
+    public static final String SIGN_IN_PATH = "community/signin";
+    public static final String SIGN_UP_PATH = "community/signup";
+    public static final String FORGOT_PWD_PATH = "community/useraccount/forgotpassword";
+    public static final String NOTIFICATION_PATH = "community/notifications";
+    public static final String MODERATION_PATH = "community/moderation";
+    public static final String MESSAGING_PATH = "community/messaging";
+    public static final String PROFILE_PATH = "community/profile";
     public static final String ACCOUNT_PATH = "/content/we-retail/us/en/user/account";
+    public static final String DEFAULT_ROOT_PATH = "/content/we-retail/us/en/";
 
     private ResourceResolver resolver;
     private Resource resource;
@@ -77,7 +78,8 @@ public class Header extends WCMUsePojo {
     private List<Country> countries;
     private Language currentLanguage;
     private String userPath;
-
+    private Page root;
+    
     @Override
     public void activate() throws Exception {
         resolver = getResourceResolver();
@@ -91,7 +93,7 @@ public class Header extends WCMUsePojo {
             resourcePage = currentPage;
         }
 
-        Page root = WeRetailHelper.findRoot(resourcePage);
+        root = WeRetailHelper.findRoot(resourcePage);
         languageRoot = "#";
         if (root != null) {
             items = getPages(root, 2, currentPage);
@@ -107,13 +109,13 @@ public class Header extends WCMUsePojo {
                 .checkIfUserIsModerator(resolver.adaptTo(UserManager.class), resolver.getUserID());
         isAnonymous = resolver.getUserID().equals("anonymous");
         currentPath = currentPage.getPath();
-        signInPath = SIGN_IN_PATH;
-        signUpPath = SIGN_UP_PATH;
-        forgotPwdPath = FORGOT_PWD_PATH;
-        messagingPath = MESSAGING_PATH;
-        notificationPath = NOTIFICATION_PATH;
-        moderationPath = MODERATION_PATH;
-        profilePath = PROFILE_PATH;
+        signInPath = computePagePath(SIGN_IN_PATH);
+        signUpPath = computePagePath(SIGN_UP_PATH);
+        forgotPwdPath = computePagePath(FORGOT_PWD_PATH);
+        messagingPath = computePagePath(MESSAGING_PATH);
+        notificationPath = computePagePath(NOTIFICATION_PATH);
+        moderationPath = computePagePath(MODERATION_PATH);
+        profilePath = computePagePath(PROFILE_PATH);
         accountPath = ACCOUNT_PATH;
         theme = properties.get("theme", "default");
         userPath = resolver.adaptTo(UserManager.class).getAuthorizable(resolver.getUserID()).getPath();
@@ -187,6 +189,30 @@ public class Header extends WCMUsePojo {
 
     public Language getCurrentLanguage() {
         return currentLanguage;
+    }
+    
+    private String computePagePath(final String relativePath) {
+        String computedPagePath;
+        if (root != null) {
+            computedPagePath = root.getPath() + "/" + relativePath;
+            LOGGER.debug("Computed Path" +  computedPagePath);
+            if (pageExists(computedPagePath)) {
+                LOGGER.debug("Returning Computed Path "+ computedPagePath);
+                return computedPagePath;
+            }
+        }
+        LOGGER.debug("Returning default path "+ DEFAULT_ROOT_PATH + relativePath);
+        return DEFAULT_ROOT_PATH + relativePath;
+    }
+    
+    private boolean pageExists (final String pagePath) {
+        if (pageManager != null) {
+            Page page = pageManager.getPage(pagePath);
+            if (page != null) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

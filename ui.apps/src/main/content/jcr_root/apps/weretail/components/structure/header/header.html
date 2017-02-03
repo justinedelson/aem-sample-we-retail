@@ -25,10 +25,10 @@
                     <li class="we-retail-not-anonymous hidden"><a href="${header.profilePath}.html">Profile</a></li>
                     <li class="we-retail-not-anonymous hidden" data-sly-resource="${@ resourceType='weretail/components/structure/navwishlist'}"></li>
                     <li class="we-retail-not-anonymous hidden"><a href="${header.messagingPath}.html"><i class="fa fa-envelope-o"></i> Messages <span class="badge">0</span></a></li>
-                    <li class="we-retail-not-anonymous hidden"><a href="${header.notificationPath}.html"><i class="fa fa-flag-o"></i> Notifications <span class="badge" id="scf-js-notificationsUnreadCount" data-siteurl="/content/we-retail/us/en">0</span></a></li>
+                    <li class="we-retail-not-anonymous hidden"><a href="${header.notificationPath}.html"><i class="fa fa-flag-o"></i> Notifications <span class="badge" id="scf-js-notificationsUnreadCount" data-siteurl="/content/we-retail/us/en/community">0</span></a></li>
                     <li data-sly-resource="${@ resourceType='weretail/components/structure/navcart'}"></li>
                     <li data-sly-test="${header.isModerator}"><a href="${header.moderationPath}.html">Moderation</a></li>
-                    <li class="we-retail-anonymous hidden"><a href="#" data-toggle="modal" data-target=".we-SignInModal">Login</a></li>
+                    <li class="we-retail-anonymous hidden"><a href="${header.signInPath}.html">Login</a></li>
                     <li class="we-retail-not-anonymous hidden"><a href="/system/sling/logout.html?resource=${header.currentPath}.html">Log out</a></li>
                 </ul>
             </div>
@@ -69,7 +69,7 @@
                             </li>
                         </sly>
                         <li class="visible-xs divider" role="separator"></li>
-                        <li class="visible-xs we-retail-anonymous hidden"><a href="#" data-toggle="modal" data-target=".we-SignInModal">Login</a></li>
+                        <li class="visible-xs we-retail-anonymous hidden"><a href="${header.signInPath}.html">Login</a></li>
                         <li class="visible-xs we-retail-not-anonymous hidden"><a href="/system/sling/logout.html?resource=${header.currentPath}.html">Log out</a></li>
                         <li class="visible-xs we-retail-not-anonymous hidden"><a href="${header.profilePath}.html">Profile</a></li>
                         <li class="visible-xs we-retail-not-anonymous hidden"><a href="${header.messagingPath}.html" class="visible-xs">Messages <span class="badge pull-right">0</span></a></li>
@@ -118,43 +118,6 @@
             </div>
         </div>
         <!-- /.we-SearchModal -->
-
-        <div class="we-SignInModal modal fade" tabindex="-1" role="dialog" data-color="primary">
-            <div class="modal-dialog modal-center">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title">LOGIN</h3>
-                    </div>
-                    <div class="modal-body">
-                        <form class="we-SignInModal-form" method="POST" action="${header.signInPath}">
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="j_username" placeholder="email address"/>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="password" name="j_password" placeholder="password"/>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-action">Login</button>
-                            </div>
-                            <div class="form-group">
-                                <a href="${header.forgotPwdPath}.html" class="">Forgot your password?</a>
-                            </div>
-                            <input type="hidden" name="resource" value="${header.currentPath}.html"/>
-                        </form>
-
-                        <div>
-                            <div class="form-group">
-                                <h4 class="modal-title text-uppercase">Don't have an account?</h4>
-                            </div>
-                            <div class="form-group">
-                                <a href="${header.signUpPath}.html" class="btn btn-primary btn-action">Register</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div><!-- /.we-SignInModal -->
 
         <div class="we-LanguageModal modal fade" tabindex="-1" role="dialog" data-color="primary">
             <div class="modal-dialog modal-center modal-sm">
