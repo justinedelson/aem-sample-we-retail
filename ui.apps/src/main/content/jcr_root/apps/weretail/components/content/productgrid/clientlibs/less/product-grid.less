@@ -98,18 +98,19 @@
 
         ul.foundation-ordered-list-container {
             left: 0;
-            width: 9999em;
+            width: 100%;
             overflow: hidden;
             position: relative;
             font-size: @font-size-base;
             margin: 0 (@grid-gutter-width/-2);
+            text-align: center;
 
             transition: left .25s;
 
             .foundation-list-item {
-                width: 50vw;
-                float: left;
-                display: block;
+                width: 150px;
+                float: none;
+                display: inline-block;
                 clear: none;
             }
         }
