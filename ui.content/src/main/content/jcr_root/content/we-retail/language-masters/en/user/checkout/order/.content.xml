@@ -44,6 +44,12 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="8"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
+                        <tablet
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                     </cq:responsive>
                     <column1
                         jcr:created="{Date}2016-11-17T11:52:45.013+01:00"
@@ -54,6 +60,12 @@
                         sling:resourceType="wcm/foundation/components/responsivegrid">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                width="12"/>
+                            <tablet
                                 jcr:primaryType="nt:unstructured"
                                 width="4"/>
                         </cq:responsive>
@@ -115,6 +127,12 @@
                         sling:resourceType="wcm/foundation/components/responsivegrid">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                width="12"/>
+                            <tablet
                                 jcr:primaryType="nt:unstructured"
                                 width="4"/>
                         </cq:responsive>
@@ -186,6 +204,14 @@
                                     jcr:primaryType="nt:unstructured"
                                     offset="2"
                                     width="4"/>
+                                <phone
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="1"
+                                    width="4"/>
+                                <tablet
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="1"
+                                    width="4"/>
                             </cq:responsive>
                         </button>
                     </column2>
@@ -201,6 +227,12 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="4"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
+                        <tablet
+                            jcr:primaryType="nt:unstructured"
+                            width="6"/>
                     </cq:responsive>
                     <cart-title
                         jcr:created="{Date}2016-11-10T09:45:14.834+01:00"

@@ -39,6 +39,12 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="8"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
+                        <tablet
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                     </cq:responsive>
                     <column1
                         jcr:created="{Date}2016-11-17T09:59:29.539+01:00"
@@ -49,6 +55,12 @@
                         sling:resourceType="wcm/foundation/components/responsivegrid">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                width="12"/>
+                            <tablet
                                 jcr:primaryType="nt:unstructured"
                                 width="4"/>
                         </cq:responsive>
@@ -369,6 +381,12 @@
                             <default
                                 jcr:primaryType="nt:unstructured"
                                 width="4"/>
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                width="12"/>
+                            <tablet
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
                         </cq:responsive>
                         <shipping-method-title
                             jcr:created="{Date}2016-11-10T09:58:24.717+01:00"
@@ -522,6 +540,12 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="4"/>
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
+                        <tablet
+                            jcr:primaryType="nt:unstructured"
+                            width="6"/>
                     </cq:responsive>
                     <cart-title
                         jcr:created="{Date}2016-11-10T09:45:14.834+01:00"

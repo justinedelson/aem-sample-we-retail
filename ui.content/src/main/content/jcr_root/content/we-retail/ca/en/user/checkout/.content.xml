@@ -57,6 +57,18 @@
                             jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
                             width="8"/>
+                        <phone
+                            cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
+                            cq:lastRolledoutBy="admin"
+                            jcr:mixinTypes="[cq:LiveRelationship]"
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
+                        <tablet
+                            cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
+                            cq:lastRolledoutBy="admin"
+                            jcr:mixinTypes="[cq:LiveRelationship]"
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                     </cq:responsive>
                     <column1
                         cq:lastRolledout="{Date}2017-01-25T15:30:49.439+01:00"
@@ -75,6 +87,18 @@
                             jcr:primaryType="nt:unstructured">
                             <default
                                 cq:lastRolledout="{Date}2017-01-25T15:30:49.462+01:00"
+                                cq:lastRolledoutBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
+                            <phone
+                                cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
+                                cq:lastRolledoutBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
+                                jcr:primaryType="nt:unstructured"
+                                width="12"/>
+                            <tablet
+                                cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
                                 cq:lastRolledoutBy="admin"
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
@@ -518,6 +542,18 @@
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 width="4"/>
+                            <phone
+                                cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
+                                cq:lastRolledoutBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
+                                jcr:primaryType="nt:unstructured"
+                                width="12"/>
+                            <tablet
+                                cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
+                                cq:lastRolledoutBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
                         </cq:responsive>
                         <shipping-method-title
                             cq:lastRolledout="{Date}2017-01-25T15:30:49.610+01:00"
@@ -738,6 +774,18 @@
                             jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
                             width="4"/>
+                        <phone
+                            cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
+                            cq:lastRolledoutBy="admin"
+                            jcr:mixinTypes="[cq:LiveRelationship]"
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
+                        <tablet
+                            cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
+                            cq:lastRolledoutBy="admin"
+                            jcr:mixinTypes="[cq:LiveRelationship]"
+                            jcr:primaryType="nt:unstructured"
+                            width="6"/>
                     </cq:responsive>
                     <cart-title
                         cq:lastRolledout="{Date}2017-01-25T15:30:49.748+01:00"
