@@ -50,6 +50,15 @@
                     sling:resourceType="wcm/foundation/components/responsivegrid"
                     editable="{Boolean}true">
                     <cq:responsive jcr:primaryType="nt:unstructured">
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            width="5"/>
+                        <intermediate
+                            jcr:primaryType="nt:unstructured"
+                            width="4"/>
+                        <tablet
+                            jcr:primaryType="nt:unstructured"
+                            width="2"/>
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="2"/>
@@ -64,6 +73,16 @@
                     sling:resourceType="weretail/components/content/productgrid"
                     editable="{Boolean}true">
                     <cq:responsive jcr:primaryType="nt:unstructured">
+                        <phone
+                            jcr:mixinTypes="[]"
+                            jcr:primaryType="nt:unstructured"
+                            width="7"/>
+                        <intermediate
+                            jcr:primaryType="nt:unstructured"
+                            width="8"/>
+                        <tablet
+                            jcr:primaryType="nt:unstructured"
+                            width="10"/>
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="10"/>
@@ -92,6 +111,10 @@
                     jcr:primaryType="nt:unstructured"
                     title="Smaller Screen"
                     width="{Long}650"/>
+                <intermediate
+                    jcr:primaryType="nt:unstructured"
+                    title="Intermediate"
+                    width="{Long}992"/>
                 <tablet
                     jcr:primaryType="nt:unstructured"
                     title="Tablet"
