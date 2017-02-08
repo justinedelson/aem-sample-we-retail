@@ -2,9 +2,9 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2016-10-26T16:44:04.720+02:00"
+        cq:lastModified="{Date}2017-02-08T11:58:22.691+01:00"
         cq:lastModifiedBy="admin"
-        cq:lastRolledout="{Date}2016-10-26T16:44:04.721+02:00"
+        cq:lastRolledout="{Date}2017-02-08T11:58:22.692+01:00"
         cq:lastRolledoutBy="admin"
         cq:productMaster="/etc/commerce/products/we-retail/eq/biking/eqbisucos"
         cq:tags="[we-retail:activity/biking,we-retail:season/summer,we-retail:apparel/gloves]"
@@ -15,20 +15,20 @@
         jcr:title="Comfort Gel Gloves"
         sling:resourceType="weretail/components/structure/page">
         <root
-            cq:lastRolledout="{Date}2016-10-26T16:44:04.673+02:00"
+            cq:lastRolledout="{Date}2017-02-08T11:58:22.650+01:00"
             cq:lastRolledoutBy="admin"
             jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <breadcrumb
-                cq:lastRolledout="{Date}2016-10-26T16:44:04.683+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:22.657+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/content/breadcrumb"/>
             <product
                 cq:commerceType="product"
-                cq:lastRolledout="{Date}2016-10-26T16:44:04.685+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:22.659+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:lastModified="{Date}2016-04-12T01:19:39.419+02:00"
                 jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
@@ -37,14 +37,14 @@
                 productData="/etc/commerce/products/we-retail/eq/biking/eqbisucos">
                 <eqbisucos-s
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:44:04.692+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:22.664+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/eq/biking/eqbisucos/size-s">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:44:04.695+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:22.668+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T16:32:07.204-08:00"
                         jcr:lastModifiedBy="admin"
@@ -53,7 +53,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/gloves/Comfort Gel.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:44:04.696+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:22.669+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -61,14 +61,14 @@
                 </eqbisucos-s>
                 <eqbisucos-m
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:44:04.697+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:22.670+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/eq/biking/eqbisucos/size-m">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:44:04.700+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:22.673+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T16:32:07.204-08:00"
                         jcr:lastModifiedBy="admin"
@@ -77,7 +77,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/gloves/Comfort Gel.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:44:04.701+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:22.674+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -85,14 +85,14 @@
                 </eqbisucos-m>
                 <eqbisucos-l
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:44:04.703+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:22.676+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/eq/biking/eqbisucos/size-l">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:44:04.705+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:22.679+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T16:32:07.204-08:00"
                         jcr:lastModifiedBy="admin"
@@ -101,14 +101,14 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/gloves/Comfort Gel.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:44:04.707+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:22.681+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="weretail/components/structure/product/assets"/>
                 </eqbisucos-l>
                 <image
-                    cq:lastRolledout="{Date}2016-10-26T16:44:04.708+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:22.682+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:lastModified="{Date}2016-01-11T16:32:07.204-08:00"
                     jcr:lastModifiedBy="admin"
@@ -117,40 +117,40 @@
                     sling:resourceType="commerce/components/product/image"
                     fileReference="/content/dam/we-retail/en/products/apparel/gloves/Comfort Gel.jpg"/>
                 <assets
-                    cq:lastRolledout="{Date}2016-10-26T16:44:04.709+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:22.683+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product/assets"/>
             </product>
             <responsivegrid
-                cq:lastRolledout="{Date}2016-10-26T16:44:04.712+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:22.685+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid"/>
             <reviews_section_title
-                cq:lastRolledout="{Date}2016-10-26T16:44:04.714+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:22.687+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Reviews"
                 sling:resourceType="weretail/components/content/title"/>
             <reviews
-                cq:lastRolledout="{Date}2016-10-26T16:44:04.717+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:22.688+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/structure/productreviews"/>
             <similar_section_title
-                cq:lastRolledout="{Date}2016-10-26T16:44:04.719+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:22.690+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="You may also like"
                 sling:resourceType="weretail/components/content/title"/>
             <similar_products
-                cq:lastRolledout="{Date}2016-10-26T16:44:04.721+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:22.692+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"

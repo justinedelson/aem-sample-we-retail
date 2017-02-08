@@ -2,9 +2,9 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2016-10-26T16:43:59.103+02:00"
+        cq:lastModified="{Date}2017-02-08T11:58:19.162+01:00"
         cq:lastModifiedBy="admin"
-        cq:lastRolledout="{Date}2016-10-26T16:43:59.104+02:00"
+        cq:lastRolledout="{Date}2017-02-08T11:58:19.164+01:00"
         cq:lastRolledoutBy="admin"
         cq:productMaster="/etc/commerce/products/we-retail/me/pants/meotsutrs"
         cq:tags="[we-retail:gender/men,we-retail:season/summer,we-retail:activity/others,we-retail:apparel/pants]"
@@ -15,20 +15,20 @@
         jcr:title="Tribeca Cargo Pants"
         sling:resourceType="weretail/components/structure/page">
         <root
-            cq:lastRolledout="{Date}2016-10-26T16:43:59.043+02:00"
+            cq:lastRolledout="{Date}2017-02-08T11:58:19.093+01:00"
             cq:lastRolledoutBy="admin"
             jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <breadcrumb
-                cq:lastRolledout="{Date}2016-10-26T16:43:59.049+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:19.100+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/content/breadcrumb"/>
             <product
                 cq:commerceType="product"
-                cq:lastRolledout="{Date}2016-10-26T16:43:59.052+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:19.101+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:lastModified="{Date}2016-04-12T01:19:38.388+02:00"
                 jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
@@ -37,14 +37,14 @@
                 productData="/etc/commerce/products/we-retail/me/pants/meotsutrs">
                 <meotsutrs-s
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:59.059+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:19.109+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/me/pants/meotsutrs/size-s">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.062+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.112+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T16:16:30.156-08:00"
                         jcr:lastModifiedBy="admin"
@@ -53,7 +53,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/pants/Tribeca.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.063+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.114+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -61,14 +61,14 @@
                 </meotsutrs-s>
                 <meotsutrs-m
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:59.065+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:19.115+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/me/pants/meotsutrs/size-m">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.068+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.118+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T16:16:30.156-08:00"
                         jcr:lastModifiedBy="admin"
@@ -77,7 +77,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/pants/Tribeca.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.069+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.119+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -85,14 +85,14 @@
                 </meotsutrs-m>
                 <meotsutrs-l
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:59.071+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:19.120+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/me/pants/meotsutrs/size-l">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.073+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.124+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T16:16:30.156-08:00"
                         jcr:lastModifiedBy="admin"
@@ -101,7 +101,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/pants/Tribeca.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.075+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.125+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -109,14 +109,14 @@
                 </meotsutrs-l>
                 <meotsutrs-xl
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:59.076+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:19.126+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/me/pants/meotsutrs/size-xl">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.079+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.136+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T16:16:30.156-08:00"
                         jcr:lastModifiedBy="admin"
@@ -125,7 +125,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/pants/Tribeca.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.080+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.137+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -133,14 +133,14 @@
                 </meotsutrs-xl>
                 <meotsutrs-xxl
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:59.082+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:19.138+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/me/pants/meotsutrs/size-xxl">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.085+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.141+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T16:16:30.156-08:00"
                         jcr:lastModifiedBy="admin"
@@ -149,7 +149,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/pants/Tribeca.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.086+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.142+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -157,14 +157,14 @@
                 </meotsutrs-xxl>
                 <meotsutrs-xxxl
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:59.087+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:19.144+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/me/pants/meotsutrs/size-xxxl">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.090+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.147+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T16:16:30.156-08:00"
                         jcr:lastModifiedBy="admin"
@@ -173,14 +173,14 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/pants/Tribeca.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:59.092+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:19.148+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="weretail/components/structure/product/assets"/>
                 </meotsutrs-xxxl>
                 <image
-                    cq:lastRolledout="{Date}2016-10-26T16:43:59.093+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:19.150+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:lastModified="{Date}2016-01-11T16:16:30.156-08:00"
                     jcr:lastModifiedBy="admin"
@@ -189,47 +189,47 @@
                     sling:resourceType="commerce/components/product/image"
                     fileReference="/content/dam/we-retail/en/products/apparel/pants/Tribeca.jpg"/>
                 <assets
-                    cq:lastRolledout="{Date}2016-10-26T16:43:59.094+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:19.151+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product/assets"/>
             </product>
             <responsivegrid
-                cq:lastRolledout="{Date}2016-10-26T16:43:59.096+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:19.152+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid"/>
             <reviews_section_title
-                cq:lastRolledout="{Date}2016-10-26T16:43:59.097+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:19.154+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Reviews"
                 sling:resourceType="weretail/components/content/title"/>
             <reviews
-                cq:lastRolledout="{Date}2016-10-26T16:43:59.099+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:19.156+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/structure/productreviews"/>
             <similar_section_title
-                cq:lastRolledout="{Date}2016-10-26T16:43:59.101+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:19.158+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="You may also like"
                 sling:resourceType="weretail/components/content/title"/>
             <similar_products
-                cq:lastRolledout="{Date}2016-10-26T16:43:59.103+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:19.161+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/structure/productrecommendation"/>
         </root>
         <image
-            cq:lastRolledout="{Date}2016-10-26T16:43:59.104+02:00"
+            cq:lastRolledout="{Date}2017-02-08T11:58:19.164+01:00"
             cq:lastRolledoutBy="admin"
             jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"

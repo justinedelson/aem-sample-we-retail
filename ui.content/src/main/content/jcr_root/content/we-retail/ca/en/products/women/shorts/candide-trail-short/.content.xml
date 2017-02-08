@@ -2,9 +2,9 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2016-10-26T16:43:56.853+02:00"
+        cq:lastModified="{Date}2017-02-08T11:58:17.717+01:00"
         cq:lastModifiedBy="admin"
-        cq:lastRolledout="{Date}2016-10-26T16:43:56.855+02:00"
+        cq:lastRolledout="{Date}2017-02-08T11:58:17.718+01:00"
         cq:lastRolledoutBy="admin"
         cq:productMaster="/etc/commerce/products/we-retail/wo/shorts/wohisucat"
         cq:tags="[we-retail:apparel/shorts,we-retail:season/summer,we-retail:activity/hiking,we-retail:gender/women]"
@@ -15,20 +15,20 @@
         jcr:title="Candide Trail Short"
         sling:resourceType="weretail/components/structure/page">
         <root
-            cq:lastRolledout="{Date}2016-10-26T16:43:56.783+02:00"
+            cq:lastRolledout="{Date}2017-02-08T11:58:17.654+01:00"
             cq:lastRolledoutBy="admin"
             jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <breadcrumb
-                cq:lastRolledout="{Date}2016-10-26T16:43:56.790+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:17.661+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/content/breadcrumb"/>
             <product
                 cq:commerceType="product"
-                cq:lastRolledout="{Date}2016-10-26T16:43:56.793+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:17.663+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:lastModified="{Date}2016-04-12T01:19:37.927+02:00"
                 jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
@@ -37,14 +37,14 @@
                 productData="/etc/commerce/products/we-retail/wo/shorts/wohisucat">
                 <wohisucat-xxs
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:56.801+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:17.671+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/wo/shorts/wohisucat/size-xxs">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.805+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.674+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T09:23:52.097-08:00"
                         jcr:lastModifiedBy="admin"
@@ -53,7 +53,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/shorts/Candide.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.807+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.675+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -61,14 +61,14 @@
                 </wohisucat-xxs>
                 <wohisucat-xs
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:56.808+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:17.677+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/wo/shorts/wohisucat/size-xs">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.811+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.680+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T09:23:52.097-08:00"
                         jcr:lastModifiedBy="admin"
@@ -77,7 +77,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/shorts/Candide.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.813+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.681+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -85,14 +85,14 @@
                 </wohisucat-xs>
                 <wohisucat-s
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:56.814+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:17.683+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/wo/shorts/wohisucat/size-s">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.817+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.686+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T09:23:52.097-08:00"
                         jcr:lastModifiedBy="admin"
@@ -101,7 +101,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/shorts/Candide.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.819+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.687+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -109,14 +109,14 @@
                 </wohisucat-s>
                 <wohisucat-m
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:56.820+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:17.688+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/wo/shorts/wohisucat/size-m">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.824+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.691+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T09:23:52.097-08:00"
                         jcr:lastModifiedBy="admin"
@@ -125,7 +125,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/shorts/Candide.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.825+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.693+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -133,14 +133,14 @@
                 </wohisucat-m>
                 <wohisucat-l
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:56.827+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:17.694+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/wo/shorts/wohisucat/size-l">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.830+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.698+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T09:23:52.097-08:00"
                         jcr:lastModifiedBy="admin"
@@ -149,7 +149,7 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/shorts/Candide.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.832+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.699+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
@@ -157,14 +157,14 @@
                 </wohisucat-l>
                 <wohisucat-xl
                     cq:commerceType="variant"
-                    cq:lastRolledout="{Date}2016-10-26T16:43:56.833+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:17.700+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
                     productData="/etc/commerce/products/we-retail/wo/shorts/wohisucat/size-xl">
                     <image
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.836+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.703+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:lastModified="{Date}2016-01-11T09:23:52.097-08:00"
                         jcr:lastModifiedBy="admin"
@@ -173,14 +173,14 @@
                         sling:resourceType="commerce/components/product/image"
                         fileReference="/content/dam/we-retail/en/products/apparel/shorts/Candide.jpg"/>
                     <assets
-                        cq:lastRolledout="{Date}2016-10-26T16:43:56.838+02:00"
+                        cq:lastRolledout="{Date}2017-02-08T11:58:17.704+01:00"
                         cq:lastRolledoutBy="admin"
                         jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="weretail/components/structure/product/assets"/>
                 </wohisucat-xl>
                 <image
-                    cq:lastRolledout="{Date}2016-10-26T16:43:56.840+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:17.706+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:lastModified="{Date}2016-01-11T09:23:52.097-08:00"
                     jcr:lastModifiedBy="admin"
@@ -189,47 +189,47 @@
                     sling:resourceType="commerce/components/product/image"
                     fileReference="/content/dam/we-retail/en/products/apparel/shorts/Candide.jpg"/>
                 <assets
-                    cq:lastRolledout="{Date}2016-10-26T16:43:56.841+02:00"
+                    cq:lastRolledout="{Date}2017-02-08T11:58:17.707+01:00"
                     cq:lastRolledoutBy="admin"
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product/assets"/>
             </product>
             <responsivegrid
-                cq:lastRolledout="{Date}2016-10-26T16:43:56.843+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:17.709+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid"/>
             <reviews_section_title
-                cq:lastRolledout="{Date}2016-10-26T16:43:56.845+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:17.711+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Reviews"
                 sling:resourceType="weretail/components/content/title"/>
             <reviews
-                cq:lastRolledout="{Date}2016-10-26T16:43:56.848+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:17.713+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/structure/productreviews"/>
             <similar_section_title
-                cq:lastRolledout="{Date}2016-10-26T16:43:56.850+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:17.715+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="You may also like"
                 sling:resourceType="weretail/components/content/title"/>
             <similar_products
-                cq:lastRolledout="{Date}2016-10-26T16:43:56.852+02:00"
+                cq:lastRolledout="{Date}2017-02-08T11:58:17.716+01:00"
                 cq:lastRolledoutBy="admin"
                 jcr:mixinTypes="[cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/structure/productrecommendation"/>
         </root>
         <image
-            cq:lastRolledout="{Date}2016-10-26T16:43:56.855+02:00"
+            cq:lastRolledout="{Date}2017-02-08T11:58:17.718+01:00"
             cq:lastRolledoutBy="admin"
             jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"
