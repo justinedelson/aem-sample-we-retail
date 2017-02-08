@@ -3,7 +3,6 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:catalogBlueprint="/content/catalogs/we-retail/en/website-catalog"
-        cq:cloudserviceconfigs="[[]]"
         cq:commerceProvider="we-retail"
         cq:commerceType="section"
         cq:lastModified="{Date}2017-02-08T11:58:34.997+01:00"
