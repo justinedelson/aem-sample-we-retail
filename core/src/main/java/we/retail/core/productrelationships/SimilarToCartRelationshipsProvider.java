@@ -18,6 +18,7 @@ package we.retail.core.productrelationships;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.felix.scr.annotations.Activate;
@@ -81,7 +82,11 @@ public class SimilarToCartRelationshipsProvider extends AbstractRelationshipsPro
         SimilarProductsCollector collector = new SimilarProductsCollector(resolver, session, RELATIONSHIP_TYPE,
                 RELATIONSHIP_TITLE,
                 contextProducts);
-        collector.walk(WeRetailHelper.findRoot(currentPage).getContentResource().getParent());
+        Page root = WeRetailHelper.findRoot(currentPage);
+        if (root == null || root.getContentResource() == null) {
+            return Collections.emptyList();
+        }
+        collector.walk(root.getContentResource().getParent());
         return collector.getRelationships();
     }
 
