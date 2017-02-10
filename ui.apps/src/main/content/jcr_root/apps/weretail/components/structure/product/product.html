@@ -44,7 +44,7 @@
                  data-sly-use.hapiProductAsset="${'org.apache.sling.hapi.sightly.HApiUse' @ type=hapiProduct.proptype.assets}"
                  data-sly-attribute="${hapiProduct.itemprop.assets}"> <!-- TODO: add zoom and slider -->
 
-                <img src="${productModel.productItem.imageSrc}" class="img-responsive" v-bind:src="product.image" data-sly-attribute="${hapiProductAsset.itemprop.path}" />
+                <img src="${productModel.productItem.imageUrl}" class="img-responsive" v-bind:src="product.image" data-sly-attribute="${hapiProductAsset.itemprop.path}" />
                 
                 <!--/*
                 <a href="#" class="we-Product-visual-zoom"><i class="we-Icon we-Icon--zoom-plus"></i> View larger</a>
