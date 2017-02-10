@@ -44,7 +44,7 @@
                     toggleHeaderElements(json['authorizableId']);
 
                     // On publish: load the request user into ContextHub
-                    if (ContextHub) {
+                    if (typeof ContextHub !== "undefined") {
                         var profileStore = ContextHub.getStore('profile');
                         var requestUser = json["home"];
                         var contextHubUser = profileStore.getTree().path;
@@ -56,14 +56,14 @@
             });
         } else {
             // toggle visibility of header elements as per the current user stored in the ContextHub
-            if (ContextHub) {
+            if (typeof ContextHub !== "undefined")  {
                 toggleHeaderElements(ContextHub.getStore("profile").getItem("authorizableId"));
             }
         }
 
         // toggle visibility of header elements when the current user changes in ContextHub
         // such as when simulating different personas
-        if (ContextHub) {
+        if (typeof ContextHub !== "undefined") {
             ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":profile", function () {
                 var profileStore = ContextHub.getStore("profile");
                 toggleHeaderElements(profileStore.getItem("authorizableId"));
