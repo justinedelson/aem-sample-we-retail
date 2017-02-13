@@ -81,7 +81,10 @@ public class SimilarToCurrentRelationshipsProvider extends AbstractRelationships
         ResourceResolver resolver = request.getResourceResolver();
         SimilarProductsCollector collector = new SimilarProductsCollector(resolver, session, RELATIONSHIP_TYPE,
                 RELATIONSHIP_TITLE, contextProducts);
-        collector.walk(WeRetailHelper.findRoot(currentPage).getContentResource().getParent());
+        final Page root = WeRetailHelper.findRoot(currentPage);
+        if (root != null) {
+            collector.walk(root.getContentResource().getParent());
+        }
         return collector.getRelationships();
     }
 
