@@ -126,7 +126,7 @@
                     <failOnMissingEmbed>true</failOnMissingEmbed>
                     <embeddeds>
                         <embedded>
-                            <groupId>we</groupId>
+                            <groupId>com.adobe.cq.sample</groupId>
                             <artifactId>we.retail.core</artifactId>
                             <target>/apps/weretail/install</target>
                         </embedded>
@@ -243,9 +243,9 @@
     <!-- ====================================================================== -->
     <dependencies>
         <dependency>
-            <groupId>we</groupId>
+            <groupId>com.adobe.cq.sample</groupId>
             <artifactId>we.retail.core</artifactId>
-            <version>1.9.70</version>
+            <version>1.9.74</version>
         </dependency>
         <dependency>
             <groupId>com.day.cq</groupId>
