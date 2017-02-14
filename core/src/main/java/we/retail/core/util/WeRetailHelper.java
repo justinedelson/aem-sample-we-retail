@@ -32,7 +32,7 @@ public class WeRetailHelper {
      * Returns the root page of the site
      * E.g.: /content/we-retail/us/en
      * @param resourcePage  the current Page
-     * @return root page
+     * @return root page or null if a root cannot be found
      */
     public static Page findRoot(Page resourcePage) {
         Page rootPage = resourcePage;
@@ -51,6 +51,9 @@ public class WeRetailHelper {
      */
     public static boolean isRoot(Page page) {
         Resource res = page.getContentResource();
+        if (res == null) {
+            return false;
+        }
         ValueMap vm = res.adaptTo(ValueMap.class);
         return vm.get(PROP_NAV_ROOT, false);
     }
