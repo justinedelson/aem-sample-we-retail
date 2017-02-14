@@ -158,7 +158,7 @@
                             cache: false,
                             type: $form.attr('method')
                         }).done(function (json) {
-                            if (window.ContextHub) {
+                            if (window.ContextHub && ContextHub.getStore('smartlists')) {
                                 if (ContextHub.getStore('smartlists').getTree().length == 0) {
                                     // wait until new created smart list is available, which may take > 1 sec
                                     var smartlistCheck = setInterval(function(){

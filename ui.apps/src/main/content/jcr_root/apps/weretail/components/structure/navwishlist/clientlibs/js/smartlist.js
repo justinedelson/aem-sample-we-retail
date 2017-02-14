@@ -53,13 +53,18 @@
             window.smartlistContent = this;
         },
         data: function() {
-            var _smartlists = null;
-            if (window.ContextHub) {
-                _smartlists = ContextHub.getStore('smartlists');
+            var _smartlists = window.ContextHub ? ContextHub.getStore('smartlists') : null;
+            if (_smartlists) {
+                return {
+                    smartlist: _smartlists.getTree()[0],
+                    smartlistEntriesSize: _smartlists.getTree()[0] ? _smartlists.getTree()[0].entries.length : 0
+                }
             }
-            return {
-                smartlist: _smartlists.getTree()[0],
-                smartlistEntriesSize: _smartlists.getTree()[0] ? _smartlists.getTree()[0].entries.length : 0
+            else {
+                return {
+                    smartlist: undefined,
+                    smartlistEntriesSize: 0
+                }
             }
         },
         events: {
@@ -76,8 +81,8 @@
         },
         methods: {
             refreshSmartlist: function(event) {
-                if (window.ContextHub) {
-                    var _smartlists = ContextHub.getStore('smartlists');
+                var _smartlists = window.ContextHub ? ContextHub.getStore('smartlists') : null;
+                if (_smartlists) {
                     this.$data.smartlist = _smartlists.getTree()[0];
                     this.$data.smartlistEntriesSize = _smartlists.getTree()[0] ? _smartlists.getTree()[0].entries.length : 0;
                 }
@@ -93,8 +98,9 @@
                     cache: false,
                     type: $form.attr('method')
                 }).done(function (json) {
-                    if (window.ContextHub) {
-                        ContextHub.getStore('smartlists').queryService();
+                    var _smartlists = window.ContextHub ? ContextHub.getStore('smartlists') : null;
+                    if (_smartlists) {
+                        _smartlists.queryService();
                     }
                 }).fail(function () {
                     alert('An error occured while trying to perform this operation.');
@@ -108,8 +114,9 @@
                     cache: false,
                     type: $form.attr('method')
                 }).done(function (json) {
-                    if (window.ContextHub) {
-                        ContextHub.getStore('cart').queryService();
+                    var _smartlists = window.ContextHub ? ContextHub.getStore('smartlists') : null;
+                    if (_smartlists) {
+                        _smartlists.queryService();
                     }
                     window.cartComponent.show();
                 }).fail(function () {
@@ -138,12 +145,9 @@
             window.smartlistComponent = this;
         },
         data: function() {
-            var _smartlists = null;
-            if (window.ContextHub) {
-                _smartlists = ContextHub.getStore('smartlists');
-            }
+            var _smartlists = window.ContextHub ? ContextHub.getStore('smartlists') : null;
             return {
-                smartlistEntriesSize: _smartlists.getTree()[0] ? _smartlists.getTree()[0].entries.length : 0
+                smartlistEntriesSize: (_smartlists && _smartlists.getTree()[0]) ? _smartlists.getTree()[0].entries.length : 0
             }
         },
         methods: {
@@ -163,8 +167,8 @@
                 }
             },
             refreshSmartlist: function(event) {
-                if (window.ContextHub) {
-                    var _smartlists = ContextHub.getStore('smartlists');
+                var _smartlists = window.ContextHub ? ContextHub.getStore('smartlists') : null;
+                if (_smartlists) {
                     this.$data.smartlistEntriesSize = _smartlists.getTree()[0] ? _smartlists.getTree()[0].entries.length : 0;
                 }
             },

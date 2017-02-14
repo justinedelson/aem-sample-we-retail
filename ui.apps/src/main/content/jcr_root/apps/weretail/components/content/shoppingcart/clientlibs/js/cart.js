@@ -45,12 +45,12 @@
             cache: false,
             type: 'POST'
         }).done(function (json) {
-            if (window.ContextHub) {
-                ContextHub.getStore("cart").queryService();
+            var _cart = window.ContextHub ? ContextHub.getStore('cart') : null;
+            if (_cart) {
+                _cart.queryService();
             } else {
                 refreshCart();
             }
-
         }).fail(function () {
             alert('An error occured while trying to perform this operation.');
         });

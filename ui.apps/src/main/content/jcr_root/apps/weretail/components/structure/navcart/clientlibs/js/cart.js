@@ -54,15 +54,22 @@
             window.cartContent = this;
         },
         data: function() {
-            var _cart = null;
-            if (window.ContextHub) {
-                _cart = ContextHub.getStore('cart');
+            var _cart = window.ContextHub ? ContextHub.getStore('cart') : null; 
+            if (_cart) {
+                return {
+                    cartEntries: _cart.getItem('entries'),
+                    cartEntriesSize: _cart.getItem('entries') ? _cart.getItem('entries').length : 0,
+                    cartTotalPrice: _cart.getItem('totalPrice'),
+                    cartPromotions: _cart.getItem('promotions')
+                }
             }
-            return {
-                cartEntries: _cart.getItem('entries'),
-                cartEntriesSize: _cart.getItem('entries') ? _cart.getItem('entries').length : 0,
-                cartTotalPrice: _cart.getItem('totalPrice'),
-                cartPromotions: _cart.getItem('promotions')
+            else {
+                return {
+                    cartEntries: [],
+                    cartEntriesSize: 0,
+                    cartTotalPrice: '0.00',
+                    cartPromotions: []
+                }
             }
         },
         events: {
@@ -79,8 +86,8 @@
         },
         methods: {
             refreshCart: function(event) {
-                if (window.ContextHub) {
-                    var _cart = ContextHub.getStore('cart');
+                var _cart = window.ContextHub ? ContextHub.getStore('cart') : null;
+                if (_cart) {
                     this.$data.cartEntries = _cart.getItem('entries');
                     this.$data.cartEntriesSize = _cart.getItem('entries') ? _cart.getItem('entries').length : 0;
                     this.$data.cartTotalPrice = _cart.getItem('totalPrice');
@@ -98,8 +105,9 @@
                     cache: false,
                     type: $form.attr('method')
                 }).done(function (json) {
-                    if (window.ContextHub) {
-                        ContextHub.getStore('cart').queryService();
+                    var _cart = window.ContextHub ? ContextHub.getStore('cart') : null;
+                    if (_cart) {
+                        _cart.queryService();
                     }
                 }).fail(function () {
                     alert('An error occured while trying to perform this operation.');
@@ -125,12 +133,9 @@
             window.cartComponent = this;
         },
         data: function() {
-            var _cart = null;
-            if (window.ContextHub) {
-                _cart = ContextHub.getStore('cart');
-            }
+            var _cart = window.ContextHub ? ContextHub.getStore('cart') : null;
             return {
-                cartEntriesSize: _cart.getItem('entries') ? _cart.getItem('entries').length : 0
+                cartEntriesSize: (_cart && _cart.getItem('entries')) ? _cart.getItem('entries').length : 0
             }
         },
         methods: {
@@ -150,8 +155,8 @@
                 }
             },
             refreshCart: function(event) {
-                if (window.ContextHub) {
-                    var _cart = ContextHub.getStore('cart');
+                var _cart = window.ContextHub ? ContextHub.getStore('cart') : null;
+                if (_cart) {
                     this.$data.cartEntriesSize = _cart.getItem('entries') ? _cart.getItem('entries').length : 0;
                 }
             },

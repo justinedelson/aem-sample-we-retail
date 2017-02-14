@@ -28,7 +28,7 @@
                 relationshipType = relationshipType.split(":");
             }
             if (relationshipType && relationshipType.length >= 2) {
-                store = ContextHub ? ContextHub.getStore(relationshipType[0]) : null;
+                store = window.ContextHub ? ContextHub.getStore(relationshipType[0]) : null;
             }
 
             if (!$template || !store) {
