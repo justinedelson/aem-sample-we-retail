@@ -245,7 +245,7 @@
         <dependency>
             <groupId>com.adobe.cq.sample</groupId>
             <artifactId>we.retail.core</artifactId>
-            <version>1.9.74</version>
+            <version>1.9.76</version>
         </dependency>
         <dependency>
             <groupId>com.day.cq</groupId>
