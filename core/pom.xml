@@ -167,7 +167,7 @@
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.core</artifactId>
-            <version>0.9.132</version>
+            <version>0.9.138</version>
             <scope>provided</scope>
         </dependency>
 
