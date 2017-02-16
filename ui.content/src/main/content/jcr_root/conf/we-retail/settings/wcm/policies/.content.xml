@@ -200,8 +200,8 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Experience Page Breadcrumb"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        defaultHideCurrent="true"
-                        defaultStartLevel="3"/>
+                        hideCurrent="true"
+                        startLevel="3"/>
                     <we-retail-product-page
                         jcr:description="Policy for breadcrumb on product pages"
                         jcr:lastModified="{Date}2016-09-16T15:03:54.572+02:00"
@@ -209,8 +209,8 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Product Page Breadcrumb"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        defaultHideCurrent="true"
-                        defaultStartLevel="5">
+                        hideCurrent="true"
+                        startLevel="5">
                         <jcr:content
                             jcr:primaryType="nt:unstructured"
                             mergeList="{Boolean}true"/>
