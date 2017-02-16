@@ -31,7 +31,7 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <artifactId>we.retail.ui.apps</artifactId>
-    <version>1.9.259-SNAPSHOT</version>
+    <version>1.9.265-SNAPSHOT</version>
     <packaging>content-package</packaging>
     <name>We.Retail - UI apps</name>
     <description>UI apps package for We.Retail</description>
@@ -245,7 +245,7 @@
         <dependency>
             <groupId>com.adobe.cq.sample</groupId>
             <artifactId>we.retail.core</artifactId>
-            <version>1.9.76</version>
+            <version>1.9.80</version>
         </dependency>
         <dependency>
             <groupId>com.day.cq</groupId>
