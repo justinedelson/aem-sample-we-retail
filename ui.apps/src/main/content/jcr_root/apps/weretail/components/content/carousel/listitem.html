@@ -15,15 +15,15 @@
 */-->
 <template data-sly-template.default="${@ renderItem, list}">
     <a href="${renderItem.page.path @ extension='html'}" class="we-Carousel-item item ${list.first && 'active'}" style="background-image:
-    url('${renderItem.page.path @ context='attribute'}.image.940.340.high.jpg')">
+    url('${renderItem.path @ context='attribute'}.image.940.340.high.jpg')">
         <div class="carousel-caption">
-            <h3>${renderItem.page.title || renderItem.page.name}</h3>
-            <p>${renderItem.page.description}</p>
+            <h3>${renderItem.title || renderItem.name}</h3>
+            <p>${renderItem.description}</p>
         </div>
     </a>
 </template>
 
 <template data-sly-template.images="${@ renderItem, list}">
     <div class="we-Carousel-item item ${list.first && 'active'}"
-         style="background-image:url('${renderItem.page.path @ context='attribute'}.image.940.340.high.jpg')"></div>
+         style="background-image:url('${renderItem.path @ context='attribute'}.image.940.340.high.jpg')"></div>
 </template>

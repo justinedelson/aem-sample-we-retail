@@ -18,7 +18,7 @@
      data-sly-use.articleList="ArticleList"
      data-sly-use.template="core/wcm/components/commons/v1/templates.html"
      data-sly-use.itemTemplate="list_item.html">
-    <ul data-sly-list.listItem="${list.listItems}"
+    <ul data-sly-list.listItem="${list.items}"
         class="we-ArticlesList__list row">
         <li data-sly-call="${itemTemplate[articleList.type] @ renderItem=listItem}" class="we-ArticlesList__item col-md-4"></li>
     </ul>
