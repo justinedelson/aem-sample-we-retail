@@ -124,23 +124,6 @@
                         <acHandling>merge_preserve</acHandling>
                     </properties>
                     <failOnMissingEmbed>true</failOnMissingEmbed>
-                    <embeddeds>
-                        <embedded>
-                            <groupId>com.adobe.cq.sample</groupId>
-                            <artifactId>we.retail.core</artifactId>
-                            <target>/apps/weretail/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>commons-cli</groupId>
-                            <artifactId>commons-cli</artifactId>
-                            <target>/apps/weretail/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>org.apache.commons</groupId>
-                            <artifactId>commons-csv</artifactId>
-                            <target>/apps/weretail/install</target>
-                        </embedded>
-                    </embeddeds>
                     <dependencies>
                         <dependency>
                             <group>day/cq60/product</group>
@@ -243,11 +226,6 @@
     <!-- ====================================================================== -->
     <dependencies>
         <dependency>
-            <groupId>com.adobe.cq.sample</groupId>
-            <artifactId>we.retail.core</artifactId>
-            <version>1.9.80</version>
-        </dependency>
-        <dependency>
             <groupId>com.day.cq</groupId>
             <artifactId>cq-quickstart</artifactId>
             <classifier>apis</classifier>
@@ -264,16 +242,6 @@
         <dependency>
             <groupId>com.day.cq.wcm</groupId>
             <artifactId>cq-wcm-taglib</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-csv</artifactId>
-            <version>1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-cli</groupId>
-            <artifactId>commons-cli</artifactId>
-            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
