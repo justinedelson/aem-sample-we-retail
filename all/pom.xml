@@ -60,6 +60,7 @@
                             <groupId>com.adobe.cq.sample</groupId>
                             <artifactId>we.retail.core</artifactId>
                             <target>/apps/weretail/install</target>
+                            <filter>true</filter>
                         </embedded>
                     </embeddeds>
                     <subPackages>
@@ -139,27 +140,27 @@
         <dependency>
             <groupId>com.adobe.cq.sample</groupId>
             <artifactId>we.retail.core</artifactId>
-            <version>1.9.72</version>
+            <version>1.9.80</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.adobe.aem.sample</groupId>
             <artifactId>we.retail.commons.content</artifactId>
-            <version>1.9.30</version>
+            <version>1.9.32</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.adobe.cq.sample</groupId>
             <artifactId>we.retail.ui.apps</artifactId>
-            <version>1.9.234</version>
+            <version>1.9.266</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.adobe.cq.sample</groupId>
             <artifactId>we.retail.ui.content</artifactId>
-            <version>1.9.110</version>
+            <version>1.9.120</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
