@@ -63,6 +63,12 @@
                             jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
                             width="12"/>
+                        <intermediate
+                            cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
+                            cq:lastRolledoutBy="admin"
+                            jcr:mixinTypes="[cq:LiveRelationship]"
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                         <tablet
                             cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
                             cq:lastRolledoutBy="admin"
@@ -97,6 +103,12 @@
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 width="12"/>
+                            <intermediate
+                                cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
+                                 cq:lastRolledoutBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
                             <tablet
                                 cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
                                 cq:lastRolledoutBy="admin"
@@ -548,6 +560,12 @@
                                 jcr:mixinTypes="[cq:LiveRelationship]"
                                 jcr:primaryType="nt:unstructured"
                                 width="12"/>
+                            <intermediate
+                                cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
+                                cq:lastRolledoutBy="admin"
+                                jcr:mixinTypes="[cq:LiveRelationship]"
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
                             <tablet
                                 cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
                                 cq:lastRolledoutBy="admin"
@@ -780,6 +798,12 @@
                             jcr:mixinTypes="[cq:LiveRelationship]"
                             jcr:primaryType="nt:unstructured"
                             width="12"/>
+                        <intermediate
+                            cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
+                            cq:lastRolledoutBy="admin"
+                            jcr:mixinTypes="[cq:LiveRelationship]"
+                            jcr:primaryType="nt:unstructured"
+                            width="6"/>
                         <tablet
                             cq:lastRolledout="{Date}2017-01-25T15:30:52.833+01:00"
                             cq:lastRolledoutBy="admin"

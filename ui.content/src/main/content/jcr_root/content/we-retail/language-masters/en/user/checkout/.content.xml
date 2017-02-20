@@ -42,6 +42,9 @@
                         <phone
                             jcr:primaryType="nt:unstructured"
                             width="12"/>
+                        <intermediate
+                            jcr:primaryType="nt:unstructured"
+                            width="12"/>
                         <tablet
                             jcr:primaryType="nt:unstructured"
                             width="12"/>
@@ -60,6 +63,9 @@
                             <phone
                                 jcr:primaryType="nt:unstructured"
                                 width="12"/>
+                            <intermediate
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
                             <tablet
                                 jcr:primaryType="nt:unstructured"
                                 width="4"/>
@@ -384,6 +390,9 @@
                             <phone
                                 jcr:primaryType="nt:unstructured"
                                 width="12"/>
+                            <intermediate
+                                jcr:primaryType="nt:unstructured"
+                                width="4"/>
                             <tablet
                                 jcr:primaryType="nt:unstructured"
                                 width="4"/>
@@ -543,6 +552,9 @@
                         <phone
                             jcr:primaryType="nt:unstructured"
                             width="12"/>
+                        <intermediate
+                            jcr:primaryType="nt:unstructured"
+                            width="6"/>
                         <tablet
                             jcr:primaryType="nt:unstructured"
                             width="6"/>
