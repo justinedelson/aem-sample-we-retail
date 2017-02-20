@@ -5,24 +5,24 @@
         jcr:primaryType="rep:DenyACE"
         rep:principalName="projects-administrators"
         rep:privileges="{Name}[jcr:all]"/>
-    <deny0
+    <deny1
         jcr:primaryType="rep:DenyACE"
         rep:principalName="projects-users"
         rep:privileges="{Name}[jcr:all]"/>
-    <allow
+    <allow2
         jcr:primaryType="rep:GrantACE"
         rep:principalName="projects-we_retail"
         rep:privileges="{Name}[jcr:read,jcr:readAccessControl]"/>
-    <allow0
+    <allow3
+        jcr:primaryType="rep:GrantACE"
+        rep:principalName="projects-we_retail-owner"
+        rep:privileges="{Name}[jcr:all]"/>
+    <allow4
         jcr:primaryType="rep:GrantACE"
         rep:principalName="projects-we_retail-editor"
         rep:privileges="{Name}[rep:write]">
         <rep:restrictions
             jcr:primaryType="rep:Restrictions"
             rep:glob="/*"/>
-    </allow0>
-    <allow1
-        jcr:primaryType="rep:GrantACE"
-        rep:principalName="projects-we_retail-owner"
-        rep:privileges="{Name}[jcr:all]"/>
+    </allow4>
 </jcr:root>
