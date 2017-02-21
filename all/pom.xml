@@ -153,14 +153,14 @@
         <dependency>
             <groupId>com.adobe.cq.sample</groupId>
             <artifactId>we.retail.ui.apps</artifactId>
-            <version>1.9.266</version>
+            <version>1.9.270</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.adobe.cq.sample</groupId>
             <artifactId>we.retail.ui.content</artifactId>
-            <version>1.9.120</version>
+            <version>1.9.128</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
