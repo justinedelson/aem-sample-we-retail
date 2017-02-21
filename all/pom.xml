@@ -140,7 +140,7 @@
         <dependency>
             <groupId>com.adobe.cq.sample</groupId>
             <artifactId>we.retail.core</artifactId>
-            <version>1.9.80</version>
+            <version>1.9.82</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
