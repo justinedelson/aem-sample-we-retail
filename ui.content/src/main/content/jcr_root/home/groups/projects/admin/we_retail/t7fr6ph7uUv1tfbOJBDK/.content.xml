@@ -4,7 +4,6 @@
     jcr:primaryType="rep:Group"
     jcr:uuid="49902166-0051-3436-ba7f-1c1494138bd2"
     rep:authorizableId="projects-we_retail-owner"
-    rep:members="{WeakReference}[21232f29-7a57-35a7-8389-4a0e4a801fc3]"
     rep:principalName="projects-we_retail-owner">
     <profile
         jcr:primaryType="nt:unstructured"
