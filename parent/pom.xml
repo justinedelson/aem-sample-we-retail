@@ -172,7 +172,7 @@
                         <!-- Ignore .vltignore files -->
                         <exclude>**/.vltignore</exclude>
                         <!-- Ignore vendor files -->
-                        <exclude>**/clientlibs/we-retail/vendor/**/*</exclude>
+                        <exclude>**/clientlibs/vendor/**/*</exclude>
                         <!-- Exclude all JSON files -->
                         <exclude>**/*.json</exclude>
                         <!-- Generated for release source archives -->
