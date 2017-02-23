@@ -53,7 +53,7 @@
                         jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="REVIEW YOUR ORDER"
-                        sling:resourceType="wcm/foundation/components/title"
+                        sling:resourceType="weretail/components/content/title"
                         type="h2"/>
                     <cq:responsive
                         cq:lastRolledout="{Date}2017-01-25T15:28:11.696+01:00"
@@ -400,7 +400,7 @@
                         jcr:mixinTypes="[cq:LiveRelationship]"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="YOUR ORDER"
-                        sling:resourceType="wcm/foundation/components/title"
+                        sling:resourceType="weretail/components/content/title"
                         type="h2"/>
                     <cart
                         cq:lastRolledout="{Date}2017-01-25T15:28:11.792+01:00"

@@ -61,11 +61,11 @@
                                     type="Content Fragment"/>
                                 <experiencefragment
                                     jcr:primaryType="nt:unstructured"
+                                    assetGroup="content"
+                                    assetMimetype="text/html"
                                     droptarget="experiencefragment"
                                     resourceType="cq/experience-fragments/editor/components/experiencefragment"
-                                    type="experiencefragment"
-                                    assetGroup="content"
-                                    assetMimetype="text/html"/>
+                                    type="experiencefragment"/>
                             </assetToComponentMapping>
                         </cq:authoring>
                         <jcr:content
@@ -126,11 +126,11 @@
                                     type="Content Fragment"/>
                                 <experiencefragment
                                     jcr:primaryType="nt:unstructured"
+                                    assetGroup="content"
+                                    assetMimetype="text/html"
                                     droptarget="experiencefragment"
                                     resourceType="cq/experience-fragments/editor/components/experiencefragment"
-                                    type="experiencefragment"
-                                    assetGroup="content"
-                                    assetMimetype="text/html"/>
+                                    type="experiencefragment"/>
                             </assetToComponentMapping>
                         </cq:authoring>
                         <jcr:content
@@ -150,16 +150,37 @@
                             mergeList="{Boolean}true"/>
                     </we-retail-product-filter>
                     <we-retail-content
-                        jcr:description=""
-                        jcr:lastModified="{Date}2016-09-20T23:11:29.221+02:00"
+                        jcr:lastModified="{Date}2017-02-23T15:09:32.658+01:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:Form,/apps/weretail/components/content/text,/apps/weretail/components/content/title,/apps/weretail/components/content/breadcrumb]">
+                        components="[/libs/dam/cfm/components/contentfragment,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/foundation/components/responsivegrid,group:We.Retail,group:We.Retail Form]">
                         <jcr:content
                             jcr:primaryType="nt:unstructured"
                             mergeList="{Boolean}true"/>
+                        <cq:authoring jcr:primaryType="nt:unstructured">
+                            <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                                <mapping_1487856929586
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="text/html"
+                                    droptarget="fragment"
+                                    resourceType="dam/cfm/components/contentfragment"/>
+                                <mapping_1487856938113
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="content"
+                                    assetMimetype="text/html"
+                                    droptarget="experiencefragment"
+                                    resourceType="cq/experience-fragments/editor/components/experiencefragment"/>
+                                <mapping_1487856942908
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="image/.*"
+                                    droptarget="image"
+                                    resourceType="weretail/components/content/image"/>
+                            </assetToComponentMapping>
+                        </cq:authoring>
                     </we-retail-content>
                 </responsivegrid>
             </components>

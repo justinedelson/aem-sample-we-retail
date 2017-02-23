@@ -74,7 +74,6 @@
                     editable="{Boolean}true">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <phone
-                            jcr:mixinTypes="[]"
                             jcr:primaryType="nt:unstructured"
                             width="7"/>
                         <intermediate
