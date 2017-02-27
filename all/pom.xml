@@ -146,7 +146,7 @@
         <dependency>
             <groupId>com.adobe.aem.sample</groupId>
             <artifactId>we.retail.commons.content</artifactId>
-            <version>1.9.32</version>
+            <version>1.9.36</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
