@@ -155,7 +155,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/dam/cfm/components/contentfragment,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/foundation/components/responsivegrid,group:We.Retail,group:We.Retail Form]">
+                        components="[/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/foundation/components/responsivegrid,group:We.Retail,group:We.Retail Form]">
                         <jcr:content
                             jcr:primaryType="nt:unstructured"
                             mergeList="{Boolean}true"/>
@@ -166,7 +166,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="dam/cfm/components/contentfragment"/>
+                                    resourceType="weretail/components/content/contentfragment"/>
                                 <mapping_1487856938113
                                     jcr:primaryType="nt:unstructured"
                                     assetGroup="content"
