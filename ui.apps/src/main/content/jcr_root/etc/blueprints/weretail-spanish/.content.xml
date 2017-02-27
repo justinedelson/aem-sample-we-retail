@@ -6,7 +6,7 @@
         cq:lastModifiedBy="admin"
         cq:template="/libs/wcm/msm/templates/blueprint"
         jcr:primaryType="nt:unstructured"
-        jcr:title="weRetail-spanish"
+        jcr:title="We.Retail Spanish"
         sling:resourceType="wcm/msm/components/blueprint"
         sitePath="/content/we-retail/language-masters/es">
         <dialog/>
