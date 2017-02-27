@@ -15,5 +15,6 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <workspaceFilter version="1.0">
-    <filter root="/apps/system" mode="merge"/>
+    <filter root="/apps/weretail/config"/>
+    <filter root="/apps/weretail/config.author"/>
 </workspaceFilter>
