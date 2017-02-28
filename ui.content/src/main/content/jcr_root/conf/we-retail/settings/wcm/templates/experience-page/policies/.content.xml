@@ -26,7 +26,7 @@
                     <components jcr:primaryType="nt:unstructured">
                         <content jcr:primaryType="nt:unstructured">
                             <contentfragment
-                                cq:policy="weretail/components/content/contentfragment/default"
+                                cq:policy="dam/cfm/components/contentfragment/default"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                         </content>

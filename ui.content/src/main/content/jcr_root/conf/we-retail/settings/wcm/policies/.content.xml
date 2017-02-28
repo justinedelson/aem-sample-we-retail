@@ -57,7 +57,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="weretail/components/content/contentfragment"
+                                    resourceType="dam/cfm/components/contentfragment"
                                     type="Content Fragment"/>
                                 <experiencefragment
                                     jcr:primaryType="nt:unstructured"
@@ -122,7 +122,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="weretail/components/content/contentfragment"
+                                    resourceType="dam/cfm/components/contentfragment"
                                     type="Content Fragment"/>
                                 <experiencefragment
                                     jcr:primaryType="nt:unstructured"
@@ -166,7 +166,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="weretail/components/content/contentfragment"/>
+                                    resourceType="dam/cfm/components/contentfragment"/>
                                 <mapping_1487856938113
                                     jcr:primaryType="nt:unstructured"
                                     assetGroup="content"
