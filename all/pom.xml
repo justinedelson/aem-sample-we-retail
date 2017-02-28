@@ -160,7 +160,7 @@
         <dependency>
             <groupId>com.adobe.cq.sample</groupId>
             <artifactId>we.retail.ui.content</artifactId>
-            <version>1.9.134</version>
+            <version>1.9.136</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
