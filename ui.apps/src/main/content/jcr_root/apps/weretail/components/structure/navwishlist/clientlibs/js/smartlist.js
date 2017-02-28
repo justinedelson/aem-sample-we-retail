@@ -114,9 +114,9 @@
                     cache: false,
                     type: $form.attr('method')
                 }).done(function (json) {
-                    var _smartlists = window.ContextHub ? ContextHub.getStore('smartlists') : null;
-                    if (_smartlists) {
-                        _smartlists.queryService();
+                    var _cart = window.ContextHub ? ContextHub.getStore('cart') : null;
+                    if (_cart) {
+                        _cart.queryService();
                     }
                     window.cartComponent.show();
                 }).fail(function () {
