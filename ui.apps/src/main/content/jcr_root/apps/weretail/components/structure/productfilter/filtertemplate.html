@@ -25,12 +25,12 @@
             <div class="we-ProductFilter-values">
                 <div class="we-Product-radio marker checkbox-inline" v-for="color in filters.color" v-cloak>
                     <label>
-                        <input type="checkbox" name="product.color"
+                        <input type="checkbox" name="product-color"
                                v-on:click="onFilterClick('color', color, $event)"
                                v-bind:value="color"
                                v-bind:title="color"
-                               v-bind:style="'background-color:' + color + ';'">
-                       <div style="background-color:{{color}};" class="responsive-color"></div>
+                               v-bind:style="'background-color:red' + color + ';'">
+                       <div v-bind:style="'background-color:' + color" class="responsive-color"></div>
                     </label>
                 </div>
             </div>
