@@ -16,11 +16,13 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <workspaceFilter version="1.0">
     <filter root="/apps/weretail">
-        <exclude pattern="/apps/weretail/config"/>
-        <exclude pattern="/apps/weretail/config.author"/>
-        <exclude pattern="/apps/weretail/install"/>
-        <exclude pattern="/apps/weretail/tests"/>
+        <exclude pattern="/apps/weretail(/.*)?"/>
+        <include pattern="/apps/weretail/clientlibs"/>
+        <include pattern="/apps/weretail/components"/>
+        <include pattern="/apps/weretail/gui"/>
+        <include pattern="/apps/weretail/i18n"/>
     </filter>
+
     <filter root="/apps/public/weretail"/>
     <filter root="/etc/designs/we-retail"/>
     <filter root="/etc/cloudservices/dynamictagmanagement/we-retail-dtm"/>
