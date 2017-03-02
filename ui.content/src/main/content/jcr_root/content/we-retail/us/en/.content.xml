@@ -68,7 +68,8 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Discover the Finest Gear"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <category_teaser
                     cq:lastRolledout="{Date}2016-06-29T14:20:44.702+02:00"
                     cq:lastRolledoutBy="admin"
@@ -364,7 +365,8 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Featured Products"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <products_grid
                     cq:lastRolledout="{Date}2016-06-29T14:20:44.941+02:00"
                     cq:lastRolledoutBy="admin"
@@ -394,7 +396,8 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Our Top Stories"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <articles_list
                     cq:lastRolledout="{Date}2016-06-29T14:20:44.951+02:00"
                     cq:lastRolledoutBy="admin"
@@ -423,7 +426,8 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="New arrivals"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <products_grid_1773541649
                     cq:lastRolledout="{Date}2016-06-29T14:20:44.963+02:00"
                     cq:lastRolledoutBy="admin"
@@ -453,7 +457,8 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Join our Community"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <category_teaser_984780047
                     cq:lastRolledout="{Date}2016-06-29T14:20:44.973+02:00"
                     cq:lastRolledoutBy="admin"

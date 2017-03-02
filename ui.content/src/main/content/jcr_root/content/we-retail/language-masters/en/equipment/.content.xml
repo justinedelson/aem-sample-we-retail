@@ -34,7 +34,8 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Welcome our finest equipment"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <category_teaser
                     jcr:created="{Date}2016-03-13T22:24:38.037+01:00"
                     jcr:createdBy="admin"
@@ -117,7 +118,8 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Featured products"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <product_grid
                     jcr:created="{Date}2016-03-13T22:39:31.722+01:00"
                     jcr:createdBy="admin"
@@ -149,7 +151,8 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Winter is coming, get ready"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <category_teaser_643606949
                     jcr:created="{Date}2016-03-13T22:42:30.581+01:00"
                     jcr:createdBy="admin"

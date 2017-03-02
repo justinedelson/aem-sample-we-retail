@@ -44,8 +44,6 @@
         </root>
     </jcr:content>
     <profile/>
-    <sign-up/>
-    <forgot-password/>
     <open-orders/>
     <order-history/>
     <addressbook/>

@@ -14,17 +14,19 @@
  *  limitations under the License.
  */
 
+@import (reference) "/apps/weretail/clientlibs/common/variables.less";
+
 .we-ArticlesList {
     .we-ArticlesList__list {
         list-style: none none;
         padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
     }
 
     &__item {
-        margin-top: 15px;
-
-        &:nth-child(3n+1) {
-            clear: left;
-        }
+        display: flex;
+        margin: 0 0 40px;
     }
 }

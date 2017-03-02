@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:cartPage="/content/we-retail/language-masters/en/user/cart"
         cq:checkoutPage="/content/we-retail/language-masters/en/user/cart"
-        cq:lastModified="{Date}2016-11-21T23:01:53.799+01:00"
+        cq:lastModified="{Date}2017-03-01T22:32:45.916+01:00"
         cq:lastModifiedBy="admin"
-        cq:lastReplicated="{Date}2015-09-20T19:51:21.401+02:00"
+        cq:lastReplicated="{Date}2017-03-01T22:33:20.182+01:00"
         cq:lastReplicatedBy="admin"
         cq:lastReplicationAction="Activate"
         cq:template="/conf/we-retail/settings/wcm/templates/hero-page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="English"
+        jcr:uuid="392f0277-45c8-45a8-8786-e12037ad039b"
         sling:resourceType="weretail/components/structure/page"
         navRoot="{Boolean}true">
         <root
@@ -47,11 +50,12 @@
                 <section_title_496791378
                     jcr:created="{Date}2015-11-04T00:47:33.815+01:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2016-03-12T23:00:08.594+01:00"
+                    jcr:lastModified="{Date}2017-03-01T22:32:07.656+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Discover the Finest Gear"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <category_teaser
                     cq:targetEngine="cq_contexthub"
                     jcr:lastModified="{Date}2016-05-09T15:14:38.533+02:00"
@@ -223,11 +227,12 @@
                 <section_title
                     jcr:created="{Date}2015-11-04T00:47:00.581+01:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2016-03-12T22:59:54.084+01:00"
+                    jcr:lastModified="{Date}2017-03-01T22:32:16.032+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Featured Products"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <products_grid
                     jcr:created="{Date}2015-11-03T23:39:56.441+01:00"
                     jcr:createdBy="admin"
@@ -247,11 +252,12 @@
                 <section_title_431279162
                     jcr:created="{Date}2015-11-04T00:51:12.388+01:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2016-03-12T22:59:27.898+01:00"
+                    jcr:lastModified="{Date}2017-03-01T22:32:22.987+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Our Top Stories"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <articles_list
                     jcr:created="{Date}2015-11-23T21:44:37.256+01:00"
                     jcr:createdBy="admin"
@@ -271,11 +277,12 @@
                 <section_title_239098915
                     jcr:created="{Date}2015-11-04T00:51:38.275+01:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2015-11-04T00:51:50.624+01:00"
+                    jcr:lastModified="{Date}2017-03-01T22:32:30.071+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="New arrivals"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <products_grid_1773541649
                     jcr:created="{Date}2015-11-04T00:51:55.043+01:00"
                     jcr:createdBy="admin"
@@ -295,11 +302,12 @@
                 <section_title_239098
                     jcr:created="{Date}2015-11-04T00:51:38.275+01:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2016-03-12T23:01:01.238+01:00"
+                    jcr:lastModified="{Date}2017-03-01T22:32:38.990+01:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Join our Community"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <category_teaser_984780047
                     jcr:created="{Date}2016-03-12T23:01:13.861+01:00"
                     jcr:createdBy="admin"

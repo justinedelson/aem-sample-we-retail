@@ -48,7 +48,8 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Discover the Finest Gear"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <category_teaser
                     cq:targetEngine="cq_contexthub"
                     jcr:lastModified="{Date}2016-05-09T15:14:38.533+02:00"
@@ -224,7 +225,8 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Featured Products"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <products_grid
                     jcr:created="{Date}2015-11-03T23:39:56.441+01:00"
                     jcr:createdBy="admin"
@@ -248,7 +250,8 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Our Top Stories"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <articles_list
                     jcr:created="{Date}2015-11-23T21:44:37.256+01:00"
                     jcr:createdBy="admin"
@@ -271,7 +274,8 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="New arrivals"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <products_grid_1773541649
                     jcr:created="{Date}2015-11-04T00:51:55.043+01:00"
                     jcr:createdBy="admin"
@@ -295,7 +299,8 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Join our Community"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <category_teaser_984780047
                     jcr:created="{Date}2016-03-12T23:01:13.861+01:00"
                     jcr:createdBy="admin"

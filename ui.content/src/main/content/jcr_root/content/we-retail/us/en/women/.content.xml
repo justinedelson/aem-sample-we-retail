@@ -49,7 +49,8 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Featured products"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <product_grid
                     cq:lastRolledout="{Date}2016-03-14T22:18:58.081+01:00"
                     cq:lastRolledoutBy="admin"
@@ -144,7 +145,8 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Girls' top stories"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <articles_list
                     cq:lastRolledout="{Date}2016-03-14T22:18:58.107+01:00"
                     cq:lastRolledoutBy="admin"

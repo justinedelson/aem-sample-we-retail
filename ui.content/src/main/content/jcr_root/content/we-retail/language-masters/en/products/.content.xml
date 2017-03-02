@@ -71,8 +71,7 @@
                     listFrom="children"
                     orderBy="jcr:title"
                     ordered="{Boolean}true"
-                    pageMax="0">
-                </product-grid>
+                    pageMax="0"/>
             </product-grid-container>
         </root>
         <cq:LiveSyncConfig

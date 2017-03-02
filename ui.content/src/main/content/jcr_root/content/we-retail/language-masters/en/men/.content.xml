@@ -34,7 +34,8 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Featured products"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <product_grid
                     jcr:created="{Date}2016-03-13T22:39:31.722+01:00"
                     jcr:createdBy="admin"
@@ -100,7 +101,8 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Men's top stories"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <articles_list
                     jcr:created="{Date}2016-03-13T23:23:11.175+01:00"
                     jcr:createdBy="admin"

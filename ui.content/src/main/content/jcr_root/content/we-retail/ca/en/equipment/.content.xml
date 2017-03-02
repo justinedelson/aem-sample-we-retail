@@ -49,7 +49,8 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Welcome our finest equipment"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <category_teaser
                     cq:lastRolledout="{Date}2016-10-26T16:43:48.553+02:00"
                     cq:lastRolledoutBy="admin"
@@ -185,7 +186,8 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Featured products"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <product_grid
                     cq:lastRolledout="{Date}2016-10-26T16:43:48.597+02:00"
                     cq:lastRolledoutBy="admin"
@@ -226,7 +228,8 @@
                     jcr:mixinTypes="[cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Winter is coming, get ready"
-                    sling:resourceType="weretail/components/content/title"/>
+                    sling:resourceType="weretail/components/content/title"
+                    type="h2"/>
                 <category_teaser_643606949
                     cq:lastRolledout="{Date}2016-10-26T16:43:48.607+02:00"
                     cq:lastRolledoutBy="admin"

@@ -17,24 +17,20 @@
 @import (reference) "/apps/weretail/clientlibs/common/variables.less";
 
 .cmp-title {
-    margin-bottom: 35px;
 
     text-align: center;
-
-    & + & {
-        margin-top: -35px;
-    }
+    color: @gray-dark;
 
     & h1, & h2 {
         text-transform: uppercase;
-    }
-
-    & h2 {
-        margin: 35px 0;
+        margin: 20px 0 40px;
+        
+        & + & {
+            margin: -40px 0;
+        }
     }
 
     & h4 {
         margin: 5px 0;
-        color: @gray-dark;
     }
 }
