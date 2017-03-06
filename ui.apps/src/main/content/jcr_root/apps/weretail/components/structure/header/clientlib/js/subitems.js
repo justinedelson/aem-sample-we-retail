@@ -13,8 +13,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-(function ($) {
-    $(function () {
+(function ($, document) {
+
+    function init() {
         var $navbarShutter = $('.navbar-absolute-top .navbar-shutter');
 
         $('.navbar-absolute-top')
@@ -28,5 +29,11 @@
                 e.delegateTarget.classList.remove('submenu-opened');
                 $navbarShutter.height(0);
             });
+    }
+
+    init();
+
+    $(document).bind('we-header-loaded', function() {
+        init();
     });
-})(jQuery);
+})(jQuery, document);

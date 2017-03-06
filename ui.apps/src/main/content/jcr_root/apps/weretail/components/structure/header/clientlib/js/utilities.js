@@ -13,61 +13,46 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-(function ($) {
+(function ($, document) {
+    var headerContainer = $('.we-retail-header'),
+        url             = headerContainer.data('we-header-content');
+
+    if (url !== undefined && url !== "") {
+        $.ajax({
+            type   : "GET",
+            url    : "/libs/granite/security/currentuser.json",
+            async  : true,
+            success: function (json) {
+                // toggle visibility of header elements as per the current logged in user
+                loadHeader(json['authorizableId']);
+
+                // On publish: load the request user into ContextHub
+                if (typeof ContextHub !== "undefined") {
+                    var profileStore   = ContextHub.getStore('profile');
+                    var requestUser    = json["home"];
+                    var contextHubUser = profileStore.getTree().path;
+                    if (!contextHubUser || contextHubUser !== requestUser) {
+                        profileStore.loadProfile(requestUser);
+                    }
+                }
+            }
+        });
+    }
 
     /**
-     * Hides or Shows the ui elements depending on whether there is a current logged in user
-     * or the current user is anonymous ( there is no logged in user)
-     * Needed for making the header elements dispatcher compatible
+     * JS include of header component, bypass dispatcher caching if user is logged in
      * @param currentUser The id of the current logged in user
      * (should be anonymous if there is no logged in user)
      */
-    function toggleHeaderElements(currentUser) {
-        if (currentUser === "anonymous") {
-            $(".we-retail-anonymous").removeClass("hidden");
-            $(".we-retail-not-anonymous").addClass("hidden");
-        } else {
-            $(".we-retail-not-anonymous").removeClass("hidden");
-            $(".we-retail-anonymous").addClass("hidden");
-        }
-    }
-
-    $(function () {
-        var wcmmodeDisabled = typeof $(".we-retail-header").data("wcmmodeDisabled") != "undefined";
-        if (wcmmodeDisabled) {
-            $.ajax({
-                type: "GET",
-                url: "/libs/granite/security/currentuser.json",
-                async: true,
-                success: function (json) {
-                    // toggle visibility of header elements as per the current logged in user
-                    toggleHeaderElements(json['authorizableId']);
-
-                    // On publish: load the request user into ContextHub
-                    if (typeof ContextHub !== "undefined") {
-                        var profileStore = ContextHub.getStore('profile');
-                        var requestUser = json["home"];
-                        var contextHubUser = profileStore.getTree().path;
-                        if (!contextHubUser || contextHubUser !== requestUser) {
-                            profileStore.loadProfile(requestUser);
-                        }
-                    }
-                }
-            });
-        } else {
-            // toggle visibility of header elements as per the current user stored in the ContextHub
-            if (typeof ContextHub !== "undefined")  {
-                toggleHeaderElements(ContextHub.getStore("profile").getItem("authorizableId"));
+    function loadHeader(currentUser) {
+        $.ajax({
+            type   : "GET",
+            url    : url,
+            cache  : currentUser === "anonymous",
+            success: function (data) {
+                headerContainer.html(data);
+                $(document).trigger('we-header-loaded');
             }
-        }
-
-        // toggle visibility of header elements when the current user changes in ContextHub
-        // such as when simulating different personas
-        if (typeof ContextHub !== "undefined") {
-            ContextHub.eventing.on(ContextHub.Constants.EVENT_STORE_UPDATED + ":profile", function () {
-                var profileStore = ContextHub.getStore("profile");
-                toggleHeaderElements(profileStore.getItem("authorizableId"));
-            }, null);
-        }
-    });
-})(jQuery);
+        });
+    }
+})(jQuery, document);

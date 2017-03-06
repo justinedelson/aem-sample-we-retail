@@ -188,8 +188,17 @@
         }
     });
 
-    $('.we-Smartlist').each(function() {
-        new SmartlistComponent().$mount(this);
+    function init() {
+        $('.we-Smartlist').each(function() {
+            new SmartlistComponent().$mount(this);
+        });
+    }
+
+    $(document).bind('we-header-loaded', function() {
+        init();
     });
+
+    init();
+
 
 }).call(this);

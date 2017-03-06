@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-(window.navcart = function () {
+(function($, document) {
     'use strict';
 
     var EXPANDABLE_CLASS = 'we-Cart-expandable',
@@ -176,8 +176,16 @@
         }
     });
 
-    $('.we-Cart').each(function() {
-        new CartComponent().$mount(this);
+    function init() {
+        $('.we-Cart').each(function() {
+            new CartComponent().$mount(this);
+        });
+    }
+
+    $(document).bind('we-header-loaded', function() {
+        init();
     });
 
-}).call(this);
+    init();
+
+})(jQuery, document);
