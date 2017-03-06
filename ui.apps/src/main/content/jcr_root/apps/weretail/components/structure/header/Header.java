@@ -117,7 +117,7 @@ public class Header extends WCMUsePojo {
         moderationPath = computePagePath(MODERATION_PATH);
         profilePath = computePagePath(PROFILE_PATH);
         accountPath = ACCOUNT_PATH;
-        theme = properties.get("theme", "default");
+        theme = properties.get("theme", "inverse");
         userPath = resolver.adaptTo(UserManager.class).getAuthorizable(resolver.getUserID()).getPath();
 
         printDebug();
