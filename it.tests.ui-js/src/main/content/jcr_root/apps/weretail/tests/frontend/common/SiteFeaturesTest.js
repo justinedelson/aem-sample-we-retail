@@ -20,13 +20,13 @@
             // Check features are visible
             .asserts.visible(SITE_FEATURE_CLASS, true)
             // Check features title/text is visible
-            .asserts.visible(SITE_FEATURE_CLASS + " h3", true)
+            .asserts.visible(SITE_FEATURE_CLASS + " h4", true)
             // Check there are three features blocks
             .asserts.isTrue(function() {return h.find(SITE_FEATURE_CLASS).length == 3;})
             // Check titles and subtitles not empty
             .asserts.isTrue(function() {
                 var res = true;
-                h.find(SITE_FEATURE_CLASS + " h3").each(function(ix, val){
+                h.find(SITE_FEATURE_CLASS + " h4").each(function(ix, val){
                     res = res && $(val).text().trim().length > 0;
                 });
                 return res;
