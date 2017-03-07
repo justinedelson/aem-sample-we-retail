@@ -25,7 +25,6 @@
 
     <filter root="/apps/public/weretail"/>
     <filter root="/etc/designs/we-retail"/>
-    <filter root="/etc/cloudservices/dynamictagmanagement/we-retail-dtm"/>
     <filter root="/etc/commerce/payment-methods/we-retail"/>
     <filter root="/etc/commerce/shipping-methods/we-retail"/>
 
