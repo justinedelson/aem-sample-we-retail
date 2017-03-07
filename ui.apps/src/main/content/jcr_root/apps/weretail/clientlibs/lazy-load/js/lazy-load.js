@@ -29,4 +29,29 @@
         ContextHub.eventing.on(ContextHub.Constants.EVENT_TEASER_LOADED, loadImages);
     }
 
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+    var body = document.querySelector('body');
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            // needed for IE
+            var nodesArray = [].slice.call(mutation.addedNodes);
+            if (nodesArray.length > 0) {
+                nodesArray.forEach(function (addedNode) {
+                    if(addedNode.querySelectorAll) {
+                        var lazyImages = $(addedNode).find('img[data-lazy-src]').not("img[data-lazy-src][src]");
+                        if(lazyImages.length) {
+                            loadImages();
+                        }
+                    }
+                });
+            }
+        });
+    });
+
+    observer.observe(body, {
+        subtree: true,
+        childList: true,
+        characterData: true
+    });
+
 })(window, jQuery);
