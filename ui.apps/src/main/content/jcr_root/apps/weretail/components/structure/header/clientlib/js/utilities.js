@@ -50,8 +50,11 @@
             url    : url,
             cache  : currentUser === "anonymous",
             success: function (data) {
-                $headerContainer.prepend(data);
-                $(document).trigger('we-header-loaded');
+                var $navbar = $(data).find('.navbar');
+                if($navbar.length) {
+                    $headerContainer.prepend(data);
+                    $(document).trigger('we-header-loaded');
+                }
             }
         });
     }
