@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 (function ($, document) {
-    var headerContainer = $('.we-retail-header'),
-        url             = headerContainer.data('we-header-content');
+    var $headerContainer = $('.we-retail-header'),
+        url = $headerContainer.data('we-header-content');
 
     if (url !== undefined && url !== "") {
         $.ajax({
@@ -50,7 +50,7 @@
             url    : url,
             cache  : currentUser === "anonymous",
             success: function (data) {
-                headerContainer.html(data);
+                $headerContainer.prepend(data);
                 $(document).trigger('we-header-loaded');
             }
         });
