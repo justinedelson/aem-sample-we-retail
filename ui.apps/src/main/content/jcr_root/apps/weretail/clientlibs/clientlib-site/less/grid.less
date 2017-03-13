@@ -33,8 +33,14 @@
     }
 }
 
+@media (min-width: 651px) and (max-width: 992px) {
+    .aem-Grid {
+        .generate-grid(intermediate, @max_col);
+    }
+}
+
 /* tablet breakpoint */
-@media (min-width: 651px) and (max-width: 1200px) {
+@media (min-width: 993px) and (max-width: 1200px) {
     .aem-Grid {
         .generate-grid(tablet, @max_col);
     }

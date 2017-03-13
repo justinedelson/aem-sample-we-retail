@@ -42,6 +42,10 @@
                     jcr:primaryType="nt:unstructured"
                     title="Smaller Screen"
                     width="{Long}650"/>
+                <intermediate
+                    jcr:primaryType="nt:unstructured"
+                    title="Intermediate"
+                    width="{Long}992"/>
                 <tablet
                     jcr:primaryType="nt:unstructured"
                     title="Tablet"
