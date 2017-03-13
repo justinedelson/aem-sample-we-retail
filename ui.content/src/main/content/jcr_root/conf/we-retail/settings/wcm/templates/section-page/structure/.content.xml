@@ -53,12 +53,9 @@
                         <phone
                             jcr:primaryType="nt:unstructured"
                             width="5"/>
-                        <intermediate
-                            jcr:primaryType="nt:unstructured"
-                            width="4"/>
                         <tablet
                             jcr:primaryType="nt:unstructured"
-                            width="2"/>
+                            width="3"/>
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="2"/>
@@ -76,12 +73,9 @@
                         <phone
                             jcr:primaryType="nt:unstructured"
                             width="7"/>
-                        <intermediate
-                            jcr:primaryType="nt:unstructured"
-                            width="8"/>
                         <tablet
                             jcr:primaryType="nt:unstructured"
-                            width="10"/>
+                            width="9"/>
                         <default
                             jcr:primaryType="nt:unstructured"
                             width="10"/>
@@ -110,10 +104,6 @@
                     jcr:primaryType="nt:unstructured"
                     title="Smaller Screen"
                     width="{Long}650"/>
-                <intermediate
-                    jcr:primaryType="nt:unstructured"
-                    title="Intermediate"
-                    width="{Long}992"/>
                 <tablet
                     jcr:primaryType="nt:unstructured"
                     title="Tablet"
