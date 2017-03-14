@@ -17,6 +17,7 @@ package apps.weretail.components.content.heroimage;
 
 import java.lang.String;
 
+import com.adobe.cq.sightly.SightlyWCMMode;
 import org.apache.jackrabbit.util.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,15 +35,18 @@ public class HeroImage extends WCMUsePojo {
     private Resource resource;
     private String classList;
     private Image image;
+    private SightlyWCMMode wcmMode;
 
     @Override
     public void activate() throws Exception {
         resource = getResource();
+        wcmMode = getWcmMode();
         classList = getClassList();
         image = getImage();
         log.debug("resource: {}", resource.getPath());
         log.debug("classList: {}", classList);
         log.debug("image.src: {}", image.getSrc());
+        log.debug("wcm mode: {}", wcmMode.toString());
     }
 
     public String getClassList() {
@@ -66,6 +70,10 @@ public class HeroImage extends WCMUsePojo {
         }
         String escapedResourcePath = Text.escapePath(resource.getPath());
         String src = getRequest().getContextPath() + escapedResourcePath + ".img.jpeg";
+        // cache killer for edit mode to refresh image after drag-and-drop
+        if(wcmMode.isEdit()) {
+            src = src + "?" + System.currentTimeMillis();
+        }
         image = new Image(src);
         return image;
     }
