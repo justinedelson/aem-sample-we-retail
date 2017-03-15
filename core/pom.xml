@@ -23,12 +23,12 @@
     <parent>
         <groupId>com.adobe.cq.sample</groupId>
         <artifactId>we.retail.parent</artifactId>
-        <version>1.9.22</version>
+        <version>1.10.1-SNAPSHOT</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>we.retail.core</artifactId>
-    <version>1.9.85-SNAPSHOT</version>
+    <version>1.10.1-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>We.Retail - Core</name>
     <description>Core bundle for We.Retail</description>

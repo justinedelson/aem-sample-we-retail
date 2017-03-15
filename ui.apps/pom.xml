@@ -23,7 +23,7 @@
     <parent>
         <groupId>com.adobe.cq.sample</groupId>
         <artifactId>we.retail.parent</artifactId>
-        <version>1.9.24</version>
+        <version>1.10.1-SNAPSHOT</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
@@ -31,7 +31,7 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <artifactId>we.retail.ui.apps</artifactId>
-    <version>1.9.323-SNAPSHOT</version>
+    <version>1.10.1-SNAPSHOT</version>
     <packaging>content-package</packaging>
     <name>We.Retail - UI apps</name>
     <description>UI apps package for We.Retail</description>

@@ -19,7 +19,7 @@
     <groupId>com.adobe.cq.sample</groupId>
     <artifactId>we.retail.parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.9.25-SNAPSHOT</version>
+    <version>1.10.1-SNAPSHOT</version>
 
     <name>We.Retail - Parent POM</name>
     <description>We.Retail Parent POM</description>

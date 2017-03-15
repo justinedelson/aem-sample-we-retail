@@ -23,13 +23,13 @@
     <parent>
         <groupId>com.adobe.cq.sample</groupId>
         <artifactId>we.retail.parent</artifactId>
-        <version>1.9.22</version>
+        <version>1.10.1-SNAPSHOT</version>
         <relativePath>parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>we.retail.reactor</artifactId>
     <packaging>pom</packaging>
-    <version>1.9.1-SNAPSHOT</version>
+    <version>1.10.1-SNAPSHOT</version>
     <description>We.Retail Reactor</description>
     
     <modules>
