@@ -16,8 +16,11 @@
 package apps.weretail.components.content.heroimage;
 
 import java.lang.String;
+import java.util.Calendar;
 
 import com.adobe.cq.sightly.SightlyWCMMode;
+
+import org.apache.jackrabbit.JcrConstants;
 import org.apache.jackrabbit.util.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,11 +38,13 @@ public class HeroImage extends WCMUsePojo {
     private Resource resource;
     private String classList;
     private Image image;
+    private ValueMap properties;
     private SightlyWCMMode wcmMode;
 
     @Override
     public void activate() throws Exception {
         resource = getResource();
+        properties = getProperties();
         wcmMode = getWcmMode();
         classList = getClassList();
         image = getImage();
@@ -72,7 +77,7 @@ public class HeroImage extends WCMUsePojo {
         String src = getRequest().getContextPath() + escapedResourcePath + ".img.jpeg";
         // cache killer for edit mode to refresh image after drag-and-drop
         if(wcmMode.isEdit()) {
-            src = src + "?" + System.currentTimeMillis();
+            src += "/" + getLastModifiedDate(properties) + ".jpeg";
         }
         image = new Image(src);
         return image;
@@ -88,6 +93,16 @@ public class HeroImage extends WCMUsePojo {
         public String getSrc() {
             return src;
         }
+    }
+
+    private long getLastModifiedDate(ValueMap properties) {
+        long lastMod = 0L;
+        if (properties.containsKey(JcrConstants.JCR_LASTMODIFIED)) {
+            lastMod = properties.get(JcrConstants.JCR_LASTMODIFIED, Calendar.class).getTimeInMillis();
+        } else if (properties.containsKey(JcrConstants.JCR_CREATED)) {
+            lastMod = properties.get(JcrConstants.JCR_CREATED, Calendar.class).getTimeInMillis();
+        }
+        return lastMod;
     }
 
 }
