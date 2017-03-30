@@ -231,9 +231,6 @@ public class Header extends WCMUsePojo {
             Page page = it.next();
             Resource pageContentResource = page.getContentResource();
             ValueMap pageValueMap = pageContentResource.adaptTo(ValueMap.class);
-            if (pageValueMap.get(PROP_HIDE_IN_NAV, false)) {
-                continue;
-            }
             if (REDIRECT_RESOURCE_TYPE.equals(pageContentResource.getResourceType())) {
                 page = resolveRedirect(pageValueMap);
             }
