@@ -74,11 +74,8 @@ public class HeroImage extends WCMUsePojo {
             return image;
         }
         String escapedResourcePath = Text.escapePath(resource.getPath());
-        String src = getRequest().getContextPath() + escapedResourcePath + ".img.jpeg";
-        // cache killer for edit mode to refresh image after drag-and-drop
-        if(wcmMode.isEdit()) {
-            src += "/" + getLastModifiedDate(properties) + ".jpeg";
-        }
+        String src = getRequest().getContextPath() + escapedResourcePath + ".img" +
+                (wcmMode.isDisabled() ? "" : "." + getLastModifiedDate(properties)) + ".jpeg";
         image = new Image(src);
         return image;
     }
