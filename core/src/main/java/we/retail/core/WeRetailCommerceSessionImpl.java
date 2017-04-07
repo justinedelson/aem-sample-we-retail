@@ -46,10 +46,10 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
         {
             // A simple shipping pricing architecture with fixed shipping costs.
 
-            put("/etc/commerce/shipping-methods/we-retail/standard-shipping", new BigDecimal("5.00"));
-            put("/etc/commerce/shipping-methods/we-retail/ground-shipping", new BigDecimal("10.00"));
-            put("/etc/commerce/shipping-methods/we-retail/two-business-day", new BigDecimal("15.00"));
-            put("/etc/commerce/shipping-methods/we-retail/one-business-day", new BigDecimal("25.00"));
+            put("/var/commerce/shipping-methods/we-retail/standard-shipping", new BigDecimal("5.00"));
+            put("/var/commerce/shipping-methods/we-retail/ground-shipping", new BigDecimal("10.00"));
+            put("/var/commerce/shipping-methods/we-retail/two-business-day", new BigDecimal("15.00"));
+            put("/var/commerce/shipping-methods/we-retail/one-business-day", new BigDecimal("25.00"));
         }
     };
 
