@@ -7,7 +7,6 @@
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Standard Shipping: 5-14 business days"
-        jcr:uuid="24219609-ca27-426c-bcc2-ac31a1edf63b"
         sling:resourceType="commerce/components/shippingmethod">
         <par
             jcr:primaryType="nt:unstructured"
