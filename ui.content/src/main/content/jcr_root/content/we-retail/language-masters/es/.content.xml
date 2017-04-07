@@ -8,7 +8,7 @@
         cq:lastModifiedBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/hero-page"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Spanish"
+        jcr:title="Español"
         sling:resourceType="weretail/components/structure/page"
         navRoot="{Boolean}true">
         <root
