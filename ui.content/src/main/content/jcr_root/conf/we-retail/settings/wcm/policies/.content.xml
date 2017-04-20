@@ -307,6 +307,31 @@
                         </plugins>
                     </policy_1490281316632>
                 </image>
+                <categoryteaser jcr:primaryType="nt:unstructured">
+                    <policy_1492610142529
+                        jcr:lastModified="{Date}2017-04-20T16:06:08.451+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="We.Retail Default"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedRenditionWidths="[128,256,512,1024,1280,1440,1920,2048]"
+                        disableLazyLoading="true">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1492610142529>
+                </categoryteaser>
+                <categoryteaserimage jcr:primaryType="nt:unstructured">
+                    <policy_1492698986168
+                        jcr:lastModified="{Date}2017-04-20T16:36:47.151+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="We.Retail Default"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedRenditionWidths="[128,256,512,1024,1280,1440,1920,2048]"
+                        allowUpload="true"
+                        disableLazyLoading="true">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1492698986168>
+                </categoryteaserimage>
             </content>
         </components>
     </weretail>
