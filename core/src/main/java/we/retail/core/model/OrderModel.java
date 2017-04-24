@@ -62,11 +62,9 @@ public class OrderModel extends ShoppingCartModel {
     @PostConstruct
     private void initModel() throws Exception {
         createCommerceSession();
-        populatePageUrls();
         populateOrder();
         populatePromotions();
         populateCartEntries();
-        isReadOnly = true;
     }
 
     protected void populateOrder() throws CommerceException {
