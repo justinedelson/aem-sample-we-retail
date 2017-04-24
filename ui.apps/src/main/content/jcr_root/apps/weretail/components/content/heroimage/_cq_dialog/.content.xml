@@ -62,13 +62,6 @@
                         name="./useFullWidth"
                         text="Full width"
                         value="true"/>
-                    <keepRatio
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                        fieldDescription="Set component height to in 16:9 aspect ratio"
-                        name="./keepRatio"
-                        text="Keep 16:9 ratio"
-                        value="true"/>
                 </items>
             </column>
             <tabs

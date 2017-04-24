@@ -33,7 +33,6 @@ public class HeroImage extends WCMUsePojo {
     public static final Logger log = LoggerFactory.getLogger(HeroImage.class);
 
     public static final String PROP_FULL_WIDTH = "useFullWidth";
-    public static final String PROP_KEEP_RATIO = "keepRatio";
 
     private String classList;
     private Image image;
@@ -52,9 +51,6 @@ public class HeroImage extends WCMUsePojo {
         classList = "we-HeroImage";
         if ("true".equals(properties.get(PROP_FULL_WIDTH, ""))) {
             classList += " width-full";
-        }
-        if ("true".equals(properties.get(PROP_KEEP_RATIO, ""))) {
-            classList += " ratio-16by9";
         }
         return classList;
     }
