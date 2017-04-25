@@ -14,4 +14,6 @@
 # limitations under the License.
 ###############################################################################
 
-js/lazy-load.js
+#base=js
+
+footer.js

@@ -20,20 +20,15 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.PostConstruct;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,8 +41,6 @@ import com.adobe.cq.commerce.api.Product;
 import com.adobe.cq.commerce.api.promotion.PromotionInfo;
 import com.adobe.cq.commerce.common.PriceFilter;
 import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.commons.WCMUtils;
-
 import we.retail.core.WeRetailConstants;
 
 @Model(adaptables = SlingHttpServletRequest.class)
@@ -61,29 +54,19 @@ public class ShoppingCartModel {
     @SlingObject
     protected SlingHttpServletResponse response;
 
-    @SlingObject
-    private ResourceResolver resourceResolver;
-
     @ScriptVariable
     private Page currentPage;
-
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    @Default(booleanValues = false)
-    protected boolean isReadOnly;
 
     protected CommerceSession commerceSession;
     protected List<CartEntry> entries = new ArrayList<CartEntry>();
     protected List<PromotionInfo> allPromotions;
 
-    private String checkoutPage;
-    private String currentPageUrl;
     private List<PromotionInfo> orderPromotions = new ArrayList<PromotionInfo>();
     private Map<Integer, List<PromotionInfo>> cartEntryPromotions = new HashMap<Integer, List<PromotionInfo>>();
 
     @PostConstruct
     private void initModel() throws Exception {
         createCommerceSession();
-        populatePageUrls();
         populatePromotions();
         populateCartEntries();
     }
@@ -123,33 +106,12 @@ public class ShoppingCartModel {
         }
     }
 
-    protected void populatePageUrls() {
-        String checkoutPageProperty = WCMUtils.getInheritedProperty(currentPage, resourceResolver,
-                CommerceConstants.PN_CHECKOUT_PAGE_PATH);
-        if (StringUtils.isNotEmpty(checkoutPageProperty)) {
-            checkoutPage = resourceResolver.map(request, checkoutPageProperty) + ".html";
-        }
-
-        currentPageUrl = resourceResolver.map(request, currentPage.getPath() + ".html");
-    }
-
-    public String getCheckoutPage() {
-        return checkoutPage;
-    }
-
-    public String getCurrentPageUrl() {
-        return currentPageUrl;
-    }
-
     public List<CartEntry> getEntries() {
         return entries;
     }
 
     public List<PromotionInfo> getOrderPromotions() {
         return orderPromotions;
-    }
-    public boolean getIsReadOnly() {
-        return isReadOnly;
     }
 
     public class CartEntry {

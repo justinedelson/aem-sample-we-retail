@@ -6,8 +6,7 @@
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Express Shipping: 1 business day"
-        jcr:uuid="64a1d64e-c84a-4cc9-bfde-74d549068f70"
+        jcr:title="Priority Shipping: 2 business days"
         sling:resourceType="commerce/components/shippingmethod">
         <par
             jcr:primaryType="nt:unstructured"

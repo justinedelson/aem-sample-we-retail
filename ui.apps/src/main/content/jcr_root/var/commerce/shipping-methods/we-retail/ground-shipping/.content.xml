@@ -7,7 +7,6 @@
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Ground Shipping: 3-7 business days"
-        jcr:uuid="5f1c9448-7e18-4528-91f5-6ad1c0e326f7"
         sling:resourceType="commerce/components/shippingmethod">
         <par
             jcr:primaryType="nt:unstructured"

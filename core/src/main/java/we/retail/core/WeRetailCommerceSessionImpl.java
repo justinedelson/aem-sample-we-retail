@@ -46,10 +46,10 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
         {
             // A simple shipping pricing architecture with fixed shipping costs.
 
-            put("/etc/commerce/shipping-methods/we-retail/standard-shipping", new BigDecimal("5.00"));
-            put("/etc/commerce/shipping-methods/we-retail/ground-shipping", new BigDecimal("10.00"));
-            put("/etc/commerce/shipping-methods/we-retail/two-business-day", new BigDecimal("15.00"));
-            put("/etc/commerce/shipping-methods/we-retail/one-business-day", new BigDecimal("25.00"));
+            put("/var/commerce/shipping-methods/we-retail/standard-shipping", new BigDecimal("5.00"));
+            put("/var/commerce/shipping-methods/we-retail/ground-shipping", new BigDecimal("10.00"));
+            put("/var/commerce/shipping-methods/we-retail/two-business-day", new BigDecimal("15.00"));
+            put("/var/commerce/shipping-methods/we-retail/one-business-day", new BigDecimal("25.00"));
         }
     };
 
@@ -70,7 +70,7 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
     @Override
     protected String tokenizePaymentInfo(Map<String, String> paymentDetails) throws CommerceException {
         //
-        // This is only a stub implementation for the Geometrixx-Outdoors demo site, for which there is no
+        // This is only a stub implementation for the demo site, for which there is no
         // real payment processing (or payment info tokenization).
         //
         return "faux-payment-token";
@@ -79,7 +79,7 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
     @Override
     protected void initiateOrderProcessing(String orderPath) throws CommerceException {
         //
-        // This is only a stub implementation for the Geometrixx-Outdoors demo site, for which there is no
+        // This is only a stub implementation for the demo site, for which there is no
         // real order processing.
         //
         try {

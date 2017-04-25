@@ -120,7 +120,7 @@ public class WeRetailCommerceServiceImpl extends AbstractJcrCommerceService impl
             // The user-defined axis, if required, is specified using the "variationAxis" and
             // "variationTitle" properties.
             //
-            // In the geometrixx sample product set, the optional axis is always "color".
+            // In the sample product set, the optional axis is always "color".
             //
             Node productNode = product.adaptTo(Node.class);
             if (productData.axisIsVariant("color")) {
@@ -175,12 +175,12 @@ public class WeRetailCommerceServiceImpl extends AbstractJcrCommerceService impl
 
     @Override
     public List<ShippingMethod> getAvailableShippingMethods() throws CommerceException {
-        return enumerateMethods("/etc/commerce/shipping-methods/we-retail", ShippingMethod.class);
+        return enumerateMethods("/var/commerce/shipping-methods/we-retail", ShippingMethod.class);
     }
 
     @Override
     public List<PaymentMethod> getAvailablePaymentMethods() throws CommerceException {
-        return enumerateMethods("/etc/commerce/payment-methods/we-retail", PaymentMethod.class);
+        return enumerateMethods("/var/commerce/payment-methods/we-retail", PaymentMethod.class);
     }
 
     @Override

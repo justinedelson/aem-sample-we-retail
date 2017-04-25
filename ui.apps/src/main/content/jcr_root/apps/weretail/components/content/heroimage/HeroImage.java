@@ -33,25 +33,14 @@ public class HeroImage extends WCMUsePojo {
     public static final Logger log = LoggerFactory.getLogger(HeroImage.class);
 
     public static final String PROP_FULL_WIDTH = "useFullWidth";
-    public static final String PROP_KEEP_RATIO = "keepRatio";
 
-    private Resource resource;
     private String classList;
     private Image image;
-    private ValueMap properties;
-    private SightlyWCMMode wcmMode;
 
     @Override
     public void activate() throws Exception {
-        resource = getResource();
-        properties = getProperties();
-        wcmMode = getWcmMode();
         classList = getClassList();
         image = getImage();
-        log.debug("resource: {}", resource.getPath());
-        log.debug("classList: {}", classList);
-        log.debug("image.src: {}", image.getSrc());
-        log.debug("wcm mode: {}", wcmMode.toString());
     }
 
     public String getClassList() {
@@ -63,9 +52,6 @@ public class HeroImage extends WCMUsePojo {
         if ("true".equals(properties.get(PROP_FULL_WIDTH, ""))) {
             classList += " width-full";
         }
-        if ("true".equals(properties.get(PROP_KEEP_RATIO, ""))) {
-            classList += " ratio-16by9";
-        }
         return classList;
     }
 
@@ -73,12 +59,10 @@ public class HeroImage extends WCMUsePojo {
         if (image != null) {
             return image;
         }
-        String escapedResourcePath = Text.escapePath(resource.getPath());
-        String src = getRequest().getContextPath() + escapedResourcePath + ".img.jpeg";
-        // cache killer for edit mode to refresh image after drag-and-drop
-        if(wcmMode.isEdit()) {
-            src += "/" + getLastModifiedDate(properties) + ".jpeg";
-        }
+        String escapedResourcePath = Text.escapePath(getResource().getPath());
+        long lastModifiedDate = getLastModifiedDate(getProperties());
+        String src = getRequest().getContextPath() + escapedResourcePath + ".img.jpeg" +
+                (!getWcmMode().isDisabled() && lastModifiedDate > 0 ? "/" + lastModifiedDate + ".jpeg" : "");
         image = new Image(src);
         return image;
     }
