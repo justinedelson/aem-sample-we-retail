@@ -408,7 +408,6 @@
                         "cq:LiveRelationship"
                     ],
                     "jcr:primaryType"   : "nt:unstructured",
-                    "keepRatio"         : "true",
                     "sling:resourceType": "weretail/components/content/heroimage",
                     "title"             : "Built for the coldest winter on earth",
                     "useFullWidth"      : "true"
