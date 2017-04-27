@@ -35,16 +35,15 @@ import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
+import com.adobe.granite.ui.components.ds.DataSource;
 import com.adobe.granite.ui.components.ds.SimpleDataSource;
 import com.adobe.granite.ui.components.ds.ValueMapResource;
 import com.day.cq.i18n.I18n;
 import com.day.cq.wcm.api.Page;
-import com.adobe.cq.wcm.core.components.models.form.DataSourceModel;
 
 @Model(adaptables = SlingHttpServletRequest.class,
-        adapters = DataSourceModel.class,
         resourceType = CountriesFormOptionsDataSource.RESOURCE_TYPE)
-public class CountriesFormOptionsDataSource extends DataSourceModel {
+public class CountriesFormOptionsDataSource {
 
     protected final static String RESOURCE_TYPE = "weretail/components/form/options/datasource/countriesdatasource";
     protected final static String COUNTRY_OPTIONS_HEADER = "Country";
@@ -67,7 +66,7 @@ public class CountriesFormOptionsDataSource extends DataSourceModel {
         i18n = new I18n(bundle);
 
         SimpleDataSource countriesDataSource = new SimpleDataSource(buildCountriesList().iterator());
-        initDataSource(request, countriesDataSource);
+        request.setAttribute(DataSource.class.getName(), countriesDataSource);
     }
 
     private List<Resource> buildCountriesList() {
