@@ -16,7 +16,7 @@
                     <properties
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Main"
-                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
                             <content
