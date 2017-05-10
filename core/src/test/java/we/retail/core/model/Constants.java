@@ -22,7 +22,7 @@ public class Constants {
     // The order is defined in src/test/resources/sample-order.json
 
     public static final String TEST_ORDER_ID = "5ad90db8-593f-4403-af91-2dd6df0aefd7";
-    public static final String TEST_ORDER_RESOURCE = "/etc/commerce/orders/2016/12/12/order";
+    public static final String TEST_ORDER_RESOURCE = "/var/commerce/orders/2016/12/12/order";
     public static final String TEST_ORDER_PAGE = "/content/we-retail/us/en/user/account/order-history/order-details";
 
     public static final String SUB_TOTAL = "$167.00";

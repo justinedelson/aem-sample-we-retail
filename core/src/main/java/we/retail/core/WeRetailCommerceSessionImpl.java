@@ -100,10 +100,10 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
         try {
             serviceSession = commerceService.serviceContext().slingRepository.loginService("orders", null);
             //
-            // example query: /jcr:root/etc/commerce/orders//element(*)[@orderId='foo')]
+            // example query: /jcr:root/var/commerce/orders//element(*)[@orderId='foo')]
             //
             StringBuilder buffer = new StringBuilder();
-            buffer.append("/jcr:root/etc/commerce/orders//element(*)[@orderId = '")
+            buffer.append("/jcr:root/var/commerce/orders//element(*)[@orderId = '")
                     .append(Text.escapeIllegalXpathSearchChars(orderId).replaceAll("'", "''"))
                     .append("']");
 
