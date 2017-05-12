@@ -22,6 +22,10 @@
             .asserts.visible(ARTICLES_LIST_CLASS, true)
             // Check articles are visible
             .asserts.visible(ARTICLES_LIST_CLASS + " .we-ArticleTeaser")
+            // Check visuals
+            .asserts.visible(ARTICLES_LIST_CLASS + " .we-ArticleTeaser .we-ArticleTeaser-visual img")
+            // Check titles
+            .asserts.visible(ARTICLES_LIST_CLASS + " .we-ArticleTeaser .we-ArticleTeaser-title")
             // Check articles count
             .asserts.isTrue( function() { return window.CQ.WeRetailIT.checkNumberOfItems(h, ARTICLES_LIST_CLASS + " .we-ArticleTeaser", count) });
     }
