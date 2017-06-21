@@ -200,12 +200,24 @@
                     sling:resourceType="nt:unstructured">
                     <we-retail-product-page
                         jcr:description="Policy for product pages"
-                        jcr:lastModified="{Date}2016-03-03T18:52:44.719+01:00"
+                        jcr:lastModified="{Date}2017-06-21T12:22:11.326+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Product Page"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        clientlibs="[we-retail.product-page]"/>
+                        clientlibs="we-retail.product-page"
+                        faviconClientLib="we-retail.structure.page">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </we-retail-product-page>
+                    <we-retail-page
+                        jcr:lastModified="{Date}2017-06-21T12:21:36.324+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="We.Retail Page"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        faviconClientLib="we-retail.structure.page">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </we-retail-page>
                 </page>
             </structure>
             <content
