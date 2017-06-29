@@ -4,7 +4,7 @@
     <jcr:content
         cq:cloudserviceconfigs="[[]]"
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
-        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:contextHubSegmentsPath="/conf/we-retail/settings/wcm/segments"
         cq:lastModified="{Date}2016-05-09T15:05:57.565+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/libs/cq/personalization/templates/teaser"
