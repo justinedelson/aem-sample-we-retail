@@ -33,6 +33,14 @@
     <filter root="/etc/blueprints/weretail-italian"/>
     <filter root="/etc/blueprints/weretail-spanish"/>
 
+    <filter root="/apps/msm/we-retail/blueprintconfigs/weretail-english"/>
+    <filter root="/apps/msm/we-retail/blueprintconfigs/weretail-french"/>
+    <filter root="/apps/msm/we-retail/blueprintconfigs/weretail-german"/>
+    <filter root="/apps/msm/we-retail/blueprintconfigs/weretail-italian"/>
+    <filter root="/apps/msm/we-retail/blueprintconfigs/weretail-spanish"/>
+
+
+
     <filter root="/etc/replication/agents.author/flush"/>
     <filter root="/etc/replication/agents.author/publish"/>
     <filter root="/etc/replication/agents.author/publish_reverse"/>
