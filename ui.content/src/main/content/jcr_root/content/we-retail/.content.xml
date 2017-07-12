@@ -3,6 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:allowedTemplates="[/conf/we-retail/settings/wcm/templates/.*]"
+        cq:cloudserviceconfigs="[]"
         cq:translationCloudserviceconfigs="[translation/cloudservices/translationcfg/default_translation,translation/cloudservices/msft-translation/msft_trial]"
         cq:contextHubSegmentsPath="/conf/we-retail/settings/wcm/segments"
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
