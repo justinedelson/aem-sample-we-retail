@@ -14,7 +14,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Default"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:We.Retail,group:We.Retail Commerce,/libs/wcm/foundation/components/responsivegrid,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/dam/cfm/components/contentfragment]"
+                        components="[group:We.Retail,group:We.Retail Commerce,/libs/wcm/foundation/components/responsivegrid,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/dam/cfm/components/contentfragment,cq/experience-fragments/editor/components/buildingblock]"
                         policyResourceType="wcm/foundation/components/responsivegrid">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -66,6 +66,13 @@
                                     droptarget="experiencefragment"
                                     resourceType="cq/experience-fragments/editor/components/experiencefragment"
                                     type="experiencefragment"/>
+                                <buildingblock
+                                        jcr:primaryType="nt:unstructured"
+                                        assetGroup="block"
+                                        assetMimetype="text/html"
+                                        droptarget="buildingblock"
+                                        resourceType="cq/experience-fragments/editor/components/buildingblock"
+                                        type="buildingblock"/>
                             </assetToComponentMapping>
                         </cq:authoring>
                         <jcr:content
