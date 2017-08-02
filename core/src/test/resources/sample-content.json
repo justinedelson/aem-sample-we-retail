@@ -368,7 +368,7 @@
             "cq:isDeep"        : true,
             "cq:master": "/content/we-retail/language-masters/en",
             "cq:rolloutConfigs": [
-                "/etc/msm/rolloutconfigs/default"
+                "/libs/msm/wcm/rolloutconfigs/default"
             ],
             "jcr:primaryType"  : "cq:LiveCopy"
         },

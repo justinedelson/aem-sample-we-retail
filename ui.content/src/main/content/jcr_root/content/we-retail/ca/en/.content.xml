@@ -552,7 +552,7 @@
         <cq:LiveSyncConfig
             cq:isDeep="{Boolean}true"
             cq:master="/content/we-retail/language-masters/en"
-            cq:rolloutConfigs="[/etc/msm/rolloutconfigs/default]"
+            cq:rolloutConfigs="[/libs/msm/wcm/rolloutconfigs/default]"
             jcr:primaryType="cq:LiveCopy"/>
     </jcr:content>
     <experience/>
