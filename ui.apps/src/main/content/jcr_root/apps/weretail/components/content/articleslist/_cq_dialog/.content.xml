@@ -1,49 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Article List"
-    sling:resourceType="cq/gui/components/authoring/dialog"
-    helpPath="http://www.adobe.com/go/aem6_3_docs_component_en#List - HTL">
-    <content
-        granite:class="core-wcm-list-v1"
-        jcr:primaryType="nt:unstructured"
-        sling:resourceType="granite/ui/components/coral/foundation/container">
+    jcr:title="Articles List">
+    <content jcr:primaryType="nt:unstructured">
         <items jcr:primaryType="nt:unstructured">
-            <settings
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Settings"
-                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                margin="{Boolean}false">
+            <tabs jcr:primaryType="nt:unstructured">
                 <items jcr:primaryType="nt:unstructured">
-                    <columns
+                    <itemSettings
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        sling:hideResource="{Boolean}true"/>
+                    <articleItemTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Article Item Settings"
+                        sling:orderBefore="styletab"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
-                            <displayAs
+                            <column
                                 jcr:primaryType="nt:unstructured"
-                                sling:orderBefore="orderBy"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                fieldLabel="Display as"
-                                name="./displayAs">
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <links
+                                    <displayAs
                                         jcr:primaryType="nt:unstructured"
-                                        text="Short Teaser"
-                                        value="default"/>
-                                    <teaser
-                                        jcr:primaryType="nt:unstructured"
-                                        text="Teasers"
-                                        value="teaser"/>
-                                    <news
-                                        jcr:primaryType="nt:unstructured"
-                                        text="News"
-                                        value="news"/>
+                                        sling:orderBefore="styletab"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                        fieldLabel="Display as"
+                                        name="./displayAs">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <default
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Short Teaser"
+                                                value="default"/>
+                                            <teaser
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Teaser"
+                                                value="teaser"/>
+                                        </items>
+                                    </displayAs>
                                 </items>
-                            </displayAs>
+                            </column>
                         </items>
-                    </columns>
+                    </articleItemTab>
                 </items>
-            </settings>
+            </tabs>
         </items>
     </content>
 </jcr:root>
