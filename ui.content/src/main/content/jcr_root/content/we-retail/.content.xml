@@ -4,7 +4,7 @@
     <jcr:content
         cq:allowedTemplates="[/conf/we-retail/settings/wcm/templates/.*]"
         cq:cloudserviceconfigs="[]"
-        cq:translationCloudserviceconfigs="[translation/cloudservices/translationcfg/default_translation,translation/cloudservices/msft-translation/msft_trial]"
+        cq:translationCloudserviceconfigs="[cloudconfigs/translation/translationcfg/default_translation,cloudconfigs/translation/msft-translation/msft_trial]"
         cq:contextHubSegmentsPath="/conf/we-retail/settings/wcm/segments"
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
         cq:lastModified="{Date}2016-02-09T00:05:48.520+01:00"
