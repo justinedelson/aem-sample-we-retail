@@ -27,7 +27,7 @@
         <filter
             jcr:mixinTypes="[cq:LiveRelationship]"
             jcr:primaryType="nt:unstructured"
-            basePath="/var/commerce/products/we-retail"
+            basePath="/etc/commerce/products/we-retail"
             searchType="simple"/>
         <cq:LiveSyncConfig
             cq:isDeep="{Boolean}true"

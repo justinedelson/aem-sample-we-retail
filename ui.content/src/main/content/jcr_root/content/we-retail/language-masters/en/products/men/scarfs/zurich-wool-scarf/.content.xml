@@ -6,7 +6,7 @@
         cq:lastModifiedBy="admin"
         cq:lastRolledout="{Date}2016-07-04T11:35:00.895+02:00"
         cq:lastRolledoutBy="admin"
-        cq:productMaster="/var/commerce/products/we-retail/me/scarfs/meotwizuf"
+        cq:productMaster="/etc/commerce/products/we-retail/me/scarfs/meotwizuf"
         cq:tags="[we-retail:apparel/scarf,we-retail:gender/men,we-retail:season/winter,we-retail:activity/others]"
         cq:template="/conf/we-retail/settings/wcm/templates/product-page"
         jcr:language="en"
@@ -34,7 +34,7 @@
                 jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/structure/product"
-                productData="/var/commerce/products/we-retail/me/scarfs/meotwizuf">
+                productData="/etc/commerce/products/we-retail/me/scarfs/meotwizuf">
                 <meotwizuf-one-size
                     cq:commerceType="variant"
                     cq:lastRolledout="{Date}2016-07-04T11:35:00.884+02:00"
@@ -42,7 +42,7 @@
                     jcr:mixinTypes="[cq:CatalogSyncAction,cq:LiveRelationship]"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="weretail/components/structure/product"
-                    productData="/var/commerce/products/we-retail/me/scarfs/meotwizuf/size-one-size">
+                    productData="/etc/commerce/products/we-retail/me/scarfs/meotwizuf/size-one-size">
                     <image
                         cq:lastRolledout="{Date}2016-07-04T11:35:00.892+02:00"
                         cq:lastRolledoutBy="admin"
