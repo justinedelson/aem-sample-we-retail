@@ -35,7 +35,7 @@ import io.wcm.testing.mock.aem.junit.AemContextCallback;
 public class AppAemContext {
 
     public static final String CONTENT_ROOT = "/content/we-retail/us/en";
-    public static final String PRODUCT_ROOT = "/etc/commerce/products/we-retail";
+    public static final String PRODUCT_ROOT = "/var/commerce/products/we-retail";
     public static final String ORDER_ROOT = "/var/commerce/orders/2016/12/12/order";
 
     private static MockCommerceService mockCommerceService = null;

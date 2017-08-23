@@ -50,7 +50,7 @@
                         "cq:lastModifiedBy" : "admin",
                         "cq:lastRolledout"  : "Wed Jun 29 2016 14:20:56 GMT+0200",
                         "cq:lastRolledoutBy": "admin",
-                        "cq:productMaster"  : "/etc/commerce/products/we-retail/eq/running/eqrusufle",
+                        "cq:productMaster"  : "/var/commerce/products/we-retail/eq/running/eqrusufle",
                         "cq:tags"           : [
                             "we-retail:apparel/footwear",
                             "we-retail:season/summer",
@@ -88,7 +88,7 @@
                                     "cq:CatalogSyncAction",
                                     "cq:LiveRelationship"
                                 ],
-                                "productData"       : "/etc/commerce/products/we-retail/eq/running/eqrusufle",
+                                "productData"       : "/var/commerce/products/we-retail/eq/running/eqrusufle",
                                 "cq:lastRolledout"  : "Wed Jun 29 2016 14:20:56 GMT+0200",
                                 "jcr:lastModified"  : "Tue Apr 12 2016 01:19:38 GMT+0200",
                                 "sling:resourceType": "we-retail/components/structure/product",
@@ -100,7 +100,7 @@
                                         "cq:CatalogSyncAction",
                                         "cq:LiveRelationship"
                                     ],
-                                    "productData"    : "/etc/commerce/products/we-retail/eq/running/eqrusufle/size-9",
+                                    "productData"    : "/var/commerce/products/we-retail/eq/running/eqrusufle/size-9",
                                     "cq:lastRolledout": "Wed Jun 29 2016 14:20:56 GMT+0200",
                                     "sling:resourceType": "we-retail/components/structure/product",
                                     "cq:commerceType"   : "variant",
@@ -141,7 +141,7 @@
                                         "cq:CatalogSyncAction",
                                         "cq:LiveRelationship"
                                     ],
-                                    "productData"    : "/etc/commerce/products/we-retail/eq/running/eqrusufle/size-11",
+                                    "productData"    : "/var/commerce/products/we-retail/eq/running/eqrusufle/size-11",
                                     "cq:lastRolledout": "Wed Jun 29 2016 14:20:56 GMT+0200",
                                     "sling:resourceType": "we-retail/components/structure/product",
                                     "cq:commerceType"   : "variant",
@@ -182,7 +182,7 @@
                                         "cq:CatalogSyncAction",
                                         "cq:LiveRelationship"
                                     ],
-                                    "productData"    : "/etc/commerce/products/we-retail/eq/running/eqrusufle/size-13",
+                                    "productData"    : "/var/commerce/products/we-retail/eq/running/eqrusufle/size-13",
                                     "cq:lastRolledout": "Wed Jun 29 2016 14:20:56 GMT+0200",
                                     "sling:resourceType": "we-retail/components/structure/product",
                                     "cq:commerceType"   : "variant",
