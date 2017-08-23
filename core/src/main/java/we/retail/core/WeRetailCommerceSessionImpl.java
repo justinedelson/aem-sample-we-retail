@@ -94,7 +94,7 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
     @Override
     protected String getOrderStatus(String orderId) throws CommerceException {
         //
-        // Status is kept in the vendor section (/etc/commerce); need to find corresponding order there.
+        // Status is kept in the vendor section (/var/commerce); need to find corresponding order there.
         //
         Session serviceSession = null;
         try {
