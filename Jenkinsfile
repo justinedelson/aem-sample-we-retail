@@ -39,7 +39,7 @@ Module weRetailConfig = new Module.Builder('main/config')
         .withRelease()
         .withArtifact('zip', 'main/config/target/we.retail.config-*.zip', true)
         .withRelease()
-        .build() 
+        .build()
 Module weRetailItUi = new Module.Builder('main/it.tests.ui-js')
         .withArtifact('zip', 'main/it.tests.ui-js/target/we.retail.it.tests.ui-js-*.zip', true)
         .build()
@@ -70,20 +70,23 @@ MavenDependency hobbesRewriterPackage = new MavenDependency.Builder()
         .withGroupId("com.adobe.granite")
         .withArtifactId("com.adobe.granite.testing.hobbes.rewriter")
         .withVersion("latest")
-        .withExtension("jar").build()
+        .withExtension("jar")
+        .build()
 
 MavenDependency uiTestingCommonsPackage = new MavenDependency.Builder()
         .withGroupId("com.adobe.qe")
         .withArtifactId("com.adobe.qe.ui-testing-commons")
         .withVersion("latest")
-        .withExtension("zip").build()
+        .withExtension("zip")
+        .build()
 
 // we retail product sample content
 MavenDependency weRetailSampleContentPackage = new MavenDependency.Builder()
         .withGroupId("com.adobe.aem.sample")
         .withArtifactId("we.retail.commons.content")
         .withVersion("latest")
-        .withExtension("zip").build()
+        .withExtension("zip")
+        .build()
 
 /* --------------------------------------------------------------------- */
 /*                       QUICKSTART CONFIGURATION                        */
@@ -110,7 +113,8 @@ CQInstance author = new CQInstance.Builder()
         .withMavenDependency(hobbesRewriterPackage)
         .withMavenDependency(uiTestingCommonsPackage)
         .withMavenDependency(weRetailSampleContentPackage)
-        .withFileDependency(weRetailItUi.getArtifact('zip')).build()
+        .withFileDependency(weRetailItUi.getArtifact('zip'))
+        .build()
 
 /* --------------------------------------------------------------------- */
 /*                                UI TESTS                               */
