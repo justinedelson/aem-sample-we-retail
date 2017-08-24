@@ -23,7 +23,7 @@
         USA_CODES = ['US', 'USA'];
 
     var $billingIsShippingCheckbox = $(BILLING_IS_SHIPPING_CHECKBOX_SELECTOR),
-        $billingFields = $(BILLING_INPUT_FIELD_SELECTOR).add(BILLING_SELECT_FIELD_SELECTOR).closest(".cmp"),
+        $billingFields = $(BILLING_INPUT_FIELD_SELECTOR).add(BILLING_SELECT_FIELD_SELECTOR).parent(),
         $countryFields = $(COUNTRY_SELECT_FIELD_SELECTOR);
 
 
@@ -38,10 +38,10 @@
         var stateName = $this.attr('name').replace('country', 'state');
         var selector = "select[name='" + stateName + "']";
         if ($.inArray($this.val(), USA_CODES) > -1) {
-            $(selector).show().parents('.cmp-options').removeClass('hidden');
+            $(selector).show().parents('.cmp-form-options').removeClass('hidden');
         }
         else {
-            $(selector).hide().parents('.cmp-options').addClass('hidden');
+            $(selector).hide().parents('.cmp-form-options').addClass('hidden');
             $("select[name$='.state']").prop('selectedIndex', 0).change();
         }
     }
