@@ -1,11 +1,12 @@
 #!groovy
-@Library(['com.adobe.qe.pipeline.cq@develop'])
+@Library(['com.adobe.qe.evergreen.sprout'])
 import com.adobe.qe.evergreen.sprout.Sprout
 import com.adobe.qe.evergreen.sprout.Pipeline
 import com.adobe.qe.evergreen.sprout.SproutConfig
 import com.adobe.qe.evergreen.sprout.criteria.Branch
 import com.adobe.qe.evergreen.sprout.criteria.Exclude
 import com.adobe.qe.evergreen.sprout.criteria.GitCommitMessage
+import com.adobe.qe.evergreen.sprout.criteria.OrCriteria
 import com.adobe.qe.evergreen.sprout.model.BuildQuickstart
 import com.adobe.qe.evergreen.sprout.model.CQInstance
 import com.adobe.qe.evergreen.sprout.model.MavenDependency
