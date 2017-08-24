@@ -131,7 +131,7 @@ SproutConfig config = new SproutConfig()
 
 // additional repo for getting the latest core component sources
 config.setAdditionalRepositories([
-        [url: 'git@git.corp.adobe.com:CQ/aem-sample-we-retail.git', branch: 'PRIVATE_master',
+        [url: 'git@git.corp.adobe.com:CQ/aem-core-wcm-components.git', branch: 'PRIVATE_master',
          folder: 'core-comp', vcs: 'git'],
 ])
 
