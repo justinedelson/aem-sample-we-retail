@@ -49,17 +49,12 @@ Module weRetailAll = new Module.Builder('main/all')
 
 // core component modules
 Module componentsCore = new Module.Builder('core-comp/bundles/core')
-        .withUnitTests(true)
-        .withCoverage()
-        .withRelease()
         .withArtifact('jar', 'core-comp/bundles/core/target/core.wcm.components.sandbox.bundle-*.jar', true)
         .build()
 Module componentsContent = new Module.Builder('core-comp/content')
-        .withRelease()
         .withArtifact('zip', 'core-comp/content/target/core.wcm.components.sandbox.content-*.zip', true)
         .build()
 Module componentsConfig = new Module.Builder('core-comp/config')
-        .withRelease()
         .withArtifact('zip', 'core-comp/config/target/core.wcm.components.sandbox.config-*.zip', true)
         .build()
 /* --------------------------------------------------------------------- */
