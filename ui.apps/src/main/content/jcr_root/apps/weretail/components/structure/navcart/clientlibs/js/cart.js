@@ -72,6 +72,13 @@
                 }
             }
         },
+        computed: {
+            orderPromotions() {
+                return this.cartPromotions.filter(promotion => {
+                    return promotion.cartEntryIndex === undefined || promotion.cartEntryIndex === null;
+                })
+            }
+        },
         events: {
             'cart-button-expand': function(show) {
                 // handle fixed in js
@@ -119,6 +126,11 @@
                 this._fixed = this._fixed || new Fixed(this.$el);
                 this._fixed.on();
                 this._fixed.onScroll();
+            },
+            cartEntryPromotions: function(i) {
+                return this.cartPromotions.filter(promotion => {
+                    return promotion.cartEntryIndex == i;
+                })
             }
         }
     });

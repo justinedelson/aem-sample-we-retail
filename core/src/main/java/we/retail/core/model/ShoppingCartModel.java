@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 import javax.annotation.PostConstruct;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -152,8 +154,31 @@ public class ShoppingCartModel {
         }
 
         public String getPrice() throws CommerceException {
-            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_UNIT));
-            return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
+            List<PriceInfo> priceInfos = entry.getPriceInfo(
+                    new PriceFilter(WeRetailConstants.PRICE_FILTER_UNIT, WeRetailConstants.PRICE_FILTER_DISCOUNT));
+            if (CollectionUtils.isNotEmpty(priceInfos)) {
+                return priceInfos.get(0).getFormattedString();
+            } else {
+                priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_UNIT));
+                return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
+            }
+        }
+
+        public String getStrikeThroughPrice() throws CommerceException {
+            List<PriceInfo> priceInfos = entry.getPriceInfo(
+                    new PriceFilter(WeRetailConstants.PRICE_FILTER_UNIT, WeRetailConstants.PRICE_FILTER_DISCOUNT));
+            if (CollectionUtils.isNotEmpty(priceInfos)) {
+                priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_UNIT));
+                for (PriceInfo priceInfo : priceInfos) {
+                    if (priceInfo.containsKey(PriceFilter.PN_TYPES) && priceInfo.get(PriceFilter.PN_TYPES) instanceof Set) {
+                        final Set types = (Set) priceInfo.get(PriceFilter.PN_TYPES);
+                        if (!types.contains(WeRetailConstants.PRICE_FILTER_DISCOUNT)) {
+                            return priceInfo.getFormattedString();
+                        }
+                    }
+                }
+            }
+            return null;
         }
 
         public ProductItem getProduct() throws CommerceException {

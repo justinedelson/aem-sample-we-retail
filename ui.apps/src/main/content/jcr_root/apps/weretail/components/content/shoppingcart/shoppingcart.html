@@ -47,12 +47,19 @@
                             <ul class="small we-ShoppingCart-entryVariants" data-sly-list.key="${item.variantAxesMap}">
                                 <li><span>${key @ i18n}</span>: ${item.variantAxesMap[key]}</li>
                             </ul>
+                            <small class="text-info" data-sly-test="${item.entryPromotions}">
+                                <span data-sly-repeat.promotion="${item.entryPromotions}">${promotion.message @ context='html'}</span>
+                            </small>
                         </div>
                     </div>
 
                 </div>
                 <div class="we-ShoppingCart-entryPrice">
-                    <span data-sly-attribute="${hapiCartEntry.itemprop.unitPrice}">${item.price}</span>
+                    <strong data-sly-attribute="${hapiCartEntry.itemprop.unitPrice}">${item.price}</strong>
+                    <small class="we-ShoppingCart-strikethroughPrice">${item.strikeThroughPrice}</small>
+                </div>
+                <div class="we-ShoppingCart-entryPrice">
+                    <span>${item.trikeThroughPrice}</span>
                 </div>
                 <div class="we-ShoppingCart-entryQuantity">
                     <label class="text-muted">${'Qty' @ i18n}:</label>
@@ -80,9 +87,8 @@
                 </div>
             </div>
         </div>
-        <div class="we-ShoppingCart-promotions" data-sly-test="${cart.orderPromotions}">
-            <span data-sly-repeat.promotion="${cart.orderPromotions}" class="we-ShoppingCart-promotion">${promotion.message @
-                context='html'}</span>
+        <div class="we-Cart-promotions" v-if="orderPromotions && orderPromotions.length > 0" data-sly-test="${!isReadOnly}">
+            <span v-for="promotion in orderPromotions" class="we-Cart-promotion" v-html="promotion.message"></span>
         </div>
     </div>
 </div>
