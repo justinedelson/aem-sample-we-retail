@@ -35,15 +35,15 @@
             <div class="we-Cart-empty" v-if="cartEntriesSize == 0">${'The cart is empty' @ i18n}.</div>
 
             <div class="we-Cart-data">
-            
+
                 <div class="we-Cart-entries" v-if="cartEntriesSize > 0">
                     <div class="we-Cart-entry" v-for="(index, cartEntry) in cartEntries"
                          data-sly-use.hapiCartEntry="${ 'org.apache.sling.hapi.sightly.HApiUse' @type=hapiCart.proptype.entries }"
                          data-sly-attribute="${ hapiCart.itemprop.entries }">
-    
+
                         <img class="we-Cart-image" v-bind:src="cartEntry.thumbnail" alt="{{ cartEntry.title }}"
                              data-sly-attribute="${ hapiCartEntry.itemprop.asset }"/>
-    
+
                         <div class="we-Cart-entryContent">
                             <div data-sly-use.hapiCartEntryProduct="${ 'org.apache.sling.hapi.sightly.HApiUse' @type=hapiCartEntry.proptype.product }"
                                  data-sly-attribute="${ hapiCartEntry.itemprop.product }">
@@ -52,6 +52,9 @@
                                     <strong>{{ cartEntry.title }}</strong>
                                 </a>
                                 <div class="text-muted">
+                                    <small  v-if="cartEntryPromotions(index) && cartEntryPromotions(index).length > 0">
+                                        <span class="text-info" v-for="promotion in cartEntryPromotions(index)" v-html="promotion.message"></span>
+                                    </small>
                                     <small data-sly-attribute="${hapiCartEntryProduct.itemprop.description}">
                                         {{ cartEntry.description }}
                                     </small>
@@ -78,7 +81,7 @@
                                 <strong>{{ cartEntry.priceFormatted }}</strong>
                             </div>
                         </div>
-    
+
                         <div class="we-Cart-remove">
                             <form data-sly-test="${!isReadOnly}" method="POST"
                                   action="${currentPage.path @ extension='html', selectors='weretail.deletecartentry'}"
@@ -88,14 +91,14 @@
                                 <button type="submit" class="btn btn-default btn-icon"><i class="text-muted fa fa-times-circle-o"></i></button>
                             </form>
                         </div>
-    
+
                     </div>
                 </div>
-    
-                <div class="we-Cart-promotions" v-if="cartPromotions && cartPromotions.length > 0" data-sly-test="${!isReadOnly}">
-                    <span v-for="promotion in cartPromotions" class="we-Cart-promotion" v-html="promotion.message"></span>
+
+                <div class="we-Cart-promotions" v-if="orderPromotions && orderPromotions.length > 0" data-sly-test="${!isReadOnly}">
+                    <span v-for="promotion in orderPromotions" class="we-Cart-promotion" v-html="promotion.message"></span>
                 </div>
-    
+
                 <div class="we-Cart-footer">
                     <div class="we-Cart-subtotal" v-if="cartEntriesSize > 0">
                         ${ 'sub-total' @ i18n }: <span data-sly-attribute="${hapiCart.itemprop.total}">{{cartTotalPrice}}</span>
@@ -103,7 +106,7 @@
                     <a v-if="cartEntriesSize > 0" data-sly-test="${inheritedPageProperties['cq:checkoutPage']}" class="btn btn-primary btn-action pull-right"
                        href="${inheritedPageProperties['cq:checkoutPage'] @ extension='html' }">${ 'Checkout' @ i18n }</a>
                 </div>
-                
+
             </div>
         </div>
     </cart-content>
