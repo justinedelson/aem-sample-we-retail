@@ -31,13 +31,6 @@
                                     droptarget="product-data-reference"
                                     resourceType="commerce/components/product"
                                     type="Products"/>
-                                <flash
-                                    jcr:primaryType="nt:unstructured"
-                                    assetGroup="media"
-                                    assetMimetype="application/x-shockwave-flash"
-                                    droptarget="flash"
-                                    resourceType="foundation/components/flash"
-                                    type="Images"/>
                                 <document
                                     jcr:primaryType="nt:unstructured"
                                     assetGroup="media"
@@ -96,13 +89,6 @@
                                     droptarget="product-data-reference"
                                     resourceType="commerce/components/product"
                                     type="Products"/>
-                                <flash
-                                    jcr:primaryType="nt:unstructured"
-                                    assetGroup="media"
-                                    assetMimetype="application/x-shockwave-flash"
-                                    droptarget="flash"
-                                    resourceType="foundation/components/flash"
-                                    type="Images"/>
                                 <document
                                     jcr:primaryType="nt:unstructured"
                                     assetGroup="media"
@@ -206,13 +192,6 @@
                                         droptarget="product-data-reference"
                                         resourceType="commerce/components/product"
                                         type="Products"/>
-                                <flash
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="application/x-shockwave-flash"
-                                        droptarget="flash"
-                                        resourceType="foundation/components/flash"
-                                        type="Images"/>
                                 <document
                                         jcr:primaryType="nt:unstructured"
                                         assetGroup="media"
