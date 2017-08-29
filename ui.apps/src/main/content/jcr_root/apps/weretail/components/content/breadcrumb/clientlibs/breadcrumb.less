@@ -19,24 +19,19 @@
     text-align: center;
 
     & .cmp-breadcrumb {
-        display: inline-block;
         min-height: 20px;
         margin-bottom: 0;
         padding: 8px 15px;
     }
 
     & .cmp-breadcrumb__item {
-        float: none;
-        display: inline-block;
         & > a {
-            float: left;
             font-weight: 600;
             color: @breadcrumb-color;
         }
 
         & + .cmp-breadcrumb__item::before {
             padding: 0 10px;
-            float: left;
             color: @breadcrumb-delim-color;
             content: "/\00a0";
         }
