@@ -73,9 +73,9 @@
             }
         },
         computed: {
-            orderPromotions() {
+            orderPromotions: function () {
                 if (this.cartPromotions) {
-                    return this.cartPromotions.filter(promotion => {
+                    this.cartPromotions.filter(function (promotion) {
                         return promotion.cartEntryIndex === undefined || promotion.cartEntryIndex === null;
                     })
                 } else {
@@ -133,7 +133,7 @@
             },
             cartEntryPromotions: function(i) {
                 if (this.cartPromotions) {
-                    return this.cartPromotions.filter(promotion => {
+                    return this.cartPromotions.filter(function (promotion) {
                         return promotion.cartEntryIndex == i;
                     })
                 } else {
