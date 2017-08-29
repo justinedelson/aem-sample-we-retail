@@ -27,6 +27,7 @@ public class WeRetailConstants {
 
     public static final String PRICE_FILTER_UNIT = "UNIT";
     public static final String PRICE_FILTER_LINE = "LINE";
+    public static final String PRICE_FILTER_DISCOUNT = "DISCOUNT";
 
     public static final String PRICE_FILTER_SHIPPING = "SHIPPING";
     public static final String PRICE_FILTER_PRE_TAX = "PRE_TAX";
