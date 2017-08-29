@@ -15,13 +15,10 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <workspaceFilter version="1.0">
-    <filter root="/apps/weretail">
-        <exclude pattern="/apps/weretail(/.*)?"/>
-        <include pattern="/apps/weretail/clientlibs(/.*)?"/>
-        <include pattern="/apps/weretail/components(/.*)?"/>
-        <include pattern="/apps/weretail/gui(/.*)?"/>
-        <include pattern="/apps/weretail/i18n(/.*)?"/>
-    </filter>
+    <filter root="/apps/weretail/clientlibs"/>
+    <filter root="/apps/weretail/components"/>
+    <filter root="/apps/weretail/gui"/>
+    <filter root="/apps/weretail/i18n"/>
 
     <filter root="/apps/public/weretail"/>
     <filter root="/var/commerce/payment-methods/we-retail"/>
@@ -33,14 +30,5 @@
     <filter root="/apps/msm/we-retail/blueprintconfigs/weretail-italian"/>
     <filter root="/apps/msm/we-retail/blueprintconfigs/weretail-spanish"/>
 
-
-
-    <filter root="/etc/replication/agents.author/flush"/>
-    <filter root="/etc/replication/agents.author/publish"/>
-    <filter root="/etc/replication/agents.author/publish_reverse"/>
-    <filter root="/etc/replication/agents.author/static"/>
-    <filter root="/etc/replication/agents.author/test_and_target"/>
-    <filter root="/etc/replication/agents.publish/flush"/>
-    <filter root="/etc/replication/agents.publish/outbox"/>
     <filter root="/etc/clientlibs/wcm/foundation/grid"/>
 </workspaceFilter>
