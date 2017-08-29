@@ -74,9 +74,13 @@
         },
         computed: {
             orderPromotions() {
-                return this.cartPromotions.filter(promotion => {
-                    return promotion.cartEntryIndex === undefined || promotion.cartEntryIndex === null;
-                })
+                if (this.cartPromotions) {
+                    return this.cartPromotions.filter(promotion => {
+                        return promotion.cartEntryIndex === undefined || promotion.cartEntryIndex === null;
+                    })
+                } else {
+                    return null;
+                }
             }
         },
         events: {
@@ -128,9 +132,13 @@
                 this._fixed.onScroll();
             },
             cartEntryPromotions: function(i) {
-                return this.cartPromotions.filter(promotion => {
-                    return promotion.cartEntryIndex == i;
-                })
+                if (this.cartPromotions) {
+                    return this.cartPromotions.filter(promotion => {
+                        return promotion.cartEntryIndex == i;
+                    })
+                } else {
+                    return null;
+                }
             }
         }
     });
