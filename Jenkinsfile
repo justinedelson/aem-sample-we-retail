@@ -38,7 +38,6 @@ Module weRetailUIApps = new Module.Builder('main/ui.apps')
 Module weRetailConfig = new Module.Builder('main/config')
         .withRelease()
         .withArtifact('zip', 'main/config/target/we.retail.config-*.zip', true)
-        .withRelease()
         .build()
 Module weRetailItUi = new Module.Builder('main/it.tests.ui-js')
         .withArtifact('zip', 'main/it.tests.ui-js/target/we.retail.it.tests.ui-js-*.zip', true)
@@ -135,7 +134,7 @@ config.setAdditionalRepositories([
          folder: 'core-comp', vcs: 'git'],
 ])
 
-// calculate code coverage
+// calculate code
 config.setComputeCoverage(true)
 config.setComputeReleaseCoverage(true)
 
@@ -151,7 +150,7 @@ config.getElasticsearchReporting().setEnable(true)
 
 // the modules to build
 config.setModules([componentsCore, componentsContent, componentsConfig,
-                   weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailUIApps, weRetailItUi])
+                   weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi])
 
 // the tests to execute
 config.setTestRuns([coreCompUIChrome])
