@@ -118,7 +118,7 @@
             }
         });
 
-    new h.TestSuite("We.Retail Tests - Experience", {path:"/apps/weretail/tests/experience/ExperienceSuite.js", register: true})
+    new h.TestSuite("We.Retail Tests - Experience", {path:"/apps/weretail/tests/frontend/experience/ExperienceSuite.js", register: true})
          // Load all experiences page
         .addTestCase(new hobs.TestCase('Load all experiences page')
             .execTestCase(window.CQ.WeRetailIT.ExperiencesPageLoadTest(h, $))

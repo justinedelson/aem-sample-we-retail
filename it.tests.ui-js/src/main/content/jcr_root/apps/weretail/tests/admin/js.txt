@@ -15,4 +15,8 @@
 ###############################################################################
 
 ns.js
+common/commons.js
+components-it/Breadcrumb.js
+components-it/Image.js
 navigation/Navigation.js
+

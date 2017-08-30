@@ -83,7 +83,7 @@
         ;
     };
 
-    new h.TestSuite("We.Retail Tests - Products", {path:"/apps/weretail/tests/product/ProductSuite.js", register: true})
+    new h.TestSuite("We.Retail Tests - Products", {path:"/apps/weretail/tests/frontend/product/ProductSuite.js", register: true})
         //Test men products page
         .addTestCase(new hobs.TestCase('Test men products page')
             // Load men products page

@@ -21,7 +21,7 @@
             .asserts.location("/sites.html/content", true);
     }
 
-    new h.TestSuite("We.Retail Tests - Navigate to AEM", {path:"/apps/weretail/tests/homepage/HomepageSuite.js", register: true})
+    new h.TestSuite("We.Retail Tests - Navigate to AEM", {path:"/apps/weretail/tests/admin/navigation/Navigation.js", register: true})
         .addTestCase(new hobs.TestCase('Navigate to AEM')
             .execTestCase(window.CQ.WeRetailIT.NavigateToSites(h, $))
         )
