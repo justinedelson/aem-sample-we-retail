@@ -48,9 +48,9 @@
         // common clean up
             .execTestCase(c.tcExecuteAfterTest)
             // delete the component we added to the page
-            //.execFct(function (opts, done) {
-            //    c.deleteComponent(h.param("cmpPath")(opts), done);
-            //})
+            .execFct(function (opts, done) {
+                c.deleteComponent(h.param("cmpPath")(opts), done);
+            })
     };
 
     /**
