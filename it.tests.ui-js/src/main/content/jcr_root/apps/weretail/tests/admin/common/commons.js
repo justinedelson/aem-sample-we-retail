@@ -24,19 +24,112 @@
 
     // the root page defined in the test content package
     c.rootPage = "/content/we-retail/language-masters/en";
-    c.testPage ="/content/we-retail/language-masters/en/experience/arctic-surfing-in-lofoten"
     // the template defined in the test content package
-    c.template = "/conf/core-components/settings/wcm/templates/core-components";
+    c.template = "/conf/we-retail/settings/wcm/templates/hero-page";
     // relative path from page node to the root layout container
     c.relParentCompPath = "/jcr:content/root/responsivegrid/";
     // breadcrumb component
     c.rtBreadcrumb = "weretail/components/content/breadcrumb";
-    c.rtIimage = "weretail/components/content/image"
+    // image component
+    c.rtImage = "weretail/components/content/image"
+    //title component
+    c.rtTitle = "weretail/components/content/title"
+
+    // the path to the policies
+    c.policyPath = "/conf/we-retail/settings/wcm/policies/weretail/components/content";
+    // the policy assignment path
+    c.policyAssignmentPath = "/conf/we-retail/settings/wcm/templates/hero-page/policies/jcr:content/root/responsivegrid/weretail/components/content";
 
     // configuration dialog
     c.selConfigDialog = ".cq-dialog.foundation-form.foundation-layout-form";
     // save button on a configuration dialog
     c.selSaveConfDialogButton = ".cq-dialog-actions button[is='coral-button'][title='Done']";
+
+    /**
+     * Creates a CQ page via POST request, the same as send by the create page wizard.
+     *
+     * @param templatePath Mandatory. Path to the template e.g. "/conf/coretest/settings/wcm/templates/content-page"
+     * @param parentPath Mandatory. Path to the parent page e.g. "/content/coretest/language-masters/en"
+     * @param pageName Mandatory. Page name to be set for the page.
+     * @param dynParName Optional. Hobbes dynamic param to store the generated page path.
+     * @param done Mandatory. Callback to be executed when async method has finished.
+     * @param [testPageRT='core/wcm/tests/components/test-page'] the resource type of the test page
+     */
+    c.createPage = function (templatePath, parentPath, pageName, dynParName, done, testPageRT) {
+        // mandatory check
+        if (parentPath == null || templatePath == null || pageName == null || done == null) {
+            if (done) done(false, "createPage failed! mandatory parameter(s) missing!");
+            return;
+        }
+
+        // the ajax call
+        jQuery.ajax({
+            url: "/libs/wcm/core/content/sites/createpagewizard/_jcr_content",
+            method: "POST",
+            // POST data to be send in the request
+            data: {
+                "template": templatePath,
+                "parentPath": parentPath,
+                "_charset_": "utf-8",
+                "./jcr:title": pageName,
+                "pageName": pageName,
+                "./sling:resourceType": testPageRT || "weretail/components/structure/page"
+            }
+        })
+        // when the request was successful
+            .done(function (data, textStatus, jqXHR) {
+                // extract the created page path from the returned HTML
+                var path = jQuery(data).find("#Path").text();
+                // get the page name
+                var name = path.substring(path.lastIndexOf("/") + 1, path.length);
+                // if the page already existed it will stupidly postfix it with a number this can lead to problems
+                // so at least we should log a warning
+                if (pageName != name) {
+                    done(false, "createPage failed! page was created with different name!");
+                }
+                // store the page path and name as dynamic data for reuse in hobs functions
+                if (dynParName != null) {
+                    hobs.param(dynParName, path);
+                }
+            })
+            // request fails
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                // log an error
+                done(false, "createPage failed! POST failed with: " + textStatus + "," + errorThrown);
+            })
+            // always executed, fail or success
+            .then(function () {
+                done(true);
+            })
+    };
+
+    /**
+     * Deletes a page.
+     *
+     * @param pagePath Mandatory. testPagePath path to the page to be deleted
+     * @param done Optional. callback to be executed when the async method has finished.
+     */
+    c.deletePage = function (pagePath, done) {
+        // mandatory check
+        if (pagePath == null || done == null) {
+            if (done) done(false, "deletePage failed! mandatory parameter(s) missing!");
+            return;
+        }
+        jQuery.ajax({
+            url: pagePath,
+            method: "POST",
+            data: {
+                ":operation": "delete"
+            }
+        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                done(false, "deletePage failed: POST failed with " + textStatus + "," + errorThrown);
+            })
+            // always executed, fail or success
+            .then(function () {
+                done(true);
+            })
+    };
 
     c.addComponent = function (component, parentCompPath, dynParName, done, nameHint, order) {
         // mandatory check
@@ -47,7 +140,7 @@
 
         // default settings
         if (nameHint == null) nameHint = component.substring(component.lastIndexOf("/") + 1);
-        if (order == null) order = "last";
+        if (order == null) order = "first";
 
         // the ajax call
         jQuery.ajax({
@@ -248,5 +341,126 @@
             TestCase("Close Modal Dialog")
                 .click(c.selSaveConfDialogButton,{expectNav:false})
             ,{ timeout:10 });
+
+    /**
+     * Create a policy
+     *
+     * @param component_path   Mandatory. the path to the component policy
+     * @param data Tha policy's data
+     * @param done  Mandatory. the callback to execute when post returns
+     */
+    c.createPolicy = function (component_path, data, dynParName, done, policyPath) {
+        policyPath = policyPath || c.policyPath;
+        // mandatory check
+        if (component_path == null || data == null || done == null) {
+            if (done) done(false, "createPolicy failed! Mandatory param(s) missing.");
+            return;
+        }
+        jQuery.ajax({
+            url: policyPath + component_path,
+            method: "POST",
+            data: data
+        })
+            .done(function (data, textStatus, jqXHR) {
+                // extract the component path from the returned HTML
+                if (dynParName != null) {
+                    h.param(dynParName, jQuery(data).find("#Path").text());
+                }
+            })
+
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                done(false, "createPolicy failed: POST failed with " + textStatus + "," + errorThrown);
+            })
+            // always executed, fail or success
+            .then(function () {
+                done(true);
+            })
+    };
+
+    /**
+     * Assign a policy to a core component
+     *
+     * @param component_path   Mandatory. the path to the component policy
+     * @param data Tha policy's data
+     * @param done  Mandatory. the callback to execute when post returns
+     */
+    c.assignPolicy = function (component_path, data, done, policyAssignmentPath) {
+        policyAssignmentPath = policyAssignmentPath || c.policyAssignmentPath;
+        // mandatory check
+        if (component_path == null || data == null || done == null) {
+            if (done) done(false, "assignPolicy failed! Mandatory param(s) missing.");
+            return;
+        }
+        jQuery.ajax({
+            url: policyAssignmentPath + component_path,
+            method: "POST",
+            data: data
+        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                done(false, "assignPolicy failed: POST failed with " + textStatus + "," + errorThrown);
+            })
+            // always executed, fail or success
+            .then(function () {
+                done(true);
+            })
+    };
+
+    /**
+     * Deletes a policy.
+     *
+     * @param policyPath Mandatory. policyPath path to the policy to be deleted
+     * @param done Optional. callback to be executed when the async method has finished.
+     */
+    c.deletePolicy = function (component_path, done, policyPath) {
+        policyPath = policyPath || c.policyPath;
+        // mandatory check
+        if (component_path == null || done == null) {
+            if (done) done(false, "deletePolicy failed! mandatory parameter(s) missing!");
+            return;
+        }
+        jQuery.ajax({
+            url: policyPath + component_path,
+            method: "POST",
+            data: {
+                ":operation": "delete"
+            }
+        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                done(false, "deletePolicy failed: POST failed with " + textStatus + "," + errorThrown);
+            })
+            // always executed, fail or success
+            .then(function () {
+                done(true);
+            })
+    };
+
+    /**
+     * Deletes a policy allocation.
+     *
+     * @param policyAllocationPath Mandatory. policyAllocatiionPath path to the policy allocation to be deleted
+     * @param done Optional. callback to be executed when the async method has finished.
+     */
+    c.deletePolicyAssignment = function (component_path, done, policyAssignmentPath) {
+        policyAssignmentPath = policyAssignmentPath || c.policyAssignmentPath;
+        // mandatory check
+        if (component_path == null || done == null) {
+            if (done) done(false, "deletePolicyAllocation failed! mandatory parameter(s) missing!");
+            return;
+        }
+        jQuery.ajax({
+            url: policyAssignmentPath + component_path,
+            method: "POST",
+            data: {
+                ":operation": "delete"
+            }
+        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                done(false, "deletePolicyAllocation failed: POST failed with " + textStatus + "," + errorThrown);
+            })
+            // always executed, fail or success
+            .then(function () {
+                done(true);
+            })
+    };
 
 }(hobs, jQuery));

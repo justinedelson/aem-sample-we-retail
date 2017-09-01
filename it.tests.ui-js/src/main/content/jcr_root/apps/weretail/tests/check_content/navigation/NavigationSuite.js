@@ -470,7 +470,7 @@
         ;
     }
 
-    new h.TestSuite("We.Retail Tests - Navigation", {path:"/apps/weretail/tests/frontend/navigation/NavigationSuite.js", register: true})
+    new h.TestSuite("We.Retail Tests - Navigation", {path:"/apps/weretail/tests/check_content/navigation/NavigationSuite.js", register: true})
         .addTestCase(window.CQ.WeRetailIT.HomepageLoadTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.ExperienceNavigationTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.MenNavigationTest(h, $))

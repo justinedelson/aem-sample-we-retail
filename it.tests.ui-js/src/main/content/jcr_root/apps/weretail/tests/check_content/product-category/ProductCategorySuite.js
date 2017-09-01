@@ -34,7 +34,7 @@
             .asserts.location("/content/we-retail/us/en/equipment.html", true);
     };
 
-    new h.TestSuite("We.Retail Tests - Product Category", {path:"/apps/weretail/tests/frontend/product-category/ProductCategorySuite.js", register: true})
+    new h.TestSuite("We.Retail Tests - Product Category", {path:"/apps/weretail/tests/check_content/product-category/ProductCategorySuite.js", register: true})
         //Test Men Page
         .addTestCase(new hobs.TestCase('Test Product Category on Men')
             // Load men page

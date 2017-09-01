@@ -20,23 +20,51 @@
     // shortcuts
     var c = window.CQ.WeRetailIT.commons;
     var breadcrumb = window.CQ.WeRetailIT.Breadcrumb;
-    var testPage = c.testPage+".html"
+
+    /**
+     * test specifics
+     */
+    var itemSelector = {
+        normal: ".cmp-breadcrumb__item",
+        active: ".cmp-breadcrumb__item--active"
+    };
 
     /**
      * Before Test Case
      */
-    breadcrumb.tcExecuteBeforeTest = function(breadcrumbRT, pageRT) {
+    breadcrumb.tcExecuteBeforeTest = function() {
         return new h.TestCase("Create Sample Content")
             // common set up
             .execTestCase(c.tcExecuteBeforeTest)
 
+            // create level 1
+            .execFct(function (opts,done) {
+                c.createPage(c.template, c.rootPage, "level_1", "level_1", done )
+            })
+            // create level 2
+            .execFct(function (opts,done) {
+                c.createPage(c.template, h.param("level_1")(), "level_2", "level_2", done )
+            })
+            // create level 3
+            .execFct(function (opts,done) {
+                c.createPage(c.template, h.param("level_2")(), "level_3", "level_3", done )
+            })
+            // create level 4
+            .execFct(function (opts,done) {
+                c.createPage(c.template, h.param("level_3")(), "level_4", "level_4", done )
+            })
+            // create level 5
+            .execFct(function (opts,done) {
+                c.createPage(c.template, h.param("level_4")(), "level_5", "level_5", done )
+            })
+
             // add the component to the deepest level
             .execFct(function (opts, done){
-                c.addComponent(breadcrumbRT, c.testPage+c.relParentCompPath, "cmpPath", done)
+                c.addComponent(c.rtBreadcrumb, h.param("level_5")(opts)+c.relParentCompPath, "cmpPath", done)
             })
 
             // open the deepest level in the editor
-            .navigateTo("/editor.html"+c.testPage+".html");
+            .navigateTo("/editor.html%level_5%.html");
     };
 
     /**
@@ -46,16 +74,16 @@
         return new TestCase("Clean up after Test")
             // common clean up
             .execTestCase(c.tcExecuteAfterTest)
-            // delete the component we added to the page
+            // delete the test page we created
             .execFct(function (opts, done) {
-                c.deleteComponent(h.param("cmpPath")(opts), done);
+                c.deletePage(h.param("level_1")(opts), done);
             });
     };
 
     /**
      * Test: Set the Hide Current flag
      */
-    breadcrumb.testHideCurrent = function(itemSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
+    breadcrumb.testHideCurrent = function() {
         return new h.TestCase("Check Hide Current Flag",{
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
@@ -63,7 +91,7 @@
             // check first if current page is shown
             .config.changeContext(c.getContentFrame)
             // the li entry for current page
-            .assert.exist(itemSelector.active + ":contains('Arctic Surfing In Lofoten')",true)
+            .assert.exist(itemSelector.active + ":contains('level_5')",true)
             .config.resetContext()
 
             // Open the configuration dialog
@@ -76,13 +104,13 @@
             .config.changeContext(c.getContentFrame)
 
             // the li entry for current page should not be found
-            .assert.exist(itemSelector.active + ":contains('Arctic Surfing In Lofoten')", false);
+            .assert.exist(itemSelector.active + ":contains('level_5')", false);
     };
 
     /**
      * Test: Set the Show Hidden flag
      */
-    breadcrumb.testShowHidden = function(itemSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
+    breadcrumb.testShowHidden = function() {
         return new TestCase("Check Show Hidden Flag",{
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
@@ -110,14 +138,14 @@
     /**
      * Test: Change the start level
      */
-    breadcrumb.changeStartLevel = function(itemSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
+    breadcrumb.changeStartLevel = function() {
         return new TestCase("Change Start Level",{
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
             // check the current number of parent levels
             .assert.isTrue(function(){
-                return h.find(itemSelector.normal,"iframe#ContentFrame").size() === 5})
+                return h.find(itemSelector.normal,"iframe#ContentFrame").size() === 6})
 
             // Open the configuration dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
@@ -131,21 +159,21 @@
 
             // check the current number
             .assert.isTrue(function(){
-                return h.find(itemSelector.normal,"iframe#ContentFrame").size() === 4});
+                return h.find(itemSelector.normal,"iframe#ContentFrame").size() === 5});
     };
 
     /**
      * Test: Set the start level to lowest allowed value of 0.
      * This shouldn't render anything since level 0 is not a valid page.
      */
-    breadcrumb.setZeroStartLevel = function(itemSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
+    breadcrumb.setZeroStartLevel = function() {
         return new TestCase("Set Start Level to 0",{
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        // check the current number of items
+            // check the current number of items
             .assert.isTrue(function(){
-                return h.find(itemSelector.normal,"iframe#ContentFrame").size() == 5})
+                return h.find(itemSelector.normal,"iframe#ContentFrame").size() == 6})
 
             // Open the configuration dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
@@ -163,14 +191,14 @@
      * Test: Set the start level to the highest possible value 100.
      * This shouldn't render anything since level 100 is higher the the current's page level.
      */
-    breadcrumb.set100StartLevel = function(itemSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
+    breadcrumb.set100StartLevel = function() {
         return new TestCase("Set Start Level to 100",{
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
         // check the current number of items
             .assert.isTrue(function(){
-                return h.find(itemSelector.normal,"iframe#ContentFrame").size() === 5})
+                return h.find(itemSelector.normal,"iframe#ContentFrame").size() === 6})
             // Open the configuration dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             // set it to 100
@@ -180,19 +208,13 @@
 
             // 100 is higher then current level so nothing should get rendered
             .assert.isTrue(function(){
-                return h.find(itemSelector.normal,"iframe#ContentFrame").size() === 2 &&
+                return h.find(itemSelector.normal,"iframe#ContentFrame").size() === 0 &&
                     h.find(itemSelector.active,"iframe#ContentFrame").size() === 0
             });
     };
 
-    /**
-     * test specifics
-     */
-    var itemSelector = {
-        normal: ".cmp-breadcrumb__item",
-        active: ".cmp-breadcrumb__item--active"
-    };
-    var tcExecuteBeforeTest = breadcrumb.tcExecuteBeforeTest(c.rtBreadcrumb);
+
+    var tcExecuteBeforeTest = breadcrumb.tcExecuteBeforeTest();
     var tcExecuteAfterTest = breadcrumb.tcExecuteAfterTest();
 
     /**
@@ -202,10 +224,10 @@
         execBefore: c.tcExecuteBeforeTestSuite,
         execInNewWindow : false})
 
-        .addTestCase(breadcrumb.testHideCurrent(itemSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(breadcrumb.testShowHidden(itemSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(breadcrumb.changeStartLevel(itemSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(breadcrumb.setZeroStartLevel(itemSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(breadcrumb.set100StartLevel(itemSelector, tcExecuteBeforeTest, tcExecuteAfterTest));
+        .addTestCase(breadcrumb.testHideCurrent(tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(breadcrumb.testShowHidden(tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(breadcrumb.changeStartLevel(tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(breadcrumb.setZeroStartLevel(tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(breadcrumb.set100StartLevel(tcExecuteBeforeTest, tcExecuteAfterTest));
 
 }(hobs, jQuery));

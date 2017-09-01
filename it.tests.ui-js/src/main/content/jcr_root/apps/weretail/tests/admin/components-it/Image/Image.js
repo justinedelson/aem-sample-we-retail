@@ -25,19 +25,25 @@
     var altText = "Return to Arkham";
     var captionText = "The Last Guardian";
 
+    var titleSelector = "span.cmp-image__title";
+
     /**
      * Before Test Case
      */
-    image.tcExecuteBeforeTest = function(imageRT, pageRT) {
+    image.tcExecuteBeforeTest = function() {
         return new TestCase("Setup Before Test")
         // common set up
             .execTestCase(c.tcExecuteBeforeTest)
+            // create the test page, store page path in 'testPagePath'
+            .execFct(function (opts, done) {
+                c.createPage(c.template, c.rootPage,'page_' + Date.now(), "testPagePath", done)
+            })
             // add the component, store component path in 'cmpPath'
             .execFct(function (opts, done){
-                c.addComponent(imageRT, c.testPage+c.relParentCompPath, "cmpPath", done)
+                c.addComponent(c.rtImage, h.param("testPagePath")(opts)+c.relParentCompPath, "cmpPath", done)
             })
             // open the new page in the editor
-            .navigateTo("/editor.html"+c.testPage+".html");
+            .navigateTo("/editor.html%testPagePath%.html");
     };
 
     /**
@@ -47,10 +53,10 @@
         return new TestCase("Clean up after Test")
         // common clean up
             .execTestCase(c.tcExecuteAfterTest)
-            // delete the component we added to the page
+            // delete the test page we created
             .execFct(function (opts, done) {
-                c.deleteComponent(h.param("cmpPath")(opts), done);
-            })
+                c.deletePage(h.param("testPagePath")(opts), done);
+            });
     };
 
     /**
@@ -84,7 +90,7 @@
 
             // verify that the surrounding script tag has been removed and the img tag is there
             .asserts.isTrue(function () {
-                return h.find("div.cmp-image img[src*='"+ c.testPage +
+                return h.find("div.cmp-image img[src*='"+ h.param("testPagePath")() +
                         "/jcr%3acontent/root/responsivegrid/image.img.'","#ContentFrame").size() ===1;
             });
     };
@@ -143,7 +149,7 @@
     /**
      * Test: set caption
      */
-    image.tcSetCaption = function(titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
+    image.tcSetCaption = function(tcExecuteBeforeTest, tcExecuteAfterTest) {
         return new h.TestCase('Set Caption',{
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
@@ -220,21 +226,21 @@
     /**
      * v1 specifics
      */
-    var titleSelector = "span.cmp-image__title";
-    var tcExecuteBeforeTest = image.tcExecuteBeforeTest(c.rtIimage);
+
+    var tcExecuteBeforeTest = image.tcExecuteBeforeTest();
     var tcExecuteAfterTest = image.tcExecuteAfterTest();
 
     /**
      * The main test suite for Image Component
      */
-    new h.TestSuite("We.Retail Tests - Image", {path: '/apps/weretail/tests/admin/components-it/Image.js',
+    new h.TestSuite("We.Retail Tests - Image", {path: '/apps/weretail/tests/admin/components-it/Image/Image.js',
         execBefore:c.tcExecuteBeforeTestSuite,
         execInNewWindow : false})
 
         .addTestCase(image.tcAddImage(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcAddAltText(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetLink(tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(image.tcSetCaption(titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(image.tcSetCaption(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetCaptionAsPopup(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetImageAsDecorative(tcExecuteBeforeTest, tcExecuteAfterTest))
 

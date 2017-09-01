@@ -13,8 +13,5 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-window.CQ = window.CQ || {};
-window.CQ.WeRetailIT = window.CQ.WeRetailIT || {};
+
 window.CQ.WeRetailIT.Breadcrumb = window.CQ.WeRetailIT.Breadcrumb || {};
-window.CQ.WeRetailIT.Image = window.CQ.WeRetailIT.Image || {};
-window.CQ.WeRetailIT.commons = window.CQ.WeRetailIT.commons || {};
