@@ -135,8 +135,8 @@ config.setAdditionalRepositories([
 ])
 
 // calculate code
-config.setComputeCoverage(false)
-config.setComputeReleaseCoverage(false)
+config.setComputeCoverage(true)
+config.setComputeReleaseCoverage(true)
 
 // only for the PRIVATE_master branch
 config.setCoverageCriteria([new Branch(/^PRIVATE_master$/)])
