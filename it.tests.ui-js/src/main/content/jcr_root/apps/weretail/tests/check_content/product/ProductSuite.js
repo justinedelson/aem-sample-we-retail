@@ -138,7 +138,7 @@
             //TODO: Test cart & favorites
             //TODO: Test reviews section
             //// Test recommended products
-            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, ".productrecommendation " + PRODUCT_GRID_CLASS, 6))
+            //.execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, ".productrecommendation " + PRODUCT_GRID_CLASS, 6))
             // Test footer
             .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
         )
