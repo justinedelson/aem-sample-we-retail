@@ -83,7 +83,7 @@
         ;
     };
 
-    new h.TestSuite("We.Retail Tests - Products", {path:"/apps/weretail/tests/product/ProductSuite.js", register: true})
+    new h.TestSuite("We.Retail Tests - Products", {path:"/apps/weretail/tests/check_content/product/ProductSuite.js", register: true})
         //Test men products page
         .addTestCase(new hobs.TestCase('Test men products page')
             // Load men products page
@@ -138,7 +138,7 @@
             //TODO: Test cart & favorites
             //TODO: Test reviews section
             //// Test recommended products
-            .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, ".productrecommendation " + PRODUCT_GRID_CLASS, 6))
+            //.execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, ".productrecommendation " + PRODUCT_GRID_CLASS, 6))
             // Test footer
             .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
         )

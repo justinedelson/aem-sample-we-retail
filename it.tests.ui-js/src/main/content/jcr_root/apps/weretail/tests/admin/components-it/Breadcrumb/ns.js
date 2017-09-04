@@ -14,17 +14,4 @@
  *  limitations under the License.
  */
 
-;(function(h,$){
-    window.CQ.WeRetailIT.NavigateToSites = function (h, $) {
-        return new h.TestCase("Navigate to AEM")
-            .navigateTo("/sites.html/content")
-            .asserts.location("/sites.html/content", true);
-    }
-
-    new h.TestSuite("We.Retail Tests - Navigate to AEM", {path:"/apps/weretail/tests/homepage/HomepageSuite.js", register: true})
-        .addTestCase(new hobs.TestCase('Navigate to AEM')
-            .execTestCase(window.CQ.WeRetailIT.NavigateToSites(h, $))
-        )
-    ;
-
-})(hobs, jQuery);
+window.CQ.WeRetailIT.Breadcrumb = window.CQ.WeRetailIT.Breadcrumb || {};
