@@ -196,7 +196,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        // check the current number of items
+            // check the current number of items
             .assert.isTrue(function(){
                 return h.find(itemSelector.normal,"iframe#ContentFrame").size() === 6})
             // Open the configuration dialog
