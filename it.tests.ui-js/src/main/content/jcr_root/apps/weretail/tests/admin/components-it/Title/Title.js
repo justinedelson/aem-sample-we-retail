@@ -282,7 +282,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        // start the inline editor
+            // start the inline editor
             .execTestCase(c.tcOpenInlineEditor("cmpPath"))
 
             //switch to the content frame
@@ -328,7 +328,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        // open the configuration dialog
+            // open the configuration dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             // add some example text
             .fillInput("[name='./jcr:title']","Content name")
@@ -353,7 +353,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        // open the dialog
+            // open the dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             // check if all default title sizes are there
             .assert.exist("coral-selectlist-item[value='h1']")
@@ -372,7 +372,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        /// open the edit dialog
+            // open the edit dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             .click("coral-selectlist-item[value='h5']")
             .execTestCase(c.tcSaveConfigureDialog)
@@ -478,8 +478,7 @@
     new h.TestSuite("We.Retail Tests - Title", {path:"/apps/weretail/tests/admin/components-it/Title/Title.js",
         execBefore:c.tcExecuteBeforeTestSuite,
         execInNewWindow : false})
-    //TODO: Removed for now as it not stable randomly failing
-    //.addTestCase(titleV1.tcSetTitleValueUsingInlineEditor(itemSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
+        //TODO: Removed for now as it not stable randomly failing
         .addTestCase(title.tcSetTitleValueUsingConfigDialog(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(title.tcCheckExistenceOfTitleTypes(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(title.tcSetTitleType(tcExecuteBeforeTest, tcExecuteAfterTest))

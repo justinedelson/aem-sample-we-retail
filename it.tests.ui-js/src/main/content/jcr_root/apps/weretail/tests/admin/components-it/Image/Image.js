@@ -32,7 +32,7 @@
      */
     image.tcExecuteBeforeTest = function() {
         return new TestCase("Setup Before Test")
-        // common set up
+            // common set up
             .execTestCase(c.tcExecuteBeforeTest)
             // create the test page, store page path in 'testPagePath'
             .execFct(function (opts, done) {
@@ -81,7 +81,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        // open the config dialog
+            // open the config dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             // set image and alt text
             .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
@@ -103,7 +103,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        // open the config dialog
+            // open the config dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             // set image and alt text
             .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
@@ -124,7 +124,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        // open the config dialog
+            // open the config dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             // set image and alt text
             .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
@@ -154,7 +154,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        // open the config dialog
+            // open the config dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             // set image and alt text
             .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
@@ -179,7 +179,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        // open the config dialog
+            // open the config dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             // set image and alt text
             .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
@@ -206,7 +206,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-        // open the config dialog
+            // open the config dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             // set image and alt text (to see if its not rendered)
             .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
