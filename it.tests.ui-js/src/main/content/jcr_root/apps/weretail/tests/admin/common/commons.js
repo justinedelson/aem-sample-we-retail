@@ -34,6 +34,10 @@
     c.rtImage = "weretail/components/content/image"
     //title component
     c.rtTitle = "weretail/components/content/title"
+    //text component
+    c.rtText = "weretail/components/content/text"
+    //list component
+    c.rtList = "weretail/components/content/list"
 
     // the path to the policies
     c.policyPath = "/conf/we-retail/settings/wcm/policies/weretail/components/content";
@@ -266,6 +270,112 @@
         };
         // start polling
         poll();
+    };
+
+    /**
+     * Opens the inline editor for a component. Uses 'data-path' attribute to identify the correct
+     * component.
+     *
+     * @param cmpPath   mandatory. the absolute component path, used as the value for 'data-path' attribue
+     */
+    c.tcOpenInlineEditor = function(cmpPath) {
+        return new TestCase("Open Inline Editor")
+        //click on the component to see the Editable Toolbar
+            .click(".cq-Overlay.cq-draggable.cq-droptarget%dataPath%", {
+                before: function () {
+                    // set the data-path attribute so we target the correct component
+                    h.param("dataPath", "[data-path='" + h.param(cmpPath)() + "']");
+                }
+            })
+
+            // check if its there
+            .asserts.visible("#EditableToolbar")
+            // click on the 'Edit' button
+            .click("button.cq-editable-action[is='coral-button'][title='Edit']")
+            // go to the content frame
+            .config.changeContext(c.getContentFrame)
+            // wait for editable attribute to appear
+            .assert.exist("[contenteditable='true']")
+            // go back to previous context
+            .config.resetContext();
+    };
+
+    /**
+     * Closes any previously opened inline editor by clicking on the save button
+     */
+    c.tcSaveInlineEditor = new TestCase("Save Inline Editor")
+    //click on the component to see the Editable Toolbar
+        .click("button[is='coral-button'][title='Save']");
+
+    /**
+     * Sets properties of a repository node.
+     *
+     * @param componentPath     Mandatory. absolute path to the node
+     * @param data              Mandatory. object with properties to be set on the node.
+     * @param done              Mandatory. callback function when post has returned
+     */
+    c.editNodeProperties = function (componentPath, data, done) {
+        // check mandatory
+        if (componentPath == null || data == null || done == null) {
+            if (done) done(false, "editNodeProperties failed! Mandatory param(s) missing.");
+            return;
+        }
+        $.ajax({
+            url: componentPath,
+            method: "POST",
+            // POST data to be send in the request
+            data: data
+        })
+        // in case of failure
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                done(false, "editNodeProperties failed: POST failed with " + textStatus + "," + errorThrown);
+            })
+            .then(function () {
+                done(true);
+            })
+    };
+
+    c.tcUseDialogSelect = function(name,value){
+        return new TestCase("Set Select for '" + name + "' to '" + value + "'")
+        // open action drop down
+            .click("coral-select[name='" + name + "'] > button")
+            // check if the dropdown has become visible
+            .assert.visible("coral-select[name='" + name + "'] coral-selectlist")
+            // select the store action
+            .click("coral-select[name='" + name + "'] coral-selectlist " +
+                "coral-selectlist-item[value='" + value + "']")
+    };
+
+    /**
+     * Adds a tag in default namespace
+     *
+     * @param tag   Mandatory. the tag to be added
+     * @param done  Mandatory. the callback to execute when post returns
+     */
+    c.addTag = function (tag, done) {
+        // mandatory check
+        if (tag == null || done == null) {
+            if (done) done(false, "addTag failed! Mandatory param(s) missing.");
+            return;
+        }
+        jQuery.ajax({
+            url: "/bin/tagcommand",
+            method: "POST",
+            data: {
+                "cmd": "createTagByTitle",
+                "tag": tag,
+                "locale": "en",
+                "_charset_": "utf-8"
+
+            }
+        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                done(false, "addTag failed: POST failed with " + textStatus + "," + errorThrown);
+            })
+            // always executed, fail or success
+            .then(function () {
+                done(true);
+            })
     };
 
     /**
