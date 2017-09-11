@@ -743,7 +743,7 @@
     /**
      * The main test suite for Text Component
      */
-    new h.TestSuite('We.Retail Tests - List', {path: '/apps/core/wcm/sandbox/test-suites/List/v2/List.js',
+    new h.TestSuite('We.Retail Tests - List', {path: '/apps/weretail/tests/admin/components-it/List/List.js',
         execBefore:c.tcExecuteBeforeTestSuite,
         execInNewWindow : false})
 
