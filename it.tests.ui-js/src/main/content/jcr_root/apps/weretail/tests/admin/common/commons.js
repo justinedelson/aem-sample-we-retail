@@ -38,6 +38,17 @@
     c.rtText = "weretail/components/content/text"
     //list component
     c.rtList = "weretail/components/content/list"
+    //form button
+    c.rtFormButton = "weretail/components/form/button"
+    //form hidden
+    c.rtFormHidden = "weretail/components/form/hidden"
+    //form option
+    c.rtFormOptions = "weretail/components/form/options"
+    //form text
+    c.rtFormText = "weretail/components/form/text"
+    // form container
+    c.rtFormContainer = "weretail/components/form/container";
+
 
     // the path to the policies
     c.policyPath = "/conf/we-retail/settings/wcm/policies/weretail/components/content";
@@ -273,6 +284,56 @@
     };
 
     /**
+     * Requests the JSON output and stores it in a hobbes dynamic parameter.
+     * Does several retries and works async. so callback method 'done' should be set to avoid problems.
+     *
+     * @param url           mandatory. the JSON Url to request.
+     * @param dynParName    mandatory. the hobbes param to store the JSON object in.
+     * @param done          mandatory. the callback to execute when finished
+     * @param maxRetries    optional. number of retries, default 10
+     * @param timeout       optional. timout in milliseconds between retries, default 500
+     */
+    c.getJSON = function (url, dynParName, done, maxRetries, timeout) {
+        // check mandatory
+        if (url == null || dynParName == null || done == null) {
+            if (done) done(false, "getJSON failed! Mandatory param(s) missing.");
+            return;
+        }
+
+        // check defaults
+        if (maxRetries == null) maxRetries = 10;
+        if (timeout == null) timeout = 500;
+
+        // retry counter
+        var retries = 0;
+
+        // the polling function
+        var poll = function () {
+            $.ajax({
+                url: url,
+                method: "GET",
+                dataType: "json"
+            })
+                .done(function (data) {
+                    h.param(dynParName, data);
+                    done(true);
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    // check if max retries was reached
+                    if (retries++ === maxRetries) {
+                        done(false, "getJSON failed! GET failed with " + textStatus + "," + errorThrown);
+                        return;
+                    }
+                    // set for next retry
+                    setTimeout(poll, timeout);
+                })
+        };
+        // start polling
+        poll();
+    };
+
+
+    /**
      * Opens the inline editor for a component. Uses 'data-path' attribute to identify the correct
      * component.
      *
@@ -451,6 +512,19 @@
             TestCase("Close Modal Dialog")
                 .click(c.selSaveConfDialogButton,{expectNav:false})
             ,{ timeout:10 });
+
+    /**
+     * Helper test case: switch the config dialog tab
+     */
+    c.tcSwitchConfigTab = function(tabTitle){
+        return new TestCase("Switch Config Tab to " +  tabTitle)
+        // click on the tab
+            .click("coral-tab > coral-tab-label:contains('"+ tabTitle + "')")
+            // check if its selected
+            .assert.isTrue(function(){
+                return h.find("coral-tab[selected] > coral-tab-label:contains('"+ tabTitle + "')").size() == 1
+            })
+    };
 
     /**
      * Create a policy
