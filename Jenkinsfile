@@ -124,6 +124,7 @@ CQInstance author = new CQInstance.Builder()
         .withMavenDependency(uiTestingCommonsPackage)
         .withMavenDependency(weRetailSampleContentPackage)
         .withFileDependency(weRetailItUi.getArtifact('zip'))
+        .withFileDependency(commerceItUi.getArtifact('zip'))
         .build()
 
 /* --------------------------------------------------------------------- */
@@ -139,6 +140,16 @@ UITestRun coreCompUIChrome = new UITestRun.Builder()
         .withHobbesConfig(NUM_OF_RETRIES)
         .build()
 
+UITestRun commerceUIChrome = new UITestRun.Builder() 
+        .withName('UI Tests commerce We.Retail / Chrome') 
+        .withInstance(author) 
+        .withBrowser('CHROME') 
+        .withFilter('granite.testing.hobbes.tests.commerce.weretail') 
+        .withHobbesHubUrl(MINION_HUB_URL) 
+        .withRunOptions(UI_TEST_OPTIONS) 
+        .withHobbesConfig(NUM_OF_RETRIES) 
+        .build()
+
 /* --------------------------------------------------------------------- */
 /*                       SPROUT CONFIGURATION                            */
 /* --------------------------------------------------------------------- */
@@ -146,7 +157,8 @@ SproutConfig config = new SproutConfig()
 
 // additional repo for getting the latest core component sources
 config.setAdditionalRepositories([
-        [url: 'git@git.corp.adobe.com:CQ/aem-core-wcm-components.git', branch: 'PRIVATE_master', folder: 'core-comp', vcs: 'git']
+        [url: 'git@git.corp.adobe.com:CQ/aem-core-wcm-components.git', branch: 'PRIVATE_master', folder: 'core-comp', vcs: 'git'],
+        [url: 'git@git.corp.adobe.com:CQ/commerce.git', branch: 'master', folder: 'commerce', vcs: 'git']
 ])
 
 // calculate code
@@ -165,10 +177,10 @@ config.getElasticsearchReporting().setEnable(true)
 
 // the modules to build
 config.setModules([componentsCore, componentsContent, componentsConfig,
-                   weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi])
+                   weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi, commerceItUi])
 
 // the tests to execute
-config.setTestRuns([coreCompUIChrome])
+config.setTestRuns([coreCompUIChrome, commerceUIChrome])
 
 // Releases
 config.setReleaseCriteria([new Branch(/^PRIVATE_master$/)])
