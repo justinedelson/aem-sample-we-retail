@@ -157,10 +157,8 @@ SproutConfig config = new SproutConfig()
 
 // additional repo for getting the latest core component sources
 config.setAdditionalRepositories([
-        [url: 'git@git.corp.adobe.com:CQ/aem-core-wcm-components.git', branch: 'PRIVATE_master',
-         folder: 'core-comp', vcs: 'git'],
-        [url: 'git@git.corp.adobe.com:CQ/commerce.git', branch: 'master', 
-         folder: 'commerce', vcs: 'git'],
+        [url: 'git@git.corp.adobe.com:CQ/aem-core-wcm-components.git', branch: 'PRIVATE_master', folder: 'core-comp', vcs: 'git'],
+        [url: 'git@git.corp.adobe.com:CQ/commerce.git', branch: 'master',  folder: 'commerce', vcs: 'git']
 ])
 
 // calculate code
