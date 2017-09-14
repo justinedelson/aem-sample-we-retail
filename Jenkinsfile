@@ -68,6 +68,10 @@ Module componentsConfig = new Module.Builder('core-comp/config')
         .withArtifact('zip', 'core-comp/config/target/core.wcm.components.sandbox.config-*.zip', true)
         .build()
 
+Module commerceItUi = new Module.Builder('commerce/it/ui-js') 
+        .withArtifact("zip", 'commerce/it/ui-js/target/com.adobe.cq.commerce.it.ui-js-*.zip', true) 
+        .build()
+
 /* --------------------------------------------------------------------- */
 /*                        EXTERNAL DEPENDENCIES                          */
 /* --------------------------------------------------------------------- */
