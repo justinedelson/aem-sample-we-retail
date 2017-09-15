@@ -68,8 +68,13 @@ Module componentsConfig = new Module.Builder('core-comp/config')
         .withArtifact('zip', 'core-comp/config/target/core.wcm.components.sandbox.config-*.zip', true)
         .build()
 
+// commerce test modules
 Module commerceItUi = new Module.Builder('commerce/it/ui-js')
         .withArtifact('zip', 'commerce/it/ui-js/target/com.adobe.cq.commerce.it.ui-js-*.zip', true)
+        .build()
+
+Module commerceItHttp = new Module.Builder('main/it/http')
+        .withMavenArtifact("jar", 'main/it/http/target/com.adobe.cq.commerce.it.http-*-integrationtest.jar')
         .build()
 
 /* --------------------------------------------------------------------- */
@@ -98,6 +103,13 @@ MavenDependency weRetailSampleContentPackage = new MavenDependency.Builder()
         .withExtension("zip")
         .build()
 
+MavenDependency itJunitCore = new MavenDependency.Builder()
+        .withGroupId("org.apache.sling")
+        .withArtifactId("org.apache.sling.junit.core")
+        .withVersion("1.0.23")
+        .withExtension("jar")
+        .build()
+
 /* --------------------------------------------------------------------- */
 /*                       QUICKSTART CONFIGURATION                        */
 /* --------------------------------------------------------------------- */
@@ -109,6 +121,7 @@ Quickstart quickstart = new BuildQuickstart.Builder('Quickstart 6.4')
         .withModule(weRetailUIContent)
         .withModule(weRetailUIApps)
         .withModule(weRetailConfig)
+        .withModule(commerceItHttp)
         .build()
 
 /* --------------------------------------------------------------------- */
@@ -126,6 +139,24 @@ CQInstance author = new CQInstance.Builder()
         .withFileDependency(weRetailItUi.getArtifact('zip'))
         .withFileDependency(commerceItUi.getArtifact('zip'))
         .build()
+
+CQInstance publish = new CQInstance.Builder()
+        .withQuickstart(quickstart)
+        .withId('weretail-publish')
+        .withPort(4503)
+        .withRunmode("publish")
+        .withContextPath("/cp")
+        .withMavenDependency(itJunitCore).build()
+
+/* --------------------------------------------------------------------- */
+/*                          INTEGRATION TESTS                            */
+/* --------------------------------------------------------------------- */
+IntegrationTestRun weretailIt = new IntegrationTestRun.Builder()
+        .withName('IT WeRetail')
+        .withBundle('commerce/it/http')
+        .withInstance(author)
+        .withInstance(publish)
+        .withAdditionalParam('-Pcategory-weretail').build()
 
 /* --------------------------------------------------------------------- */
 /*                                UI TESTS                               */
@@ -181,7 +212,7 @@ config.setModules([componentsCore, componentsContent, componentsConfig,
                    , commerceItUi])
 
 // the tests to execute
-config.setTestRuns([coreCompUIChrome, commerceUIChrome])
+config.setTestRuns([coreCompUIChrome, commerceUIChrome,weretailIt])
 
 // Releases
 config.setReleaseCriteria([new Branch(/^PRIVATE_master$/)])
