@@ -149,6 +149,7 @@ UITestRun commerceUIChrome = new UITestRun.Builder() 
         .withRunOptions(UI_TEST_OPTIONS) 
         .withHobbesConfig(NUM_OF_RETRIES) 
         .withStopOnFail(false)
+        .withCriteria(new Branch(/^PRIVATE_master$/))
         .build()
 
 /* --------------------------------------------------------------------- */
