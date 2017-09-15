@@ -140,16 +140,14 @@ UITestRun coreCompUIChrome = new UITestRun.Builder()
         .withHobbesConfig(NUM_OF_RETRIES)
         .build()
 
-/* UITestRun commerceUIChrome = new UITestRun.Builder() 
-        .withName("UI Tests commerce We.Retail / Chrome") 
-        .withInstance(author) 
-        .withBrowser("CHROME") 
+UITestRun commerceUIChrome = new UITestRun.Builder() 
+        .withName("UI Tests commerce We.Retail / Chrome")
+        .withInstance(author) .withBrowser("CHROME")
         .withFilter("granite.testing.hobbes.tests.commerce.weretail") 
         .withHobbesHubUrl(MINION_HUB_URL) 
         .withRunOptions(UI_TEST_OPTIONS) 
         .withHobbesConfig(NUM_OF_RETRIES) 
         .build()
-*/
 
 /* --------------------------------------------------------------------- */
 /*                       SPROUT CONFIGURATION                            */
@@ -179,10 +177,10 @@ config.getElasticsearchReporting().setEnable(true)
 // the modules to build
 config.setModules([componentsCore, componentsContent, componentsConfig,
                    weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi
-                   /*, commerceItUi*/])
+                   , commerceItUi])
 
 // the tests to execute
-config.setTestRuns([coreCompUIChrome, /*commerceUIChrome*/])
+config.setTestRuns([coreCompUIChrome, commerceUIChrome])
 
 // Releases
 config.setReleaseCriteria([new Branch(/^PRIVATE_master$/)])
