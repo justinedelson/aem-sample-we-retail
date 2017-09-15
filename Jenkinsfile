@@ -177,10 +177,11 @@ config.getElasticsearchReporting().setEnable(true)
 
 // the modules to build
 config.setModules([componentsCore, componentsContent, componentsConfig,
-                   weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi, commerceItUi])
+                   weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi
+                   /*, commerceItUi*/])
 
 // the tests to execute
-config.setTestRuns([coreCompUIChrome, commerceUIChrome])
+config.setTestRuns([coreCompUIChrome, /*commerceUIChrome*/])
 
 // Releases
 config.setReleaseCriteria([new Branch(/^PRIVATE_master$/)])
