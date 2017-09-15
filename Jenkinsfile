@@ -140,7 +140,7 @@ UITestRun coreCompUIChrome = new UITestRun.Builder()
         .withHobbesConfig(NUM_OF_RETRIES)
         .build()
 
-UITestRun commerceUIChrome = new UITestRun.Builder() 
+/*UITestRun commerceUIChrome = new UITestRun.Builder() 
         .withName('UI Tests commerce We.Retail / Chrome') 
         .withInstance(author) 
         .withBrowser('CHROME') 
@@ -149,7 +149,7 @@ UITestRun commerceUIChrome = new UITestRun.Builder() 
         .withRunOptions(UI_TEST_OPTIONS) 
         .withHobbesConfig(NUM_OF_RETRIES) 
         .build()
-
+*/
 /* --------------------------------------------------------------------- */
 /*                       SPROUT CONFIGURATION                            */
 /* --------------------------------------------------------------------- */
