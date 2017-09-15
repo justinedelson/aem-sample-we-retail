@@ -140,13 +140,14 @@ UITestRun coreCompUIChrome = new UITestRun.Builder()
         .withHobbesConfig(NUM_OF_RETRIES)
         .build()
 
-UITestRun commerceUIChrome = new UITestRun.Builder() 
+UITestRun commerceUIChrome = new UITestRun.Builder()
         .withName("UI Tests commerce We.Retail / Chrome")
-        .withInstance(author) .withBrowser("CHROME")
-        .withFilter("granite.testing.hobbes.tests.commerce.weretail") 
-        .withHobbesHubUrl(MINION_HUB_URL) 
-        .withRunOptions(UI_TEST_OPTIONS) 
-        .withHobbesConfig(NUM_OF_RETRIES) 
+        .withInstance(author)
+        .withBrowser("CHROME")
+        .withFilter("granite.testing.hobbes.tests.commerce.weretail")
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunOptions(UI_TEST_OPTIONS)
+        .withHobbesConfig(NUM_OF_RETRIES)
         .build()
 
 /* --------------------------------------------------------------------- */
