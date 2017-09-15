@@ -68,10 +68,6 @@ Module componentsConfig = new Module.Builder('core-comp/config')
         .withArtifact('zip', 'core-comp/config/target/core.wcm.components.sandbox.config-*.zip', true)
         .build()
 
-Module commerceItUi = new Module.Builder('commerce/it/ui-js')
-        .withArtifact('zip', 'commerce/it/ui-js/target/com.adobe.cq.commerce.it.ui-js-*.zip', true)
-        .build()
-
 /* --------------------------------------------------------------------- */
 /*                        EXTERNAL DEPENDENCIES                          */
 /* --------------------------------------------------------------------- */
@@ -94,6 +90,14 @@ MavenDependency uiTestingCommonsPackage = new MavenDependency.Builder()
 MavenDependency weRetailSampleContentPackage = new MavenDependency.Builder()
         .withGroupId("com.adobe.aem.sample")
         .withArtifactId("we.retail.commons.content")
+        .withVersion("latest")
+        .withExtension("zip")
+        .build()
+
+// the commerce UI tests
+MavenDependency commerceUITestsPackage = new MavenDependency.Builder()
+        .withGroupId("com.adobe.cq")
+        .withArtifactId("com.adobe.cq.commerce.it.ui-js")
         .withVersion("latest")
         .withExtension("zip")
         .build()
@@ -123,8 +127,8 @@ CQInstance author = new CQInstance.Builder()
         .withMavenDependency(hobbesRewriterPackage)
         .withMavenDependency(uiTestingCommonsPackage)
         .withMavenDependency(weRetailSampleContentPackage)
+        .withMavenDependency(commerceUITestsPackage)
         .withFileDependency(weRetailItUi.getArtifact('zip'))
-        .withFileDependency(commerceItUi.getArtifact('zip'))
         .build()
 
 /* --------------------------------------------------------------------- */
@@ -148,8 +152,6 @@ UITestRun commerceUIChrome = new UITestRun.Builder() 
         .withHobbesHubUrl(MINION_HUB_URL) 
         .withRunOptions(UI_TEST_OPTIONS) 
         .withHobbesConfig(NUM_OF_RETRIES) 
-        .withStopOnFail(false)
-        .withCriteria(new Branch(/^PRIVATE_master$/))
         .build()
 
 /* --------------------------------------------------------------------- */
@@ -159,8 +161,10 @@ SproutConfig config = new SproutConfig()
 
 // additional repo for getting the latest core component sources
 config.setAdditionalRepositories([
-        [url: 'git@git.corp.adobe.com:CQ/aem-core-wcm-components.git', branch: 'PRIVATE_master', folder: 'core-comp', vcs: 'git'],
-        [url: 'git@git.corp.adobe.com:CQ/commerce.git', branch: 'master', folder: 'commerce', vcs: 'git']
+        [url: 'git@git.corp.adobe.com:CQ/aem-core-wcm-components.git',
+         branch: 'PRIVATE_master',
+         folder: 'core-comp',
+         vcs: 'git']
 ])
 
 // calculate code
@@ -179,11 +183,10 @@ config.getElasticsearchReporting().setEnable(true)
 
 // the modules to build
 config.setModules([componentsCore, componentsContent, componentsConfig,
-                   weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi
-                   /*, commerceItUi*/])
+                   weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi])
 
 // the tests to execute
-config.setTestRuns([coreCompUIChrome, /*commerceUIChrome*/])
+config.setTestRuns([coreCompUIChrome, commerceUIChrome])
 
 // Releases
 config.setReleaseCriteria([new Branch(/^PRIVATE_master$/)])
