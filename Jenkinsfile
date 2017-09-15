@@ -1,18 +1,8 @@
 #!groovy
 @Library(['com.adobe.qe.evergreen.sprout'])
-import com.adobe.qe.evergreen.sprout.Sprout
-import com.adobe.qe.evergreen.sprout.Pipeline
-import com.adobe.qe.evergreen.sprout.SproutConfig
-import com.adobe.qe.evergreen.sprout.criteria.Branch
-import com.adobe.qe.evergreen.sprout.criteria.Exclude
-import com.adobe.qe.evergreen.sprout.criteria.GitCommitMessage
-import com.adobe.qe.evergreen.sprout.criteria.OrCriteria
-import com.adobe.qe.evergreen.sprout.model.BuildQuickstart
-import com.adobe.qe.evergreen.sprout.model.CQInstance
-import com.adobe.qe.evergreen.sprout.model.MavenDependency
-import com.adobe.qe.evergreen.sprout.model.Module
-import com.adobe.qe.evergreen.sprout.model.Quickstart
-import com.adobe.qe.evergreen.sprout.model.UITestRun
+import com.adobe.qe.evergreen.sprout.*
+import com.adobe.qe.evergreen.sprout.criteria.*
+import com.adobe.qe.evergreen.sprout.model.*
 
 String MINION_HUB_URL = 'http://or1010050212014.corp.adobe.com:8811'
 
