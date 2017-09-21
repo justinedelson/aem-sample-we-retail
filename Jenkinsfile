@@ -59,8 +59,8 @@ Module componentsConfig = new Module.Builder('core-comp/config')
         .build()
 
 // commerce test modules
-Module commerceItHttp = new Module.Builder('main/it/http')
-        .withMavenArtifact("jar", 'main/it/http/target/com.adobe.cq.commerce.it.http-*-integrationtest.jar')
+Module commerceItHttp = new Module.Builder('commerce/it/http')
+        .withMavenArtifact("jar", 'commerce/it/http/target/com.adobe.cq.commerce.it.http-*-integrationtest.jar')
         .build()
 
 /* --------------------------------------------------------------------- */
@@ -184,7 +184,7 @@ config.getElasticsearchReporting().setEnable(true)
 // the modules to build
 config.setModules([componentsCore, componentsContent, componentsConfig,
                    weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi
-                   , commerceItUi])
+                   , commerceItHttp])
 
 // the tests to execute
 config.setTestRuns([coreCompUIChrome, weretailIt])
