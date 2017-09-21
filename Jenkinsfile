@@ -59,10 +59,6 @@ Module componentsConfig = new Module.Builder('core-comp/config')
         .build()
 
 // commerce test modules
-Module commerceItUi = new Module.Builder('commerce/it/ui-js')
-        .withArtifact('zip', 'commerce/it/ui-js/target/com.adobe.cq.commerce.it.ui-js-*.zip', true)
-        .build()
-
 Module commerceItHttp = new Module.Builder('main/it/http')
         .withMavenArtifact("jar", 'main/it/http/target/com.adobe.cq.commerce.it.http-*-integrationtest.jar')
         .build()
@@ -127,7 +123,6 @@ CQInstance author = new CQInstance.Builder()
         .withMavenDependency(uiTestingCommonsPackage)
         .withMavenDependency(weRetailSampleContentPackage)
         .withFileDependency(weRetailItUi.getArtifact('zip'))
-        .withFileDependency(commerceItUi.getArtifact('zip'))
         .build()
 
 CQInstance publish = new CQInstance.Builder()
@@ -142,7 +137,7 @@ CQInstance publish = new CQInstance.Builder()
 /*                          INTEGRATION TESTS                            */
 /* --------------------------------------------------------------------- */
 IntegrationTestRun weretailIt = new IntegrationTestRun.Builder()
-        .withName('IT WeRetail')
+        .withName('IT Commerce We.Retail')
         .withBundle('commerce/it/http')
         .withInstance(author)
         .withInstance(publish)
@@ -156,16 +151,6 @@ UITestRun coreCompUIChrome = new UITestRun.Builder()
         .withInstance(author)
         .withBrowser('CHROME')
         .withFilter('aem.samplecontent.we-retail.tests')
-        .withHobbesHubUrl(MINION_HUB_URL)
-        .withRunOptions(UI_TEST_OPTIONS)
-        .withHobbesConfig(NUM_OF_RETRIES)
-        .build()
-
-UITestRun commerceUIChrome = new UITestRun.Builder()
-        .withName("UI Tests commerce We.Retail / Chrome")
-        .withInstance(author)
-        .withBrowser("CHROME")
-        .withFilter("granite.testing.hobbes.tests.commerce.weretail")
         .withHobbesHubUrl(MINION_HUB_URL)
         .withRunOptions(UI_TEST_OPTIONS)
         .withHobbesConfig(NUM_OF_RETRIES)
@@ -202,7 +187,7 @@ config.setModules([componentsCore, componentsContent, componentsConfig,
                    , commerceItUi])
 
 // the tests to execute
-config.setTestRuns([coreCompUIChrome, commerceUIChrome,weretailIt])
+config.setTestRuns([coreCompUIChrome, weretailIt])
 
 // Releases
 config.setReleaseCriteria([new Branch(/^PRIVATE_master$/)])
