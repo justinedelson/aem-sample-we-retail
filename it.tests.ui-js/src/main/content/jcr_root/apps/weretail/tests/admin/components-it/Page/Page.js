@@ -963,10 +963,6 @@
                 ignoreOn63: true
             }
         })
-        // create the live copy page, store page path in 'testLiveCopyPagePath'
-            //.execFct(function (opts, done) {
-            //    c.createLiveCopy(h.param("testPagePath")(opts), c.rootPage, 'page_' + Date.now(), 'page_' + Date.now(), "testLiveCopyPagePath", done)
-            //})
 
             // open the new page in the sites
             .navigateTo("/sites.html%testPagePath%")
@@ -988,11 +984,6 @@
             .click("coral-checkbox.coral-Form-field")
             //save the configuration
             .click(".cq-dialog-actions .cq-dialog-submit",{expectNav:true})
-
-            // delete the test page we created for the live copy
-            //.execFct(function (opts, done) {
-            //    c.deletePage(h.param("testLiveCopyPagePath")(opts), done);
-            //});
     };
 
     var tcExecuteBeforeTest = page.tcExecuteBeforeTest();
