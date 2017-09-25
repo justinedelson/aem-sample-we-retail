@@ -332,6 +332,20 @@
         poll();
     };
 
+    /**
+     * returns the page name.
+     */
+    c.setPageName = function (pagePath, pageName, done) {
+        // mandatory check
+        if (pagePath == null || pageName == null || done == null) {
+            if (done) done(false, "setPageName failed! mandatory parameter(s) missing!");
+            return;
+        }
+        var name = pagePath.substring(pagePath.lastIndexOf("/") + 1, pagePath.length);
+        hobs.param(pageName,name);
+
+        done(true);
+    };
 
     /**
      * Opens the inline editor for a component. Uses 'data-path' attribute to identify the correct
@@ -525,6 +539,60 @@
                 return h.find("coral-tab[selected] > coral-tab-label:contains('"+ tabTitle + "')").size() == 1
             })
     };
+
+    /**
+     * Creates a Live Copy via POST request.
+     *
+     * @param srcPath Mandatory. Path to the source page for the live copy."
+     * @param destPath Mandatory. Path to the destination page for the live copy."
+     * @param title Mandatory. the title to be set for the live copy.
+     * @param label Mandatory. The label to be set for the live copy.
+     * @param dynParName Optional. Hobbes dynamic param to store the generated page path.
+     * @param done Mandatory. Callback to be executed when async method has finished.
+     */
+    c.createLiveCopy = function (srcPath, destPath, title, label, dynParName, done) {
+        // mandatory check
+        if (srcPath == null || destPath == null || title == null || label == null || done == null) {
+            if (done) done(false, "createLiveCopy failed! mandatory parameter(s) missing!");
+            return;
+        }
+
+        // the ajax call
+        jQuery.ajax({
+            url: "/bin/wcmcommand",
+            method: "POST",
+            // POST data to be send in the request
+            data: {
+                "cmd": "createLiveCopy",
+                "srcPath": srcPath,
+                "destPath": destPath,
+                "_charset_": "utf-8",
+                "title": title,
+                "label": label
+            }
+        })
+        // when the request was successful
+            .done(function (data, textStatus, jqXHR) {
+                // extract the created page path from the returned HTML
+                var path = jQuery(data).find("#Path").text();
+
+                // store the page path and name as dynamic data for reuse in hobs functions
+                if (dynParName != null) {
+                    hobs.param(dynParName, path);
+                }
+            })
+
+            // request fails
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                // log an error
+                done(false, "createLiveCopy failed! POST failed with: " + textStatus + "," + errorThrown);
+            })
+            // always executed, fail or success
+            .then(function () {
+                done(true);
+            })
+    };
+
 
     /**
      * Create a policy
