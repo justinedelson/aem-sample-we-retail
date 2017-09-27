@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.jackrabbit.api.security.user.UserManager;
+import org.apache.jackrabbit.oak.spi.security.user.UserConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.sling.api.resource.Resource;
@@ -28,6 +29,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
 import com.adobe.cq.social.community.api.CommunityContext;
+import com.adobe.granite.security.user.UserManagementService;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
@@ -79,6 +81,7 @@ public class Header extends WCMUsePojo {
     private Language currentLanguage;
     private String userPath;
     private Page root;
+    private UserManagementService ums;
     
     @Override
     public void activate() throws Exception {
@@ -105,9 +108,12 @@ public class Header extends WCMUsePojo {
                     root.getName(), root.getTitle(), true);
         }
 
-        isModerator = currentPage.adaptTo(CommunityContext.class)
-                .checkIfUserIsModerator(resolver.adaptTo(UserManager.class), resolver.getUserID());
-        isAnonymous = resolver.getUserID().equals("anonymous");
+        ums = getSlingScriptHelper().getService(UserManagementService.class);
+        String anonymousId = ums != null ? ums.getAnonymousId() : UserConstants.DEFAULT_ANONYMOUS_ID;
+        String userId = resolver.getUserID();
+        
+        isModerator = currentPage.adaptTo(CommunityContext.class).checkIfUserIsModerator(resolver.adaptTo(UserManager.class), userId);
+        isAnonymous = userId == null || userId.equals(anonymousId);
         currentPath = currentPage.getPath();
         signInPath = computePagePath(SIGN_IN_PATH);
         signUpPath = computePagePath(SIGN_UP_PATH);
@@ -118,7 +124,7 @@ public class Header extends WCMUsePojo {
         profilePath = computePagePath(PROFILE_PATH);
         accountPath = ACCOUNT_PATH;
         theme = properties.get("theme", "inverse");
-        userPath = resolver.adaptTo(UserManager.class).getAuthorizable(resolver.getUserID()).getPath();
+        userPath = resolver.adaptTo(UserManager.class).getAuthorizable(userId).getPath();
 
         printDebug();
     }
