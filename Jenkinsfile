@@ -198,7 +198,7 @@ config.setEnableBuildPromotion(false)
 // use parameterized build on this branch when manual triggering to set release info
 config.setParameterDefinitionCriteria([ new Branch(/^PRIVATE_master$/)])
 
-config.setGithubAccessTokenId('740db810-2a69-4172-9973-6a9aa1b47624')
+config.setGithubAccessTokenId('bf3be1a6-ad0a-43d9-86e2-93b30279060f')
 config.setQuickstartPRConfig(quickstart)
 
 config.setEnableMailNotification(false)
