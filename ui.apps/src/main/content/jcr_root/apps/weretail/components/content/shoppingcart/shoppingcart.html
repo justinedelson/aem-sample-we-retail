@@ -56,7 +56,7 @@
                 </div>
                 <div class="we-ShoppingCart-entryPrice">
                     <strong data-sly-attribute="${hapiCartEntry.itemprop.unitPrice}">${item.price}</strong>
-                    <small class="we-ShoppingCart-strikethroughPrice">${item.strikeThroughPrice}</small>
+                    <small data-sly-test="${item.strikeThroughPrice}"class="we-ShoppingCart-strikethroughPrice">${item.strikeThroughPrice}</small>
                 </div>
                 <div class="we-ShoppingCart-entryPrice">
                     <span>${item.trikeThroughPrice}</span>
@@ -75,6 +75,7 @@
                 </div>
                 <div class="we-ShoppingCart-entryPrice">
                     <strong data-sly-attribute="${hapiCartEntry.itemprop.itemPrice}">${item.totalPrice}</strong>
+                    <small data-sly-test="${item.strikeThroughTotalPrice}" class="we-ShoppingCart-strikethroughPrice">${item.strikeThroughTotalPrice}</small>
                 </div>
                 <div class="we-ShoppingCart-remove">
                     <form data-sly-test="${!isReadOnly}" method="POST"

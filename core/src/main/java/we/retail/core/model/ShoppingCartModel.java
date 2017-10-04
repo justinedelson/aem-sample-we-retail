@@ -169,13 +169,10 @@ public class ShoppingCartModel {
                     new PriceFilter(WeRetailConstants.PRICE_FILTER_UNIT, WeRetailConstants.PRICE_FILTER_DISCOUNT));
             if (CollectionUtils.isNotEmpty(priceInfos)) {
                 priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_UNIT));
-                for (PriceInfo priceInfo : priceInfos) {
-                    if (priceInfo.containsKey(PriceFilter.PN_TYPES) && priceInfo.get(PriceFilter.PN_TYPES) instanceof Set) {
-                        final Set types = (Set) priceInfo.get(PriceFilter.PN_TYPES);
-                        if (!types.contains(WeRetailConstants.PRICE_FILTER_DISCOUNT)) {
-                            return priceInfo.getFormattedString();
-                        }
-                    }
+                priceInfos = filterOut(priceInfos, WeRetailConstants.PRICE_FILTER_DISCOUNT);
+
+                if (CollectionUtils.isNotEmpty(priceInfos)) {
+                    return priceInfos.get(0).getFormattedString();
                 }
             }
             return null;
@@ -186,8 +183,28 @@ public class ShoppingCartModel {
         }
 
         public String getTotalPrice() throws CommerceException {
-            List<PriceInfo> priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_LINE));
-            return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
+            List<PriceInfo> priceInfos = entry.getPriceInfo(
+                    new PriceFilter(WeRetailConstants.PRICE_FILTER_LINE, WeRetailConstants.PRICE_FILTER_DISCOUNT));
+            if (CollectionUtils.isNotEmpty(priceInfos)) {
+                return priceInfos.get(0).getFormattedString();
+            } else {
+                priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_LINE));
+                return CollectionUtils.isNotEmpty(priceInfos) ? priceInfos.get(0).getFormattedString() : null;
+            }
+        }
+
+        public String getStrikeThroughTotalPrice() throws CommerceException {
+            List<PriceInfo> priceInfos = entry.getPriceInfo(
+                    new PriceFilter(WeRetailConstants.PRICE_FILTER_LINE, WeRetailConstants.PRICE_FILTER_DISCOUNT));
+            if (CollectionUtils.isNotEmpty(priceInfos)) {
+                priceInfos = entry.getPriceInfo(new PriceFilter(WeRetailConstants.PRICE_FILTER_LINE));
+                priceInfos = filterOut(priceInfos, WeRetailConstants.PRICE_FILTER_DISCOUNT);
+
+                if (CollectionUtils.isNotEmpty(priceInfos)) {
+                    return priceInfos.get(0).getFormattedString();
+                }
+            }
+            return null;
         }
 
         public Map<String, String> getVariantAxesMap() {
@@ -204,6 +221,19 @@ public class ShoppingCartModel {
 
         public String getWrappingLabel() {
             return entry.getProperty("wrapping-label", String.class);
+        }
+
+        private List<PriceInfo> filterOut(List<PriceInfo> priceInfos, String filter) {
+            List<PriceInfo> result = new ArrayList<PriceInfo>();
+            for (PriceInfo priceInfo : priceInfos) {
+                if (priceInfo.containsKey(PriceFilter.PN_TYPES) && priceInfo.get(PriceFilter.PN_TYPES) instanceof Set) {
+                    final Set types = (Set) priceInfo.get(PriceFilter.PN_TYPES);
+                    if (!types.contains(filter)) {
+                        result.add(priceInfo);
+                    }
+                }
+            }
+            return result;
         }
     }
 }
