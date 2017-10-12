@@ -621,7 +621,7 @@
             .click("coral-tab-label:contains('Cloud Services')", {delay: 1000})
 
             .assert.isTrue(function () {
-                return h.find("coral-select[name='./cq:cloudserviceconfigs'] span:contains('IDS worker')").size() === 1
+                return h.find("coral-select[name='./cq:cloudserviceconfigs'] span:contains('IDS worker')").size() > 0;
             });
     };
 
@@ -1004,7 +1004,8 @@
         .addTestCase(page.tcAdvancedTemplatesSettingsPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(page.tcAdvancedConfigurationPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(page.tcAdvancedAuthenticationPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(page.tcAdvancedExportPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
+        /* TODO: Test disabled because of CQ-4217368 - [RTC] Removal of DPS Integration (Publications) from Quickstart
+        .addTestCase(page.tcAdvancedExportPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest)) */
         .addTestCase(page.tcThumbnailPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(page.tcSocialMediaPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(page.tcCloudServicesPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
