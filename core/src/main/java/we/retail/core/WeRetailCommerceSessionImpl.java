@@ -82,12 +82,18 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
         // This is only a stub implementation for the demo site, for which there is no
         // real order processing.
         //
+        Session serviceSession = null;
         try {
-            Node order = resolver.getResource(orderPath).adaptTo(Node.class);
+            serviceSession = commerceService.serviceContext().slingRepository.loginService("orders", null);
+            Node order = serviceSession.getNode(orderPath);
             order.setProperty("orderStatus", "Processing");
             order.getSession().save();
         } catch (Exception e) {
             log.error("Failed to update order", e);
+        } finally {
+            if (serviceSession != null) {
+                serviceSession.logout();
+            }
         }
     }
 
