@@ -35,7 +35,7 @@
     var alias  = "This is an alias";
     var allowedTemplate = "allowedTemplates";
     var loginPage = "/content/we-retail/language-masters/en";
-    var exportConfiguration = "/etc/contentsync/templates/dps-default";
+    var exportConfiguration = "/etc/contentsync/templates";
     var contextHubPath = "/etc/cloudsettings/default/contexthub/device";
     var configuration = "/conf/we-retail";
 
@@ -475,7 +475,9 @@
 
             //tests for the export options
             .fillInput("foundation-autocomplete[name='./cq:exportTemplate'] input[is='coral-textfield']", exportConfiguration)
+            .wait(200)
             .click("button[value='" + exportConfiguration + "']")
+            .wait(200)
 
             /*****  Check if the date is saved *****/
 
@@ -621,7 +623,7 @@
             .click("coral-tab-label:contains('Cloud Services')", {delay: 1000})
 
             .assert.isTrue(function () {
-                return h.find("coral-select[name='./cq:cloudserviceconfigs'] span:contains('IDS worker')").size() > 0;
+                return h.find("div.js-cq-CloudServices-currentConfig:contains('Cloud Proxy Configuration') coral-select[name='./cq:cloudserviceconfigs'] span:contains('IDS worker')").size() === 1;
             });
     };
 
@@ -1004,8 +1006,7 @@
         .addTestCase(page.tcAdvancedTemplatesSettingsPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(page.tcAdvancedConfigurationPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(page.tcAdvancedAuthenticationPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
-        /* TODO: Test disabled because of CQ-4217368 - [RTC] Removal of DPS Integration (Publications) from Quickstart
-        .addTestCase(page.tcAdvancedExportPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest)) */
+        .addTestCase(page.tcAdvancedExportPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(page.tcThumbnailPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(page.tcSocialMediaPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(page.tcCloudServicesPageProperties(tcExecuteBeforeTest, tcExecuteAfterTest))
