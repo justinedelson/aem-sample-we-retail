@@ -67,10 +67,17 @@
                             </div>
                             <div class="we-Cart-entryQuantity">
                                 <label class="text-muted">${'Qty' @ i18n}:</label>
+                                <!--/* Display read only quantity when cart is read only. */-->
                                 <span data-sly-test.isReadOnly="${properties.isReadOnly}"
                                       data-sly-attribute="${hapiCartEntry.itemprop.quantity}">{{ cartEntry.quantity }}</span>
+                                <!--/* Display read only quantity when cart is read not only and entry is read only. */-->
+                                <span v-if="cartEntry.readonly == true"
+                                      data-sly-test="${!isReadOnly}"
+                                      data-sly-attribute="${hapiCartEntry.itemprop.quantity}">{{ cartEntry.quantity }}</span>
+                                <!--/* Display modifiable quantity when cart or entry is not read only. */-->
                                 <form data-sly-test="${!isReadOnly}" method="POST"
-                                      action="${currentPage.path @ extension='html', selectors='weretail.modifycartentry'}">
+                                      action="${currentPage.path @ extension='html', selectors='weretail.modifycartentry'}"
+                                      v-if="cartEntry.readonly != true">
                                     <input type="hidden" name="entryNumber" value="{{index}}"/>
                                     <input type="hidden" name="redirect" value="${currentPage.path @ extension='html'}"/>
                                     <input type="number" name="quantity" v-model="cartEntry.quantity" min="0" step="1"
@@ -85,7 +92,7 @@
                         <div class="we-Cart-remove">
                             <form data-sly-test="${!isReadOnly}" method="POST"
                                   action="${currentPage.path @ extension='html', selectors='weretail.deletecartentry'}"
-                                  v-on:click.prevent="updateCart">
+                                  v-on:click.prevent="updateCart" v-if="cartEntry.readonly != true">
                                 <input type="hidden" name="entryNumber" value="{{index}}"/>
                                 <input type="hidden" name="redirect" value="${currentPage.path @ extension='html'}"/>
                                 <button type="submit" class="btn btn-default btn-icon"><i class="text-muted fa fa-times-circle-o"></i></button>

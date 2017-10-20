@@ -63,7 +63,7 @@
                 </div>
                 <div class="we-ShoppingCart-entryQuantity">
                     <label class="text-muted">${'Qty' @ i18n}:</label>
-                <span data-sly-test.isReadOnly="${properties.isReadOnly}"
+                <span data-sly-test.isReadOnly="${properties.isReadOnly || item.readOnly}"
                       data-sly-attribute="${hapiCartEntry.itemprop.quantity}">${item.entry.quantity}</span>
                     <form data-sly-test="${!isReadOnly}" method="POST"
                           action="${currentPage.path @ extension='html', selectors='weretail.modifycartentry'}">

@@ -25,6 +25,7 @@ import java.util.Set;
 import javax.annotation.PostConstruct;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -176,6 +177,10 @@ public class ShoppingCartModel {
                 }
             }
             return null;
+        }
+
+        public boolean isReadOnly() {
+            return BooleanUtils.toBoolean(entry.getProperty(CommerceSession.PN_READONLY, Boolean.class));
         }
 
         public ProductItem getProduct() throws CommerceException {
