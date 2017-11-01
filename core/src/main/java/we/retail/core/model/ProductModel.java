@@ -74,11 +74,12 @@ public class ProductModel {
             commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
             if (commerceService != null) {
                 CommerceSession commerceSession = commerceService.login(request, response);
-                Product product = resource.adaptTo(Product.class);
-
-                // If the product is null, it might be a proxy page and the commerceHandler handles that
-                if (product == null) {
+                Product product;
+                //for proxy page use product from commerce handler
+                if (commerceHandler.isProductPageProxy()) {
                     product = commerceHandler.getProduct();
+                } else {
+                    product = resource.adaptTo(Product.class);
                 }
 
                 if (product != null) {
