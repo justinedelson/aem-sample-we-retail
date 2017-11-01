@@ -15,4 +15,4 @@
 */-->
 <a data-sly-use.button="Button"
    class="btn btn-primary btn-action cq-dd-linkTo ${button.cssClass}"
-   href="${button.linkTo}" role="button">${properties.label}</a>
+   href="${button.linkTo == '#' ? '#' : button.linkTo @ extension = 'html'}" role="button">${properties.label}</a>

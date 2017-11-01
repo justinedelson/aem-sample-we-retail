@@ -40,9 +40,6 @@ public class Button extends WCMUsePojo {
         ValueMap properties = getProperties();
         linkTo = properties.get(PROP_LINK_TO, "#");
         cssClass = properties.get(CSS_CLASS, "");
-        if (StringUtils.isNotEmpty(linkTo) && !"#".equals(linkTo)) {
-            linkTo = linkTo + ".html";
-        }
         log.debug("resource: {}", resource.getPath());
         log.debug("linkTo: {}", linkTo);
     }
