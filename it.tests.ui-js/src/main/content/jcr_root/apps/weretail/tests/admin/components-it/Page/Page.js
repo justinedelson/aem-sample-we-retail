@@ -865,12 +865,12 @@
 
             //check the Synchronize button
             .click("coral-actionbar-item:contains('Synchronize') button")
-            .click(".coral-Button--primary:contains('Sync')")
+            .click(".coral3-Button--primary:contains('Sync')")
 
             //check the Reset button
             .click("coral-tab-label:contains('Live Copy')", {delay: 1000})
             .click("coral-actionbar-item:contains('Reset') button")
-            .click(".coral-Button--warning:contains('Reset')")
+            .click(".coral3-Button--warning:contains('Reset')")
 
             //check the Suspend button
             .click("coral-tab-label:contains('Live Copy')", {delay: 1000})
@@ -878,24 +878,24 @@
             .click(function () {
                 return h.find("coral-anchorlist coral-list-item-content").eq(0)
             })
-            .click(".coral-Button--warning:contains('Suspend')")
+            .click(".coral3-Button--warning:contains('Suspend')")
 
             //check the Resume button
             .click("coral-tab-label:contains('Live Copy')", {delay: 1000})
             .click("coral-actionbar-item:contains('Resume') button", {delay: 1000})
-            .click(".coral-Button--warning:contains('Resume')", {delay: 1000})
+            .click(".coral3-Button--warning:contains('Resume')", {delay: 1000})
 
             .click("coral-tab-label:contains('Live Copy')", {delay: 1000})
             .click("coral-actionbar-item:contains('Suspend') button")
             .click(function () {
                 return h.find("coral-anchorlist coral-list-item-content").eq(1)
             })
-            .click(".coral-Button--warning:contains('Suspend')")
+            .click(".coral3-Button--warning:contains('Suspend')")
 
             //check the Detach button
             .click("coral-tab-label:contains('Live Copy')", {delay: 1000})
             .click("coral-actionbar-item:contains('Detach') button")
-            .click(".coral-Button--warning:contains('Detach')")
+            .click(".coral3-Button--warning:contains('Detach')")
 
             .wait(1000)
             // delete the test page we created for live copy

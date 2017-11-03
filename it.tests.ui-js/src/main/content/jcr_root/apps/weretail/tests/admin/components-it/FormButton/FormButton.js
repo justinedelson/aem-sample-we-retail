@@ -190,7 +190,7 @@
             // close the edit dialog
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function() {
-                return h.find('coral-icon.coral-Icon.coral-Form-fielderror.coral-Icon--sizeS.coral-Icon--alert').size() === 1
+                return h.find('coral-icon.coral-Form-fielderror.coral3-Icon--alert').size() === 1
             })
             ;
     };
