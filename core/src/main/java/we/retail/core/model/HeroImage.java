@@ -71,7 +71,9 @@ public class HeroImage {
             return image;
         }
         com.adobe.cq.wcm.core.components.models.Image image = request.adaptTo(com.adobe.cq.wcm.core.components.models.Image.class);
-        this.image = new Image(image.getSrc());
+        if(image != null) {
+            this.image = new Image(image.getSrc());
+        }
         return this.image;
     }
 
