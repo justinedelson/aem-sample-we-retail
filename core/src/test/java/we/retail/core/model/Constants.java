@@ -67,7 +67,7 @@ public class Constants {
 	public static final String HEADER_PROFILE_PATH = "/content/we-retail/us/en/community/profile";
 	public static final String HEADER_ACCOUNT_PATH = "/content/we-retail/us/en/user/account";
 	public static final String HEADER_THEME = "inverse";
-	public static final String HEADER_LANG_ROOT = "/content/we-retail/us/en.html";
+  public static final String HEADER_LANG_ROOT = "/content/we-retail/us/en";
 	public static final String HEADER_CURR_LANG = "English";
 	public static final int HEADER_COUNTRY_SIZE = 7;
 	public static final int HEADER_ITEM_SIZE = 6;

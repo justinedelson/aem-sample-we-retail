@@ -56,7 +56,7 @@
                 <ul class="we-LanguagesList" data-sly-list.country="${header.countries}">
                     <li>
                         <i class="we-lang-icon we-lang-icon-${country.countrycode}"></i><span data-sly-list.language="${country.languages}"><a
-                            href="${language.path}.html" class="${language.selected ? 'active' : ''}">${language.name}</a><sly
+                            href="${language.path @ extension = 'html'}" class="${language.selected ? 'active' : ''}">${language.name}</a><sly
                             data-sly-test="${!languageList.last}"> |
                     </sly></span>
                     </li>

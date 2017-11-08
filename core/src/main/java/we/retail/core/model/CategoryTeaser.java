@@ -65,7 +65,6 @@ public class CategoryTeaser {
                     }
                 }
             }
-            buttonLinkTo = buttonLinkTo + ".html";
         }
         LOGGER.debug("resource: {}", resource.getPath());
         LOGGER.debug("buttonLinkTo: {}", buttonLinkTo);

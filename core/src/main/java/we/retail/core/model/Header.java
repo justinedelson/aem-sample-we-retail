@@ -114,7 +114,8 @@ public class Header {
 			if (root != null) {
 				items = getPages(root, 2, currentPage);
 				if (!"/conf/".equals(root.getPath().substring(0, 6))) {
-					languageRoot = root.getPath() + ".html";
+
+				languageRoot = root.getPath();
 				}
 				countries = getCountries(root);
 				currentLanguage = new Language(root.getPath(), root.getParent().getName(), root.getName(),
