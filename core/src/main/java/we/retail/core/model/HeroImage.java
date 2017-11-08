@@ -33,6 +33,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.sightly.SightlyWCMMode;
+import com.adobe.cq.wcm.core.components.models.Image;
 
 @Model(adaptables = SlingHttpServletRequest.class)
 public class HeroImage {
@@ -42,14 +43,8 @@ public class HeroImage {
     @Self
     private SlingHttpServletRequest request;
 
-    @SlingObject
-    private Resource resource;
-
     @ScriptVariable
     private ValueMap properties;
-
-    @ScriptVariable(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private SightlyWCMMode wcmmode;
 
     private String classList;
     private Image image;
@@ -75,12 +70,11 @@ public class HeroImage {
         if (image != null) {
             return image;
         }
-        String escapedResourcePath = Text.escapePath(resource.getPath());
-        long lastModifiedDate = getLastModifiedDate(properties);
-        String src = request.getContextPath() + escapedResourcePath + ".img.jpeg" +
-                (!wcmmode.isDisabled() && lastModifiedDate > 0 ? "/" + lastModifiedDate + ".jpeg" : "");
-        image = new Image(src);
-        return image;
+        com.adobe.cq.wcm.core.components.models.Image image = request.adaptTo(com.adobe.cq.wcm.core.components.models.Image.class);
+        if(image != null) {
+            this.image = new Image(image.getSrc());
+        }
+        return this.image;
     }
 
     public class Image {
@@ -93,16 +87,6 @@ public class HeroImage {
         public String getSrc() {
             return src;
         }
-    }
-
-    private long getLastModifiedDate(ValueMap properties) {
-        long lastMod = 0L;
-        if (properties.containsKey(JcrConstants.JCR_LASTMODIFIED)) {
-            lastMod = properties.get(JcrConstants.JCR_LASTMODIFIED, Calendar.class).getTimeInMillis();
-        } else if (properties.containsKey(JcrConstants.JCR_CREATED)) {
-            lastMod = properties.get(JcrConstants.JCR_CREATED, Calendar.class).getTimeInMillis();
-        }
-        return lastMod;
     }
 
 }
