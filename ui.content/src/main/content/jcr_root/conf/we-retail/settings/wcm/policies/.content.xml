@@ -345,11 +345,11 @@
                                     <item0
                                         jcr:primaryType="nt:unstructured"
                                         name="Wide Landscape"
-                                        ratio="0.8284"/>
+                                        ratio="0.6180"/>
                                     <item1
                                         jcr:primaryType="nt:unstructured"
                                         name="Landscape"
-                                        ratio="0.6180"/>
+                                        ratio="0.8284"/>
                                     <item2
                                         jcr:primaryType="nt:unstructured"
                                         name="Square"
