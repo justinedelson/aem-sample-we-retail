@@ -24,6 +24,9 @@
     var testImagePath = "/content/dam/we-retail-screens/we-retail-instore-logo.png";
     var altText = "Return to Arkham";
     var captionText = "The Last Guardian";
+    var originalDamTitle       = 'Beach house';
+    var originalDamDescription = 'House on a beach with blue sky';
+
 
     var titleSelector = "span.cmp-image__title";
 
@@ -46,6 +49,7 @@
             .navigateTo("/editor.html%testPagePath%.html");
     };
 
+
     /**
      * After Test Case
      */
@@ -59,6 +63,16 @@
             });
     };
 
+    image.tcDragImage = function () {
+        return new TestCase('Drag Asset')
+            .execTestCase(c.tcOpenConfigureDialog('cmpPath'))
+            .execFct(function (opts, done) {
+                c.openSidePanel(done);
+            })
+            .cui.dragdrop('coral-card.cq-draggable[data-path="' + testImagePath + '"]', 'coral-fileupload[name="./file"')
+            .execTestCase(c.closeSidePanel);
+    };
+
     /**
      * Test: minimal properties
      */
@@ -67,8 +81,12 @@
             .execFct(function (opts,done) {c.openSidePanel(done);})
             // drag'n'drop the test image
             .cui.dragdrop("coral-card.cq-draggable[data-path='" + testImagePath + "']","coral-fileupload[name='./file'")
+            //open the Metadata tab
+            .click("coral-tab:contains('Metadata')")
+            .click("coral-checkbox[name='./altValueFromDAM']")
             // set mandatory alt text
-            .fillInput("input[name='./alt']",altText)
+            .fillInput("input[name='./alt']", altText)
+
             // close the side panel
             .execTestCase(c.closeSidePanel);
     };
@@ -82,37 +100,79 @@
             execAfter: tcExecuteAfterTest})
 
             // open the config dialog
-            .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
+            //.execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             // set image and alt text
-            .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
+            //.execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
             // save the dialog
+            .execTestCase(image.tcDragImage())
             .execTestCase(c.tcSaveConfigureDialog)
 
             // verify that the surrounding script tag has been removed and the img tag is there
             .asserts.isTrue(function () {
                 return h.find("div.cmp-image img[src*='"+ h.param("testPagePath")() +
-                        "/jcr%3acontent/root/responsivegrid/image.img.'","#ContentFrame").size() ===1;
+                        "/jcr%3acontent/root/responsivegrid/image.img.'","#ContentFrame").size() === 1;
             });
     };
 
     /**
-     * Test: set Alt Text
+     * Test: set Alt Text and Title
      */
-    image.tcAddAltText = function(tcExecuteBeforeTest, tcExecuteAfterTest) {
-        return new h.TestCase('Set Alt Text',{
-            execBefore: tcExecuteBeforeTest,
-            execAfter: tcExecuteAfterTest})
-
-            // open the config dialog
-            .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
-            // set image and alt text
-            .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
-            // save the dialog
+    image.tcAddAltTextAndTitle = function (tcExecuteBeforeTest, tcExecuteAfterTest) {
+        return new h.TestCase('Set Alt and Title Text', {
+                execBefore: tcExecuteBeforeTest,
+                execAfter : tcExecuteAfterTest
+            }
+        )
+            .execTestCase(image.tcDragImage())
+            .click('coral-tab-label:contains("Metadata")')
+            .wait(500)
+            .click('input[type="checkbox"][name="./altValueFromDAM"]')
+            .wait(200)
+            .click('input[type="checkbox"][name="./titleValueFromDAM"]')
+            .wait(200)
+            .fillInput("input[name='./alt']", altText)
+            .fillInput("input[name='./jcr:title']", captionText)
             .execTestCase(c.tcSaveConfigureDialog)
-
-            // verify that alt text is there
             .asserts.isTrue(function () {
-                return h.find("div.cmp-image img[alt='"+altText +"']", "#ContentFrame").size() == 1;
+                return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
+                        '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]',
+                        "#ContentFrame").size() === 1;
+            });
+    };
+
+    image.tcDisableCaptionAsPopup = function (titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
+        return new h.TestCase('Disable Caption as Popup', {
+                execBefore: tcExecuteBeforeTest,
+                execAfter : tcExecuteAfterTest
+            }
+        )
+            .execTestCase(image.tcDragImage())
+            .click('coral-tab-label:contains("Metadata")')
+            .wait(500)
+            .click('input[name="./displayPopupTitle"')
+            .execTestCase(c.tcSaveConfigureDialog)
+            .asserts.isTrue(function () {
+                return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
+                        '/jcr%3acontent/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1
+            });
+    };
+
+    image.tcSetImageAsDecorative = function(tcExecuteBeforeTest, tcExecuteAfterTest) {
+        return new h.TestCase('Set Image as decorative',{
+            execBefore: tcExecuteBeforeTest,
+            execAfter: tcExecuteAfterTest}
+        )
+            .execTestCase(image.tcDragImage())
+            .click('coral-tab-label:contains("Metadata")')
+            .wait(500)
+            .simulate('foundation-autocomplete[name="./linkURL"] input[type!="hidden"]', 'key-sequence', {sequence: c.rootPage + '{enter}'})
+            .wait(500)
+            .click('input[name="./isDecorative"')
+            .wait(500)
+            .execTestCase(c.tcSaveConfigureDialog)
+            .config.changeContext(c.getContentFrame)
+            .asserts.isTrue(function () {
+                return h.find('.cmp-image__image').attr('alt') === '' && h.find('.cmp-image__link').size() === 0;
             });
     };
 
@@ -137,89 +197,12 @@
             // switch to content frame
             .config.changeContext(c.getContentFrame)
             // click on the image
-            .click("div.cmp-image [data-title='Return to Arkham']",{expectNav: true})
+            .click("div.cmp-image img",{expectNav: true})
             // go back to top frame
             .config.resetContext()
             // check if the url is correct
             .asserts.isTrue(function(){
                 return hobs.context().window.location.pathname.endsWith(c.rootPage + ".html")
-            });
-    };
-
-    /**
-     * Test: set caption
-     */
-    image.tcSetCaption = function(tcExecuteBeforeTest, tcExecuteAfterTest) {
-        return new h.TestCase('Set Caption',{
-            execBefore: tcExecuteBeforeTest,
-            execAfter: tcExecuteAfterTest})
-
-            // open the config dialog
-            .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
-            // set image and alt text
-            .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
-            // set caption text
-            .fillInput("input[name='./jcr:title']",captionText)
-            // save the dialog
-            .execTestCase(c.tcSaveConfigureDialog)
-
-            // switch to content frame
-            .config.changeContext(c.getContentFrame)
-            // check if the caption is rendered with <small> tag
-            .asserts.isTrue(function(){
-                return h.find(titleSelector + ":contains('" + captionText + "')").size() == 1
-            });
-    };
-
-    /**
-     * Test: set caption as pop up
-     */
-    image.tcSetCaptionAsPopup = function(tcExecuteBeforeTest, tcExecuteAfterTest) {
-        return new h.TestCase('Set Caption as Pop Up',{
-            execBefore: tcExecuteBeforeTest,
-            execAfter: tcExecuteAfterTest})
-
-            // open the config dialog
-            .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
-            // set image and alt text
-            .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
-            // set caption text
-            .fillInput("input[name='./jcr:title']",captionText)
-            // check the 'Caption as Pop Up' flag
-            .click("input[type='checkbox'][name='./displayPopupTitle']")
-            // save the dialog
-            .execTestCase(c.tcSaveConfigureDialog)
-
-            // switch to content frame
-            .config.changeContext(c.getContentFrame)
-            // check if the caption is rendered with <small> tag
-            .asserts.isTrue(function(){
-                return h.find("div.cmp-image img[title='" + captionText + "']").size() == 1
-            });
-    };
-
-    /**
-     * Test: set caption as pop up
-     */
-    image.tcSetImageAsDecorative = function(tcExecuteBeforeTest, tcExecuteAfterTest) {
-        return new h.TestCase('Set Image as decorative',{
-            execBefore: tcExecuteBeforeTest,
-            execAfter: tcExecuteAfterTest})
-
-            // open the config dialog
-            .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
-            // set image and alt text (to see if its not rendered)
-            .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
-            .click("input[type='checkbox'][name='./isDecorative']")
-            // save the dialog
-            .execTestCase(c.tcSaveConfigureDialog)
-
-            // switch to content frame
-            .config.changeContext(c.getContentFrame)
-            // check if the image is rendered without alt text even if it is set in the edit dialog
-
-            .asserts.isTrue(function () {
-                return h.find('div.cmp-image img').attr('alt') === '';
             });
     };
 
@@ -238,12 +221,10 @@
         execInNewWindow : false})
 
         .addTestCase(image.tcAddImage(tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(image.tcAddAltText(tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(image.tcAddAltTextAndTitle(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetLink(tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(image.tcSetCaption(tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(image.tcSetCaptionAsPopup(tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(image.tcDisableCaptionAsPopup(titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetImageAsDecorative(tcExecuteBeforeTest, tcExecuteAfterTest))
-
     ;
 
 }(hobs, jQuery));
