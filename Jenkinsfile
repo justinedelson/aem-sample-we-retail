@@ -204,8 +204,10 @@ config.setQuickstartPRConfig(quickstart)
 config.setEnableMailNotification(false)
 
 // Don't trigger sprout for release commits
-config.setBuildCriteria([new Exclude(new GitCommitMessage(/^(.*)@releng \[maven\-scm\] :prepare(.*)$/))])
-
+config.setBuildCriteria([new Exclude(
+        new AndCriteria()
+                .withCriteria(new GitCommitMessage(/^(.*)@releng \[maven\-scm\] :prepare(.*)$/))
+                .withCriteria(new Exclude(new ManuallyTriggered())))])
 // Slack notification
 config.setEnableSlackNotifications(true)
 config.setSlackChannel('#refsquad-sprouts')
