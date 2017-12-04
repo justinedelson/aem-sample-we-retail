@@ -432,7 +432,7 @@
             //test the authentication requirement
             .click("input[name='./cq:authenticationRequired']")
             .fillInput("foundation-autocomplete[name='./cq:loginPath'] input[is='coral-textfield']", loginPage, {delay: 1000})
-            .click("button[value='" + loginPage + "']")
+            .click("button[value='" + loginPage + "']",{after:2000})
 
             /*****  Check if the date is saved *****/
 
@@ -775,9 +775,9 @@
                 return h.find("coral-tab.is-selected coral-tab-label:contains('Permissions')").size() === 1
             })
 
-            .click("button:contains('Edit Closed User Group')")
+            .click("button:contains('Edit Closed User Group')",{after:1000})
 
-            .fillInput("foundation-autocomplete.js-cq-sites-CUGPermissionsDialog-authorizableList input[is='coral-textfield']", "We.Retail Editors", {delayAfter: 1000})
+            .fillInput("foundation-autocomplete.js-cq-sites-CUGPermissionsDialog-authorizableList input[is='coral-textfield']", "We.Retail Editors", {after: 1000})
             //.wait()
             .click("foundation-autocomplete.js-cq-sites-CUGPermissionsDialog-authorizableList coral-overlay:contains('We.Retail Editors') button")
             //check if the tag for the user was added
@@ -785,7 +785,7 @@
             .click("coral-dialog:contains('Edit Closed') button[title='Remove']")
 
             //add permissions for a user
-            .fillInput("foundation-autocomplete.js-cq-sites-CUGPermissionsDialog-authorizableList input[is='coral-textfield']", "We.Retail Editors", {delayAfter: 1000})
+            .fillInput("foundation-autocomplete.js-cq-sites-CUGPermissionsDialog-authorizableList input[is='coral-textfield']", "We.Retail Editors", {after: 2000})
             //.wait()
             .click("foundation-autocomplete.js-cq-sites-CUGPermissionsDialog-authorizableList coral-overlay:contains('We.Retail Editors') button")
             //check if the tag for the user was added
