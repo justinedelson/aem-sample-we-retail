@@ -36,7 +36,7 @@
     var toogleStateSelect = function() {
         var $this = $(this);
         var stateName = $this.attr('name').replace('country', 'state');
-        var selector = "select[name='" + stateName + "']";
+        var selector = "select[name='" + encodeURI(stateName) + "']";
         if ($.inArray($this.val(), USA_CODES) > -1) {
             $(selector).show().parents('.cmp-form-options').removeClass('hidden');
         }
@@ -88,12 +88,12 @@
             $("input[name^='billing.']").each(function() {
                 var $this = $(this);
                 var shippingName = $this.attr('name').replace('billing.', 'shipping.');
-                $this.val($("input[name='" + shippingName + "']").val());
+                $this.val($("input[name='" + encodeURI(shippingName) + "']").val());
             });
             $("select[name^='billing.']").each(function() {
                 var $this = $(this);
                 var shippingName = $this.attr('name').replace('billing.', 'shipping.');
-                $this.val($("select[name='" + shippingName + "']").val());
+                $this.val($("select[name='" + encodeURI(shippingName) + "']").val());
             });
         }
         
@@ -103,7 +103,7 @@
             var $this = $(this);
             if ($.inArray($this.val(), USA_CODES) < 0) {
                 var stateName = $this.attr('name').replace('country', 'state');
-                $form.append('<input type="hidden" name="' + stateName + '" value="" />');
+                $form.append('<input type="hidden" name="' + encodeURI(stateName) + '" value="" />');
             }
         });
     });
