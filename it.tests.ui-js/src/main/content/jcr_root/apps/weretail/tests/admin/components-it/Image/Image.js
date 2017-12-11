@@ -95,9 +95,10 @@
      * Test: add image
      */
     image.tcAddImage = function (tcExecuteBeforeTest, tcExecuteAfterTest) {
-        return new h.TestCase('Add an Image',{
-            execBefore: tcExecuteBeforeTest,
-            execAfter: tcExecuteAfterTest})
+        return new h.TestCase('Add an Image', {
+            execBefore: tcExecuteBeforeTest ,
+            execAfter: tcExecuteAfterTest
+        })
 
             // open the config dialog
             //.execTestCase(c.tcOpenConfigureDialog("cmpPath"))
@@ -109,8 +110,8 @@
 
             // verify that the surrounding script tag has been removed and the img tag is there
             .asserts.isTrue(function () {
-                return h.find("div.cmp-image img[src*='"+ h.param("testPagePath")() +
-                        "/jcr%3acontent/root/responsivegrid/image.img.'","#ContentFrame").size() === 1;
+                return h.find("img[src*='"+ h.param("testPagePath")() +
+                        "/_jcr_content/root/responsivegrid/image.img.']","#ContentFrame").size() === 1;
             });
     };
 
@@ -134,8 +135,8 @@
             .fillInput("input[name='./jcr:title']", captionText)
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
-                return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                        '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]',
+                return h.find('img[src*="' + h.param('testPagePath')() +
+                        '/_jcr_content/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]',
                         "#ContentFrame").size() === 1;
             });
     };
@@ -152,8 +153,8 @@
             .click('input[name="./displayPopupTitle"')
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
-                return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                        '/jcr%3acontent/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1
+                return h.find('img[src*="' + h.param('testPagePath')() +
+                        '/_jcr_content/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1
             });
     };
 
