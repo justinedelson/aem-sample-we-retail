@@ -52,8 +52,9 @@
         .execFct(function (opts, done) {
             c.setPageName(h.param("testPagePath")(opts), "testPageName", done);
         })
-        .click('coral-columnview-item:contains("%testPageName%") coral-columnview-item-thumbnail')
-        .click("button.cq-siteadmin-admin-actions-properties-activator",{expectNav:true})
+        .navigateTo("/mnt/overlay/wcm/core/content/sites/properties.html?item=%testPagePath%")
+        //.click('coral-columnview-item:contains("%testPageName%") coral-columnview-item-thumbnail')
+        //.click("button.cq-siteadmin-admin-actions-properties-activator",{expectNav:true})
     ;
 
     /**
