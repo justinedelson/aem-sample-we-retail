@@ -884,7 +884,7 @@
 
             //check the Resume button
             .click("coral-tab-label:contains('Live Copy')", {after: 1000})
-            .click("coral-actionbar-item:contains('Resume') button", {after: 1000})
+            .click("coral-actionbar-item:contains('Resume') button", {after: 5000})
             .click(".coral3-Button--warning:contains('Resume')", {after: 1000})
 
             .click("coral-tab-label:contains('Live Copy')", {after: 1000})
