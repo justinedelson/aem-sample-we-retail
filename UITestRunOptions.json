@@ -11,6 +11,10 @@
         "value": true,
         "type": "exclude"
       },
+      "ignoreOn63": {
+        "value": true,
+        "type": "exclude"
+      },
       "flaky": {
         "value": true,
         "type": "exclude"
@@ -19,7 +23,6 @@
         "value": true,
         "type": "exclude"
       }
-    },
-    "testPath": "/libs/granite/testing/hobbes.html?autoRun=true&performRewrite&optin=disabled&tags=aem-sample-we-retail&filter=aem.samplecontent.we-retail.tests"
+    }
   }
 }

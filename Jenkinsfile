@@ -1,5 +1,5 @@
 #!groovy
-@Library(['com.adobe.qe.evergreen.sprout'])
+@Library(['com.adobe.qe.evergreen.sprout@issue/fixing-testpath'])
 import com.adobe.qe.evergreen.sprout.*
 import com.adobe.qe.evergreen.sprout.criteria.*
 import com.adobe.qe.evergreen.sprout.model.*
@@ -142,6 +142,7 @@ UITestRun coreCompUIChrome = new UITestRun.Builder()
         .withHobbesHubUrl(MINION_HUB_URL)
         .withRunInstructions('main/UITestRunOptions.json')
         .withWaitForMinionMinutes(10)
+        .withFilter("aem.samplecontent.we-retail.tests")
         .build()
 
 /* --------------------------------------------------------------------- */
