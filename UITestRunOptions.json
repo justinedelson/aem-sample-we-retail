@@ -1,0 +1,25 @@
+{
+  "hobs": {
+    "config": {
+      "global_maxretries_on_failed": 1,
+      "pacing_delay": 1
+    }
+  },
+  "options": {
+    "withMetadata": {
+      "ignoreOn64": {
+        "value": true,
+        "type": "exclude"
+      },
+      "flaky": {
+        "value": true,
+        "type": "exclude"
+      },
+      "failing": {
+        "value": true,
+        "type": "exclude"
+      }
+    },
+    "testPath": "/libs/granite/testing/hobbes.html?autoRun=true&performRewrite&optin=disabled&tags=aem-sample-we-retail&filter=aem.samplecontent.we-retail.tests"
+  }
+}

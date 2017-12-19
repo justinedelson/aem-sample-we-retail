@@ -4,18 +4,7 @@ import com.adobe.qe.evergreen.sprout.*
 import com.adobe.qe.evergreen.sprout.criteria.*
 import com.adobe.qe.evergreen.sprout.model.*
 
-String MINION_HUB_URL = 'http://or1010050212014.corp.adobe.com:8811'
-
-String GENERAL_METADATA_RUN_OPTIONS =
-        '\\\"ignoreOn64\\\":{\\\"value\\\":true,\\\"type\\\":\\\"exclude\\\"}' +
-        ',' +
-        '\\\"flaky\\\":{\\\"value\\\":true,\\\"type\\\":\\\"exclude\\\"}' +
-        ',' +
-        '\\\"failing\\\":{\\\"value\\\":true,\\\"type\\\":\\\"exclude\\\"}'
-
-String UI_TEST_OPTIONS = '{\\\"withMetadata\\\":{' + GENERAL_METADATA_RUN_OPTIONS + '}}'
-
-String NUM_OF_RETRIES = '{\\\"global_maxretries_on_failed\\\":1}'
+String MINION_HUB_URL = 'http://qa-bsl-minion-hub.corp.adobe.com:8811'
 
 /* --------------------------------------------------------------------- */
 /*                                MODULES                                */
@@ -150,10 +139,9 @@ UITestRun coreCompUIChrome = new UITestRun.Builder()
         .withName('UI Tests Core We.Retail / Chrome')
         .withInstance(author)
         .withBrowser('CHROME')
-        .withFilter('aem.samplecontent.we-retail.tests')
         .withHobbesHubUrl(MINION_HUB_URL)
-        .withRunOptions(UI_TEST_OPTIONS)
-        .withHobbesConfig(NUM_OF_RETRIES)
+        .withRunInstructions('main/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
         .build()
 
 /* --------------------------------------------------------------------- */
