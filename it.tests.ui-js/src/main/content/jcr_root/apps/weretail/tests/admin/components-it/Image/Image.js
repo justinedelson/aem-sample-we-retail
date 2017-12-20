@@ -103,9 +103,7 @@
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/_jcr_content/root/responsivegrid/image.img."][alt="' + originalDamDescription + '"][title="' + originalDamTitle +
-                    '"]',
-                    '#ContentFrame').size() === 1;
+                    '/jcr%3acontent/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1;
             });
     };
 
@@ -130,7 +128,7 @@
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/_jcr_content/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]',
+                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]',
                     "#ContentFrame").size() === 1;
             });
     };
@@ -148,7 +146,7 @@
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/_jcr_content/root/responsivegrid/image.img."][alt="' + originalDamDescription + '"]', '#ContentFrame').size() === 1
+                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + originalDamDescription + '"]', '#ContentFrame').size() === 1
                     && h.find(titleSelector + ':contains("' + originalDamTitle + '")', '#ContentFrame').size() === 1;
             });
     };
