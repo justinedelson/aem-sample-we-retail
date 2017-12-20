@@ -20,7 +20,6 @@
     var c = window.CQ.WeRetailIT.commons;
     var image = window.CQ.WeRetailIT.Image;
 
-    var testPage = c.testPage+".html"
     var testImagePath = "/content/dam/we-retail-screens/we-retail-instore-logo.png";
     var altText = "Return to Arkham";
     var captionText = "The Last Guardian";
@@ -96,22 +95,17 @@
      */
     image.tcAddImage = function (tcExecuteBeforeTest, tcExecuteAfterTest) {
         return new h.TestCase('Add an Image', {
-            execBefore: tcExecuteBeforeTest ,
-            execAfter: tcExecuteAfterTest
-        })
-
-            // open the config dialog
-            //.execTestCase(c.tcOpenConfigureDialog("cmpPath"))
-            // set image and alt text
-            //.execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
-            // save the dialog
+                execBefore: tcExecuteBeforeTest ,
+                execAfter: tcExecuteAfterTest
+            }
+        )
             .execTestCase(image.tcDragImage())
             .execTestCase(c.tcSaveConfigureDialog)
-
-            // verify that the surrounding script tag has been removed and the img tag is there
             .asserts.isTrue(function () {
-                return h.find("img[src*='"+ h.param("testPagePath")() +
-                        "/_jcr_content/root/responsivegrid/image.img.']","#ContentFrame").size() === 1;
+                return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
+                    '/_jcr_content/root/responsivegrid/image.img."][alt="' + originalDamDescription + '"][title="' + originalDamTitle +
+                    '"]',
+                    '#ContentFrame').size() === 1;
             });
     };
 
@@ -135,9 +129,9 @@
             .fillInput("input[name='./jcr:title']", captionText)
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
-                return h.find('img[src*="' + h.param('testPagePath')() +
-                        '/_jcr_content/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]',
-                        "#ContentFrame").size() === 1;
+                return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
+                    '/_jcr_content/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]',
+                    "#ContentFrame").size() === 1;
             });
     };
 
@@ -153,8 +147,9 @@
             .click('input[name="./displayPopupTitle"')
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
-                return h.find('img[src*="' + h.param('testPagePath')() +
-                        '/_jcr_content/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1
+                return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
+                    '/_jcr_content/root/responsivegrid/image.img."][alt="' + originalDamDescription + '"]', '#ContentFrame').size() === 1
+                    && h.find(titleSelector + ':contains("' + originalDamTitle + '")', '#ContentFrame').size() === 1;
             });
     };
 
