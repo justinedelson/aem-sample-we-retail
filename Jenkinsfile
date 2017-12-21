@@ -37,6 +37,10 @@ Module weRetailAll = new Module.Builder('main/all')
         .build()
 
 // core component modules
+Module componentsJUnit = new Module.Builder('core-comp/testing/junit/core')
+        .withArtifact('jar', 'core-comp/testing/junit/core/target/core.wcm.components.junit.core-*.jar', true)
+        .build()
+
 Module componentsCore = new Module.Builder('core-comp/bundles/core')
         .withArtifact('jar', 'core-comp/bundles/core/target/core.wcm.components.sandbox.bundle-*.jar', true)
         .build()
@@ -45,9 +49,6 @@ Module componentsContent = new Module.Builder('core-comp/content')
         .build()
 Module componentsConfig = new Module.Builder('core-comp/config')
         .withArtifact('zip', 'core-comp/config/target/core.wcm.components.sandbox.config-*.zip', true)
-        .build()
-Module componentsJUnit = new Module.Builder('core-comp/testing/junit/core')
-        .withArtifact('jar', 'core-comp/testing/junit/core/target/core.wcm.components.junit.core-*.jar', true)
         .build()
 
 // commerce test modules
