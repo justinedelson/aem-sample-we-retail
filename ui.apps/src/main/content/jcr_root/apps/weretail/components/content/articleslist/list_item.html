@@ -14,8 +14,8 @@
     limitations under the License.
 */-->
 <template data-sly-template.default="${@ renderItem}">
-    <sly  data-sly-resource="${ renderItem.path @ resourceType='weretail/components/content/articleslist/articleteaser', selectors='short'}"></sly>
+    <sly  data-sly-resource="${ renderItem.path @ resourceType='weretail/components/content/articleslist/articleteaser', selectors='short', wcmmode='disabled'}"></sly>
 </template>
 <template data-sly-template.teaser="${@ renderItem}">
-    <sly data-sly-resource="${ renderItem.path @ resourceType='weretail/components/content/articleslist/articleteaser'}"></sly>
+    <sly data-sly-resource="${ renderItem.path @ resourceType='weretail/components/content/articleslist/articleteaser', wcmmode='disabled'}"></sly>
 </template>
