@@ -46,6 +46,9 @@ Module componentsContent = new Module.Builder('core-comp/content')
 Module componentsConfig = new Module.Builder('core-comp/config')
         .withArtifact('zip', 'core-comp/config/target/core.wcm.components.sandbox.config-*.zip', true)
         .build()
+Module componentsJUnit = new Module.Builder('core-comp/testing/junit/core')
+        .withArtifact('jar', 'core-comp/testing/junit/core/target/core.wcm.components.junit.core-*.jar', true)
+        .build()
 
 // commerce test modules
 Module commerceItHttp = new Module.Builder('commerce/it/http')
@@ -173,7 +176,7 @@ config.getElasticsearchReporting().setEnable(true)
 // the modules to build
 config.setModules([componentsCore, componentsContent, componentsConfig,
                    weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi
-                   , commerceItHttp])
+                   , commerceItHttp,componentsJUnit])
 
 // the tests to execute
 config.setTestRuns([coreCompUIChrome, weretailIt])
