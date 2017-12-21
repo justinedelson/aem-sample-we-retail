@@ -146,8 +146,7 @@
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + originalDamDescription + '"]', '#ContentFrame').size() === 1
-                    && h.find(titleSelector + ':contains("' + originalDamTitle + '")', '#ContentFrame').size() === 1;
+                    '/jcr%3acontent/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1
             });
     };
 
