@@ -880,10 +880,10 @@
             .click(function () {
                 return h.find("coral-anchorlist coral-list-item-content").eq(0)
             })
-            .click(".coral3-Button--warning:contains('Suspend')")
+            .click(".coral3-Button--warning:contains('Suspend')",{after:1000})
 
             //check the Resume button
-            .click("coral-tab-label:contains('Live Copy')", {after: 1000})
+            .click("coral-tab-label:contains('Live Copy')", {after: 2000})
             .click("coral-actionbar-item:contains('Resume') button", {after: 5000})
             .click(".coral3-Button--warning:contains('Resume')", {after: 1000})
 

@@ -11,10 +11,6 @@
         "value": true,
         "type": "exclude"
       },
-      "ignoreOn63": {
-        "value": true,
-        "type": "exclude"
-      },
       "flaky": {
         "value": true,
         "type": "exclude"
