@@ -39,8 +39,8 @@ Module weRetailAll = new Module.Builder('main/all')
 // core component modules
 Module componentsJUnit = new Module.Builder('core-comp/testing/junit/core')
         .withArtifact('jar', 'core-comp/testing/junit/core/target/core.wcm.components.junit.core-*.jar', true)
+        .withConsumer(componentsCore)
         .build()
-
 Module componentsCore = new Module.Builder('core-comp/bundles/core')
         .withArtifact('jar', 'core-comp/bundles/core/target/core.wcm.components.sandbox.bundle-*.jar', true)
         .build()
