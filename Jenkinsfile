@@ -174,9 +174,9 @@ config.setSonarReleasePrefix('WE-RETAIL-SAMPLE-SPROUT-PRIVATE_MASTER-')
 config.getElasticsearchReporting().setEnable(true)
 
 // the modules to build
-config.setModules([componentsCore, componentsContent, componentsConfig,
+config.setModules([componentsJUnit,componentsCore, componentsContent, componentsConfig,
                    weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi
-                   , commerceItHttp,componentsJUnit])
+                   , commerceItHttp])
 
 // the tests to execute
 config.setTestRuns([coreCompUIChrome, weretailIt])
