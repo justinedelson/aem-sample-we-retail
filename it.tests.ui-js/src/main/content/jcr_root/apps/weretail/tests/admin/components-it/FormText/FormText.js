@@ -602,7 +602,7 @@
 
             //Check if input field is set to read only
             .asserts.isTrue(function () {
-                return h.find("textarea[name='" + elemName + "'][data-cmp-required='" + requiredMessage + "']",
+                return h.find("[data-cmp-required-message='" + requiredMessage + "'] textarea[name='" + elemName + "']",
                         "#ContentFrame").size() == 1;
             });
     };
@@ -631,7 +631,7 @@
 
             //Check if input field is set to read only
             .asserts.isTrue(function () {
-                return h.find("input[name='" + elemName + "'][data-cmp-constraint='" + requiredMessage + "']",
+                return h.find("[data-cmp-constraint-message='" + requiredMessage + "'] input[name='" + elemName + "']",
                         "#ContentFrame").size() == 1;
             });
     };
