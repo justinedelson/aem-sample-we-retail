@@ -47,8 +47,7 @@
                     jpegQuality="85"
                     unsharpMaskAmount="0"
                     unsharpMaskRadius="0"
-                    unsharpMaskThreshold="0"
-                    width="300"/>
+                    unsharpMaskThreshold="0"/>
                 <assets
                     cq:lastRolledout="{Date}2017-02-08T11:58:20.772+01:00"
                     cq:lastRolledoutBy="admin"

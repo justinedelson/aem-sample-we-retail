@@ -43,7 +43,6 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="commerce/components/product/image"
                     fileReference="/content/dam/we-retail/en/products/activities/biking/source/Chain Tool.jpg"
-                    height="300"
                     jpegQuality="85"
                     unsharpMaskAmount="0"
                     unsharpMaskRadius="0"
