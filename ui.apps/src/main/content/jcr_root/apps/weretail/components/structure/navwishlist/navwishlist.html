@@ -59,7 +59,7 @@
                                       action="${currentPage.path @ extension = 'html', selectors='commerce.smartlist.management'}"
                                       data-sly-use.hapiAddToCartForm="${'org.apache.sling.hapi.sightly.HApiUse' @ type='/apps/public/weretail/hapi_types/addcartentryform'}"
                                       data-sly-attribute="${hapiAddToCartForm.itemtype}" data-rel="addCartEntryForm">
-                                    <input type="hidden" name="redirect" value="${inheritedPageProperties['cq:cartPage'] @ extension = 'html'}" data-sly-attribute="${hapiAddToCartForm.itemprop.redirectPath}">
+                                    <input type="hidden" name="redirect" value="${inheritedPageProperties['cq:cartPage'] @ prependPath = request.contextPath, extension = 'html'}" data-sly-attribute="${hapiAddToCartForm.itemprop.redirectPath}">
                                     <input type="hidden" name=":operation" value="addToCart">
                                     <input type="hidden" name="smartlist-path" v-model="smartlist.path" data-sly-attribute="${hapiAddToCartForm.itemprop.smartlistPath}"/>
                                     <input type="hidden" name="product-path" v-model="smartlistEntry.path" data-sly-attribute="${hapiAddToCartForm.itemprop.productPath}"/>
@@ -91,7 +91,7 @@
                                     <input type="hidden" name="_charset_" value="utf-8"/>
                                     <input type="hidden" name="smartlist-path" v-model="smartlist.path"/>
                                     <input type="hidden" name="product-path" v-model="smartlistEntry.path"/>
-                                    <input type="hidden" name="redirect" value="${currentPage.path @ extension = 'html'}"/>
+                                    <input type="hidden" name="redirect" value="${currentPage.path @ prependPath = request.contextPath, extension = 'html'}"/>
                                 </form>
                             </div>
                             <div class="we-Smartlist-entryPrice" data-sly-attribute="${hapiWishlistEntry.itemprop.price}">
@@ -101,7 +101,7 @@
                         <div v-if="smartlist.privacy == 'PERSONAL'" class="we-Smartlist-remove">
                             <form method="POST" v-on:click.prevent="updateSmartlist"
                                   action="${currentPage.path @ extension = 'html', selectors='commerce.smartlist.management'}">
-                                <input type="hidden" name="redirect" value="${currentPage.path @ extension = 'html'}"/>
+                                <input type="hidden" name="redirect" value="${currentPage.path @ prependPath = request.contextPath, extension = 'html'}"/>
                                 <input type="hidden" name=":operation" value="deleteSmartListEntry"/>
                                 <input type="hidden" name="_charset_" value="utf-8"/>
                                 <input type="hidden" name="smartlist-path" v-model="smartlist.path"/>
@@ -120,7 +120,7 @@
                               action="${currentPage.path @ extension = 'html', selectors='commerce.smartlist.management'}"
                               data-sly-use.hapiAddAllToCartForm="${'org.apache.sling.hapi.sightly.HApiUse' @ type='/apps/public/weretail/hapi_types/addcartentryform'}"
                               data-sly-attribute="${hapiAddAllToCartForm.itemtype}" data-rel="addCartEntryForm">
-                            <input type="hidden" name="redirect" value="${inheritedPageProperties['cq:cartPage'] @ extension = 'html'}" data-sly-attribute="${hapiAddAllToCartForm.itemprop.redirectPath}">
+                            <input type="hidden" name="redirect" value="${inheritedPageProperties['cq:cartPage'] @ prependPath = request.contextPath, extension = 'html'}"  data-sly-attribute="${hapiAddAllToCartForm.itemprop.redirectPath}">
                             <input type="hidden" name=":operation" value="addToCart">
                             <input type="hidden" name="smartlist-path" v-model="smartlist.path" data-sly-attribute="${hapiAddAllToCartForm.itemprop.smartlistPath}"/>
                             <input type="hidden" name="_charset_" value="utf-8">
