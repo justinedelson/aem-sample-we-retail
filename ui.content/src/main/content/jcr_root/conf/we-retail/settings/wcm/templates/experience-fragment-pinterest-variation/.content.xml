@@ -6,6 +6,6 @@
         cq:lastModifiedBy="admin"
         cq:templateType="/conf/we-retail/settings/wcm/template-types/empty-experience-fragment"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Experience Fragment Facebook Variation"
+        jcr:title="Experience Fragment Pinterest Variation"
         status="enabled"/>
 </jcr:root>
