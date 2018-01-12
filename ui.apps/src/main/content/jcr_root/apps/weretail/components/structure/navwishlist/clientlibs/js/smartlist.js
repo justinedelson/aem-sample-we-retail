@@ -92,8 +92,6 @@
                     return;
                 }
                 var $form = $(event.target).closest('form');
-                var $redirectField = $form.find('input[name="redirect"]');
-                $redirectField.val(Granite.HTTP.getContextPath() + $redirectField.val());
                 $.ajax({
                     url: $form.attr('action'),
                     data: $form.serialize(),
@@ -110,8 +108,6 @@
             },
             onAddToCartSubmit: function(event) {
                 var $form = $(event.target).closest('form');
-                var $redirectField = $form.find('input[name="redirect"]');
-                $redirectField.val(Granite.HTTP.getContextPath() + $redirectField.val());
                 $.ajax({
                     url: $form.attr('action'),
                     data: $form.serialize(),
