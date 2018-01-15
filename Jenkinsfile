@@ -6,6 +6,28 @@ import com.adobe.qe.evergreen.sprout.model.*
 
 String MINION_HUB_URL = 'http://qa-bsl-minion-hub.corp.adobe.com:8811'
 
+TEST_GROUP_1 =  "aem.samplecontent.we-retail.tests.formhidden," +
+        "aem.samplecontent.we-retail.tests.formoptions," +
+        "aem.samplecontent.we-retail.tests.formcomponents," +
+        "aem.samplecontent.we-retail.tests.breadcrumb," +
+        "aem.samplecontent.we-retail.tests.teaser"
+
+TEST_GROUP_2 =  "aem.samplecontent.we-retail.tests.formtext," +
+        "aem.samplecontent.we-retail.tests.languagenavigation," +
+        "aem.samplecontent.we-retail.tests.text," +
+        "aem.samplecontent.we-retail.tests.formbutton"
+
+TEST_GROUP_3 =  "aem.samplecontent.we-retail.tests.image," +
+        "aem.samplecontent.we-retail.tests.list," +
+        "aem.samplecontent.we-retail.tests.formcontainer"
+
+TEST_GROUP_4 =  "aem.samplecontent.we-retail.tests.navigation," +
+        "aem.samplecontent.we-retail.tests.page," +
+        "aem.samplecontent.we-retail.tests.search"
+
+TEST_GROUP_5 =  "aem.samplecontent.we-retail.tests.check-content"
+
+
 /* --------------------------------------------------------------------- */
 /*                                MODULES                                */
 /* --------------------------------------------------------------------- */
@@ -139,14 +161,54 @@ IntegrationTestRun weretailIt = new IntegrationTestRun.Builder()
 /* --------------------------------------------------------------------- */
 /*                                UI TESTS                               */
 /* --------------------------------------------------------------------- */
-UITestRun coreCompUIChrome = new UITestRun.Builder()
-        .withName('UI Tests Core We.Retail / Chrome')
+UITestRun coreCompUIChromePart1 = new UITestRun.Builder()
+        .withName('Test Group 1 / Chrome')
         .withInstance(author)
         .withBrowser('CHROME')
         .withHobbesHubUrl(MINION_HUB_URL)
-        .withRunInstructions('main/UITestRunOptions.json')
+        .withRunInstructions('main/jenkinsfiles/UITestRunOptions.json')
         .withWaitForMinionMinutes(10)
-        .withFilter("aem.samplecontent.we-retail.tests")
+        .withFilter(TEST_GROUP_1)
+        .build()
+
+UITestRun coreCompUIChromePart2 = new UITestRun.Builder()
+        .withName('Test Group 2 / Chrome')
+        .withInstance(author)
+        .withBrowser('CHROME')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/jenkinsfiles/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withFilter(TEST_GROUP_2)
+        .build()
+
+UITestRun coreCompUIChromePart3 = new UITestRun.Builder()
+        .withName('Test Group 3 / Chrome')
+        .withInstance(author)
+        .withBrowser('CHROME')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/jenkinsfiles/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withFilter(TEST_GROUP_3)
+        .build()
+
+UITestRun coreCompUIChromePart4 = new UITestRun.Builder()
+        .withName('Test Group 4 / Chrome')
+        .withInstance(author)
+        .withBrowser('CHROME')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/jenkinsfiles/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withFilter(TEST_GROUP_4)
+        .build()
+
+UITestRun coreCompUIChromePart5 = new UITestRun.Builder()
+        .withName('Test Group 5 / Chrome')
+        .withInstance(author)
+        .withBrowser('CHROME')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/jenkinsfiles/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withFilter(TEST_GROUP_5)
         .build()
 
 /* --------------------------------------------------------------------- */
@@ -180,7 +242,8 @@ config.setModules([componentsJUnit,componentsCore, componentsContent, components
                    , commerceItHttp])
 
 // the tests to execute
-config.setTestRuns([coreCompUIChrome, weretailIt])
+config.setTestRuns([coreCompUIChromePart1,coreCompUIChromePart2,coreCompUIChromePart3,coreCompUIChromePart4,
+                    coreCompUIChromePart5, weretailIt])
 
 // Releases
 config.setReleaseCriteria([new Branch(/^PRIVATE_master$/)])
