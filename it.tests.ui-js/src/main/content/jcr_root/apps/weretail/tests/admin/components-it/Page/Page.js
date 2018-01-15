@@ -115,9 +115,9 @@
             //add two tags
             .click("foundation-autocomplete.cq-ui-tagfield button")
             .click("coral-columnview-item-content[title='TestTags']")
-            .click("coral-columnview-item:contains('TestTag1') coral-columnview-item-thumbnail")
-            .click("coral-columnview-item:contains('TestTag2') coral-columnview-item-thumbnail")
-            .click("button.granite-pickerdialog-submit")
+            .click("coral-columnview-item:contains('TestTag1') coral-columnview-item-thumbnail",{after:1000})
+            .click("coral-columnview-item:contains('TestTag2') coral-columnview-item-thumbnail",{after:1000})
+            .click("button.granite-pickerdialog-submit",{after:1000})
             //check if tags were added
             .assert.exist("coral-taglist[name='./cq:tags'] coral-tag:contains('" + tag1 + "')")
             .assert.exist("coral-taglist[name='./cq:tags'] coral-tag:contains('" + tag2 + "')")

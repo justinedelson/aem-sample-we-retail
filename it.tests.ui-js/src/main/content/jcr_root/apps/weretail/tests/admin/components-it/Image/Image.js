@@ -103,7 +103,7 @@
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/jcr%3acontent/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1;
+                    '/_jcr_content/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1;
             });
     };
 
