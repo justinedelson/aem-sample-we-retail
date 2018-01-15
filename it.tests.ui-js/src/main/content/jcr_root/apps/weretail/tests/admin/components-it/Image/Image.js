@@ -70,7 +70,7 @@
                 c.openSidePanel(done);
             })
             // search the image
-            .fillInput("input#assetsearch",imageName,{after:1000})
+            .fillInput("input#assetsearch",imageName,{after:3000})
 
             .cui.dragdrop('coral-card.cq-draggable[data-path="' + testImagePath + '"]', 'coral-fileupload[name="./file"')
             .execTestCase(c.closeSidePanel);
@@ -84,7 +84,7 @@
             .execFct(function (opts,done) {c.openSidePanel(done);})
 
             // search the image
-            .fillInput("input#assetsearch",imageName,{after:1000})
+            .fillInput("input#assetsearch",imageName,{after:3000})
 
             // drag'n'drop the test image
             .cui.dragdrop("coral-card.cq-draggable[data-path='" + testImagePath + "']","coral-fileupload[name='./file'")
@@ -160,8 +160,9 @@
 
     image.tcSetImageAsDecorative = function(tcExecuteBeforeTest, tcExecuteAfterTest) {
         return new h.TestCase('Set Image as decorative',{
-            execBefore: tcExecuteBeforeTest,
-            execAfter: tcExecuteAfterTest}
+                execBefore: tcExecuteBeforeTest,
+                execAfter: tcExecuteAfterTest
+            }
         )
             .execTestCase(image.tcDragImage())
             .click('coral-tab-label:contains("Metadata")')
@@ -185,7 +186,7 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
-            // open the config dialog
+        // open the config dialog
             .execTestCase(c.tcOpenConfigureDialog("cmpPath"))
             // set image and alt text
             .execTestCase(image.tcSetMinimalProps(tcExecuteBeforeTest, tcExecuteAfterTest))
