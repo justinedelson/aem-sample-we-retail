@@ -20,7 +20,8 @@
     var c = window.CQ.WeRetailIT.commons;
     var image = window.CQ.WeRetailIT.Image;
 
-    var testImagePath = "/content/dam/we-retail-screens/we-retail-instore-logo.png";
+    var imageName = "running_3.jpg";
+    var testImagePath = "/content/dam/we-retail/en/activities/running/" + imageName;
     var altText = "Return to Arkham";
     var captionText = "The Last Guardian";
     var originalDamTitle       = 'Beach house';
@@ -68,6 +69,9 @@
             .execFct(function (opts, done) {
                 c.openSidePanel(done);
             })
+            // search the image
+            .fillInput("input#assetsearch",imageName,{after:1000})
+
             .cui.dragdrop('coral-card.cq-draggable[data-path="' + testImagePath + '"]', 'coral-fileupload[name="./file"')
             .execTestCase(c.closeSidePanel);
     };
@@ -78,6 +82,10 @@
     image.tcSetMinimalProps = function(tcExecuteBeforeTest, tcExecuteAfterTest) {
         return new TestCase("Set Image and Alt Text")
             .execFct(function (opts,done) {c.openSidePanel(done);})
+
+            // search the image
+            .fillInput("input#assetsearch",imageName,{after:1000})
+
             // drag'n'drop the test image
             .cui.dragdrop("coral-card.cq-draggable[data-path='" + testImagePath + "']","coral-fileupload[name='./file'")
             //open the Metadata tab
@@ -103,7 +111,7 @@
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/_jcr_content/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1;
+                    '/jcr%3acontent/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1;
             });
     };
 
