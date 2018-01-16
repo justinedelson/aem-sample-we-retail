@@ -15,6 +15,7 @@ TEST_GROUP_1 =  "aem.samplecontent.we-retail.tests.formhidden," +
 TEST_GROUP_2 =  "aem.samplecontent.we-retail.tests.formtext," +
         "aem.samplecontent.we-retail.tests.languagenavigation," +
         "aem.samplecontent.we-retail.tests.text," +
+        "aem.samplecontent.we-retail.tests.title," +
         "aem.samplecontent.we-retail.tests.formbutton"
 
 TEST_GROUP_3 =  "aem.samplecontent.we-retail.tests.image," +
