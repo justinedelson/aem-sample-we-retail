@@ -75,7 +75,7 @@
         computed: {
             orderPromotions: function () {
                 if (this.cartPromotions) {
-                    this.cartPromotions.filter(function (promotion) {
+                    return this.cartPromotions.filter(function (promotion) {
                         return promotion.cartEntryIndex === undefined || promotion.cartEntryIndex === null;
                     })
                 } else {
