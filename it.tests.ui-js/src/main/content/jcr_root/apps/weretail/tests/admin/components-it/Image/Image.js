@@ -70,7 +70,7 @@
                 c.openSidePanel(done);
             })
             // search the image
-            .fillInput("input#assetsearch",imageName,{after:3000})
+            .fillInput("input#assetsearch",imageName,{after:5000})
 
             .cui.dragdrop('coral-card.cq-draggable[data-path="' + testImagePath + '"]', 'coral-fileupload[name="./file"')
             .execTestCase(c.closeSidePanel);
@@ -84,7 +84,7 @@
             .execFct(function (opts,done) {c.openSidePanel(done);})
 
             // search the image
-            .fillInput("input#assetsearch",imageName,{after:3000})
+            .fillInput("input#assetsearch",imageName,{after:5000})
 
             // drag'n'drop the test image
             .cui.dragdrop("coral-card.cq-draggable[data-path='" + testImagePath + "']","coral-fileupload[name='./file'")
