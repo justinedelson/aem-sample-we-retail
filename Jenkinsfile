@@ -1,5 +1,5 @@
 #!groovy
-@Library(['com.adobe.qe.evergreen.sprout@issue/fixing-testpath'])
+@Library(['com.adobe.qe.evergreen.sprout'])
 import com.adobe.qe.evergreen.sprout.*
 import com.adobe.qe.evergreen.sprout.criteria.*
 import com.adobe.qe.evergreen.sprout.model.*
