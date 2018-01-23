@@ -182,9 +182,9 @@ IntegrationTestRun weretailIt = new IntegrationTestRun.Builder()
 /* --------------------------------------------------------------------- */
 
 // define criterias based on Jenkins params to decide what browsers to use for UI testing
-Criteria FIREFOX_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> return jenkins.env.RUN_ON_FIREFOX.toBoolean() == null ? false : jenkins.env.RUN_ON_FIREFOX.toBoolean()}
-Criteria CHROME_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> return jenkins.env.RUN_ON_CHROME.toBoolean() == null ? true : jenkins.env.RUN_ON_CHROME.toBoolean()}
-Criteria EDGE_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> return jenkins.env.RUN_ON_EDGE.toBoolean() == null ? false: jenkins.env.RUN_ON_EDGE.toBoolean()}
+Criteria FIREFOX_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> return jenkins.env.RUN_ON_FIREFOX == null ? false : jenkins.env.RUN_ON_FIREFOX.toBoolean()}
+Criteria CHROME_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> return jenkins.env.RUN_ON_CHROME == null ? true : jenkins.env.RUN_ON_CHROME.toBoolean()}
+Criteria EDGE_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> return jenkins.env.RUN_ON_EDGE == null ? false: jenkins.env.RUN_ON_EDGE.toBoolean()}
 
 // Run against chrome
 UITestRun coreCompUIChromePart1 = new UITestRun.Builder()
