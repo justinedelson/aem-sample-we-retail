@@ -20,8 +20,8 @@
     var c = window.CQ.WeRetailIT.commons;
     var image = window.CQ.WeRetailIT.Image;
 
-    var imageName = "running_3.jpg";
-    var testImagePath = "/content/dam/we-retail/en/activities/running/" + imageName;
+    var imageName = "we-retail-instore-logo.png";
+    var testImagePath = "/content/dam/we-retail-screens/" + imageName;
     var altText = "Return to Arkham";
     var captionText = "The Last Guardian";
     var originalDamTitle       = 'Beach house';
