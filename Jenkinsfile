@@ -1,8 +1,10 @@
 #!groovy
 @Library(['com.adobe.qe.evergreen.sprout'])
 import com.adobe.qe.evergreen.sprout.*
+import com.adobe.qe.evergreen.sprout.config.*
 import com.adobe.qe.evergreen.sprout.criteria.*
 import com.adobe.qe.evergreen.sprout.model.*
+import com.adobe.qe.evergreen.sprout.command.*
 
 String MINION_HUB_URL = 'http://qa-bsl-minion-hub.corp.adobe.com:8811'
 
@@ -28,6 +30,32 @@ TEST_GROUP_4 =  "aem.samplecontent.we-retail.tests.navigation," +
 
 TEST_GROUP_5 =  "aem.samplecontent.we-retail.tests.check-content"
 
+// Define Jenkins Build Paramaters so we can select what browser to use for UI testing
+BuildVariable RUN_ON_CHROME = new BuildVariable()
+        .withName('RUN_ON_CHROME')
+        .withJenkinsClass("BooleanParameterDefinition")
+        .withDefaultValue(true)
+        .withDescription('Runs UI tests against Chrome, enabled by default')
+        .build()
+
+BuildVariable RUN_ON_FIREFOX = new BuildVariable()
+        .withName('RUN_ON_FIREFOX')
+        .withJenkinsClass("BooleanParameterDefinition")
+        .withDefaultValue(false)
+        .withDescription('Runs UI tests against Firefox, disabled by default')
+        .build()
+
+BuildVariable RUN_ON_EDGE = new BuildVariable()
+        .withName('RUN_ON_EDGE')
+        .withJenkinsClass("BooleanParameterDefinition")
+        .withDefaultValue(false)
+        .withDescription('Runs UI tests against Edge, disabled by default')
+        .build()
+
+// add them to the list of build parameters
+BuildVariables.BUILD_VARIABLES.add(RUN_ON_CHROME)
+BuildVariables.BUILD_VARIABLES.add(RUN_ON_EDGE)
+BuildVariables.BUILD_VARIABLES.add(RUN_ON_FIREFOX)
 
 /* --------------------------------------------------------------------- */
 /*                                MODULES                                */
@@ -152,6 +180,13 @@ IntegrationTestRun weretailIt = new IntegrationTestRun.Builder()
 /* --------------------------------------------------------------------- */
 /*                                UI TESTS                               */
 /* --------------------------------------------------------------------- */
+
+// define criterias based on Jenkins params to decide what browsers to use for UI testing
+Criteria FIREFOX_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> return jenkins.env.RUN_ON_FIREFOX.toBoolean() }
+Criteria CHROME_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> return jenkins.env.RUN_ON_CHROME.toBoolean() }
+Criteria EDGE_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> return jenkins.env.RUN_ON_EDGE.toBoolean() }
+
+// Run against chrome
 UITestRun coreCompUIChromePart1 = new UITestRun.Builder()
         .withName('Test Group 1 / Chrome')
         .withInstance(author)
@@ -160,6 +195,7 @@ UITestRun coreCompUIChromePart1 = new UITestRun.Builder()
         .withRunInstructions('main/UITestRunOptions.json')
         .withWaitForMinionMinutes(10)
         .withFilter(TEST_GROUP_1)
+        .withCriteria(CHROME_CRITERIA)
         .build()
 
 UITestRun coreCompUIChromePart2 = new UITestRun.Builder()
@@ -169,6 +205,7 @@ UITestRun coreCompUIChromePart2 = new UITestRun.Builder()
         .withHobbesHubUrl(MINION_HUB_URL)
         .withRunInstructions('main/UITestRunOptions.json')
         .withWaitForMinionMinutes(10)
+        .withCriteria(CHROME_CRITERIA)
         .withFilter(TEST_GROUP_2)
         .build()
 
@@ -179,6 +216,7 @@ UITestRun coreCompUIChromePart3 = new UITestRun.Builder()
         .withHobbesHubUrl(MINION_HUB_URL)
         .withRunInstructions('main/UITestRunOptions.json')
         .withWaitForMinionMinutes(10)
+        .withCriteria(CHROME_CRITERIA)
         .withFilter(TEST_GROUP_3)
         .build()
 
@@ -189,6 +227,7 @@ UITestRun coreCompUIChromePart4 = new UITestRun.Builder()
         .withHobbesHubUrl(MINION_HUB_URL)
         .withRunInstructions('main/UITestRunOptions.json')
         .withWaitForMinionMinutes(10)
+        .withCriteria(CHROME_CRITERIA)
         .withFilter(TEST_GROUP_4)
         .build()
 
@@ -199,6 +238,119 @@ UITestRun coreCompUIChromePart5 = new UITestRun.Builder()
         .withHobbesHubUrl(MINION_HUB_URL)
         .withRunInstructions('main/UITestRunOptions.json')
         .withWaitForMinionMinutes(10)
+        .withCriteria(CHROME_CRITERIA)
+        .withFilter(TEST_GROUP_5)
+        .build()
+
+// Run against firefox
+UITestRun coreCompUIFirefoxPart1 = new UITestRun.Builder()
+        .withName('Test Group 1 / Firefox')
+        .withInstance(author)
+        .withBrowser('FIREFOX')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withFilter(TEST_GROUP_1)
+        .withCriteria(FIREFOX_CRITERIA)
+        .build()
+
+UITestRun coreCompUIFirefoxPart2 = new UITestRun.Builder()
+        .withName('Test Group 2 / Firefox')
+        .withInstance(author)
+        .withBrowser('FIREFOX')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withCriteria(FIREFOX_CRITERIA)
+        .withFilter(TEST_GROUP_2)
+        .build()
+
+UITestRun coreCompUIFirefoxPart3 = new UITestRun.Builder()
+        .withName('Test Group 3 / Firefox')
+        .withInstance(author)
+        .withBrowser('FIREFOX')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withCriteria(FIREFOX_CRITERIA)
+        .withFilter(TEST_GROUP_3)
+        .build()
+
+UITestRun coreCompUIFirefoxPart4 = new UITestRun.Builder()
+        .withName('Test Group 4 / Firefox')
+        .withInstance(author)
+        .withBrowser('FIREFOX')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withCriteria(FIREFOX_CRITERIA)
+        .withFilter(TEST_GROUP_4)
+        .build()
+
+UITestRun coreCompUIFirefoxPart5 = new UITestRun.Builder()
+        .withName('Test Group 5 / Firefox')
+        .withInstance(author)
+        .withBrowser('FIREFOX')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withCriteria(FIREFOX_CRITERIA)
+        .withFilter(TEST_GROUP_5)
+        .build()
+
+// Run against edge
+UITestRun coreCompUIEdgePart1 = new UITestRun.Builder()
+        .withName('Test Group 1 / Edge')
+        .withInstance(author)
+        .withBrowser('EDGE')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withFilter(TEST_GROUP_1)
+        .withCriteria(EDGE_CRITERIA)
+        .build()
+
+UITestRun coreCompUIEdgePart2 = new UITestRun.Builder()
+        .withName('Test Group 2 / Edge')
+        .withInstance(author)
+        .withBrowser('EDGE')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withCriteria(EDGE_CRITERIA)
+        .withFilter(TEST_GROUP_2)
+        .build()
+
+UITestRun coreCompUIEdgePart3 = new UITestRun.Builder()
+        .withName('Test Group 3 / Edge')
+        .withInstance(author)
+        .withBrowser('EDGE')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withCriteria(EDGE_CRITERIA)
+        .withFilter(TEST_GROUP_3)
+        .build()
+
+UITestRun coreCompUIEdgePart4 = new UITestRun.Builder()
+        .withName('Test Group 4 / Edge')
+        .withInstance(author)
+        .withBrowser('EDGE')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withCriteria(EDGE_CRITERIA)
+        .withFilter(TEST_GROUP_4)
+        .build()
+
+UITestRun coreCompUIEdgePart5 = new UITestRun.Builder()
+        .withName('Test Group 5 / Edge')
+        .withInstance(author)
+        .withBrowser('EDGE')
+        .withHobbesHubUrl(MINION_HUB_URL)
+        .withRunInstructions('main/UITestRunOptions.json')
+        .withWaitForMinionMinutes(10)
+        .withCriteria(EDGE_CRITERIA)
         .withFilter(TEST_GROUP_5)
         .build()
 
@@ -233,7 +385,12 @@ config.setModules([weRetailAll, weRetailCore, weRetailUIContent, weRetailUIApps,
 
 // the tests to execute
 config.setTestRuns([coreCompUIChromePart1,coreCompUIChromePart2,coreCompUIChromePart3,coreCompUIChromePart4,
-                    coreCompUIChromePart5, weretailIt])
+                    coreCompUIChromePart5,
+                    coreCompUIFirefoxPart1,coreCompUIFirefoxPart2,coreCompUIFirefoxPart3,coreCompUIFirefoxPart4,
+                    coreCompUIFirefoxPart5,
+                    coreCompUIEdgePart1,coreCompUIEdgePart2,coreCompUIEdgePart3,coreCompUIEdgePart4,
+                    coreCompUIEdgePart5,
+                    weretailIt])
 
 // Releases
 config.setReleaseCriteria([new Branch(/^PRIVATE_master$/)])
@@ -241,7 +398,9 @@ config.setQuickstartPRCriteria([new Branch(/^PRIVATE_master$/)])
 
 // don't ask for release at the end
 config.setEnableBuildPromotion(false)
-// use parameterized build on this branch when manual triggering to set release info
+
+// Enable use of Jenkins parameters on this branch when manual triggering it to set
+// release info and select which browser to use
 config.setParameterDefinitionCriteria([ new Branch(/^PRIVATE_master$/)])
 
 config.setGithubAccessTokenId('bf3be1a6-ad0a-43d9-86e2-93b30279060f')
@@ -249,11 +408,12 @@ config.setQuickstartPRConfig(quickstart)
 
 config.setEnableMailNotification(false)
 
-// Don't trigger sprout for release commits
+// Don't trigger sprout for release commits or any @releng commits
 config.setBuildCriteria([new Exclude(
         new AndCriteria()
-                .withCriteria(new GitCommitMessage(/^(.*)@releng \[maven\-scm\] :prepare(.*)$/))
+                .withCriteria(new GitCommitMessage(/^(.*)(@releng|NPR-84|@docs)(.*)$/))
                 .withCriteria(new Exclude(new ManuallyTriggered())))])
+
 // Slack notification
 config.setEnableSlackNotifications(true)
 config.setSlackChannel('#refsquad-sprouts')
