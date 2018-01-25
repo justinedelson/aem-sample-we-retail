@@ -175,7 +175,8 @@ IntegrationTestRun weretailIt = new IntegrationTestRun.Builder()
         .withBundle('commerce/it/http')
         .withInstance(author)
         .withInstance(publish)
-        // .withAdditionalParam('-Pcategory-weretail').build()
+        // .withAdditionalParam('-Pcategory-weretail')
+        .build()
 
 /* --------------------------------------------------------------------- */
 /*                                UI TESTS                               */
