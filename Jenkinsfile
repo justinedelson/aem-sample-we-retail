@@ -186,9 +186,8 @@ Criteria FIREFOX_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> retu
 Criteria CHROME_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> return jenkins.env.RUN_ON_CHROME == null ? true : jenkins.env.RUN_ON_CHROME.toBoolean()}
 Criteria EDGE_CRITERIA = { SproutEffectiveConfig conf, Object jenkins -> return jenkins.env.RUN_ON_EDGE == null ? false: jenkins.env.RUN_ON_EDGE.toBoolean()}
 
-// Run against chrome \n' +
-        'UITestRun coreCompUIChromePart1 = new UITestRun.Builder()\n' +
-        '        .withName(\'TestGroup 1 / Chrome')
+UITestRun coreCompUIChromePart1 = new UITestRun.Builder()
+        .withName('Test Group 1 / Chrome')
         .withInstance(author)
         .withBrowser('CHROME')
         .withHobbesHubUrl(MINION_HUB_URL)
