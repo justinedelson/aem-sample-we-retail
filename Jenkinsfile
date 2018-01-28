@@ -373,7 +373,7 @@ RepositoryConfig commerceRepo = new RepositoryConfig('git@git.corp.adobe.com:CQ/
         .withVCS('git')
         .build()	
 
-config.setAdditionalRepositories([coreComponentsRepo, commerceRepo])
+config.setRepositories([coreComponentsRepo, commerceRepo])
 
 // calculate code
 config.setComputeCoverage(true)
