@@ -1,10 +1,11 @@
 #!groovy
-@Library(['com.adobe.qe.evergreen.sprout'])
+@Library(['com.adobe.qe.evergreen.sprout@prerelease'])
 import com.adobe.qe.evergreen.sprout.*
 import com.adobe.qe.evergreen.sprout.config.*
 import com.adobe.qe.evergreen.sprout.criteria.*
 import com.adobe.qe.evergreen.sprout.model.*
 import com.adobe.qe.evergreen.sprout.command.*
+import com.adobe.qe.evergreen.sprout.vcs.RepositoryConfig
 
 String MINION_HUB_URL = 'http://qa-bsl-minion-hub.corp.adobe.com:8811'
 
@@ -360,10 +361,19 @@ UITestRun coreCompUIEdgePart5 = new UITestRun.Builder()
 SproutConfig config = new SproutConfig()
 
 // additional repo for getting the latest core component sources
-config.setAdditionalRepositories([
-        [url: 'git@git.corp.adobe.com:CQ/aem-core-wcm-components.git', branch: 'PRIVATE_master', folder: 'core-comp', vcs: 'git'],
-        [url: 'git@git.corp.adobe.com:CQ/commerce.git', branch: 'master', folder: 'commerce', vcs: 'git']
-])
+RepositoryConfig coreComponentsRepo = new RepositoryConfig('git@git.corp.adobe.com:CQ/aem-core-wcm-components.git')
+        .withDefaultBranch('PRIVATE_master')
+        .withFolder('core-comp')
+        .withVCS('git')
+        .build()
+
+RepositoryConfig commerceRepo = new RepositoryConfig('git@git.corp.adobe.com:CQ/commerce.git')
+	.withDefaultBranch('master')
+        .withFolder('commerce')
+        .withVCS('git')
+        .build()	
+
+config.setAdditionalRepositories([coreComponentsRepo, commerceRepo])
 
 // calculate code
 config.setComputeCoverage(true)
