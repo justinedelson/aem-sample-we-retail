@@ -10,10 +10,8 @@
         cq:lastModifiedBy="admin"
         jcr:primaryType="cq:PageContent"
         jcr:title="We.Retail"
-        sling:redirect="true"
-        sling:redirectStatus="{Long}302"
-        sling:resourceType="foundation/components/redirect"
-        redirectTarget="/content/we-retail/us/en">
+        sling:resourceType="weretail/components/structure/page"
+        cq:redirectTarget="/content/we-retail/us/en">
         <image
             jcr:primaryType="nt:unstructured"
             imageRotate="0">
