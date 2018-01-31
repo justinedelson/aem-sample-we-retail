@@ -394,20 +394,6 @@
 
             .click("a.navbar-brand", {expectNav: true})
             .asserts.location("/content/we-retail/us/en.html", true)
-
-            //Navigate to Snowboarding products category and back using the top logo
-
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en/equipment.html", true)
-
-            .click(".we-CategoryTeaser a:contains(Snowboarding)", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en/products/equipment/snow-sports.html", true)
-
-            .click(BREADCRUMB_CLASS + " a:contains(Equipment)", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en/products/equipment.html", true)
-
-            .click("a.navbar-brand", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en.html", true)
         ;
     }
 

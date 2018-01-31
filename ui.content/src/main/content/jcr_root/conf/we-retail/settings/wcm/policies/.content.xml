@@ -9,12 +9,12 @@
                 <responsivegrid jcr:primaryType="nt:unstructured">
                     <we-retail-default
                         jcr:description="Policy for editable layout containers"
-                        jcr:lastModified="{Date}2016-09-16T07:50:27.551+02:00"
+                        jcr:lastModified="{Date}2018-01-30T16:27:30.494+01:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Default"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:We.Retail,group:We.Retail Commerce,/libs/wcm/foundation/components/responsivegrid,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/dam/cfm/components/contentfragment]"
+                        components="[/libs/dam/cfm/components/contentfragment,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/foundation/components/responsivegrid,group:We.Retail,group:We.Retail Commerce]"
                         policyResourceType="wcm/foundation/components/responsivegrid">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -48,7 +48,7 @@
                                 <fragment
                                     jcr:primaryType="nt:unstructured"
                                     assetGroup="media"
-                                    assetMimetype="text/html"
+                                    assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
                                     droptarget="fragment"
                                     resourceType="dam/cfm/components/contentfragment"
                                     type="Content Fragment"/>
@@ -106,7 +106,7 @@
                                 <fragment
                                     jcr:primaryType="nt:unstructured"
                                     assetGroup="media"
-                                    assetMimetype="text/html"
+                                    assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
                                     droptarget="fragment"
                                     resourceType="dam/cfm/components/contentfragment"
                                     type="Content Fragment"/>
@@ -136,7 +136,7 @@
                             mergeList="{Boolean}true"/>
                     </we-retail-product-filter>
                     <we-retail-content
-                        jcr:lastModified="{Date}2017-02-23T15:09:32.658+01:00"
+                        jcr:lastModified="{Date}2018-01-30T16:30:41.762+01:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="We.Retail Content"
@@ -150,7 +150,7 @@
                                 <mapping_1487856929586
                                     jcr:primaryType="nt:unstructured"
                                     assetGroup="media"
-                                    assetMimetype="text/html"
+                                    assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
                                     droptarget="fragment"
                                     resourceType="dam/cfm/components/contentfragment"/>
                                 <mapping_1487856938113
@@ -169,101 +169,102 @@
                         </cq:authoring>
                     </we-retail-content>
                     <we-retail-experience-fragment
-                            jcr:description="Policy for editable layout containers"
-                            jcr:lastModified="{Date}2016-09-16T07:50:27.551+02:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="We.Retail Default for Experience Fragments"
-                            sling:resourceType="wcm/core/components/policy/policy"
-                            components="[group:We.Retail,group:We.Retail Commerce,/libs/wcm/foundation/components/responsivegrid,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/dam/cfm/components/contentfragment,/libs/cq/experience-fragments/editor/components/buildingblock]"
-                            policyResourceType="wcm/foundation/components/responsivegrid">
+                        jcr:description="Policy for editable layout containers"
+                        jcr:lastModified="{Date}2016-09-16T07:50:27.551+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="We.Retail Default for Experience Fragments"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[group:We.Retail,group:We.Retail Commerce,/libs/wcm/foundation/components/responsivegrid,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/dam/cfm/components/contentfragment,/libs/cq/experience-fragments/editor/components/buildingblock]"
+                        policyResourceType="wcm/foundation/components/responsivegrid">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
                                 <image
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="image/*"
-                                        droptarget="image"
-                                        resourceType="weretail/components/content/image"
-                                        type="Images"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="image/*"
+                                    droptarget="image"
+                                    resourceType="weretail/components/content/image"
+                                    type="Images"/>
                                 <product
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="product"
-                                        droptarget="product-data-reference"
-                                        resourceType="commerce/components/product"
-                                        type="Products"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="product"
+                                    droptarget="product-data-reference"
+                                    resourceType="commerce/components/product"
+                                    type="Products"/>
                                 <document
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="[application/vnd.openxmlformats,application/msword,application/vnd.ms-powerpoint,application/mspowerpoint,application/powerpoint,application/x-mspowerpoint,application/x-msexcel,application/x-excel,application/excel,application/vnd.ms-excel,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document]"
-                                        droptarget="file"
-                                        resourceType="foundation/components/download"
-                                        type="Images"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="[application/vnd.openxmlformats,application/msword,application/vnd.ms-powerpoint,application/mspowerpoint,application/powerpoint,application/x-mspowerpoint,application/x-msexcel,application/x-excel,application/excel,application/vnd.ms-excel,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document]"
+                                    droptarget="file"
+                                    resourceType="foundation/components/download"
+                                    type="Images"/>
                                 <video
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="video/*"
-                                        droptarget="video"
-                                        resourceType="foundation/components/video"
-                                        type="Images"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="video/*"
+                                    droptarget="video"
+                                    resourceType="foundation/components/video"
+                                    type="Images"/>
                                 <fragment
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="text/html"
-                                        droptarget="fragment"
-                                        resourceType="dam/cfm/components/contentfragment"
-                                        type="Content Fragment"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+                                    droptarget="fragment"
+                                    resourceType="dam/cfm/components/contentfragment"
+                                    type="Content Fragment"/>
                                 <experiencefragment
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="content"
-                                        assetMimetype="text/html"
-                                        droptarget="experiencefragment"
-                                        resourceType="cq/experience-fragments/editor/components/experiencefragment"
-                                        type="experiencefragment"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="content"
+                                    assetMimetype="text/html"
+                                    droptarget="experiencefragment"
+                                    resourceType="cq/experience-fragments/editor/components/experiencefragment"
+                                    type="experiencefragment"/>
                                 <buildingblock
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="block"
-                                        assetMimetype="text/html"
-                                        droptarget="buildingblock"
-                                        resourceType="cq/experience-fragments/editor/components/buildingblock"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="block"
+                                    assetMimetype="text/html"
+                                    droptarget="buildingblock"
+                                    resourceType="cq/experience-fragments/editor/components/buildingblock"/>
                             </assetToComponentMapping>
                         </cq:authoring>
                         <jcr:content
-                                jcr:primaryType="nt:unstructured"
-                                mergeList="{Boolean}true"/>
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
                     </we-retail-experience-fragment>
-                    <we-retail-social-experience-fragment jcr:primaryType="nt:unstructured"
-                                      components="[weretail/components/content/image,weretail/components/content/text,dam/cfm/components/contentfragment,cq/experience-fragments/editor/components/buildingblock]"
-                                      jcr:title="Social media template policy for social Experience Fragments"
-                                      sling:resourceType="wcm/core/components/policy/policy">
+                    <we-retail-social-experience-fragment
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Social media template policy for social Experience Fragments"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[weretail/components/content/image,weretail/components/content/text,dam/cfm/components/contentfragment,cq/experience-fragments/editor/components/buildingblock]">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
                                 <image
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="image/*"
-                                        droptarget="image"
-                                        resourceType="weretail/components/content/image"
-                                        type="Images"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="image/*"
+                                    droptarget="image"
+                                    resourceType="weretail/components/content/image"
+                                    type="Images"/>
                                 <fragment
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="text/html"
-                                        droptarget="fragment"
-                                        resourceType="dam/cfm/components/contentfragment"
-                                        type="Content Fragment"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+                                    droptarget="fragment"
+                                    resourceType="dam/cfm/components/contentfragment"
+                                    type="Content Fragment"/>
                                 <buildingblock
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="block"
-                                        assetMimetype="text/html"
-                                        droptarget="buildingblock"
-                                        resourceType="cq/experience-fragments/editor/components/buildingblock"
-                                        type="buildingblock"/>
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="block"
+                                    assetMimetype="text/html"
+                                    droptarget="buildingblock"
+                                    resourceType="cq/experience-fragments/editor/components/buildingblock"
+                                    type="buildingblock"/>
                             </assetToComponentMapping>
                         </cq:authoring>
                         <jcr:content
-                                jcr:primaryType="nt:unstructured"
-                                mergeList="{Boolean}true"/>
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
                     </we-retail-social-experience-fragment>
                 </responsivegrid>
             </components>

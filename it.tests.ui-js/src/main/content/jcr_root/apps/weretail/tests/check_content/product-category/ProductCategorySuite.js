@@ -86,7 +86,7 @@
             // Test hero image
             .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
             // Test featured categories
-            .execTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 7))
+            .execTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 6))
             // Test featured products
             .execTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":first", 6))
             .execTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":first .we-ProductsGrid-item:first"))
