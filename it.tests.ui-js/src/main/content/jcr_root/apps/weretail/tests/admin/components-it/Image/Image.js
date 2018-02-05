@@ -116,7 +116,7 @@
     /**
      * Test: set Alt Text and Title
      */
-    image.tcAddAltTextAndTitle = function (titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
+    image.tcAddAltTextAndTitle = function (tcExecuteBeforeTest, tcExecuteAfterTest) {
         return new h.TestCase('Set Alt and Title Text', {
                 execBefore: tcExecuteBeforeTest,
                 execAfter : tcExecuteAfterTest
@@ -134,13 +134,12 @@
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"]', "#ContentFrame").size() === 1 &&
-                    h.find(titleSelector + ':contains("' + captionText + '")', '#ContentFrame').size() === 1;
+                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]', "#ContentFrame").size() === 1;
             });
     };
 
-    image.tcDisplayCaptionAsPopup = function (tcExecuteBeforeTest, tcExecuteAfterTest) {
-        return new h.TestCase('Display Caption as Popup', {
+    image.tcDisableCaptionPopup = function (titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
+        return new h.TestCase('Disable caption popup', {
                 execBefore: tcExecuteBeforeTest,
                 execAfter : tcExecuteAfterTest
             }
@@ -158,8 +157,8 @@
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]', '#ContentFrame').size() === 1
-                    ;
+                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"]', '#ContentFrame').size() === 1 &&
+                    h.find(titleSelector + ':contains("' + captionText + '")', '#ContentFrame').size() === 1;
             });
     };
 
@@ -228,9 +227,9 @@
         execInNewWindow : false})
 
         .addTestCase(image.tcAddImage(tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(image.tcAddAltTextAndTitle(titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(image.tcAddAltTextAndTitle(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetLink(tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(image.tcDisplayCaptionAsPopup(tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(image.tcDisableCaptionPopup(titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetImageAsDecorative(tcExecuteBeforeTest, tcExecuteAfterTest))
     ;
 
