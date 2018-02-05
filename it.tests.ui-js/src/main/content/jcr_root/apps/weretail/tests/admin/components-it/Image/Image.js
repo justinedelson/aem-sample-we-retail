@@ -24,11 +24,9 @@
     var testImagePath = "/content/dam/we-retail-screens/" + imageName;
     var altText = "Return to Arkham";
     var captionText = "The Last Guardian";
-    var originalDamTitle       = 'Beach house';
-    var originalDamDescription = 'House on a beach with blue sky';
 
 
-    var titleSelector = "span.cmp-image__title";
+    var titleSelector = ".cmp-image__title";
 
     /**
      * Before Test Case
@@ -118,7 +116,7 @@
     /**
      * Test: set Alt Text and Title
      */
-    image.tcAddAltTextAndTitle = function (tcExecuteBeforeTest, tcExecuteAfterTest) {
+    image.tcAddAltTextAndTitle = function (titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
         return new h.TestCase('Set Alt and Title Text', {
                 execBefore: tcExecuteBeforeTest,
                 execAfter : tcExecuteAfterTest
@@ -136,13 +134,13 @@
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]',
-                    "#ContentFrame").size() === 1;
+                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"]', "#ContentFrame").size() === 1 &&
+                    h.find(titleSelector + ':contains("' + captionText + '")', '#ContentFrame').size() === 1;
             });
     };
 
-    image.tcDisableCaptionAsPopup = function (titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
-        return new h.TestCase('Disable Caption as Popup', {
+    image.tcDisplayCaptionAsPopup = function (tcExecuteBeforeTest, tcExecuteAfterTest) {
+        return new h.TestCase('Display Caption as Popup', {
                 execBefore: tcExecuteBeforeTest,
                 execAfter : tcExecuteAfterTest
             }
@@ -150,11 +148,18 @@
             .execTestCase(image.tcDragImage())
             .click('coral-tab-label:contains("Metadata")')
             .wait(500)
+            .click('input[type="checkbox"][name="./altValueFromDAM"]')
+            .wait(200)
+            .click('input[type="checkbox"][name="./titleValueFromDAM"]')
+            .wait(200)
             .click('input[name="./displayPopupTitle"')
+            .fillInput("input[name='./alt']", altText)
+            .fillInput("input[name='./jcr:title']", captionText)
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/jcr%3acontent/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1
+                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]', '#ContentFrame').size() === 1
+                    ;
             });
     };
 
@@ -223,9 +228,9 @@
         execInNewWindow : false})
 
         .addTestCase(image.tcAddImage(tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(image.tcAddAltTextAndTitle(tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(image.tcAddAltTextAndTitle(titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetLink(tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(image.tcDisableCaptionAsPopup(titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(image.tcDisplayCaptionAsPopup(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetImageAsDecorative(tcExecuteBeforeTest, tcExecuteAfterTest))
     ;
 
