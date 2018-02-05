@@ -13,6 +13,7 @@
         cq:lastRolledout="{Date}2016-06-29T14:20:45.039+02:00"
         cq:lastRolledoutBy="admin"
         cq:template="/conf/we-retail/settings/wcm/templates/hero-page"
+        jcr:language="en_US"
         jcr:mixinTypes="[cq:LiveRelationship,cq:LiveSync]"
         jcr:primaryType="cq:PageContent"
         jcr:title="English"

@@ -22,6 +22,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.jcr.RepositoryException;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.jackrabbit.oak.spi.security.user.UserConstants;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -370,7 +371,7 @@ public class Header {
 
         public Language(String path, String countrycode, String languagecode, String name, boolean selected) {
             this.path = path;
-            this.countrycode = countrycode;
+            this.countrycode = StringUtils.upperCase(countrycode);
             this.languagecode = languagecode;
             this.name = name;
             this.selected = selected;

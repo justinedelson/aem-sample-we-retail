@@ -41,14 +41,7 @@
                 <h3 class="modal-title text-center">${ 'CHOOSE YOUR COUNTRY' @ i18n }</h3>
             </div>
             <div class="modal-body">
-                <ul class="we-LanguagesList" data-sly-list.country="${header.countries}">
-                    <li>
-                        <i class="we-lang-icon we-lang-icon-${country.countrycode}"></i><span data-sly-list.language="${country.languages}"><a
-                            href="${language.path @ extension = 'html'}" class="${language.selected ? 'active' : ''}">${language.name}</a><sly
-                            data-sly-test="${!languageList.last}"> |
-                    </sly></span>
-                    </li>
-                </ul>
+                <sly data-sly-resource="${'./languagenavigation' @ resourceType='weretail/components/structure/languagenavigation', decoration=true}"/>
             </div>
         </div>
         <div class="modal-after">

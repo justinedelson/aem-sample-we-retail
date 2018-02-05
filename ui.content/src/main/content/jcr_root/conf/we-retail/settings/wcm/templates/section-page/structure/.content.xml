@@ -16,6 +16,13 @@
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="weretail/components/structure/header">
+                <languagenavigation
+                    jcr:lastModified="{Date}2018-01-26T15:53:18.689+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="weretail/components/structure/languagenavigation"
+                    navigationRoot="/content/we-retail"
+                    structureDepth="2"/>
                 <search
                     jcr:lastModified="{Date}2018-01-26T15:53:18.689+02:00"
                     jcr:lastModifiedBy="admin"
