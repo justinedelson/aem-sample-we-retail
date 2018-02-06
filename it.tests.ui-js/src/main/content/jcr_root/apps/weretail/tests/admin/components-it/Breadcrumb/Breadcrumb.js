@@ -115,10 +115,25 @@
             execBefore: tcExecuteBeforeTest,
             execAfter: tcExecuteAfterTest})
 
+            .execFct(function(opts,done){
+                $.ajax({
+                    url: h.param("level_3")(),
+                    method: "POST",
+                    complete:done,
+                    // POST data to be send in the request
+                    data: {
+                        "_charset_": "utf-8",
+                        "./jcr:content/hideInNav": "true"
+                    }
+                })
+            })
+            // reload the page to make the change visible
+            .reload()
+
             // go to content frame
             .config.changeContext(c.getContentFrame)
             // verify level 3 is no longer available
-            .assert.exist(itemSelector.normal + " > a:contains('Language Masters')",false)
+            .assert.exist(itemSelector.normal + " > a:contains('level_3')",false)
             // go back to edit frame
             .config.resetContext()
 
@@ -132,7 +147,7 @@
             .config.changeContext(c.getContentFrame)
 
             // the level 3 should be visible again
-            .assert.exist(itemSelector.normal + " > a:contains('Language Masters')",true);
+            .assert.exist(itemSelector.normal + " > a:contains('level_3')",true);
     };
 
     /**

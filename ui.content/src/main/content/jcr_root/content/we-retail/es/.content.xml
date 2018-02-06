@@ -8,8 +8,7 @@
         jcr:language="es_ES"
         jcr:primaryType="cq:PageContent"
         jcr:title="Spain"
-        sling:redirect="{Boolean}true"
-        sling:redirectStatus="{Long}302"
-        sling:resourceType="foundation/components/redirect"/>
+        sling:resourceType="weretail/components/structure/page"
+        cq:redirectTarget="/content/we-retail/es/es"/>
     <es/>
 </jcr:root>
