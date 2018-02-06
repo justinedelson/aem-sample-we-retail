@@ -18,10 +18,6 @@
     "cq:deviceGroups": [
       "/etc/mobile/groups/responsive"
     ],
-    "cq:translationCloudserviceconfigs": [
-      "cloudconfigs/translation/translationcfg/default_translation",
-      "cloudconfigs/translation/msft-translation/msft_trial"
-    ],
     "sling:resourceType": "foundation/components/redirect",
     "cq:allowedTemplates": [
       "/conf/we-retail/settings/wcm/templates/.*"
