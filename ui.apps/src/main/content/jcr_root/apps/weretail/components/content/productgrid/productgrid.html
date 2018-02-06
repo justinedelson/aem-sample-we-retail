@@ -14,7 +14,7 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <div class="we-product-grid-container"
-     data-sly-use.list="com.adobe.cq.wcm.core.components.models.List"
+     data-sly-use.list="we.retail.core.model.ProductGrid"
      data-sly-use.template="core/wcm/components/commons/v1/templates.html">
     <ul data-sly-list.listItem="${list.listItems}" class="foundation-ordered-list-container">
         <sly data-sly-resource="${ '{0}/jcr:content' @ format=[listItem.path], resourceType='weretail/components/content/productgrid/item' }"></sly>
