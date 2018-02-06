@@ -1,45 +1,46 @@
 /*******************************************************************************
- * Copyright 2016 Adobe Systems Incorporated
- *
+ * Copyright 2018 Adobe Systems Incorporated
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package apps.weretail.components.structure.productfilter;
+package we.retail.core.model;
 
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 
-import com.adobe.cq.sightly.WCMUsePojo;
 import com.day.cq.wcm.api.designer.Style;
 
-public class ProductFilter extends WCMUsePojo {
+@Model(adaptables = {SlingHttpServletRequest.class})
+public class ProductFilter {
 
-    private static final String PROP_TYPE = "type";
-    private static final String PROP_TYPE_DEFAULT = "color";
-    private String type;
+    private static final String PN_TYPE = "type";
+    protected static final String PN_TYPE_DEFAULT = "color";
+
+    @ScriptVariable
     private ValueMap properties;
-    private Style style;
 
-    @Override
-    public void activate() throws Exception {
-        properties = getProperties();
-        style = getCurrentStyle();
-        readConfiguration();
-    }
+    @ScriptVariable
+    private Style currentStyle;
 
-    private void readConfiguration() {
-        type = properties.get(PROP_TYPE, style.get(PROP_TYPE, PROP_TYPE_DEFAULT));
-    }
+    private String type;
 
     public String getType() {
+        if (type == null) {
+            type = properties.get(PN_TYPE, currentStyle.get(PN_TYPE, PN_TYPE_DEFAULT));
+        }
         return type;
     }
+
 }
