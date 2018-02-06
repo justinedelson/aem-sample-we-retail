@@ -43,6 +43,8 @@ public class AppAemContext {
     public static final String CONTENT_ROOT = "/content/we-retail";
     public static final String PRODUCT_ROOT = "/var/commerce/products/we-retail";
     public static final String ORDER_ROOT = "/var/commerce/orders/2016/12/12/order";
+    public static final String BUTTON_PATH = "/content/we-retail/us/en/men/jcr:content/root/responsivegrid/button";
+    public static final String PRODUCT_FILTER_PATH = "/content/we-retail/us/en/products/women/shirts/jcr:content/root/product-grid-container/product-filter/productfilter-color";
 
     private static MockCommerceService mockCommerceService = null;
 
@@ -94,6 +96,8 @@ public class AppAemContext {
             context.load().json("/sample-content.json", CONTENT_ROOT);
             context.load().json("/sample-product.json", PRODUCT_ROOT);
             context.load().json("/sample-order.json", ORDER_ROOT);
+            context.load().json("/sample-button.json", BUTTON_PATH);
+            context.load().json("/sample-productfilter.json", PRODUCT_FILTER_PATH);
         }
     }
 }
