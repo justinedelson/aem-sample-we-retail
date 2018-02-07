@@ -245,6 +245,11 @@ public class MockCommunityContext implements CommunityContext{
 	}
 
 	@Override
+	public String getCommunityGroupResourcesPath() {
+		return null;
+	}
+
+	@Override
 	public List<String> getSiteContentPaths() {
 		// TODO Auto-generated method stub
 		return null;

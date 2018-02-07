@@ -13,213 +13,76 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 @import "/apps/weretail/clientlibs/common/helpers.less";
-
 @import "/apps/weretail/clientlibs/vendor/bootstrap/src/less/mixins/text-emphasis.less";
 @import "/apps/weretail/clientlibs/vendor/bootstrap/src/less/mixins/background-variant.less";
-
 @import (reference) "/apps/weretail/clientlibs/vendor/bootstrap/src/less/type.less";
 
 .we-SearchModal {
+  color: #fff;
+
+  .modal-dialog {
+    .container-fixed();
+
+    @media (min-width: @screen-sm-min) {
+      width: @container-sm;
+    }
+    @media (min-width: @screen-md-min) {
+      width: @container-md;
+    }
+    @media (min-width: @screen-lg-min) {
+      width: @container-lg;
+    }
+  }
+
+  .modal-header {
+    font-weight: 700;
+    font-size: 13px;
     color: #fff;
 
-    .modal-dialog {
-        .container-fixed();
+    text-transform: uppercase;
 
-        margin-top: 80px;
-
-        @media (min-width: @screen-sm-min) {
-            width: @container-sm;
-        }
-        @media (min-width: @screen-md-min) {
-            width: @container-md;
-        }
-        @media (min-width: @screen-lg-min) {
-            width: @container-lg;
-        }
+    .we-Icon {
+      font-size: 19px;
     }
 
-    .modal-header {
-        font-weight: 700;
-        font-size: 13px;
-        color: #fff;
+    .we-Icon--search {
+      margin-right: 10px;
+    }
+  }
 
-        text-transform: uppercase;
+  .modal-content {
+    background-color: transparent;
 
-        .we-Icon {
-            font-size: 19px;
-        }
+    box-shadow: none;
+  }
 
-        .we-Icon--search {
-            margin-right: 10px;
-        }
+  .close {
+    opacity: 1;
+
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+
+    text-shadow: none;
+    text-transform: inherit;
+
+    .we-Icon {
+      vertical-align: sub;
+
+      margin-left: 10px;
     }
 
-    .modal-content {
-        background-color: transparent;
-
-        box-shadow: none;
+    span {
+      display: inline-block;
     }
-
-    .close {
-        opacity: 1;
-
-        font-weight: inherit;
-        font-size: inherit;
-        color: inherit;
-
-        text-transform: inherit;
-
-        .we-Icon {
-            vertical-align: sub;
-
-            margin-left: 10px;
-        }
-
-        span {
-            display: inline-block;
-        }
-    }
-
-    &-input {
-        display: block;
-
-        width: 100%;
-
-        border: solid fade(#fff, 40);
-        border-width: 0 0 1px;
-
-        background-color: transparent;
-
-        font-weight: 700;
-        font-size: 98px;
-
-        &::-webkit-input-placeholder {
-            font-weight: 100;
-            color: fade(#fff, 20);
-        }
-
-        &:focus {
-            outline: none;
-        }
-    }
-
-    &-box {
-        font-size: 16px;
-        color: fade(#fff, 80);
-
-        h5 {
-            margin-top: 30px;
-            margin-bottom: 6px;
-
-            color: #fff;
-
-            text-transform: uppercase;
-        }
-
-        h6 {
-            padding-right: 5px;
-
-            margin-top: 10px;
-            margin-bottom: 0;
-
-            font-weight: 500;
-            font-size: 18px;
-            color: #fff;
-
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        ul {
-            .list-unstyled;
-        }
-
-        li {
-            .clearfix();
-
-            margin-bottom: 5px;
-        }
-
-        &-list {
-            margin-top: 10px;
-
-            li {
-                &::before {
-                    content: '';
-
-                    float: left;
-
-                    height: 65px;
-
-                    margin-bottom: 5px;
-                }
-            }
-        }
-
-        a {
-            color: inherit;
-        }
-
-        mark {
-            padding: 0;
-
-            background-color: transparent;
-
-            font-weight: 700;
-            color: #fff;
-        }
-
-        img {
-            float: left;
-
-            width: 65px;
-            height: auto;
-
-            margin: 0 15px 5px 0;
-        }
-
-
-        &-avatar {
-            float: left;
-
-            width: 48px;
-
-            margin-top: 6px;
-            margin-right: 10px;
-
-            div {
-                //.img-center;
-
-                border-radius: 50%;
-            }
-        }
-
-        .small {
-            display: inline-block;
-            max-width: 100%;
-
-            font-size: 14px;
-
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .pull-left {
-            overflow: hidden;
-
-            float: none !important;
-        }
-    }
+  }
 }
 
 .modal-color-primary .modal-backdrop {
-    background-color: @brand-primary;
+  background-color: @brand-primary;
 
-    &.in {
-        opacity: .97;
-    }
+  &.in {
+    opacity: .97;
+  }
 }

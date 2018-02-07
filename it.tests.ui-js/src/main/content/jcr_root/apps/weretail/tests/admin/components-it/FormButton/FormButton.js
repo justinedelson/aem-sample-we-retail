@@ -23,7 +23,7 @@
     /**
      * selector
      */
-    var buttonSelector ="div.button .btn"
+    var buttonSelector ="div.button .cmp-form-button";
 
     /**
      * Before Test Case

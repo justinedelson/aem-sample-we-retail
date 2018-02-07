@@ -24,11 +24,9 @@
     var testImagePath = "/content/dam/we-retail-screens/" + imageName;
     var altText = "Return to Arkham";
     var captionText = "The Last Guardian";
-    var originalDamTitle       = 'Beach house';
-    var originalDamDescription = 'House on a beach with blue sky';
 
 
-    var titleSelector = "span.cmp-image__title";
+    var titleSelector = ".cmp-image__title";
 
     /**
      * Before Test Case
@@ -136,13 +134,12 @@
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]',
-                    "#ContentFrame").size() === 1;
+                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]', "#ContentFrame").size() === 1;
             });
     };
 
-    image.tcDisableCaptionAsPopup = function (titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
-        return new h.TestCase('Disable Caption as Popup', {
+    image.tcDisableCaptionPopup = function (titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
+        return new h.TestCase('Disable caption popup', {
                 execBefore: tcExecuteBeforeTest,
                 execAfter : tcExecuteAfterTest
             }
@@ -150,11 +147,18 @@
             .execTestCase(image.tcDragImage())
             .click('coral-tab-label:contains("Metadata")')
             .wait(500)
+            .click('input[type="checkbox"][name="./altValueFromDAM"]')
+            .wait(200)
+            .click('input[type="checkbox"][name="./titleValueFromDAM"]')
+            .wait(200)
             .click('input[name="./displayPopupTitle"')
+            .fillInput("input[name='./alt']", altText)
+            .fillInput("input[name='./jcr:title']", captionText)
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
                 return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/jcr%3acontent/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1
+                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"]', '#ContentFrame').size() === 1 &&
+                    h.find(titleSelector + ':contains("' + captionText + '")', '#ContentFrame').size() === 1;
             });
     };
 
@@ -225,7 +229,7 @@
         .addTestCase(image.tcAddImage(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcAddAltTextAndTitle(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetLink(tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(image.tcDisableCaptionAsPopup(titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(image.tcDisableCaptionPopup(titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetImageAsDecorative(tcExecuteBeforeTest, tcExecuteAfterTest))
     ;
 

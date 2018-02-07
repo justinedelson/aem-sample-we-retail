@@ -31,21 +31,21 @@
     // breadcrumb component
     c.rtBreadcrumb = "weretail/components/content/breadcrumb";
     // image component
-    c.rtImage = "weretail/components/content/image"
+    c.rtImage = "weretail/components/content/image";
     //title component
-    c.rtTitle = "weretail/components/content/title"
+    c.rtTitle = "weretail/components/content/title";
     //text component
-    c.rtText = "weretail/components/content/text"
+    c.rtText = "weretail/components/content/text";
     //list component
-    c.rtList = "weretail/components/content/list"
+    c.rtList = "weretail/components/content/list";
     //form button
-    c.rtFormButton = "weretail/components/form/button"
+    c.rtFormButton = "weretail/components/form/button";
     //form hidden
-    c.rtFormHidden = "weretail/components/form/hidden"
+    c.rtFormHidden = "weretail/components/form/hidden";
     //form option
-    c.rtFormOptions = "weretail/components/form/options"
+    c.rtFormOptions = "weretail/components/form/options";
     //form text
-    c.rtFormText = "weretail/components/form/text"
+    c.rtFormText = "weretail/components/form/text";
     // form container
     c.rtFormContainer = "weretail/components/form/container";
 
@@ -163,6 +163,9 @@
             method: "POST",
             data: {
                 "./sling:resourceType": component,
+                "./jcr:created": "",
+                "./jcr:lastModified": "",
+                "./cq:lastModified": "",
                 ":order": order,
                 "_charset_": "utf-8",
                 ":nameHint": nameHint

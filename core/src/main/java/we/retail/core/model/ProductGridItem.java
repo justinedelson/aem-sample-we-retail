@@ -95,7 +95,7 @@ public class ProductGridItem {
             path = productPage.getPath();
             filters = getProductFilters(pimProduct, commerceSession);
         } catch (CommerceException e) {
-            LOGGER.error("Can't extract product informations from the resource", e);
+            LOGGER.error("Can't extract product information from the resource", e);
         }
     }
 

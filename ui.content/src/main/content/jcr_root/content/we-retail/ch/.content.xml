@@ -8,9 +8,8 @@
         jcr:language="de_CH"
         jcr:primaryType="cq:PageContent"
         jcr:title="Switzerland"
-        sling:redirect="{Boolean}true"
-        sling:redirectStatus="{Long}302"
-        sling:resourceType="foundation/components/redirect"/>
+        sling:resourceType="weretail/components/structure/page"
+        cq:redirectTarget="/content/we-retail/ch/de"/>
     <de/>
     <fr/>
     <it/>

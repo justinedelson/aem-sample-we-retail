@@ -1,5 +1,5 @@
 <!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~ Copyright 2016 Adobe Systems Incorporated
+  ~ Copyright 2018 Adobe Systems Incorporated
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -13,11 +13,11 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
-<sly data-sly-use.button="com.adobe.cq.wcm.core.components.models.form.Button">
-        <button type="${button.type}"
-                class="btn btn-action btn-primary"
-                name="${button.name}"
-                value="${button.value}">
-            ${button.title}
-        </button>
-</sly>
+<template data-sly-template.itemContent="${@ item='The language navigation item'}">
+    <i data-sly-test="${item.level == 0 && item.country}"
+       class="we-lang-icon we-lang-icon-${item.country}"
+       title="${item.title}"></i>
+    <a data-sly-test="${item.children.size == 0}"
+       class="cmp-languagenavigation__item-link" href="${item.URL}"
+       hreflang="${item.language}" lang="${item.language}" rel="alternate" title="${item.title}">${item.title}</a>
+</template>
