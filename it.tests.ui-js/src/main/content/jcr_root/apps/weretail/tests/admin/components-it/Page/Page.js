@@ -605,16 +605,17 @@
             .click("coral-tab-label:contains('Cloud Services')", {after: 1000})
             //check if the "Cloud Services" option was selected
             .assert.isTrue(function () {
-                return h.find("coral-tab.is-selected coral-tab-label:contains('Cloud Services')").size() === 1
+                return h.find("coral-tab.is-selected coral-tab-label:contains('Cloud Services')").size() === 1;
             })
 
-            .click(".cq-CloudServices-container .cq-CloudServices-inheritance input")
-            .click(".cq-CloudServices-container span:contains('Add Configuration')")
-            .click("coral-selectlist-item span:contains('Cloud Proxy Configuration')")
+            .click(".cq-CloudServices-container .cq-CloudServices-inheritance input", {after: 300})
+            .click(".cq-CloudServices-container span:contains('Add Configuration')", {after: 300})
+            .click("coral-selectlist-item span:contains('Cloud Proxy Configuration')", {after: 300})
             //detele the connection
-            .click("button[data-title='Cloud Proxy Configuration']")
-            .click(".cq-CloudServices-container span:contains('Add Configuration')")
-            .click("coral-selectlist-item span:contains('Cloud Proxy Configuration')")
+            .click("button[data-title='Cloud Proxy Configuration']", {after: 300})
+            .click(".cq-CloudServices-container span:contains('Add Configuration')", {after: 300})
+            .click("coral-selectlist-item span:contains('Cloud Proxy Configuration')", {after: 300})
+            .wait(300)
 
             /*****  Check if the date is saved *****/
 
