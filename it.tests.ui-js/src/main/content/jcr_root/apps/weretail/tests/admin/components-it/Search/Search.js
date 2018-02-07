@@ -63,7 +63,7 @@
             })
             .fillInput(selectors.inputFulltext, searchValue)
             .asserts.isTrue(function () {
-                return h.find(selectors.searchItem).size() == 10
+                return h.find(selectors.searchItem).size() >= 1
             });
     };
 
