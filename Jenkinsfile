@@ -49,8 +49,8 @@ BuildVariable RUN_ON_FIREFOX = new BuildVariable()
 BuildVariable RUN_ON_EDGE = new BuildVariable()
         .withName('RUN_ON_EDGE')
         .withJenkinsClass("BooleanParameterDefinition")
-        .withDefaultValue(true)
-        .withDescription('Runs UI tests against Edge, enabled by default')
+        .withDefaultValue(false)
+        .withDescription('Runs UI tests against Edge, disabled by default')
         .build()
 
 // add them to the list of build parameters
