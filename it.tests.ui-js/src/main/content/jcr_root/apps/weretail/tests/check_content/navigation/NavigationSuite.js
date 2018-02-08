@@ -22,6 +22,9 @@
     window.CQ.WeRetailIT.ExperienceNavigationTest = function (h, $) {
         return new h.TestCase("Navigation to experiences")
 
+            .navigateTo("/content/we-retail/us/en.html",{expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
             // Navigate to Experience section and back using top logo
 
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Experience)", {expectNav: true})
@@ -49,7 +52,7 @@
             .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
-            .click(BREADCRUMB_CLASS + " a:contains(Experience)")
+            .click(BREADCRUMB_CLASS + " a:contains(Experience)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience.html", true)
 
             // Navigate to Experience page and back to Homepage using breadcrumbs
@@ -57,13 +60,16 @@
             .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
-            .click(BREADCRUMB_CLASS + " a:contains(English)")
+            .click(BREADCRUMB_CLASS + " a:contains(English)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en.html", true)
         ;
     }
 
     window.CQ.WeRetailIT.MenNavigationTest = function(h, $){
         return new h.TestCase("Navigation to men")
+
+            .navigateTo("/content/we-retail/us/en.html",{expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
 
             //Navigate to Men section and back using top logo
 
@@ -151,7 +157,7 @@
             .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
-            .click(BREADCRUMB_CLASS + " a:contains(Experience)")
+            .click(BREADCRUMB_CLASS + " a:contains(Experience)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience.html", true)
 
             // Navigate to Experience page from Men page and back to Experience section using breadcrumbs
@@ -162,13 +168,16 @@
             .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
-            .click(BREADCRUMB_CLASS + " a:contains(English)")
+            .click(BREADCRUMB_CLASS + " a:contains(English)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en.html", true)
         ;
     }
 
     window.CQ.WeRetailIT.WomenNavigationTest = function (h, $) {
         return new h.TestCase("Navigation to women")
+
+            .navigateTo("/content/we-retail/us/en.html",{expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
 
             // Navigate to Women section and back using top logo
 
@@ -256,7 +265,7 @@
             .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
-            .click(BREADCRUMB_CLASS + " a:contains(Experience)")
+            .click(BREADCRUMB_CLASS + " a:contains(Experience)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience.html", true)
 
             // Navigate to Experience page from Women page and back to Experience section using breadcrumbs
@@ -267,13 +276,16 @@
             .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
-            .click(BREADCRUMB_CLASS + " a:contains(English)")
+            .click(BREADCRUMB_CLASS + " a:contains(English)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en.html", true)
         ;
     }
 
     window.CQ.WeRetailIT.EquipmentNavigationTest = function (h, $) {
         return new h.TestCase("Navigation to equipment")
+
+            .navigateTo("/content/we-retail/us/en.html",{expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
 
             // Navigate to Equipment section and back using top logo
 
@@ -400,6 +412,9 @@
     window.CQ.WeRetailIT.AboutUsNavigationTest = function (h, $) {
         return new h.TestCase("Navigation to about us")
 
+            .navigateTo("/content/we-retail/us/en.html",{expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
+
             // Navigate to About Us section and back using top logo
 
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(About Us)", {expectNav: true})
@@ -412,6 +427,9 @@
 
     window.CQ.WeRetailIT.FooterButtonsNavigationTest = function (h, $) {
         return new h.TestCase("Navigation using footer buttons")
+
+            .navigateTo("/content/we-retail/us/en.html",{expectNav: true})
+            .asserts.location("/content/we-retail/us/en.html", true)
 
             // Navigate to Experience section using the Experience button from footer and back using top logo
 
