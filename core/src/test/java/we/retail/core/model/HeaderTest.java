@@ -136,13 +136,6 @@ public class HeaderTest {
 		Assert.assertEquals(Constants.HEADER_ACCOUNT_PATH, actualAccountPath);
 	}
 
-
-	@Test
-	public void testTheme() {
-		String actualTheme = header.getTheme();
-		Assert.assertEquals(Constants.HEADER_THEME, actualTheme);
-	}
-
 	@Test
 	public void testLanguageRoot() {
 

@@ -91,7 +91,6 @@ public class Header {
     private String moderationPath;
     private String profilePath;
     private String accountPath;
-    private String theme;
     private String languageRoot;
     private Language currentLanguage;
     private String userPath;
@@ -133,7 +132,6 @@ public class Header {
             moderationPath = computePagePath(MODERATION_PATH);
             profilePath = computePagePath(PROFILE_PATH);
             accountPath = ACCOUNT_PATH;
-            theme = properties.get("theme", "inverse");
             userPath = resolver.adaptTo(UserManager.class).getAuthorizable(userId).getPath();
 
             printDebug();
@@ -188,10 +186,6 @@ public class Header {
 
     public String getAccountPath() {
         return accountPath;
-    }
-
-    public String getTheme() {
-        return theme;
     }
 
     public String getLanguageRoot() {
@@ -268,7 +262,6 @@ public class Header {
         LOGGER.debug("messagingPath: {}", messagingPath);
         LOGGER.debug("notificationPath: {}", notificationPath);
         LOGGER.debug("profilePath: {}", profilePath);
-        LOGGER.debug("theme: {}", theme);
         LOGGER.debug("languageRoot: {}", languageRoot);
         if (currentLanguage != null) {
             LOGGER.debug("currentLanguage: {}", currentLanguage.getName());
