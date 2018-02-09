@@ -55,12 +55,6 @@
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true);
     }
 
-    window.CQ.WeRetailIT.ArticleContentTest = function (h, $) {
-        return new h.TestCase("Check article content")
-            asserts.visible(".contentfragment", true);
-            ;
-    }
-
     var checkSegmentsOnPage = new h.TestCase('Check segments on a page')
         // go to a page
         .navigateTo('%url%')
@@ -124,7 +118,6 @@
             .execTestCase(window.CQ.WeRetailIT.ExperiencesPageLoadTest(h, $))
             .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
-            .execTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 6))
             .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
         )
 
@@ -134,7 +127,6 @@
             .execTestCase(window.CQ.WeRetailIT.NavbarTest(h, $, 7))
             .execTestCase(window.CQ.WeRetailIT.HeroImageTest(h, $, false))
             .execTestCase(window.CQ.WeRetailIT.BreadcrumbTest(h, $, ["English", "Experience"]))
-            .execTestCase(window.CQ.WeRetailIT.ArticleContentTest(h, $))
             .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
         )
 

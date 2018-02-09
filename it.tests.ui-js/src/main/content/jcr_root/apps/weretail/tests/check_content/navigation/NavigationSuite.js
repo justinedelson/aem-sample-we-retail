@@ -38,7 +38,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Experience)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
@@ -49,7 +49,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Experience)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(Experience)", {expectNav: true})
@@ -57,7 +57,7 @@
 
             // Navigate to Experience page and back to Homepage using breadcrumbs
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(English)", {expectNav: true})
@@ -154,7 +154,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(Experience)", {expectNav: true})
@@ -165,7 +165,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(English)", {expectNav: true})
@@ -262,7 +262,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(Experience)", {expectNav: true})
@@ -273,7 +273,7 @@
             .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(English)", {expectNav: true})
@@ -405,9 +405,8 @@
             .asserts.location("/content/we-retail/us/en/products/equipment.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en.html", true)
-        ;
-    }
+            .asserts.location("/content/we-retail/us/en.html", true);
+    };
 
     window.CQ.WeRetailIT.AboutUsNavigationTest = function (h, $) {
         return new h.TestCase("Navigation to about us")
@@ -421,9 +420,8 @@
             .asserts.location("/content/we-retail/us/en/about-us.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en.html", true)
-        ;
-    }
+            .asserts.location("/content/we-retail/us/en.html", true);
+    };
 
     window.CQ.WeRetailIT.FooterButtonsNavigationTest = function (h, $) {
         return new h.TestCase("Navigation using footer buttons")
@@ -469,10 +467,8 @@
             .asserts.location("/content/we-retail/us/en/about-us.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en.html", true)
-
-        ;
-    }
+            .asserts.location("/content/we-retail/us/en.html", true);
+    };
 
     new h.TestSuite("We.Retail Tests - Navigation", {path:"/apps/weretail/tests/check_content/navigation/NavigationSuite.js", register: true})
         .addTestCase(window.CQ.WeRetailIT.HomepageLoadTest(h, $))
@@ -481,6 +477,5 @@
         .addTestCase(window.CQ.WeRetailIT.WomenNavigationTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.EquipmentNavigationTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.AboutUsNavigationTest(h, $))
-        .addTestCase(window.CQ.WeRetailIT.FooterButtonsNavigationTest(h, $))
-    ;
+        .addTestCase(window.CQ.WeRetailIT.FooterButtonsNavigationTest(h, $));
 })(hobs, jQuery);

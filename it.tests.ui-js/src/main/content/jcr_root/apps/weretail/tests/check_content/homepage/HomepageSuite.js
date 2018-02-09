@@ -40,7 +40,6 @@
         // Test featured products
         .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":first", 6))
         .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":first .we-ProductsGrid-item:first"))
-        .addTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 6))
         // Test new arrivals products
         .addTestCase(window.CQ.WeRetailIT.ProductsGridTest(h, $, PRODUCT_GRID_CLASS + ":eq(1)", 6))
         .addTestCase(window.CQ.WeRetailIT.ProductTest(h, $, PRODUCT_GRID_CLASS + ":eq(1) .we-ProductsGrid-item:first"))

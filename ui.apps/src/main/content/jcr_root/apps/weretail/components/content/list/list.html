@@ -13,20 +13,11 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
-<div class="we-ArticleTeaser"
-     data-sly-use.article="we.retail.core.model.Article">
-
-    <a href="${ resource.path @ extension='html'}" class="we-ArticleTeaser-link">
-        <div data-sly-test.imageResource="${article.imageResource}"
-             class="we-ArticleTeaser-visual"
-             data-sly-resource="${imageResource @ resourceType='weretail/components/content/image'}">
-        </div>
-
-        <h4 class="we-ArticleTeaser-title">${ article.title }</h4>
-    </a>
-    <sly data-sly-list.tag="${ article.tags }">
-        <strong class="we-ArticleTeaser-category">
-            ${ tag.name }
-        </strong>
-    </sly>
-</div>
+<ul data-sly-use.list="com.adobe.cq.wcm.core.components.models.List"
+    data-sly-list.item="${list.listItems}"
+    data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.itemTemplate="item.html"
+    data-sly-test.itemType="${properties.itemType ? properties.itemType : 'item'}"
+    class="cmp-list">
+    <li class="cmp-list__item" data-sly-call="${itemTemplate[itemType] @ list = list, item = item}"></li>
+</ul>
