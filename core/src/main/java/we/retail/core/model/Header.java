@@ -91,10 +91,8 @@ public class Header {
     private String moderationPath;
     private String profilePath;
     private String accountPath;
-    private List<PagePojo> items;
     private String theme;
     private String languageRoot;
-    private List<Country> countries;
     private Language currentLanguage;
     private String userPath;
     private Page root;
@@ -111,12 +109,10 @@ public class Header {
             root = WeRetailHelper.findRoot(resourcePage);
             languageRoot = "#";
             if (root != null) {
-                items = getPages(root, 2, currentPage);
                 if (!"/conf/".equals(root.getPath().substring(0, 6))) {
 
                     languageRoot = root.getPath();
                 }
-                countries = getCountries(root);
                 currentLanguage = new Language(root.getPath(), root.getParent().getName(), root.getName(),
                         root.getTitle(), true);
             }
@@ -194,20 +190,12 @@ public class Header {
         return accountPath;
     }
 
-    public List<PagePojo> getItems() {
-        return items;
-    }
-
     public String getTheme() {
         return theme;
     }
 
     public String getLanguageRoot() {
         return languageRoot;
-    }
-
-    public List<Country> getCountries() {
-        return countries;
     }
 
     public Language getCurrentLanguage() {
@@ -268,37 +256,6 @@ public class Header {
         return pageManager.getPage(path);
     }
 
-    /**
-     * Returns the list of countries supported by the site
-     */
-    private List<Country> getCountries(Page siteRoot) {
-        List<Country> countries = new ArrayList<Country>();
-        Page countryRoot = siteRoot.getParent(2);
-        if (countryRoot == null) {
-            return new ArrayList<Country>();
-        }
-        Iterator<Page> it = countryRoot.listChildren(new PageFilter());
-        while (it.hasNext()) {
-            Page countrypage = it.next();
-            countries.add(new Country(countrypage.getName(), getLanguages(countrypage, siteRoot)));
-        }
-        return countries;
-    }
-
-    /**
-     * Returns the list of languages supported by the site
-     */
-    private List<Language> getLanguages(Page countryRoot, Page siteRoot) {
-        List<Language> languages = new ArrayList<Language>();
-        Iterator<Page> langIt = countryRoot.listChildren(new PageFilter());
-        while (langIt.hasNext()) {
-            Page langPage = langIt.next();
-            languages.add(new Language(langPage.getPath(), langPage.getParent().getName(), langPage.getName(),
-                    langPage.getTitle(), siteRoot.getPath().equals(langPage.getPath())));
-        }
-        return languages;
-    }
-
     private void printDebug() {
         LOGGER.debug("======================================");
         LOGGER.debug("userPath: {}", userPath);
@@ -316,41 +273,7 @@ public class Header {
         if (currentLanguage != null) {
             LOGGER.debug("currentLanguage: {}", currentLanguage.getName());
         }
-
-        if (items != null && !items.isEmpty()) {
-            for (PagePojo item : items) {
-                LOGGER.debug("page-path: {}", item.getPage().getPath());
-            }
-        }
-
-        if (countries != null && !countries.isEmpty()) {
-            for (Country country : countries) {
-                LOGGER.debug("country-code: {}", country.getCountrycode());
-            }
-        }
     }
-
-    // --------------------------------------- nested class: Country  --------------------------------------- //
-
-    public class Country {
-
-        private String countrycode;
-        private List<Language> languages;
-
-        public Country(String countrycode, List<Language> languages) {
-            this.countrycode = countrycode;
-            this.languages = languages;
-        }
-
-        public String getCountrycode() {
-            return countrycode;
-        }
-
-        public List<Language> getLanguages() {
-            return languages;
-        }
-    }
-
 
     // --------------------------------------- nested class: Language  --------------------------------------- //
 

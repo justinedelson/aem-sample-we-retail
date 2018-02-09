@@ -21,7 +21,7 @@
             // Check footer logo visible
             .asserts.visible("footer.we-Footer .we-Logo")
             // Check footer links visible
-            .asserts.visible("footer.we-Footer .we-Footer-nav")
+            .asserts.visible("footer.we-Footer .we-navigation")
             // Check footer copyright visible
             .asserts.visible("footer.we-Footer .text-uppercase")
             // Check footer #top button visible
