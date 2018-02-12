@@ -88,6 +88,21 @@ Module weRetailAll = new Module.Builder('main/all')
         .withArtifact('zip', 'main/all/target/we.retail.all-*.zip', true)
         .build()
 
+// core component modules
+Module componentsCore = new Module.Builder('core-comp/bundles/core')
+		.withArtifact('jar', 'core-comp/bundles/core/target/core.wcm.components.sandbox.bundle-*.jar', true)
+		.build()
+Module componentsJUnit = new Module.Builder('core-comp/testing/junit/core')
+		.withArtifact('jar', 'core-comp/testing/junit/core/target/core.wcm.components.junit.core-*.jar', true)
+		.withConsumer(componentsCore)
+		.build()
+Module componentsContent = new Module.Builder('core-comp/content')
+		.withArtifact('zip', 'core-comp/content/target/core.wcm.components.sandbox.content-*.zip', true)
+		.build()
+Module componentsConfig = new Module.Builder('core-comp/config')
+		.withArtifact('zip', 'core-comp/config/target/core.wcm.components.sandbox.config-*.zip', true)
+		.build()
+
 // commerce test modules
 Module commerceItHttp = new Module.Builder('commerce/it/http')
         .withMavenArtifact("jar", 'commerce/it/http/target/com.adobe.cq.commerce.it.http-*-integrationtest.jar')
@@ -111,13 +126,6 @@ MavenDependency uiTestingCommonsPackage = new MavenDependency.Builder()
         .withExtension("zip")
         .build()
 
-MavenDependency coreComponentsPackage = new MavenDependency.Builder()
-        .withGroupId("com.adobe.cq")
-        .withArtifactId("core.wcm.components.all")
-        .withVersion("2.0.0")
-        .withExtension("zip")
-        .build()
-
 // we retail product sample content
 MavenDependency weRetailSampleContentPackage = new MavenDependency.Builder()
         .withGroupId("com.adobe.aem.sample")
@@ -137,6 +145,9 @@ MavenDependency itJunitCore = new MavenDependency.Builder()
 /*                       QUICKSTART CONFIGURATION                        */
 /* --------------------------------------------------------------------- */
 Quickstart quickstart = new BuildQuickstart.Builder('Quickstart 6.4')
+		.withModule(componentsCore)
+		.withModule(componentsContent)
+		.withModule(componentsConfig)
         .withModule(weRetailCore)
         .withModule(weRetailUIContent)
         .withModule(weRetailUIApps)
@@ -155,7 +166,6 @@ CQInstance author = new CQInstance.Builder()
         .withContextPath("/cp")
         .withMavenDependency(hobbesRewriterPackage)
         .withMavenDependency(uiTestingCommonsPackage)
-        .withMavenDependency(coreComponentsPackage)
         .withMavenDependency(weRetailSampleContentPackage)
         .withFileDependency(weRetailItUi.getArtifact('zip'))
         .build()
@@ -390,8 +400,9 @@ config.setSonarReleasePrefix('WE-RETAIL-SAMPLE-SPROUT-PRIVATE_MASTER-')
 config.getElasticsearchReporting().setEnable(true)
 
 // the modules to build
-config.setModules([weRetailAll, weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi
-                   , commerceItHttp])
+config.setModules([componentsJUnit,componentsCore, componentsContent, componentsConfig,
+				   weRetailAll,weRetailCore, weRetailUIContent, weRetailUIApps, weRetailConfig, weRetailItUi
+				   , commerceItHttp])
 
 // the tests to execute
 config.setTestRuns([coreCompUIChromePart1,coreCompUIChromePart2,coreCompUIChromePart3,coreCompUIChromePart4,
