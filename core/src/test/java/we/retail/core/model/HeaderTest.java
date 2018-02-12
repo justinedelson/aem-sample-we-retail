@@ -27,7 +27,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.adobe.cq.commerce.api.CommerceException;
 import com.adobe.cq.sightly.WCMBindings;
 import com.adobe.granite.security.user.UserManagementService;
 import com.day.cq.wcm.api.Page;
@@ -48,7 +47,7 @@ public class HeaderTest {
 	private Header header;
 
 	@Before
-	public void setup() throws CommerceException {
+	public void setup() {
 		Page page = context.currentPage(Constants.TEST_HOME_PAGE);
 		PageManager pageManager = context.pageManager();
 		// ResourceResolver resourceResolver = context.resourceResolver();
@@ -138,26 +137,10 @@ public class HeaderTest {
 	}
 
 	@Test
-	public void testItemCount() {
-		Assert.assertEquals(Constants.HEADER_ITEM_SIZE, header.getItems().size());
-	}
-
-	@Test
-	public void testTheme() {
-		String actualTheme = header.getTheme();
-		Assert.assertEquals(Constants.HEADER_THEME, actualTheme);
-	}
-
-	@Test
 	public void testLanguageRoot() {
 
 		String actualLanguageRoot = header.getLanguageRoot();
 		Assert.assertEquals(Constants.HEADER_LANG_ROOT, actualLanguageRoot);
-	}
-
-	@Test
-	public void testCountriesSize() {
-		Assert.assertEquals(Constants.HEADER_COUNTRY_SIZE, header.getCountries().size());
 	}
 
 	@Test

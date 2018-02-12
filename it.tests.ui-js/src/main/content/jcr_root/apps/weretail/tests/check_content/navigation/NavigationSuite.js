@@ -27,7 +27,7 @@
 
             // Navigate to Experience section and back using top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Experience)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item-link:contains(Experience)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
@@ -35,10 +35,10 @@
 
             // Navigate to Experience page and back using top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Experience)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item-link:contains(Experience)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
@@ -46,10 +46,10 @@
 
             // Navigate to Experience page and back to Experience section using breadcrumbs
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Experience)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item-link:contains(Experience)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(Experience)", {expectNav: true})
@@ -57,13 +57,12 @@
 
             // Navigate to Experience page and back to Homepage using breadcrumbs
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(English)", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en.html", true)
-        ;
-    }
+            .asserts.location("/content/we-retail/us/en.html", true);
+    };
 
     window.CQ.WeRetailIT.MenNavigationTest = function(h, $){
         return new h.TestCase("Navigation to men")
@@ -73,7 +72,7 @@
 
             //Navigate to Men section and back using top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
@@ -81,7 +80,7 @@
 
             //Navigate to one Men product page and back using Men breadcrumb and top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
             .click('a[href$="/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html"]', {expectNav: true})
@@ -95,7 +94,7 @@
 
             //Navigate to one Men product page and back using Shirts breadcrumb, Men breadcrumb and top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
             .click('a[href$="/content/we-retail/us/en/products/men/shirts/amsterdam-short-sleeve-travel-shirt.html"]', {expectNav: true})
@@ -112,7 +111,7 @@
 
             //Navigate to All men's products and back using top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
             .click(".button a:contains(All men's products)", {expectNav: true})
@@ -123,7 +122,7 @@
 
             //Navigate to "Our strongest clothes" category and back using the top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
             .click(".we-CategoryTeaser a:contains(Our strongest clothes)", {expectNav: true})
@@ -137,7 +136,7 @@
 
             //Navigate to "Our warmest jackets" category and back using the top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
             .click(".we-CategoryTeaser a:contains(Our warmest jackets)", {expectNav: true})
@@ -151,10 +150,10 @@
 
             // Navigate to Experience page from Men page and back to Experience section using breadcrumbs
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(Experience)", {expectNav: true})
@@ -162,16 +161,15 @@
 
             // Navigate to Experience page from Men page and back to Experience section using breadcrumbs
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Men)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(English)", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en.html", true)
-        ;
-    }
+            .asserts.location("/content/we-retail/us/en.html", true);
+    };
 
     window.CQ.WeRetailIT.WomenNavigationTest = function (h, $) {
         return new h.TestCase("Navigation to women")
@@ -181,7 +179,7 @@
 
             // Navigate to Women section and back using top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
@@ -189,7 +187,7 @@
 
             //Navigate to one Women product page and back using Women breadcrumb and top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
             .click('a[href$="/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html"]', {expectNav: true})
@@ -203,7 +201,7 @@
 
             //Navigate to one Women product page and back using Shirts breadcrumb, Women breadcrumb and top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
             .click('a[href$="/content/we-retail/us/en/products/women/shirts/devi-sleeveless-shirt.html"]', {expectNav: true})
@@ -220,7 +218,7 @@
 
             //Navigate to All women's products and back using top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
             .click(".button a:contains(All women's products)", {expectNav: true})
@@ -231,7 +229,7 @@
 
             //Navigate to "Our strongest clothes" category and back using the top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
             .click(".we-CategoryTeaser a:contains(Our strongest clothes)", {expectNav: true})
@@ -245,7 +243,7 @@
 
             //Navigate to "Our warmest jackets" category and back using the top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
             .click(".we-CategoryTeaser a:contains(Our warmest jackets)", {expectNav: true})
@@ -259,10 +257,10 @@
 
             // Navigate to Experience page from Women page and back to Experience section using breadcrumbs
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(Experience)", {expectNav: true})
@@ -270,16 +268,15 @@
 
             // Navigate to Experience page from Women page and back to Experience section using breadcrumbs
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Women)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
-            .click(".we-ArticleTeaser a:contains(Arctic Surfing)", {expectNav: true})
+            .click(".we-list .cmp-list__item-link:contains(Arctic Surfing)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience/arctic-surfing-in-lofoten.html", true)
 
             .click(BREADCRUMB_CLASS + " a:contains(English)", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en.html", true)
-        ;
-    }
+            .asserts.location("/content/we-retail/us/en.html", true);
+    };
 
     window.CQ.WeRetailIT.EquipmentNavigationTest = function (h, $) {
         return new h.TestCase("Navigation to equipment")
@@ -289,7 +286,7 @@
 
             // Navigate to Equipment section and back using top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
@@ -297,7 +294,7 @@
 
             //Navigate to one Equipment product page and back using Equipment breadcrumb and top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
             .click('a[href$="/content/we-retail/us/en/products/equipment/running/faba-running-pants.html"]', {expectNav: true})
@@ -311,7 +308,7 @@
 
             //Navigate to one Equipment product page and back using Running breadcrumb, Equipment breadcrumb and top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
             .click('a[href$="/content/we-retail/us/en/products/equipment/running/faba-running-pants.html"]', {expectNav: true})
@@ -328,7 +325,7 @@
 
             //Navigate to Hiking products category and back using the top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
             .click(".we-CategoryTeaser a:contains(Hiking)", {expectNav: true})
@@ -342,7 +339,7 @@
 
             //Navigate to Running products category and back using the top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
             .click(".we-CategoryTeaser a:contains(Running)", {expectNav: true})
@@ -356,7 +353,7 @@
 
             //Navigate to Biking products category and back using the top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
             .click(".we-CategoryTeaser a:contains(Biking)", {expectNav: true})
@@ -370,7 +367,7 @@
 
             //Navigate to Surfing products category and back using the top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
             .click(".we-CategoryTeaser a:contains(Surfing)", {expectNav: true})
@@ -384,7 +381,7 @@
 
             //Navigate to Snow Sports products category and back using the top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
             .click(".we-CategoryTeaser a:contains(Snow Sports)", {expectNav: true})
@@ -398,16 +395,15 @@
 
             //Navigate to All equipment and back using top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(Equipment)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item--level-0 > .cmp-navigation__item-link:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
             .click(".button a:contains(All equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/products/equipment.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en.html", true)
-        ;
-    }
+            .asserts.location("/content/we-retail/us/en.html", true);
+    };
 
     window.CQ.WeRetailIT.AboutUsNavigationTest = function (h, $) {
         return new h.TestCase("Navigation to about us")
@@ -417,13 +413,12 @@
 
             // Navigate to About Us section and back using top logo
 
-            .click(".navbar .navbar-center > li:not(.visible-xs) > a:contains(About Us)", {expectNav: true})
+            .click(".header .we-navigation .cmp-navigation__item-link:contains(About Us)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/about-us.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en.html", true)
-        ;
-    }
+            .asserts.location("/content/we-retail/us/en.html", true);
+    };
 
     window.CQ.WeRetailIT.FooterButtonsNavigationTest = function (h, $) {
         return new h.TestCase("Navigation using footer buttons")
@@ -433,7 +428,7 @@
 
             // Navigate to Experience section using the Experience button from footer and back using top logo
 
-            .click(".we-Footer-nav a:contains(Experience)", {expectNav: true})
+            .click(".footer .we-navigation .cmp-navigation__item-link:contains(Experience)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/experience.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
@@ -441,7 +436,7 @@
 
             // Navigate to Men section using the Men button from footer and back using top logo
 
-            .click(".we-Footer-nav a:contains(Men)", {expectNav: true})
+            .click(".footer .we-navigation .cmp-navigation__item-link:contains(Men)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/men.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
@@ -449,7 +444,7 @@
 
             // Navigate to Women section using the Women button from footer and back using top logo
 
-            .click(".we-Footer-nav a:contains(Women)", {expectNav: true})
+            .click(".footer .we-navigation .cmp-navigation__item-link:contains(Women)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/women.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
@@ -457,7 +452,7 @@
 
             // Navigate to Equipment section using the Equipment button from footer and back using top logo
 
-            .click(".we-Footer-nav a:contains(Equipment)", {expectNav: true})
+            .click(".footer .we-navigation .cmp-navigation__item-link:contains(Equipment)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/equipment.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
@@ -465,14 +460,12 @@
 
             // Navigate to About Us section using the About Us button from footer and back using top logo
 
-            .click(".we-Footer-nav a:contains(About Us)", {expectNav: true})
+            .click(".footer .we-navigation .cmp-navigation__item-link:contains(About Us)", {expectNav: true})
             .asserts.location("/content/we-retail/us/en/about-us.html", true)
 
             .click("a.navbar-brand", {expectNav: true})
-            .asserts.location("/content/we-retail/us/en.html", true)
-
-        ;
-    }
+            .asserts.location("/content/we-retail/us/en.html", true);
+    };
 
     new h.TestSuite("We.Retail Tests - Navigation", {path:"/apps/weretail/tests/check_content/navigation/NavigationSuite.js", register: true})
         .addTestCase(window.CQ.WeRetailIT.HomepageLoadTest(h, $))
@@ -481,6 +474,5 @@
         .addTestCase(window.CQ.WeRetailIT.WomenNavigationTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.EquipmentNavigationTest(h, $))
         .addTestCase(window.CQ.WeRetailIT.AboutUsNavigationTest(h, $))
-        .addTestCase(window.CQ.WeRetailIT.FooterButtonsNavigationTest(h, $))
-    ;
+        .addTestCase(window.CQ.WeRetailIT.FooterButtonsNavigationTest(h, $));
 })(hobs, jQuery);

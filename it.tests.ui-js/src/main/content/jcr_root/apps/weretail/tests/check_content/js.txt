@@ -22,7 +22,6 @@ common/TeasersTest.js
 common/SiteFeaturesTest.js
 common/ProductsGridTest.js
 common/ProductTest.js
-common/ArticlesTest.js
 common/FooterTest.js
 common/ButtonTest.js
 common/Utils.js

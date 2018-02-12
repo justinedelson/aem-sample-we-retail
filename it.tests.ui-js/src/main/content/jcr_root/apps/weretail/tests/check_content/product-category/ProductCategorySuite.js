@@ -50,8 +50,6 @@
             .execTestCase(window.CQ.WeRetailIT.ButtonTest(h, $, "div.button a.btn", "All men", "content/we-retail/us/en/products/men.html"))
             // Test featured categories
             .execTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 2))
-            // Test "Top stories"
-            .execTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 6))
             // Test footer
             .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
         )
@@ -71,8 +69,6 @@
             .execTestCase(window.CQ.WeRetailIT.ButtonTest(h, $, "div.button a.btn", "All women", "content/we-retail/us/en/products/women.html"))
             // Test featured categories
             .execTestCase(window.CQ.WeRetailIT.TeasersTest(h, $, 2))
-            // Test "Top stories"
-            .execTestCase(window.CQ.WeRetailIT.ArticlesTest(h, $, 6))
             // Test footer
             .execTestCase(window.CQ.WeRetailIT.FooterTest(h, $))
         )

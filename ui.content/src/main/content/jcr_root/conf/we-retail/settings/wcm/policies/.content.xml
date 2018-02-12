@@ -405,6 +405,59 @@
                         </plugins>
                     </policy_1490281316632>
                 </image>
+                <list jcr:primaryType="nt:unstructured">
+                    <we-retail-default
+                        cq:allowNoStyle="true"
+                        jcr:lastModified="{Date}2017-03-23T16:52:07.565+01:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="We.Retail Default"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        disableChildren="false"
+                        disableSearch="false"
+                        disableStatic="false"
+                        disableTags="false"
+                        linkItems="false"
+                        showDescription="false"
+                        showModificationDate="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Layout"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="we-list--block we-list--teaser"
+                                        cq:styleId="1508797741160"
+                                        cq:styleLabel="Block"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="we-list--grid we-list--teaser"
+                                        cq:styleId="1508797744638"
+                                        cq:styleLabel="Grid"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                            <item1
+                                cq:styleGroupLabel="Display"
+                                cq:styleGroupMultiple="true"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="we-list--date"
+                                        cq:styleId="1508800134047"
+                                        cq:styleLabel="Date"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="we-list--image"
+                                        cq:styleId="1508800123708"
+                                        cq:styleLabel="Image"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item1>
+                        </cq:styleGroups>
+                    </we-retail-default>
+                </list>
                 <categoryteaser jcr:primaryType="nt:unstructured">
                     <policy_1492610142529
                         jcr:lastModified="{Date}2017-04-20T16:06:08.451+02:00"

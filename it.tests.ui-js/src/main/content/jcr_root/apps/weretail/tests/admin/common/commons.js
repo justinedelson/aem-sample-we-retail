@@ -32,6 +32,8 @@
     c.rtBreadcrumb = "weretail/components/content/breadcrumb";
     // image component
     c.rtImage = "weretail/components/content/image";
+    // hero image component
+    c.rtHeroImage = "weretail/components/content/heroimage";
     //title component
     c.rtTitle = "weretail/components/content/title";
     //text component

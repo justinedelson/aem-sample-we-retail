@@ -25,7 +25,7 @@
             .asserts.visible(".navbar.navbar-absolute-top a.navbar-brand", true)
             // Check links on navbar are visible
             .asserts.isTrue(function() { return window.CQ.WeRetailIT.checkItemsFound(h,
-                ".navbar.navbar-absolute-top .navbar-center > li:not(.visible-xs) > a",
+                ".header .we-navigation .cmp-navigation__item-link",
                 ["Experience", "Men", "Women", "Equipment", "Products"])})
             // Check search button on navbar is visible
             .asserts.visible(".navbar.navbar-absolute-top .navbar-right-outside a .we-Icon--search", true);
