@@ -34,6 +34,8 @@
     c.rtImage = "weretail/components/content/image";
     // hero image component
     c.rtHeroImage = "weretail/components/content/heroimage";
+    // category teaser component
+    c.rtCategoryTeaser = "weretail/components/content/categoryteaser";
     //title component
     c.rtTitle = "weretail/components/content/title";
     //text component
