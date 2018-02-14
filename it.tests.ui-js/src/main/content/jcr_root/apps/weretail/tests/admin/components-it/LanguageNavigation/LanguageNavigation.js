@@ -28,7 +28,7 @@
   var selectors = {
     modal: {
       self: '.we-LanguageModal',
-      open: '[data-target=".we-LanguageModal"]',
+      open: '.we-retail-header .navbar-left [data-target=".we-LanguageModal"]',
       close: '.we-LanguageModal [data-dismiss="modal"]'
     },
     languageNavigation: {
