@@ -647,6 +647,8 @@
             .assert.isTrue(function () {
                 return h.find("coral-tab.is-selected coral-tab-label:contains('Personalization')").size() === 1
             })
+                // cancel inheritance
+            .click("coral-checkbox.js-ContextHub-inheritedFrom",{after:500})
             //set the contextHub path
             .fillInput("foundation-autocomplete[name='./cq:contextHubPath'] input[is='coral-textfield']", contextHubPath)
             //set the segments path
