@@ -25,8 +25,27 @@
     var altText = "Return to Arkham";
     var captionText = "The Last Guardian";
 
-
-    var titleSelector = ".cmp-image__title";
+    var selectors = {
+        cmp: {
+            image: {
+                self: '.cmp-image',
+                image: '.cmp-image__image',
+                title: '.cmp-image__title',
+                dialog: {
+                    metadataTab: 'coral-tab:contains("Metadata")',
+                    isDecorative: 'input[name="./isDecorative"]',
+                    alt: 'input[name="./alt"]',
+                    altValueFromDAM: 'input[type="checkbox"][name="./altValueFromDAM"]',
+                    title: 'input[name="./jcr:title"]',
+                    titleValueFromDAM: 'input[type="checkbox"][name="./titleValueFromDAM"]',
+                    displayPopupTitle: 'input[name="./displayPopupTitle"'
+                }
+            }
+        },
+        assetFinder: {
+            search: '#assetsearch'
+        }
+    };
 
     /**
      * Before Test Case
@@ -68,7 +87,7 @@
                 c.openSidePanel(done);
             })
             // search the image
-            .fillInput("input#assetsearch",imageName,{after:5000})
+            .fillInput(selectors.assetFinder.search, imageName, {after:5000})
 
             .cui.dragdrop('coral-card.cq-draggable[data-path="' + testImagePath + '"]', 'coral-fileupload[name="./file"')
             .execTestCase(c.closeSidePanel);
@@ -82,15 +101,15 @@
             .execFct(function (opts,done) {c.openSidePanel(done);})
 
             // search the image
-            .fillInput("input#assetsearch",imageName,{after:5000})
+            .fillInput(selectors.assetFinder.search, imageName, {after:5000})
 
             // drag'n'drop the test image
             .cui.dragdrop("coral-card.cq-draggable[data-path='" + testImagePath + "']","coral-fileupload[name='./file'")
             //open the Metadata tab
-            .click("coral-tab:contains('Metadata')")
-            .click("coral-checkbox[name='./altValueFromDAM']")
+            .click(selectors.cmp.image.dialog.metadataTab)
+            .click(selectors.cmp.image.dialog.altValueFromDAM)
             // set mandatory alt text
-            .fillInput("input[name='./alt']", altText)
+            .fillInput(selectors.cmp.image.dialog.alt, altText)
 
             // close the side panel
             .execTestCase(c.closeSidePanel);
@@ -108,8 +127,8 @@
             .execTestCase(image.tcDragImage())
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
-                return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/jcr%3acontent/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1;
+                return h.find(selectors.cmp.image.image + '[src*="' + h.param('testPagePath')() +
+                    '/_jcr_content/root/responsivegrid/image.img."]', '#ContentFrame').size() === 1;
             });
     };
 
@@ -123,42 +142,42 @@
             }
         )
             .execTestCase(image.tcDragImage())
-            .click('coral-tab-label:contains("Metadata")')
+            .click(selectors.cmp.image.dialog.metadataTab)
             .wait(500)
-            .click('input[type="checkbox"][name="./altValueFromDAM"]')
+            .click(selectors.cmp.image.dialog.altValueFromDAM)
             .wait(200)
-            .click('input[type="checkbox"][name="./titleValueFromDAM"]')
+            .click(selectors.cmp.image.dialog.titleValueFromDAM)
             .wait(200)
-            .fillInput("input[name='./alt']", altText)
-            .fillInput("input[name='./jcr:title']", captionText)
+            .fillInput(selectors.cmp.image.dialog.alt, altText)
+            .fillInput(selectors.cmp.image.dialog.title, captionText)
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
-                return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]', "#ContentFrame").size() === 1;
+                return h.find(selectors.cmp.image.image + '[src*="' + h.param('testPagePath')() +
+                    '/_jcr_content/root/responsivegrid/image.img."][alt="' + altText + '"][title="' + captionText + '"]', "#ContentFrame").size() === 1;
             });
     };
 
-    image.tcDisableCaptionPopup = function (titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest) {
+    image.tcDisableCaptionPopup = function (tcExecuteBeforeTest, tcExecuteAfterTest) {
         return new h.TestCase('Disable caption popup', {
                 execBefore: tcExecuteBeforeTest,
                 execAfter : tcExecuteAfterTest
             }
         )
             .execTestCase(image.tcDragImage())
-            .click('coral-tab-label:contains("Metadata")')
+            .click(selectors.cmp.image.dialog.metadataTab)
             .wait(500)
-            .click('input[type="checkbox"][name="./altValueFromDAM"]')
+            .click(selectors.cmp.image.dialog.altValueFromDAM)
             .wait(200)
-            .click('input[type="checkbox"][name="./titleValueFromDAM"]')
+            .click(selectors.cmp.image.dialog.titleValueFromDAM)
             .wait(200)
-            .click('input[name="./displayPopupTitle"')
-            .fillInput("input[name='./alt']", altText)
-            .fillInput("input[name='./jcr:title']", captionText)
+            .click(selectors.cmp.image.dialog.displayPopupTitle)
+            .fillInput(selectors.cmp.image.dialog.alt, altText)
+            .fillInput(selectors.cmp.image.dialog.title, captionText)
             .execTestCase(c.tcSaveConfigureDialog)
             .asserts.isTrue(function () {
-                return h.find('.cmp-image__image[src*="' + h.param('testPagePath')() +
-                    '/jcr%3acontent/root/responsivegrid/image.img."][alt="' + altText + '"]', '#ContentFrame').size() === 1 &&
-                    h.find(titleSelector + ':contains("' + captionText + '")', '#ContentFrame').size() === 1;
+                return h.find(selectors.cmp.image.image + '[src*="' + h.param('testPagePath')() +
+                    '/_jcr_content/root/responsivegrid/image.img."][alt="' + altText + '"]', '#ContentFrame').size() === 1 &&
+                    h.find(selectors.cmp.image.title + ':contains("' + captionText + '")', '#ContentFrame').size() === 1;
             });
     };
 
@@ -169,16 +188,16 @@
             }
         )
             .execTestCase(image.tcDragImage())
-            .click('coral-tab-label:contains("Metadata")')
+            .click(selectors.cmp.image.dialog.metadataTab)
             .wait(500)
             .simulate('foundation-autocomplete[name="./linkURL"] input[type!="hidden"]', 'key-sequence', {sequence: c.rootPage + '{enter}'})
             .wait(500)
-            .click('input[name="./isDecorative"')
+            .click(selectors.cmp.image.dialog.isDecorative)
             .wait(500)
             .execTestCase(c.tcSaveConfigureDialog)
             .config.changeContext(c.getContentFrame)
             .asserts.isTrue(function () {
-                return h.find('.cmp-image__image').attr('alt') === '' && h.find('.cmp-image__link').size() === 0;
+                return h.find(selectors.cmp.image.image).attr('alt') === '' && h.find(selectors.cmp.image.link).size() === 0;
             });
     };
 
@@ -203,7 +222,7 @@
             // switch to content frame
             .config.changeContext(c.getContentFrame)
             // click on the image
-            .click("div.cmp-image img",{expectNav: true})
+            .click(selectors.cmp.image.image, {expectNav: true})
             // go back to top frame
             .config.resetContext()
             // check if the url is correct
@@ -229,7 +248,7 @@
         .addTestCase(image.tcAddImage(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcAddAltTextAndTitle(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetLink(tcExecuteBeforeTest, tcExecuteAfterTest))
-        .addTestCase(image.tcDisableCaptionPopup(titleSelector, tcExecuteBeforeTest, tcExecuteAfterTest))
+        .addTestCase(image.tcDisableCaptionPopup(tcExecuteBeforeTest, tcExecuteAfterTest))
         .addTestCase(image.tcSetImageAsDecorative(tcExecuteBeforeTest, tcExecuteAfterTest))
     ;
 
