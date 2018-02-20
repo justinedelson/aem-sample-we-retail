@@ -13,8 +13,4 @@
         jcr:primaryType="rep:GrantACE"
         rep:principalName="template-authors"
         rep:privileges="{Name}[jcr:versionManagement,crx:replicate,rep:write,jcr:lockManagement]"/>
-    <allow3
-        jcr:primaryType="rep:GrantACE"
-        rep:principalName="launch-promote-service"
-        rep:privileges="{Name}[jcr:read]"/>
 </jcr:root>
