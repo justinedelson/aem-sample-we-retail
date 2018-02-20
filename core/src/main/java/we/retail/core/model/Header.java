@@ -93,6 +93,7 @@ public class Header {
     private String accountPath;
     private String languageRoot;
     private Language currentLanguage;
+    private boolean isCommunitiesPage;
     private String userPath;
     private Page root;
     private UserManagementService ums;
@@ -133,6 +134,7 @@ public class Header {
             profilePath = computePagePath(PROFILE_PATH);
             accountPath = ACCOUNT_PATH;
             userPath = resolver.adaptTo(UserManager.class).getAuthorizable(userId).getPath();
+            isCommunitiesPage = currentPage.getPath().startsWith(languageRoot + "/community");
 
             printDebug();
         } catch (RepositoryException e) {
@@ -194,6 +196,10 @@ public class Header {
 
     public Language getCurrentLanguage() {
         return currentLanguage;
+    }
+
+    public boolean isCommunitiesPage() {
+        return isCommunitiesPage;
     }
 
     private String computePagePath(final String relativePath) {
