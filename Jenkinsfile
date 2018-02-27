@@ -144,7 +144,7 @@ MavenDependency itJunitCore = new MavenDependency.Builder()
 /* --------------------------------------------------------------------- */
 /*                       QUICKSTART CONFIGURATION                        */
 /* --------------------------------------------------------------------- */
-Quickstart quickstart = new BuildQuickstart.Builder('Quickstart 6.4')
+Quickstart quickstart = new BuildQuickstart.Builder('Quickstart 6.5')
 		.withModule(componentsCore)
 		.withModule(componentsContent)
 		.withModule(componentsConfig)
