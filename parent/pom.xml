@@ -171,6 +171,8 @@
                         <exclude>**/META-INF/vault/settings.xml</exclude>
                         <!-- Ignore .vlt files -->
                         <exclude>**/.vlt</exclude>
+                        <!-- Exclude all .properties files -->
+                        <exclude>**/*.properties</exclude>
                         <!-- Ignore .vltignore files -->
                         <exclude>**/.vltignore</exclude>
                         <!-- Ignore vendor files -->
@@ -553,6 +555,14 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Commons -->
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>2.0.0</version>
                 <scope>provided</scope>
             </dependency>
 
