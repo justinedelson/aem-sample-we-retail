@@ -135,14 +135,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- This overrides the version provided by quickstart 6.2 -->
-        <dependency>
-            <groupId>com.adobe.cq.sightly</groupId>
-            <artifactId>cq-wcm-sightly-extension</artifactId>
-            <version>1.4.16</version>
-            <scope>provided</scope>
-        </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -177,7 +169,13 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-imaging</artifactId>
-            <version>1.0-R1725432-B002</version>
+            <version>1.0-R1534292</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.api</artifactId>
+            <version>2.16.4</version>
             <scope>test</scope>
         </dependency>
         <!--
