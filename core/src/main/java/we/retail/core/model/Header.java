@@ -54,6 +54,8 @@ public class Header {
 
     public static final String SIGN_IN_PATH = "community/signin";
     public static final String SIGN_UP_PATH = "community/signup";
+
+    @SuppressWarnings("squid:S2068")
     public static final String FORGOT_PWD_PATH = "community/useraccount/forgotpassword";
     public static final String NOTIFICATION_PATH = "community/notifications";
     public static final String MODERATION_PATH = "community/moderation";
