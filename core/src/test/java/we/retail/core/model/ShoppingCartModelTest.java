@@ -101,5 +101,6 @@ public class ShoppingCartModelTest {
     @After
     public void tearDown() {
         commerceSession.clearCart();
+        commerceSession.clearPlacedOrders();
     }
 }
