@@ -16,7 +16,6 @@
 package we.retail.core.components.impl;
 
 import com.adobe.cq.commerce.api.CommerceService;
-import com.adobe.cq.commerce.api.CommerceSession;
 import com.adobe.cq.commerce.api.Product;
 import common.AppAemContext;
 import common.mock.MockCommerceService;
@@ -30,6 +29,7 @@ import org.apache.sling.testing.mock.sling.servlet.MockRequestPathInfo;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
 import org.apache.sling.xss.XSSAPI;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -40,7 +40,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import we.retail.core.WeRetailConstants;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
@@ -86,8 +85,6 @@ public class CartEntryServletTest {
 
         CommerceService commerceService = context.currentResource().adaptTo(CommerceService.class);
         commerceSession = (MockCommerceSession) commerceService.login(null, null);
-        commerceSession.clearCart();
-
     }
 
     @Test
@@ -258,6 +255,11 @@ public class CartEntryServletTest {
 
         commerceSession.addCartEntry(product, 1);
 
+    }
+
+    @After
+    public void tearDown() {
+        commerceSession.clearCart();
     }
 
 }
