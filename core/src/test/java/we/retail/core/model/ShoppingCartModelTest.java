@@ -61,6 +61,7 @@ public class ShoppingCartModelTest {
         MockSlingHttpServletRequest request = context.request();
         CommerceService commerceService = page.getContentResource().adaptTo(CommerceService.class);
         MockCommerceSession commerceSession = (MockCommerceSession) commerceService.login(request, context.response());
+        commerceSession.clearCart();
         commerceSession.registerPlacedOrder(Constants.TEST_ORDER_ID, mockDefaultJcrPlacedOrder);
 
         shoppingCartModel = request.adaptTo(ShoppingCartModel.class);

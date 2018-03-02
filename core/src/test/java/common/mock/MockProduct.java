@@ -16,6 +16,7 @@
 package common.mock;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -31,6 +32,7 @@ import com.adobe.cq.commerce.api.VariantFilter;
 import com.day.cq.commons.ImageResource;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import org.apache.sling.api.resource.ValueMap;
 
 public class MockProduct extends ResourceWrapper implements Product {
 
@@ -111,12 +113,20 @@ public class MockProduct extends ResourceWrapper implements Product {
 
     @Override
     public ImageResource getImage() {
-        return null;
+        Resource imageResource = resource.getResourceResolver().getResource(getValueMap().get("productData", String.class)).getChild("image");
+        if (imageResource == null) {
+            return null;
+        }
+        return new ImageResource(imageResource);
     }
 
     @Override
     public List<ImageResource> getImages() {
-        return null;
+        ImageResource imageResource = getImage();
+        if (imageResource == null) {
+            return null;
+        }
+        return Collections.singletonList(imageResource);
     }
 
     @Override
@@ -168,7 +178,7 @@ public class MockProduct extends ResourceWrapper implements Product {
 
     @Override
     public Product getPIMProduct() throws CommerceException {
-        return null;
+        return new MockProduct(resource.getResourceResolver().getResource(getValueMap().get(PRODUCT_DATA, String.class)));
     }
 
     @Override
