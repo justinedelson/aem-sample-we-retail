@@ -381,4 +381,8 @@ public class MockCommerceSession implements CommerceSession {
     public void clearCart() {
         cart = null;
     }
+
+    public void clearPlacedOrders() {
+        placedOrders = new LinkedHashMap<>();
+    }
 }
