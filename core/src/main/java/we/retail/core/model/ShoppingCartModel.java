@@ -218,7 +218,7 @@ public class ShoppingCartModel {
         }
 
         public List<PromotionInfo> getEntryPromotions() {
-            return entryPromotions;
+            return Collections.unmodifiableList(entryPromotions);
         }
 
         public boolean isWrapping() {
