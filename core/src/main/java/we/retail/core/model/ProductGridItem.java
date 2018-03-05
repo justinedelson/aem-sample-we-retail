@@ -88,13 +88,15 @@ public class ProductGridItem {
         image = imageResource.getPath();
         try {
             CommerceService commerceService = resource.adaptTo(CommerceService.class);
-            CommerceSession commerceSession = commerceService.login(request, response);
-            Product pimProduct = currentProduct.getPIMProduct();
-            name = pimProduct.getTitle();
-            description = pimProduct.getDescription();
-            price = commerceSession.getProductPrice(pimProduct);
-            path = productPage.getPath();
-            filters = getProductFilters(pimProduct, commerceSession);
+            if (commerceService != null) {
+                CommerceSession commerceSession = commerceService.login(request, response);
+                Product pimProduct = currentProduct.getPIMProduct();
+                name = pimProduct.getTitle();
+                description = pimProduct.getDescription();
+                price = commerceSession.getProductPrice(pimProduct);
+                path = productPage.getPath();
+                filters = getProductFilters(pimProduct, commerceSession);
+            }
         } catch (CommerceException e) {
             LOGGER.error("Can't extract product information from the resource", e);
         }

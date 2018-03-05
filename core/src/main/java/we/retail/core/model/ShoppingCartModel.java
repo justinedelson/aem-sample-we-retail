@@ -75,6 +75,7 @@ public class ShoppingCartModel {
         populateCartEntries();
     }
 
+    @SuppressWarnings("squid:S2259")
     protected void createCommerceSession() {
         CommerceService commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
         try {

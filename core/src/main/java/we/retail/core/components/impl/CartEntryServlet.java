@@ -86,6 +86,10 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
         // Make sure commerceService is adapted from a product resource so that we get
         // the right service implementation (hybris, Geo, etc.)
         CommerceService commerceService = request.getResource().adaptTo(CommerceService.class);
+        if (commerceService == null) {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            return;
+        }
         CommerceSession session;
         try {
             session = commerceService.login(request, response);
@@ -178,6 +182,10 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
         String qty = request.getParameter("product-quantity");
 
         Resource productResource = request.getResourceResolver().getResource(productPath);
+        if (productResource == null) {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            return;
+        }
         Product product = productResource.adaptTo(Product.class);
 
         int quantity = 1;
@@ -195,6 +203,7 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
         }
     }
 
+    @SuppressWarnings("squid:S2259")
     private String renderContent(SlingHttpServletRequest request, SlingHttpServletResponse response, String contentPath)
             throws ServletException, IOException {
 
@@ -217,6 +226,7 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
         return responseWrapper.toStrippedOutput();
     }
 
+    @SuppressWarnings("squid:S2259")
     private String renderNavCart(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
 
         // We wrap the original POST request in a GET and wrap the response in a string buffer

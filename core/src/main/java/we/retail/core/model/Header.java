@@ -102,6 +102,7 @@ public class Header {
     private UserManagementService ums;
 
     @PostConstruct
+    @SuppressWarnings("squid:S2259")
     private void initModel() {
         try {
             Page resourcePage = pageManager.getContainingPage(resource);

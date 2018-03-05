@@ -34,6 +34,7 @@ public class WeRetailProductImpl extends AbstractJcrProduct {
     protected final Page productPage;
     protected String brand = null;
 
+    @SuppressWarnings("squid:S2259")
     public WeRetailProductImpl(Resource resource) {
         super(resource);
 

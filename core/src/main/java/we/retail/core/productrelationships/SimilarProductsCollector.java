@@ -159,6 +159,7 @@ public class SimilarProductsCollector {
      * 
      * @return the list of relationships, sorted by 'rank'
      */
+    @SuppressWarnings("squid:S2259")
     public List<ProductRelationship> getRelationships() {
         List<ProductRelationship> relationshipList = new ArrayList<ProductRelationship>(relationships.values());
         Collections.sort(relationshipList, new Comparator<ProductRelationship>() {

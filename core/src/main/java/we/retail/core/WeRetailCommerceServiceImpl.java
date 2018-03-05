@@ -123,17 +123,19 @@ public class WeRetailCommerceServiceImpl extends AbstractJcrCommerceService impl
             // In the sample product set, the optional axis is always "color".
             //
             Node productNode = product.adaptTo(Node.class);
-            if (productData.axisIsVariant("color")) {
-                if (!productNode.hasProperty("variationAxis")) {
-                    productNode.setProperty("variationAxis", "color");
-                    productNode.setProperty("variationTitle", "Color");
-                    changed = true;
-                }
-            } else {
-                if (productNode.hasProperty("variationAxis") && productNode.getProperty("variationAxis").getString().equals("color")) {
-                    productNode.setProperty("variationAxis", "");
-                    productNode.setProperty("variationTitle", "");
-                    changed = true;
+            if (productNode != null) {
+                if (productData.axisIsVariant("color")) {
+                    if (!productNode.hasProperty("variationAxis")) {
+                        productNode.setProperty("variationAxis", "color");
+                        productNode.setProperty("variationTitle", "Color");
+                        changed = true;
+                    }
+                } else {
+                    if (productNode.hasProperty("variationAxis") && productNode.getProperty("variationAxis").getString().equals("color")) {
+                        productNode.setProperty("variationAxis", "");
+                        productNode.setProperty("variationTitle", "");
+                        changed = true;
+                    }
                 }
             }
 

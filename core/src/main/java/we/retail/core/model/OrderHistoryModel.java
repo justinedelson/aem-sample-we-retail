@@ -71,11 +71,13 @@ public class OrderHistoryModel {
     private void initModel() {
         try {
             CommerceService commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
-            commerceSession = commerceService.login(request, response);
-            PlacedOrderResult orderResult = commerceSession.getPlacedOrders(null, 0, 0, null);
-            List<PlacedOrder> orders = orderResult.getOrders();
-            Collections.sort(orders, orderComparator);
-            wrappedOrders = convert(orders);
+            if (commerceService != null) {
+                commerceSession = commerceService.login(request, response);
+                PlacedOrderResult orderResult = commerceSession.getPlacedOrders(null, 0, 0, null);
+                List<PlacedOrder> orders = orderResult.getOrders();
+                Collections.sort(orders, orderComparator);
+                wrappedOrders = convert(orders);
+            }
         } catch (CommerceException e) {
             LOGGER.error("Failed to initialize sling model", e);
         }
