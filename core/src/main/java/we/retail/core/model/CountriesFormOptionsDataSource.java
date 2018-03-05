@@ -98,6 +98,7 @@ public class CountriesFormOptionsDataSource extends SlingSafeMethodsServlet {
         request.setAttribute(DataSource.class.getName(), countriesDataSource);
     }
 
+    @SuppressWarnings("squid:CallToDeprecatedMethod")
     private List<Resource> getCountriesList(SlingHttpServletRequest request) {
         List<Resource> countries = new ArrayList<>();
         SlingBindings bindings = (SlingBindings) request.getAttribute(SlingBindings.class.getName());

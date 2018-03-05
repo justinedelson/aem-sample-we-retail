@@ -40,8 +40,10 @@ import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.api.wrappers.SlingHttpServletRequestWrapper;
 import org.apache.sling.api.wrappers.SlingHttpServletResponseWrapper;
 import org.apache.sling.auth.core.AuthUtil;
+import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 import org.apache.sling.xss.XSSAPI;
+import org.osgi.framework.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,12 +64,12 @@ import we.retail.core.util.WeRetailHelper;
 @Component
 @Service
 @Properties(value={
-        @Property(name = "service.description", value = "Provides cart services for We.Retail products"),
+        @Property(name = Constants.SERVICE_DESCRIPTION, value = "Provides cart services for We.Retail products"),
         @Property(name = "sling.servlet.resourceTypes", value = "sling/servlet/default"),
         @Property(name = "sling.servlet.selectors", value = { WeRetailConstants.DELETE_CARTENTRY_SELECTOR,
                 WeRetailConstants.MODIFY_CARTENTRY_SELECTOR, WeRetailConstants.ADD_CARTENTRY_SELECTOR }),
         @Property(name = "sling.servlet.extensions", value = {"html"}),
-        @Property(name = "sling.servlet.methods", value = "POST")
+        @Property(name = "sling.servlet.methods", value = HttpConstants.METHOD_POST)
 })
 public class CartEntryServlet extends SlingAllMethodsServlet {
 
@@ -76,12 +78,14 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
     private static final String CONTENT_WE_RETAIL_DEFAULT = "/content/we-retail/us/en/";
     private static final String CART_PATH = "/user/cart/jcr:content/root/responsivegrid/cart";
     private static final String CART_PRICES_PATH = "/user/cart/jcr:content/root/responsivegrid/shoppingcartprices";
+    @SuppressWarnings("CQRules:CQBP-71")
     private static final String NAV_CART_PATH = "/apps/weretail/components/structure/navcart";
 
     @Reference
-    private XSSAPI xssAPI;
+    private transient XSSAPI xssAPI;
 
     @Override
+    @SuppressWarnings("squid:CallToDeprecatedMethod")
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
         // Make sure commerceService is adapted from a product resource so that we get
         // the right service implementation (hybris, Geo, etc.)
@@ -122,7 +126,7 @@ public class CartEntryServlet extends SlingAllMethodsServlet {
                 response.setContentType("application/json");
                 JSONObject json = new JSONObject(map);
                 response.getWriter().write(json.toString());
-            } catch (Exception e) {
+            } catch (CommerceException e) {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
         } else {

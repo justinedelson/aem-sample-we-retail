@@ -69,7 +69,7 @@ public class ShoppingCartModel {
     private Map<Integer, List<PromotionInfo>> cartEntryPromotions = new HashMap<Integer, List<PromotionInfo>>();
 
     @PostConstruct
-    private void initModel() throws Exception {
+    private void initModel() throws CommerceException {
         createCommerceSession();
         populatePromotions();
         populateCartEntries();

@@ -20,7 +20,9 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
+import com.day.cq.wcm.api.WCMException;
 import org.apache.commons.collections.Predicate;
 import org.apache.jackrabbit.commons.JcrUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -87,6 +89,7 @@ public class WeRetailCommerceServiceImpl extends AbstractJcrCommerceService impl
     }
 
     @Override
+    @SuppressWarnings("squid:CallToDeprecatedMethod")
     public Voucher getVoucher(final String path) throws CommerceException {
         Resource resource = resolver.getResource(path);
         if (resource != null) {
@@ -156,21 +159,21 @@ public class WeRetailCommerceServiceImpl extends AbstractJcrCommerceService impl
             // the (generic) page_product template's thumbnail.  This greatly improves the usability
             // of the pages content finder tab.
             //
-            if (!ResourceUtil.isA(productPage.getContentResource(), CommerceConstants.RT_PRODUCT_PAGE_PROXY)) {
+            if (!productPage.getContentResource().isResourceType(CommerceConstants.RT_PRODUCT_PAGE_PROXY)) {
                 String productImageRef = "";
                 Resource productImage = productData.getImage();
                 if (productImage != null) {
                     productImageRef = ResourceUtil.getValueMap(productImage).get("fileReference", "");
                 }
                 Node contentNode = productPage.getContentResource().adaptTo(Node.class);
-                Node pageImageNode = JcrUtils.getOrAddNode(contentNode, "image", "nt:unstructured");
+                Node pageImageNode = JcrUtils.getOrAddNode(contentNode, "image", JcrConstants.NT_UNSTRUCTURED);
                 pageImageNode.setProperty("fileReference", productImageRef);
             }
 
             if (changed) {
                 productPage.getPageManager().touch(productPage.adaptTo(Node.class), true, Calendar.getInstance(), false);
             }
-        } catch(Exception e) {
+        } catch(RepositoryException|WCMException e) {
             throw new CommerceException("Product rollout hook failed: ", e);
         }
     }
