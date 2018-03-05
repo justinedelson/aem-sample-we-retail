@@ -16,6 +16,7 @@
 package we.retail.core.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -110,11 +111,11 @@ public class ShoppingCartModel {
     }
 
     public List<CartEntry> getEntries() {
-        return entries;
+        return Collections.unmodifiableList(entries);
     }
 
     public List<PromotionInfo> getOrderPromotions() {
-        return orderPromotions;
+        return Collections.unmodifiableList(orderPromotions);
     }
 
     public class CartEntry {

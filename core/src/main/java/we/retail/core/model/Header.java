@@ -16,6 +16,7 @@
 package we.retail.core.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -325,6 +326,7 @@ public class Header {
         private boolean selected;
         private List<PagePojo> children;
 
+        @SuppressWarnings("squid:S2384")
         public PagePojo(Page page, boolean selected, List<PagePojo> children) {
             this.page = page;
             this.selected = selected;
@@ -340,7 +342,7 @@ public class Header {
         }
 
         public List<PagePojo> getChildren() {
-            return children;
+            return Collections.unmodifiableList(children);
         }
 
     }

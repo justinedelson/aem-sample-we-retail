@@ -15,6 +15,7 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 package we.retail.core.model;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -164,7 +165,7 @@ public class ProductGridItem {
         }
 
         public Set<String> getColors() {
-            return colors;
+            return Collections.unmodifiableSet(colors);
         }
 
         public void setColor(String color) {
@@ -172,7 +173,7 @@ public class ProductGridItem {
         }
 
         public Set<String> getSizes() {
-            return sizes;
+            return Collections.unmodifiableSet(sizes);
         }
 
         public void setSize(String size) {
@@ -180,7 +181,7 @@ public class ProductGridItem {
         }
 
         public Set<String> getPrices() {
-            return prices;
+            return Collections.unmodifiableSet(prices);
         }
 
         public void setPrice(String price) {

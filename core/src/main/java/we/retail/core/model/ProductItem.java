@@ -197,7 +197,7 @@ public class ProductItem {
     }
 
     public List<ProductItem> getVariants() {
-        return variants;
+        return Collections.unmodifiableList(variants);
     }
 
     /**

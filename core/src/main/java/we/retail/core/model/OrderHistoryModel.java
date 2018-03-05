@@ -125,7 +125,7 @@ public class OrderHistoryModel {
     }
 
     public List<PlacedOrderWrapper> getOrders() {
-        return wrappedOrders;
+        return Collections.unmodifiableList(wrappedOrders);
     }
 
     public boolean isEmpty() {
