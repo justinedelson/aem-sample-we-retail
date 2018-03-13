@@ -29,6 +29,7 @@ public class UrlHelper {
     private static final Logger log = LoggerFactory.getLogger(UrlHelper.class);
     private static final String RT_REDIRECT = "weretail/components/structure/page";
     private static final String PN_REDIRECT_TARGET = "cq:redirectTarget";
+    private static final long millisInYear = 1_000*3_600*24*365;
 
     /**
      * Check if the current page is a redirect page
