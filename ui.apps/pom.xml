@@ -33,8 +33,8 @@
     <artifactId>we.retail.ui.apps</artifactId>
     <version>2.9.171-SNAPSHOT</version>
     <packaging>content-package</packaging>
-    <name>We.Retail - UI apps</name>
-    <description>UI apps package for We.Retail</description>
+    <name>WeRetail-UIapps</name>
+    <description>apps pkg for WeRetail</description>
 
     <scm>
         <connection>scm:git:https://git.corp.adobe.com/CQ/aem-sample-we-retail.git</connection>
