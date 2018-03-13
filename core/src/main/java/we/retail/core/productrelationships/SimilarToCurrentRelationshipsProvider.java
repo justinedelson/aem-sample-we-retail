@@ -59,7 +59,6 @@ public class SimilarToCurrentRelationshipsProvider extends AbstractRelationships
     }
 
     @Override
-    @SuppressWarnings("CQRules:CQBP-72")
     protected List<ProductRelationship> calculateRelationships(SlingHttpServletRequest request, CommerceSession session,
                                                                Page currentPage, Product currentProduct)
             throws CommerceException {

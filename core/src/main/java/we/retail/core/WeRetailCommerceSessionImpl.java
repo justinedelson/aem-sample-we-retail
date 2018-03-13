@@ -21,7 +21,6 @@ import java.util.Map;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
 
@@ -89,7 +88,7 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
             Node order = serviceSession.getNode(orderPath);
             order.setProperty("orderStatus", "Processing");
             order.getSession().save();
-        } catch (RepositoryException e) {
+        } catch (Exception e) {
             log.error("Failed to update order", e);
         } finally {
             if (serviceSession != null) {
@@ -99,7 +98,6 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
     }
 
     @Override
-    @SuppressWarnings("squid:CallToDeprecatedMethod")
     protected String getOrderStatus(String orderId) throws CommerceException {
         //
         // Status is kept in the vendor section (/var/commerce); need to find corresponding order there.
@@ -120,7 +118,7 @@ public class WeRetailCommerceSessionImpl extends AbstractJcrCommerceSession {
             if (nodeIterator.hasNext()) {
                 return nodeIterator.nextNode().getProperty("orderStatus").getString();
             }
-        } catch (RepositoryException e) {
+        } catch (Exception e) {
             // fail-safe when the query above contains errors
             log.error("Error while fetching order status for orderId '" + orderId + "'", e);
         } finally {

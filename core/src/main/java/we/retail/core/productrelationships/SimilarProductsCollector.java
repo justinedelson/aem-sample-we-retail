@@ -24,7 +24,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.day.cq.tagging.TagConstants;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 
@@ -75,7 +74,7 @@ public class SimilarProductsCollector {
         exclusionSKUs = new ArrayList<String>();
         for (Product product : contextProducts) {
             List<String> matchTags = new ArrayList<String>();
-            Collections.addAll(matchTags, product.getProperty(TagConstants.PN_TAGS, String[].class));
+            Collections.addAll(matchTags, product.getProperty("cq:tags", String[].class));
             matchTagSets.add(matchTags);
 
             try {
@@ -133,7 +132,7 @@ public class SimilarProductsCollector {
             if (pageManager.getContainingPage(resource).getPath().contains("activities")) {
                 return;
             }
-            String[] productTags = product.getProperty(TagConstants.PN_TAGS, String[].class);
+            String[] productTags = product.getProperty("cq:tags", String[].class);
             if (productTags == null || productTags.length == 0) {
                 return;
             }

@@ -71,7 +71,6 @@ public class ProductItem {
         this(product, commerceSession, request, currentPage, null);
     }
 
-    @SuppressWarnings("CQRules:CQBP-72")
     private ProductItem(Product product, CommerceSession commerceSession, SlingHttpServletRequest request,  Page currentPage,
                         ProductItem baseProductItem) {
 
@@ -221,7 +220,6 @@ public class ProductItem {
      *
      * @return The JSON representation of the variant axes and values.
      */
-    @SuppressWarnings("squid:CallToDeprecatedMethod")
     public String getVariantAxesMapJson() {
         return new JSONObject(variantAxesMap).toString();
     }

@@ -24,7 +24,6 @@ import org.apache.sling.api.resource.Resource;
 import com.adobe.cq.commerce.api.CommerceService;
 import com.adobe.cq.commerce.api.CommerceServiceFactory;
 import com.adobe.cq.commerce.common.AbstractJcrCommerceServiceFactory;
-import org.osgi.framework.Constants;
 
 /**
  * we.retail implementation for the {@link CommerceServiceFactory} interface.
@@ -32,7 +31,7 @@ import org.osgi.framework.Constants;
 @Component
 @Service
 @Properties(value = {
-    @Property(name = Constants.SERVICE_DESCRIPTION, value = "Factory for reference implementation commerce service"),
+    @Property(name = "service.description", value = "Factory for reference implementation commerce service"),
     @Property(name = "commerceProvider", value = WeRetailConstants.WE_RETAIL_COMMERCEPROVIDER, propertyPrivate = true)
 })
 public class WeRetailCommerceServiceFactory  extends AbstractJcrCommerceServiceFactory implements CommerceServiceFactory {

@@ -84,7 +84,7 @@ public class ShoppingCartPricesModel {
 
     @PostConstruct
     @SuppressWarnings("squid:S2259")
-    private void initModel() throws CommerceException {
+    private void initModel() throws Exception {
         CommerceService commerceService = currentPage.getContentResource().adaptTo(CommerceService.class);
         try {
             commerceSession = commerceService.login(request, response);

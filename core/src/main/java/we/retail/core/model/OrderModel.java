@@ -60,7 +60,7 @@ public class OrderModel extends ShoppingCartModel {
     protected Map<String, Object> orderDetails;
 
     @PostConstruct
-    private void initModel() throws CommerceException {
+    private void initModel() throws Exception {
         createCommerceSession();
         populateOrder();
         populatePromotions();
