@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:mixinTypes="[granite:Ranking,mix:title]"
+          sling:resourceType="cq/security/components/profile"
+          aboutMe="Kerri is Marketing Manager at We.Retail"
+          email="kerri.saner@we-retail.net"
+          familyName="Saner"
+          gender="female"
+          givenName="Kerri"
+          jobTitle="Marketing Manager"
+          birthday="{Date}1992-02-27T00:00:00.000+01:00"/>

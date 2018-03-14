@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:file">
+    <jcr:content
+        dam:folderThumbnailPaths="[/content/dam/we-retail/en/experiences/48-hours-of-wilderness/48-hours-of-wilderness-1.jpg,/content/dam/we-retail/en/experiences/arctic-surfing-in-lofoten/surfer-wave-01.jpg,/content/dam/we-retail/en/experiences/fly-fishing-the-amazon/fly-fishing-the-amazon-1.jpg]"
+        jcr:primaryType="nt:unstructured"
+        bgcolor="{Long}-1"
+        height="{Long}240"
+        width="{Long}280"/>
+</jcr:root>

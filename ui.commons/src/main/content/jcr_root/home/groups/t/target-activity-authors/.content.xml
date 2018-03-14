@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    cq:lastModified="{Date}2017-03-02T09:08:06.296+01:00"
+    cq:lastModifiedBy="admin"
+    jcr:lastModified="{Date}2017-03-02T09:08:06.296+01:00"
+    jcr:lastModifiedBy="admin"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="rep:Group"
+    jcr:uuid="23f12d5e-3cc3-3d07-8d6a-bde8a537c744"
+    rep:authorizableId="target-activity-authors"
+    rep:members="{WeakReference}[0c44d27b-ea6d-397a-873b-8d297617ba6d]"
+    rep:principalName="target-activity-authors"
+    sling:resourceType="rep:Group"/>

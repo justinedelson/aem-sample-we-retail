@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:mixinTypes="[granite:Ranking,mix:title]"
+          sling:resourceType="cq/security/components/profile"
+          aboutMe="Carlene is Merchandising Manager at We.Retail. She owns the women clothing products."
+          email="cavery@we-retail.net"
+          familyName="Avery"
+          gender="female"
+          givenName="Carlene"
+          jobTitle="Merchandising Manager"
+          birthday="{Date}1957-08-15T00:00:00.000+01:00"/>

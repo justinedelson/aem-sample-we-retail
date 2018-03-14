@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="sling:OrderedFolder">
+    <_x0034_8-hours-of-wilderness/>
+    <arctic-surfing-in-lofoten/>
+    <fly-fishing-the-amazon/>
+    <skitouring/>
+    <steelhead-and-spines-in-alaska/>
+    <wester-australia-by-camper-van/>
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Experiences">
+        <folderThumbnail/>
+    </jcr:content>
+</jcr:root>

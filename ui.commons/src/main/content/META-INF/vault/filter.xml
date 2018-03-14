@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/weretail/content/scaffolding" mode="merge"/>
+    <filter root="/etc/community/we-retail"/>
+    <filter root="/content/dam/we-retail"/>
+    <filter root="/content/catalogs/we-retail/en/master-catalog"/>
+    <filter root="/content/cq:tags/we-retail"/>
+    <filter root="/home/users/we-retail"/>
+    <filter root="/home/groups/c/content-authors" mode="merge"/>
+    <filter root="/home/groups/d/dam-users" mode="merge"/>
+    <filter root="/home/groups/default/order-administrators" mode="merge"/>
+    <filter root="/home/groups/t/tag-administrators" mode="merge"/>
+    <filter root="/home/groups/t/target-activity-authors" mode="merge"/>
+    <filter root="/home/groups/e/experience-fragments-editors" mode="merge"/>
+    <filter root="/var/commerce/products/we-retail"/>
+</workspaceFilter>

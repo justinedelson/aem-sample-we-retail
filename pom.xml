@@ -39,6 +39,7 @@
         <module>core</module>
         <module>ui.apps</module>
         <module>ui.content</module>
+        <module>ui.commons</module>
         <!--
         <module>it.tests.ui-js</module>
         <module>all</module>

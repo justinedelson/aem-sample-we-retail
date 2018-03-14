@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="rep:User"
+    jcr:uuid="11e18cf3-b1f4-39de-9122-964b9dbdd00c"
+    rep:authorizableId="willie.melton@dodgit.com"
+    rep:password="\{SHA-256}165dd4b83880f685-1000-6c2fe52afa7b2123a54cd7faed366eaae965b9a291403f1c5683c7b9758e519a"
+    rep:principalName="willie.melton@dodgit.com">
+</jcr:root>

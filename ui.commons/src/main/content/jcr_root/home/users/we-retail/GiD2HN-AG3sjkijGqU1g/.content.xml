@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="rep:User"
+    jcr:uuid="94bf4658-721f-30ee-94b9-fd1931312de4"
+    rep:authorizableId="ksaner"
+    rep:password="\{SHA-256}84fdc35a569cf0dd-1000-b494619d2cf5a15ff5c406338a3b1407c80e47742bc6474aaef9fd7abba70e6a"
+    rep:principalName="ksaner">
+</jcr:root>

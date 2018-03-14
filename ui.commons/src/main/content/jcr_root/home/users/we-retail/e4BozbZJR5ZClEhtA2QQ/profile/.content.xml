@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:mixinTypes="[granite:Ranking,mix:title]"
+          sling:resourceType="cq/security/components/profile"
+          aboutMe="Olive enjoys long distance running. She is a regular customer at We.Retail."
+          email="olive.pixley@spambob.com"
+          familyName="Pixley"
+          gender="female"
+          givenName="Olive"
+          birthday="{Date}1991-04-29T00:00:00.000+01:00"/>

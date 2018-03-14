@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:mixinTypes="[granite:Ranking,mix:title]"
+          sling:resourceType="cq/security/components/profile"
+          aboutMe="Virginia works in the Merchandising Acquisition team at We.Retail. She works with vendors to retrieve assets for the products."
+          email="virginia.l.armstrong@we-retail.net"
+          familyName="Armstrong"
+          gender="female"
+          givenName="Virginia"
+          jobTitle="Merchandising Acquisition"/>

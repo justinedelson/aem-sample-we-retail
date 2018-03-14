@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="ceca9b83-70af-4235-bb4e-565cdf234a47">
+    <jcr:content
+        cq:name="116138647.jpg"
+        cq:parentPath="/content/dam/we-retail/en/products/apparel/pants"
+        dam:assetID="aaid:b6f625bf335d4b6981db34cafdec0dee"
+        dam:lastInvalidateCache="{Date}2016-01-16T23:33:39.079-05:00"
+        dam:relativePath="we-retail/en/products/apparel/pants/116138647.jpg"
+        dam:s7damAnchorX="{Long}1444"
+        dam:s7damAnchorY="{Long}1896"
+        dam:s7damHeight="{Long}3792"
+        dam:s7damType="Image"
+        dam:s7damWidth="{Long}2889"
+        jcr:lastModified="{Date}2016-09-12T17:18:03.335+05:30"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            cq:productReference="/var/commerce/products/we-retail/en/wo/pants/faba_running_pants"
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2016-09-12T17:18:02.773+05:30"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}300"
+            dam:Physicalheightininches="{Decimal}3.5999999046325684"
+            dam:Physicalwidthindpi="{Long}300"
+            dam:Physicalwidthininches="{Decimal}2.743333339691162"
+            dam:productID="{Long}116138647"
+            dam:Progressive="no"
+            dam:sha1="65539d3cb7cef8cb30860dda099af6e4df37ce15"
+            dam:size="{Long}30981"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2016-01-13T21:35:28.431-08:00"
+            jcr:lastModified="{Date}2016-09-12T17:17:52.708+05:30"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}1080"
+            tiff:ImageWidth="{Long}823"
+            writebackEnable="{Boolean}true"/>
+        <related jcr:primaryType="nt:unstructured"/>
+        <usages
+            dam:score="{Long}7"
+            jcr:primaryType="nt:unstructured"
+            usedBy="[unknown]">
+            <unknown
+                jcr:primaryType="nt:unstructured"
+                count="{Long}7"
+                lastUsed="{Date}2016-01-16T17:20:46.390-05:00"/>
+        </usages>
+    </jcr:content>
+</jcr:root>
