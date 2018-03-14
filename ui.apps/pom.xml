@@ -116,7 +116,7 @@
                 <artifactId>content-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <filterSource>${basedir}/META-INF/vault/filter.xml</filterSource>
+                    <filterSource>${basedir}/src/main/content/META-INF/vault/filter.xml</filterSource>
                     <verbose>true</verbose>
                     <failOnError>true</failOnError>
                     <group>adobe/aem6/sample</group>
@@ -151,6 +151,27 @@
                             <version>[1.1.4,)</version>
                         </dependency>
                     </dependencies>
+                    <subPackages>
+                        <subPackage>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.content</artifactId>
+                            <filter>true</filter>
+                        </subPackage>
+                    </subPackages>
+                    <embeddeds>
+                        <embedded>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>we.retail.core</artifactId>
+                            <target>/apps/weretail/install</target>
+                            <filter>true</filter>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.core</artifactId>
+                            <target>/apps/weretail/install</target>
+                            <filter>true</filter>
+                        </embedded>
+                    </embeddeds>
                 </configuration>
             </plugin>
             <plugin>
@@ -250,6 +271,23 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.core</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.content</artifactId>
+            <version>2.0.0</version>
+            <type>content-package</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.cq.sample</groupId>
+            <artifactId>we.retail.core</artifactId>
+            <version>2.9.53-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
